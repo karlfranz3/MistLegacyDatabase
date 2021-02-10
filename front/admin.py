@@ -1,5 +1,5 @@
 from django.contrib import admin
-from front.models import Region, Reputation, Location, Recipe, Book, Training, Weapon, Land, Gathering, Adventure, Crafting
+from front.models import Region, Reputation, Location, Recipe, Book, Training, Weapon, Land, Gathering, Adventure, Crafting, RecipeType
 from modeltranslation.admin import TranslationAdmin
 
 
@@ -40,6 +40,11 @@ class ReputationAdmin(TranslationAdmin):
 
 @admin.register(Location)
 class LocationAdmin(TranslationAdmin):
+    pass
+
+
+@admin.register(RecipeType)
+class RecipeTypeAdmin(TranslationAdmin):
     pass
 
 
