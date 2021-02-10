@@ -1,0 +1,4 @@
+Django==3.1.6
+Pillow==8.1.0
+django-distill==2.4
+django-modeltranslation==0.16.1
