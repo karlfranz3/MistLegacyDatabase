@@ -61,7 +61,7 @@ class Region(models.Model):
 class Location(models.Model):
     name = models.CharField(max_length=64, blank=True)
     region = models.ForeignKey(Region, on_delete=models.CASCADE)
-    exploration = models.IntegerField(blank=True)
+    exploration = models.IntegerField(blank=True, null=True)
     image = models.ImageField(blank=True)
 
     def __str__(self):
