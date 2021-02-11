@@ -1,6 +1,11 @@
 from django.contrib import admin
-from front.models import Region, Reputation, Location, Recipe, Book, Training, Weapon, Land, Gathering, Adventure, Crafting, RecipeType
+from front.models import Region, Reputation, Location, Recipe, Book, Training, Weapon, Land, Gathering, Adventure, Crafting, RecipeType, Daytime, NPC
 from modeltranslation.admin import TranslationAdmin
+
+
+@admin.register(Daytime)
+class DaytimeAdmin(TranslationAdmin):
+    pass
 
 
 @admin.register(Weapon)
@@ -60,4 +65,9 @@ class BookAdmin(TranslationAdmin):
 
 @admin.register(Training)
 class TrainingAdmin(TranslationAdmin):
+    pass
+
+
+@admin.register(NPC)
+class NPCAdmin(TranslationAdmin):
     pass
