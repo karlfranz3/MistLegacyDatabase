@@ -1,16 +1,14 @@
 from django.contrib import admin
 from django.urls import include, path
-from django_distill import distill_path
-from front.views import test
+from front.views import home, search, basics
 from django.conf import settings
 from django.conf.urls.static import static
 
-
-def get_index():
-    return None
-
-
 urlpatterns = [
     path('admin/', admin.site.urls),
-    distill_path('', test, name='index', distill_func=get_index, distill_file='index.html'),
+    path('i18n/', include('django.conf.urls.i18n')),
+
+    path('', home, name='home'),
+    path('search', search, name='search'),
+    path('basics', search, name='basics'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
