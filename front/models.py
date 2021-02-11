@@ -77,6 +77,15 @@ class Location(models.Model):
         return self.name
 
 
+class NPC(models.Model):
+    name = models.CharField(max_length=64, blank=True, null=True)
+    location = models.ForeignKey(Location, on_delete=models.CASCADE, blank=True, null=True)
+    daytime = models.ForeignKey(Daytime, on_delete=models.CASCADE, blank=True, null=True)
+
+    def __str__(self):
+        return self.name
+
+
 class Recipe(models.Model):
     name = models.CharField(max_length=64, blank=True, null=True)
     price = models.IntegerField(blank=True, null=True)
@@ -85,6 +94,7 @@ class Recipe(models.Model):
     location = models.ForeignKey(Location, on_delete=models.CASCADE, blank=True, null=True)
     type = models.ForeignKey(RecipeType, on_delete=models.CASCADE, blank=True, null=True)
     daytime = models.ForeignKey(Daytime, on_delete=models.CASCADE, blank=True, null=True)
+    npc = models.ForeignKey(NPC, on_delete=models.CASCADE, blank=True, null=True)
 
     def __str__(self):
         return self.name
@@ -103,6 +113,7 @@ class Book(models.Model):
     reputation_value = models.IntegerField(blank=True, null=True)
     location = models.ForeignKey(Location, on_delete=models.CASCADE, blank=True, null=True)
     daytime = models.ForeignKey(Daytime, on_delete=models.CASCADE, blank=True, null=True)
+    npc = models.ForeignKey(NPC, on_delete=models.CASCADE, blank=True, null=True)
 
     def __str__(self):
         return self.name
@@ -116,15 +127,8 @@ class Training(models.Model):
     difficulty = models.IntegerField(blank=True, null=True)
     recovery = models.IntegerField(blank=True, null=True)
     gold_reward = models.IntegerField(blank=True, null=True)
+    npc = models.ForeignKey(NPC, on_delete=models.CASCADE, blank=True, null=True)
 
     def __str__(self):
         return self.name
 
-
-class NPC(models.Model):
-    name = models.CharField(max_length=64, blank=True, null=True)
-    location = models.ForeignKey(Location, on_delete=models.CASCADE, blank=True, null=True)
-    daytime = models.ForeignKey(Daytime, on_delete=models.CASCADE, blank=True, null=True)
-
-    def __str__(self):
-        return self.name

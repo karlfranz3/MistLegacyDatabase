@@ -48,6 +48,8 @@ class Command(BaseCommand):
         #RecipeType(name_en="Serum", name_fr="Serum").save()
         #RecipeType(name_en="Jewellery", name_fr="Bijoux").save()
 
-        Daytime(name_en="Night", name_fr="Nuit").save()
-        Daytime(name_en="Day", name_fr="Jour").save()
-        Daytime(name_en="Always", name_fr="Permanent").save()
+        #Daytime(name_en="Night", name_fr="Nuit").save()
+        #Daytime(name_en="Day", name_fr="Jour").save()
+        #Daytime(name_en="Always", name_fr="Permanent").save()
+
+        pass
