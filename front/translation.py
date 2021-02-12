@@ -1,5 +1,5 @@
 from modeltranslation.translator import register, TranslationOptions
-from .models import Region, Reputation, Location, Recipe, Book, Training, Weapon, Land, Gathering, Adventure, Crafting, RecipeType, Daytime, NPC
+from .models import Region, Reputation, Location, Recipe, Book, Training, Weapon, Land, Gathering, Adventure, Crafting, Daytime, NPC, EquipmentSlot
 
 
 @register(Daytime)
@@ -32,6 +32,11 @@ class WeaponTranslationOptions(TranslationOptions):
     fields = ('name',)
 
 
+@register(EquipmentSlot)
+class EquipmentSlotTranslationOptions(TranslationOptions):
+    fields = ('name',)
+
+
 @register(Region)
 class RegionTranslationOptions(TranslationOptions):
     fields = ('name',)
@@ -39,11 +44,6 @@ class RegionTranslationOptions(TranslationOptions):
 
 @register(Reputation)
 class ReputationTranslationOptions(TranslationOptions):
-    fields = ('name',)
-
-
-@register(RecipeType)
-class RecipeTypeTranslationOptions(TranslationOptions):
     fields = ('name',)
 
 
