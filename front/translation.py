@@ -57,11 +57,6 @@ class RecipeTranslationOptions(TranslationOptions):
     fields = ('name',)
 
 
-@register(Book)
-class BookTranslationOptions(TranslationOptions):
-    fields = ('name',)
-
-
 @register(Training)
 class TrainingTranslationOptions(TranslationOptions):
     fields = ('name',)

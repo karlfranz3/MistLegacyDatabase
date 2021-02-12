@@ -141,7 +141,7 @@ class Recipe(models.Model):
 
 
 class Book(models.Model):
-    name = models.CharField(max_length=64, blank=True, null=True)
+    value = models.IntegerField(default=1)
     price = models.IntegerField(blank=True, null=True)
     count = models.IntegerField(blank=True, null=True)
     gathering = models.ForeignKey(Gathering, on_delete=models.CASCADE, blank=True, null=True)
@@ -156,10 +156,10 @@ class Book(models.Model):
     npc = models.ForeignKey(NPC, on_delete=models.CASCADE, blank=True, null=True)
 
     class Meta:
-        ordering = ["name"]
+        ordering = ["gathering", "adventure", "crafting", "land", "weapon"]
 
     def __str__(self):
-        return self.name
+        return '{}{}{}{}{} (+{})'.format(self.gathering, self.adventure, self.crafting, self.land, self.weapon, self.value)
 
 
 class Training(models.Model):

@@ -59,8 +59,8 @@ class RecipeAdmin(TranslationAdmin):
 
 
 @admin.register(Book)
-class BookAdmin(TranslationAdmin):
-    list_display = ('name_en', 'name_fr', 'reputation', 'reputation_value', 'price', 'location')
+class BookAdmin(admin.ModelAdmin):
+    list_display = ('gathering', 'adventure', 'crafting', 'land', 'weapon', 'reputation', 'reputation_value', 'price', 'location')
 
 
 @admin.register(Training)
