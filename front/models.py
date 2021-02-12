@@ -159,7 +159,16 @@ class Book(models.Model):
         ordering = ["gathering", "adventure", "crafting", "land", "weapon"]
 
     def __str__(self):
-        return '{}{}{}{}{} (+{})'.format(self.gathering, self.adventure, self.crafting, self.land, self.weapon, self.value)
+        if self.gathering:
+            return '{} +{}'.format(self.gathering, self.value)
+        elif self.adventure:
+            return '{} +{}'.format(self.adventure, self.value)
+        elif self.crafting:
+            return '{} +{}'.format(self.crafting, self.value)
+        elif self.land:
+            return '{} +{}'.format(self.land, self.value)
+        elif self.weapon:
+            return '{} +{}'.format(self.weapon, self.value)
 
 
 class Training(models.Model):
