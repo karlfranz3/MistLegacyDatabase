@@ -266,19 +266,22 @@ License: You must have a valid license purchased only from themeforest(the above
 						<!-- end:: Header Topbar -->
 					</div>
 
-					<!-- end:: Header -->
-                    <div class="kt-content  kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor" id="kt_content">
+                    {% block corpsdepage %}{% endblock %}
 
-                        <div class="kt-container kt-container--fit kt-grid__item kt-grid__item--fluid">
+					<!-- begin:: Footer -->
+					<div class="kt-footer  kt-grid__item kt-grid kt-grid--desktop kt-grid--ver-desktop" id="kt_footer">
+						<div class="kt-container  kt-container--fluid ">
+							<div class="kt-footer__copyright">
+								2021&nbsp;&copy;&nbsp;Mist Legacy DB - All visuals are property of&nbsp;<a href="https://virtys.com/" target="_blank" class="kt-link">Virtys</a>. Thanks Kad and kgg for their help.
+							</div>
+							<div class="kt-footer__menu">
+								Contact : Nacros on official Discord
+							</div>
+						</div>
+					</div>
 
-                            <!-- BEGIN PAGE-->
-                            {% block corpsdepage %}{% endblock %}
-                            <!-- END PAGE-->
+					<!-- end:: Footer -->
 
-                            <!-- end:: Content -->
-                        </div>
-
-                    </div>
 				</div>
 			</div>
 		</div>

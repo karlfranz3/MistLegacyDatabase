@@ -131,3 +131,7 @@ LANGUAGES = (
     ('en', gettext('English')),
     ('fr', gettext('French')),
 )
+LOCALE_PATHS = [
+    '/home/Nacros/mldb/locale',
+    'C:/Users/Fabrice/PycharmProjects/MistLegacy/locale',
+]
