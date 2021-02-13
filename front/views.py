@@ -1,11 +1,16 @@
 from django.shortcuts import render
+from django.utils import translation
 
-from .models import Training
+from .models import Training, Region
 
 
 def home(request):
-    trainings = Training.objects.all()
-    return render(request, 'home.html', context={'trainings': trainings})
+    if request.method == 'POST':
+        lang = request.POST['language']
+        translation.activate(lang)
+
+    regions = Region.objects.all()
+    return render(request, 'home.html', context={'regions': regions})
 
 
 def basics(request):

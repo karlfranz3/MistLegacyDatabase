@@ -107,7 +107,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en'
 
 TIME_ZONE = 'UTC'
 
@@ -126,11 +126,8 @@ STATIC_ROOT = '/home/Nacros/mldb/static'
 MEDIA_ROOT = '/home/Nacros/mldb/static/upload'
 MEDIA_URL = '/media/'
 
-MODELTRANSLATION_FALLBACK_LANGUAGES = ('en', 'fr')
 gettext = lambda s: s
 LANGUAGES = (
     ('en', gettext('English')),
     ('fr', gettext('French')),
 )
-
-DISTILL_DIR = 'C:/distill'

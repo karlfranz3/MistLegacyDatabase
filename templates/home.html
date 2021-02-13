@@ -1,13 +1,11 @@
 {% extends "_base.html" %}
 {% load static %}
 
-{% block pagetitle %}Accueil{% endblock %}
+{% block pagetitle %}Home{% endblock %}
 
-{% block menu_accueil %}kt-menu__item--active{% endblock %}
+{% block menu_home %}kt-menu__item--active{% endblock %}
 
 {% block corpsdepage %}
-    <!-- DEBUT - releases à approuver -->
-    {% if nb_approbations != 0 %}
     <div class="kt-portlet">
         <div class="kt-portlet__head">
             <div class="kt-portlet__head-label">
@@ -15,7 +13,7 @@
                     <i class="fa fa-shopping-cart"></i>
                 </span>
                 <h3 class="kt-portlet__head-title">
-                    Releases en attente d'approbation
+                    Regions test
                 </h3>
             </div>
         </div>
@@ -23,137 +21,21 @@
             <table class="table table-bordered table-hover table-sm">
                 <thead class="thead-dark">
                     <tr>
-                        <th> Release </th>
-                        <th> Application </th>
-                        <th> Environnement </th>
-                        <th> Demandé le... </th>
-                        <th> Pour le... </th>
+                        <th> Name </th>
+                        <th> Land </th>
+                        <th> Difficulty </th>
                     </tr>
                 </thead>
                 <tbody>
-                    {% for approbation in list_approbation %}
+                    {% for region in regions %}
                     <tr class="table-danger">
-                        <td> {{ approbation.name }} </td>
-                        <td> {{ approbation.application }} </td>
-                        <td> {{ approbation.environnement }} </td>
-                        <td> {{ approbation.recu|date:"d/m/Y H:i:s" }} </td>
-                        <td> {{ approbation.timing|date:"d/m/Y H:i:s" }} </td>
+                        <td> {{ region.name }} </td>
+                        <td> {{ region.land }} </td>
+                        <td> {{ region.difficulty }} </td>
                     </tr>
                     {% endfor %}
                 </tbody>
             </table>
         </div>
-    </div>
-    {% endif %}
-    <!-- FIN - releases à approuver -->
-
-    <div class="row row-cols-2">
-        <!-- DEBUT - derniers déploiements -->
-        <div class="col">
-            <div class="kt-portlet">
-                <div class="kt-portlet__head">
-                    <div class="kt-portlet__head-label">
-                        <span class="kt-portlet__head-icon">
-                            <i class="fa fa-arrows-alt"></i>
-                        </span>
-                        <h3 class="kt-portlet__head-title">
-                            Les 25 derniers déploiements
-                        </h3>
-                    </div>
-                </div>
-                <div class="kt-portlet__body">
-                    {% for exec in deploy %}
-                    <div class="kt-widget4">
-                        <div class="kt-widget4__item">
-                            <div class="kt-widget4__pic kt-widget4__pic--pic">
-                                {% if 'CFG' in exec.package or 'cfg' in exec.package %}
-                                <img src="{% static "assets/sihm/img/cfg.png" %}" alt="">
-                                {% elif 'BATCH' in exec.package or 'batch' in exec.package %}
-                                <img src="{% static "assets/sihm/img/springbatch.png" %}" alt="">
-                                {% elif '_SQL_' in exec.package or '_DB_' in exec.package %}
-                                <img src="{% static "assets/sihm/img/sql.png" %}" alt="">
-                                {% elif 'DEPLOY' in exec.application and 'FRONT' in exec.package %}
-                                <img src="{% static "assets/sihm/img/django.png" %}" alt="">
-                                {% elif 'DEPLOY' in exec.application and 'SCRIPT' in exec.package %}
-                                <img src="{% static "assets/sihm/img/perl.png" %}" alt="">
-                                {% elif 'GESLIV' in exec.application and '_APP_' in exec.package %}
-                                <img src="{% static "assets/sihm/img/tomcat.png" %}" alt="">
-                                {% elif 'FRONT' in exec.package or 'front' in exec.package %}
-                                <img src="{% static "assets/sihm/img/angular.png" %}" alt="">
-                                {% elif 'BACK' in exec.package or 'api' in exec.package %}
-                                <img src="{% static "assets/sihm/img/springboot.png" %}" alt="">
-                                {% elif 'DATAHOME' in exec.application %}
-                                <img src="{% static "assets/sihm/img/horton.png" %}" alt="">
-                                {% elif 'DTS' in exec.package %}
-                                <img src="{% static "assets/sihm/img/datastage.png" %}" alt="">
-                                {% elif '_WWW_' in exec.package %}
-                                <img src="{% static "assets/sihm/img/apache.jpg" %}" alt="">
-                                {% elif 'FWK' in exec.package %}
-                                <img src="{% static "assets/sihm/img/datastage.png" %}" alt="">
-                                {% else %}
-                                <img src="{% static "assets/sihm/img/inconnu.png" %}" alt="">
-                                {% endif %}
-                            </div>
-                            <div class="kt-widget4__info">
-                                <a href="{% url 'log' 'execution' exec.pk %}" target="_blank" class="kt-widget4__username">
-                                    {{ exec.package }}
-                                </a>
-                                <p class="kt-widget4__text">
-                                    {% with exec.application|add:" "|add:exec.environnement as var %}
-                                    par <a href="{% url 'packages_search' exec.user %}">{{ exec.user }}</a> sur <a href="{% url 'packages_search' exec.application %}">{{ exec.application }}</a> / <a href="{% url 'packages_search' var %}">{{ exec.environnement }}</a> le {{ exec.start|date:"d/m H:i" }}
-                                    {% endwith %}
-                                </p>
-                            </div>
-                            {% if exec.state == "Terminé" %}
-                                <span class="kt-badge kt-badge--success kt-badge--inline kt-badge--md">OK</span>
-                            {%  elif exec.state == "En cours" %}
-                                <span class="kt-badge kt-badge--brand kt-badge--inline kt-badge--md">EC</span>
-                            {%  elif exec.state == "Erreur" %}
-                                <span class="kt-badge kt-badge--danger kt-badge--inline kt-badge--md">KO</span>
-                            {% endif %}
-                        </div>
-                    </div>
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
-        <!-- FIN - derniers déploiements -->
-        <!-- DEBUT - dernières actions d'administration -->
-        <div class="col">
-            <div class="kt-portlet">
-                <div class="kt-portlet__head">
-                    <div class="kt-portlet__head-label">
-                        <span class="kt-portlet__head-icon">
-                            <i class="fa fa-layer-group"></i>
-                        </span>
-                        <h3 class="kt-portlet__head-title">
-                            Les 15 dernières actions d'administration
-                        </h3>
-                    </div>
-                </div>
-                <div class="kt-portlet__body">
-                    <div class="kt-widget2">
-                        {% for elem in histo %}
-                        <div class="kt-timeline-v2">
-                            <div class="kt-timeline-v2__items  kt-padding-top-25 kt-padding-bottom-30">
-
-                                <div class="kt-timeline-v2__item">
-                                    <span class="kt-timeline-v2__item-time">{{ elem.start|date:"d/m" }}</span>
-                                    <div class="kt-timeline-v2__item-cricle">
-                                        <i class="fa fa-genderless kt-font-{% if elem.link %}brand{% else %}danger{% endif %}"></i>
-                                    </div>
-                                    <div class="kt-timeline-v2__item-text  kt-padding-top-5 text-break">
-                                        {% if elem.link %}<a href="{{ elem.link }}" class="kt-link kt-link--brand kt-font-bolder">{{ elem.action|safe }}</a>{% else %}{{ elem.action|safe }}{% endif %}<br>
-                                        par <a href="{% url 'packages_search' elem.user %}">{{ elem.user }}</a> à {{ elem.start|date:"H:i" }}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- FIN - dernières actions d'administration -->
     </div>
 {% endblock %}
