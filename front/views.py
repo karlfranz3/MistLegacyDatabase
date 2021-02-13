@@ -1,7 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.utils import translation
 
 from .models import Training, Region
+
+
+def set_lang(request, lang):
+    translation.activate(lang)
+    return redirect(home)
 
 
 def home(request):
