@@ -182,15 +182,15 @@ License: You must have a valid license purchased only from themeforest(the above
 						<div class="kt-header-menu-wrapper" id="kt_header_menu_wrapper">
 							<div id="kt_header_menu" class="kt-header-menu kt-header-menu-mobile  kt-header-menu--layout-default ">
 								<ul class="kt-menu__nav ">
-									<li class="kt-menu__item  kt-menu__item--open kt-menu__item--here kt-menu__item--rel kt-menu__item--here"><a href="https://www.mistlegacy.com/" target="_blank" class="kt-menu__link"><span class="kt-menu__link-text">Official Mist Legacy Website</span></a>
+									<li class="kt-menu__item  kt-menu__item--open kt-menu__item--here kt-menu__item--rel kt-menu__item--here"><a href="https://www.mistlegacy.com/" target="_blank" class="kt-menu__link"><span class="kt-menu__link-text">{% translate "Official Mist Legacy Website" %}</span></a>
                                     </li>
                                 </ul>
 								<ul class="kt-menu__nav ">
-									<li class="kt-menu__item  kt-menu__item--open kt-menu__item--here kt-menu__item--rel kt-menu__item--here"><a href="https://discord.gg/DD77FCm" target="_blank" class="kt-menu__link"><span class="kt-menu__link-text">Official Discord</span></a>
+									<li class="kt-menu__item  kt-menu__item--open kt-menu__item--here kt-menu__item--rel kt-menu__item--here"><a href="https://discord.gg/DD77FCm" target="_blank" class="kt-menu__link"><span class="kt-menu__link-text">{% translate "Official Discord" %}</span></a>
                                     </li>
                                 </ul>
 								<ul class="kt-menu__nav ">
-									<li class="kt-menu__item  kt-menu__item--open kt-menu__item--here kt-menu__item--rel kt-menu__item--here"><a href="http://map.theriansaga-wiki.ru/mist.html" target="_blank" class="kt-menu__link"><span class="kt-menu__link-text">Interactive Map</span></a>
+									<li class="kt-menu__item  kt-menu__item--open kt-menu__item--here kt-menu__item--rel kt-menu__item--here"><a href="http://map.theriansaga-wiki.ru/mist.html" target="_blank" class="kt-menu__link"><span class="kt-menu__link-text">{% translate "Interactive Map" %}</span></a>
                                     </li>
                                 </ul>
 								<ul class="kt-menu__nav ">
@@ -224,7 +224,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                             {% csrf_token %}
                                             <div class="input-group">
                                                 <div class="input-group-prepend"><span class="input-group-text"><i class="flaticon2-search-1"></i></span></div>
-                                                <input type="text" name='recherche' class="form-control kt-quick-search__input" placeholder="Recherche...">
+                                                <input type="text" name='recherche' class="form-control kt-quick-search__input" placeholder="{% translate "Search..." %}">
                                             </div>
                                         </form>
                                     </div>
@@ -248,13 +248,13 @@ License: You must have a valid license purchased only from themeforest(the above
 										<li class="kt-nav__item kt-nav__item--active">
 											<a href="{% url 'set_lang' 'en' %}" class="kt-nav__link">
 												<span class="kt-nav__link-icon"><img src="{% static "/assets/media/flags/260-united-kingdom.svg" %}" alt="" /></span>
-												<span class="kt-nav__link-text">English</span>
+												<span class="kt-nav__link-text">{% translate "English" %}</span>
 											</a>
 										</li>
 										<li class="kt-nav__item">
 											<a href="{% url 'set_lang' 'fr' %}" class="kt-nav__link">
 												<span class="kt-nav__link-icon"><img src="{% static "/assets/media/flags/195-france.svg" %}" alt="" /></span>
-												<span class="kt-nav__link-text">French</span>
+												<span class="kt-nav__link-text">{% translate "French" %}</span>
 											</a>
 										</li>
 									</ul>

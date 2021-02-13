@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-13 17:45+0100\n"
+"POT-Creation-Date: 2021-02-13 19:39+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,14 +18,38 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: .\MistLegacy\settings.py:131
+#: .\MistLegacy\settings.py:131 .\templates\_base.html:251
 msgid "English"
 msgstr "Anglais"
 
-#: .\MistLegacy\settings.py:132
+#: .\MistLegacy\settings.py:132 .\templates\_base.html:257
 msgid "French"
 msgstr "Français"
 
-#: .\templates\home.html:17
-msgid "Regions"
-msgstr "Régions"
+#: .\templates\_base.html:185
+msgid "Official Mist Legacy Website"
+msgstr "Site officiel Mist Legacy"
+
+#: .\templates\_base.html:189
+msgid "Official Discord"
+msgstr "Discord officiel"
+
+#: .\templates\_base.html:193
+msgid "Interactive Map"
+msgstr "Carte interactive"
+
+#: .\templates\_base.html:227
+msgid "Search..."
+msgstr "Recherche..."
+
+#: .\templates\home.html:5
+msgid "Home"
+msgstr "Accueil"
+
+#: .\templates\home.html:20
+msgid "What are you searching in the mist?"
+msgstr "Que cherchez-vous dans la brume ?"
+
+#: .\templates\home.html:34
+msgid "Your search"
+msgstr "Votre recherche"
