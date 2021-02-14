@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-14 12:37+0100\n"
+"POT-Creation-Date: 2021-02-14 23:20+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,21 +38,24 @@ msgid "Basics"
 msgstr "Basiques"
 
 #: .\templates\_base.html:118 .\templates\land.html:42
-#: .\templates\regions.html:5
+#: .\templates\regions.html:5 .\templates\regions.html:25
 msgid "Regions"
 msgstr "Régions"
 
-#: .\templates\_base.html:125
+#: .\templates\_base.html:125 .\templates\locations.html:5
+#: .\templates\locations.html:25
 msgid "Locations"
 msgstr "Lieux"
 
 #: .\templates\_base.html:136 .\templates\adventure.html:65
+#: .\templates\books.html:5 .\templates\books.html:25
 #: .\templates\crafting.html:42 .\templates\gathering.html:42
 #: .\templates\land.html:65 .\templates\reputation.html:65
 msgid "Books"
 msgstr "Livres"
 
-#: .\templates\_base.html:143 .\templates\reputation.html:42
+#: .\templates\_base.html:143 .\templates\recipes.html:5
+#: .\templates\recipes.html:25 .\templates\reputation.html:42
 #: .\templates\weapon.html:42
 msgid "Recipes"
 msgstr "Recettes"
@@ -84,7 +87,6 @@ msgid "Adventure"
 msgstr "Aventure"
 
 #: .\templates\adventure.html:25 .\templates\basics.html:42
-#: .\templates\regions.html:42
 msgid "Adventures"
 msgstr "Aventures"
 
@@ -93,29 +95,64 @@ msgid "Trainings"
 msgstr "Entrainements"
 
 #: .\templates\basics.html:19 .\templates\land.html:25
-#: .\templates\regions.html:19
 msgid "Lands"
 msgstr "Terrains"
 
 #: .\templates\basics.html:65 .\templates\crafting.html:25
-#: .\templates\regions.html:65
 msgid "Craftings"
 msgstr "Artisanats"
 
 #: .\templates\basics.html:88 .\templates\gathering.html:25
-#: .\templates\regions.html:88
 msgid "Gatherings"
 msgstr "Cueillette"
 
-#: .\templates\basics.html:111 .\templates\regions.html:111
-#: .\templates\weapon.html:25
+#: .\templates\basics.html:111 .\templates\weapon.html:25
 msgid "Weapons"
 msgstr "Armes"
 
-#: .\templates\basics.html:134 .\templates\regions.html:134
-#: .\templates\reputation.html:25
+#: .\templates\basics.html:134 .\templates\reputation.html:25
 msgid "Reputations"
 msgstr "Réputations"
+
+#: .\templates\books.html:33
+#, fuzzy
+#| msgid "Books"
+msgid "Book"
+msgstr "Livres"
+
+#: .\templates\books.html:34 .\templates\recipes.html:34
+#, fuzzy
+#| msgid "Locations"
+msgid "Location"
+msgstr "Lieux"
+
+#: .\templates\books.html:35 .\templates\recipes.html:35
+msgid "NPC"
+msgstr "NPC"
+
+#: .\templates\books.html:36 .\templates\recipes.html:36
+#, fuzzy
+#| msgid "Reputations"
+msgid "Reputation"
+msgstr "Réputations"
+
+#: .\templates\books.html:37 .\templates\recipes.html:37
+#, fuzzy
+#| msgid "Reputations"
+msgid "Reputation value"
+msgstr "Réputations"
+
+#: .\templates\books.html:38 .\templates\recipes.html:38
+msgid "Price"
+msgstr "Prix"
+
+#: .\templates\books.html:39
+msgid "Count"
+msgstr "Nombre"
+
+#: .\templates\books.html:40 .\templates\recipes.html:42
+msgid "Daytime"
+msgstr "Jour/Nuit"
 
 #: .\templates\home.html:20
 msgid "What are you searching in the mist?"
@@ -125,6 +162,41 @@ msgstr "Que cherchez-vous dans la brume ?"
 msgid "Your search"
 msgstr "Votre recherche"
 
-#: .\templates\land.html:5
+#: .\templates\land.html:5 .\templates\regions.html:34
 msgid "Land"
 msgstr "Terrain"
+
+#: .\templates\locations.html:33 .\templates\recipes.html:33
+#: .\templates\regions.html:33
+msgid "Name"
+msgstr "Nom"
+
+#: .\templates\locations.html:34
+#, fuzzy
+#| msgid "Regions"
+msgid "Region"
+msgstr "Régions"
+
+#: .\templates\locations.html:35
+#, fuzzy
+#| msgid "Locations"
+msgid "Exploration"
+msgstr "Lieux"
+
+#: .\templates\recipes.html:39
+msgid "Building"
+msgstr "Bâtiment"
+
+#: .\templates\recipes.html:40
+msgid "Equipment slot"
+msgstr "Emplacement équipement"
+
+#: .\templates\recipes.html:41
+#, fuzzy
+#| msgid "Weapons"
+msgid "Weapon"
+msgstr "Armes"
+
+#: .\templates\regions.html:35
+msgid "Difficulty"
+msgstr "Difficulté"

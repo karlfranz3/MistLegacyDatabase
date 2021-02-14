@@ -2,7 +2,7 @@
 {% load static %}
 {% load i18n %}
 
-{% block pagetitle %}{% translate "Regions" %}{% endblock %}
+{% block pagetitle %}{% translate "Locations" %}{% endblock %}
 
 {% block pagelevelcss %}
         <link href="{% static "assets/plugins/custom/datatables/datatables.bundle.css" %}" rel="stylesheet" type="text/css" />
@@ -12,7 +12,7 @@
         <script src="{% static "assets/plugins/custom/datatables/datatables.bundle.js" %}" type="text/javascript"></script>
 {% endblock %}
 
-{% block menu_regions %}kt-menu__item--active{% endblock %}
+{% block menu_locations %}kt-menu__item--active{% endblock %}
 
 {% block corpsdepage %}
     <div class="kt-portlet">
@@ -22,17 +22,17 @@
                     <i class="fa fa-book"></i>
                 </span>
                 <h3 class="kt-portlet__head-title">
-                    {% translate "Regions" %}
+                    {% translate "Locations" %}
                 </h3>
             </div>
         </div>
         <div class="kt-portlet__body">
-            <table class="table table-bordered table-hover table-sm" id="regions">
+            <table class="table table-bordered table-hover table-sm" id="locations">
                 <thead class="thead-dark">
                     <tr>
                         <th class="kt-font-light">{% translate "Name" %}</th>
-                        <th class="kt-font-light">{% translate "Land" %}</th>
-                        <th class="kt-font-light">{% translate "Difficulty" %}</th>
+                        <th class="kt-font-light">{% translate "Region" %}</th>
+                        <th class="kt-font-light">{% translate "Exploration" %}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -46,13 +46,12 @@
 <script>
     $(document).ready(function() {
 
-        const oTable = $('#regions').DataTable( {
+        const oTable = $('#locations').DataTable( {
             "processing": true,
             "serverSide": true,
             "paging":   false,
             "info":     false,
-            "ajax": "{% url 'regions_ws' %}",
-            "lengthMenu": [[20, 50, 100, 500, -1], [20, 50, 100, 500, "Tout"]],
+            "ajax": "{% url 'locations_ws' %}",
             "columnDefs": [
                 {
                     orderable:true,

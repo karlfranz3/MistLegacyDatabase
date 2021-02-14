@@ -1,10 +1,9 @@
-from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render, redirect, get_object_or_404
+from django.http import HttpResponseRedirect
+from django.shortcuts import render, get_object_or_404
 from django.conf import settings
 from django.utils import translation
-from django.views.generic import DetailView
 
-from .models import Weapon, Land, Crafting, Gathering, Adventure, Reputation, EquipmentSlot, Region, Location, Book, Training, Recipe
+from front.models import Weapon, Land, Crafting, Gathering, Adventure, Reputation, EquipmentSlot, Region, Location, Book, Training, Recipe
 
 
 def set_lang(request, lang):
@@ -28,16 +27,6 @@ def basics(request):
     return render(request, 'basics.html',
                   context={'lands': lands, 'craftings': craftings, 'gatherings': gatherings,
                            'adventures': adventures, 'weapons': weapons, 'reputations': reputations})
-
-
-def regions(request):
-    regions = Region.objects.all()
-    return render(request, 'basics.html', context={'regions': regions})
-
-
-def locations(request):
-    locations = Location.objects.all()
-    return render(request, 'basics.html', context={'locations': locations})
 
 
 def search(request):
