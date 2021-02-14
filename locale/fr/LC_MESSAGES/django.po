@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-13 19:39+0100\n"
+"POT-Creation-Date: 2021-02-14 12:37+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,33 +18,104 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: .\MistLegacy\settings.py:131 .\templates\_base.html:251
+#: .\MistLegacy\settings.py:131 .\templates\_base.html:247
 msgid "English"
 msgstr "Anglais"
 
-#: .\MistLegacy\settings.py:132 .\templates\_base.html:257
+#: .\MistLegacy\settings.py:132 .\templates\_base.html:253
 msgid "French"
 msgstr "Français"
 
-#: .\templates\_base.html:185
+#: .\templates\_base.html:104 .\templates\home.html:5
+msgid "Home"
+msgstr "Accueil"
+
+#: .\templates\_base.html:111 .\templates\adventure.html:23
+#: .\templates\crafting.html:23 .\templates\gathering.html:23
+#: .\templates\land.html:23 .\templates\reputation.html:23
+#: .\templates\weapon.html:23
+msgid "Basics"
+msgstr "Basiques"
+
+#: .\templates\_base.html:118 .\templates\land.html:42
+#: .\templates\regions.html:5
+msgid "Regions"
+msgstr "Régions"
+
+#: .\templates\_base.html:125
+msgid "Locations"
+msgstr "Lieux"
+
+#: .\templates\_base.html:136 .\templates\adventure.html:65
+#: .\templates\crafting.html:42 .\templates\gathering.html:42
+#: .\templates\land.html:65 .\templates\reputation.html:65
+msgid "Books"
+msgstr "Livres"
+
+#: .\templates\_base.html:143 .\templates\reputation.html:42
+#: .\templates\weapon.html:42
+msgid "Recipes"
+msgstr "Recettes"
+
+#: .\templates\_base.html:150
+msgid "Spells"
+msgstr "Sorts"
+
+#: .\templates\_base.html:181
 msgid "Official Mist Legacy Website"
 msgstr "Site officiel Mist Legacy"
 
-#: .\templates\_base.html:189
+#: .\templates\_base.html:185
 msgid "Official Discord"
 msgstr "Discord officiel"
 
-#: .\templates\_base.html:193
+#: .\templates\_base.html:189
 msgid "Interactive Map"
 msgstr "Carte interactive"
 
-#: .\templates\_base.html:227
+#: .\templates\_base.html:223
 msgid "Search..."
 msgstr "Recherche..."
 
-#: .\templates\home.html:5
-msgid "Home"
-msgstr "Accueil"
+#: .\templates\adventure.html:5 .\templates\crafting.html:5
+#: .\templates\gathering.html:5 .\templates\reputation.html:5
+#: .\templates\weapon.html:5
+msgid "Adventure"
+msgstr "Aventure"
+
+#: .\templates\adventure.html:25 .\templates\basics.html:42
+#: .\templates\regions.html:42
+msgid "Adventures"
+msgstr "Aventures"
+
+#: .\templates\adventure.html:42
+msgid "Trainings"
+msgstr "Entrainements"
+
+#: .\templates\basics.html:19 .\templates\land.html:25
+#: .\templates\regions.html:19
+msgid "Lands"
+msgstr "Terrains"
+
+#: .\templates\basics.html:65 .\templates\crafting.html:25
+#: .\templates\regions.html:65
+msgid "Craftings"
+msgstr "Artisanats"
+
+#: .\templates\basics.html:88 .\templates\gathering.html:25
+#: .\templates\regions.html:88
+msgid "Gatherings"
+msgstr "Cueillette"
+
+#: .\templates\basics.html:111 .\templates\regions.html:111
+#: .\templates\weapon.html:25
+msgid "Weapons"
+msgstr "Armes"
+
+#: .\templates\basics.html:134 .\templates\regions.html:134
+#: .\templates\reputation.html:25
+msgid "Reputations"
+msgstr "Réputations"
 
 #: .\templates\home.html:20
 msgid "What are you searching in the mist?"
@@ -53,3 +124,7 @@ msgstr "Que cherchez-vous dans la brume ?"
 #: .\templates\home.html:34
 msgid "Your search"
 msgstr "Votre recherche"
+
+#: .\templates\land.html:5
+msgid "Land"
+msgstr "Terrain"

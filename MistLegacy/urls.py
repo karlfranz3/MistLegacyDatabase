@@ -1,17 +1,26 @@
 from django.contrib import admin
-from django.urls import include, path
-from front.views import home, search, basics, set_lang
+from django.urls import path
+from front.views import *
 from django.conf import settings
 from django.conf.urls.static import static
-from django.conf.urls.i18n import i18n_patterns
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    path('set_lang/(?P<lang>[\w\-]+)', set_lang, name="set_lang"),
+    path('set_lang/<str:lang>', set_lang, name="set_lang"),
+    path('search', search, name='search'),
 
     path('', home, name='home'),
-    path('search', search, name='search'),
-    path('basics', search, name='basics'),
+    path('basics', basics, name='basics'),
+    path('regions', regions, name='regions'),
+    path('locations', locations, name='locations'),
+
+    path('land/<int:pk>', land, name='land'),
+    path('adventure/<int:pk>', adventure, name='adventure'),
+    path('crafting/<int:pk>', crafting, name='crafting'),
+    path('gathering/<int:pk>', gathering, name='gathering'),
+    path('weapon/<int:pk>', weapon, name='weapon'),
+    path('reputation/<int:pk>', reputation, name='reputation'),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

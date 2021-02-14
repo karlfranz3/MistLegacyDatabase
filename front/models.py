@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class Daytime(models.Model):
@@ -20,6 +21,9 @@ class Weapon(models.Model):
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return reverse('weapon', args=[str(self.id)])
+
 
 class EquipmentSlot(models.Model):
     name = models.CharField(max_length=64, blank=True, null=True)
@@ -40,6 +44,9 @@ class Land(models.Model):
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return reverse('land', args=[str(self.id)])
+
 
 class Gathering(models.Model):
     name = models.CharField(max_length=64, blank=True, null=True)
@@ -49,6 +56,9 @@ class Gathering(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('gathering', args=[str(self.id)])
 
 
 class Adventure(models.Model):
@@ -60,6 +70,9 @@ class Adventure(models.Model):
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return reverse('adventure', args=[str(self.id)])
+
 
 class Crafting(models.Model):
     name = models.CharField(max_length=64, blank=True, null=True)
@@ -70,6 +83,9 @@ class Crafting(models.Model):
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return reverse('crafting', args=[str(self.id)])
+
 
 class Reputation(models.Model):
     name = models.CharField(max_length=64, blank=True, null=True)
@@ -79,6 +95,9 @@ class Reputation(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('reputation', args=[str(self.id)])
 
 
 class Region(models.Model):
@@ -111,6 +130,7 @@ class NPC(models.Model):
     name = models.CharField(max_length=64, blank=True, null=True)
     location = models.ForeignKey(Location, on_delete=models.CASCADE, blank=True, null=True)
     daytime = models.ForeignKey(Daytime, on_delete=models.CASCADE, blank=True, null=True)
+    image = models.ImageField(blank=True, null=True)
 
     class Meta:
         ordering = ["name"]
@@ -130,8 +150,8 @@ class Recipe(models.Model):
     building = models.BooleanField(default=False)
     equipment_slot = models.ForeignKey(EquipmentSlot, on_delete=models.CASCADE, blank=True, null=True,
                                        help_text="If not a building")
-    weapon_type = models.ForeignKey(Weapon, on_delete=models.CASCADE, blank=True, null=True,
-                                    help_text="If equipment_slot is weapon")
+    weapon = models.ForeignKey(Weapon, on_delete=models.CASCADE, blank=True, null=True,
+                               help_text="If equipment_slot is weapon")
 
     class Meta:
         ordering = ["name"]
@@ -186,4 +206,3 @@ class Training(models.Model):
 
     def __str__(self):
         return self.name
-

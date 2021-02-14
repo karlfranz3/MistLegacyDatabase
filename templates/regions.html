@@ -2,9 +2,9 @@
 {% load static %}
 {% load i18n %}
 
-{% block pagetitle %}Basics{% endblock %}
+{% block pagetitle %}{% translate "Regions" %}{% endblock %}
 
-{% block menu_basics %}kt-menu__item--active{% endblock %}
+{% block menu_regions %}kt-menu__item--active{% endblock %}
 
 {% block corpsdepage %}
                     <div class="kt-content  kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor" id="kt_content">
@@ -26,7 +26,7 @@
 												<div class="kt-list-timeline__items">
 													<div class="kt-list-timeline__item">
 														<span class="kt-list-timeline__badge"></span>
-                                                        <span class="kt-list-timeline__text"><a href="{{ land.get_absolute_url }}">{{ land }}</a></span>
+														<span class="kt-list-timeline__text">{{ land.name }}</span>
 													</div>
 												</div>
                                                 {% endfor %}
@@ -49,7 +49,7 @@
 												<div class="kt-list-timeline__items">
 													<div class="kt-list-timeline__item">
 														<span class="kt-list-timeline__badge"></span>
-														<span class="kt-list-timeline__text"><a href="{{ adventure.get_absolute_url }}">{{ adventure }}</a></span>
+														<span class="kt-list-timeline__text">{{ adventure.name }}</span>
 													</div>
 												</div>
                                                 {% endfor %}
@@ -72,7 +72,7 @@
 												<div class="kt-list-timeline__items">
 													<div class="kt-list-timeline__item">
 														<span class="kt-list-timeline__badge"></span>
-														<span class="kt-list-timeline__text"><a href="{{ crafting.get_absolute_url }}">{{ crafting }}</a></span>
+														<span class="kt-list-timeline__text">{{ crafting.name }}</span>
 													</div>
 												</div>
                                                 {% endfor %}
@@ -95,7 +95,7 @@
 												<div class="kt-list-timeline__items">
 													<div class="kt-list-timeline__item">
 														<span class="kt-list-timeline__badge"></span>
-														<span class="kt-list-timeline__text"><a href="{{ gathering.get_absolute_url }}">{{ gathering }}</a></span>
+														<span class="kt-list-timeline__text">{{ gathering.name }}</span>
 													</div>
 												</div>
                                                 {% endfor %}
@@ -118,7 +118,7 @@
 												<div class="kt-list-timeline__items">
 													<div class="kt-list-timeline__item">
 														<span class="kt-list-timeline__badge"></span>
-														<span class="kt-list-timeline__text"><a href="{{ weapon.get_absolute_url }}">{{ weapon }}</a></span>
+														<span class="kt-list-timeline__text">{{ weapon.name }}</span>
 													</div>
 												</div>
                                                 {% endfor %}
@@ -141,7 +141,7 @@
 												<div class="kt-list-timeline__items">
 													<div class="kt-list-timeline__item">
 														<span class="kt-list-timeline__badge"></span>
-														<span class="kt-list-timeline__text"><a href="{{ reputation.get_absolute_url }}">{{ reputation }}</a></span>
+														<span class="kt-list-timeline__text">{{ reputation.name }}</span>
 													</div>
 												</div>
                                                 {% endfor %}
