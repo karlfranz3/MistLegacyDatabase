@@ -1,5 +1,5 @@
 from modeltranslation.translator import register, TranslationOptions
-from .models import Region, Reputation, Location, Recipe, Book, Training, Weapon, Land, Gathering, Adventure, Crafting, Daytime, NPC, EquipmentSlot, Companion
+from .models import Region, Reputation, Location, Recipe, Book, Training, Weapon, Land, Gathering, Adventure, Crafting, Daytime, NPC, EquipmentSlot, Companion, Guild
 
 
 @register(Daytime)
@@ -44,6 +44,11 @@ class RegionTranslationOptions(TranslationOptions):
 
 @register(Reputation)
 class ReputationTranslationOptions(TranslationOptions):
+    fields = ('name',)
+
+
+@register(Guild)
+class GuildTranslationOptions(TranslationOptions):
     fields = ('name',)
 
 

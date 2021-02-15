@@ -100,6 +100,16 @@ class Reputation(models.Model):
         return reverse('reputation', args=[str(self.id)])
 
 
+class Guild(models.Model):
+    name = models.CharField(max_length=64, blank=True, null=True)
+
+    class Meta:
+        ordering = ["name"]
+
+    def __str__(self):
+        return self.name
+
+
 class Region(models.Model):
     name = models.CharField(max_length=64, blank=True, null=True)
     image = models.ImageField(blank=True, null=True)
