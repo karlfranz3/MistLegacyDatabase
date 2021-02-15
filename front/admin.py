@@ -75,4 +75,4 @@ class NPCAdmin(TranslationAdmin):
 
 @admin.register(Companion)
 class CompanionAdmin(TranslationAdmin):
-    list_display = ('name_en', 'name_fr', 'location', 'quest', 'weapon')
+    list_display = ('name_en', 'name_fr', 'location', 'quest', 'comfort', 'weapon')

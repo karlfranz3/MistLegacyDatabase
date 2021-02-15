@@ -132,6 +132,7 @@ class Companion(models.Model):
     quest = models.BooleanField(blank=True, null=True)
     weapon = models.ForeignKey(Weapon, on_delete=models.CASCADE, blank=True, null=True)
     image = models.ImageField(blank=True, null=True)
+    comfort = models.IntegerField(blank=True, null=True)
 
     class Meta:
         ordering = ["name"]
