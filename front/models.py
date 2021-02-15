@@ -102,7 +102,7 @@ class Reputation(models.Model):
 
 class Region(models.Model):
     name = models.CharField(max_length=64, blank=True, null=True)
-    image = models.ImageField(blank=True)
+    image = models.ImageField(blank=True, null=True)
     land = models.ForeignKey(Land, on_delete=models.CASCADE, blank=True, null=True)
     land_difficulty = models.IntegerField(blank=True, null=True)
 
@@ -117,6 +117,20 @@ class Location(models.Model):
     name = models.CharField(max_length=64, blank=True, null=True)
     region = models.ForeignKey(Region, on_delete=models.CASCADE)
     exploration = models.IntegerField(blank=True, null=True)
+    image = models.ImageField(blank=True, null=True)
+
+    class Meta:
+        ordering = ["name"]
+
+    def __str__(self):
+        return self.name
+
+
+class Companion(models.Model):
+    name = models.CharField(max_length=64, blank=True, null=True)
+    location = models.ForeignKey(Location, on_delete=models.CASCADE, blank=True, null=True)
+    quest = models.BooleanField(blank=True, null=True)
+    weapon = models.ForeignKey(Weapon, on_delete=models.CASCADE, blank=True, null=True)
     image = models.ImageField(blank=True, null=True)
 
     class Meta:

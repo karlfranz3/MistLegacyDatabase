@@ -1,5 +1,5 @@
 from django.contrib import admin
-from front.models import Region, Reputation, Location, Recipe, Book, Training, Weapon, Land, Gathering, Adventure, Crafting, Daytime, NPC, EquipmentSlot
+from front.models import Region, Reputation, Location, Recipe, Book, Training, Weapon, Land, Gathering, Adventure, Crafting, Daytime, NPC, EquipmentSlot, Companion
 from modeltranslation.admin import TranslationAdmin
 
 
@@ -71,3 +71,8 @@ class TrainingAdmin(TranslationAdmin):
 @admin.register(NPC)
 class NPCAdmin(TranslationAdmin):
     list_display = ('name_en', 'name_fr', 'location')
+
+
+@admin.register(Companion)
+class CompanionAdmin(TranslationAdmin):
+    list_display = ('name_en', 'name_fr', 'location', 'quest', 'weapon')
