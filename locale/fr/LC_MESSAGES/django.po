@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-14 23:20+0100\n"
+"POT-Creation-Date: 2021-02-15 22:14+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: .\MistLegacy\settings.py:131 .\templates\_base.html:247
+#: .\MistLegacy\settings.py:133 .\templates\_base.html:247
 msgid "English"
 msgstr "Anglais"
 
-#: .\MistLegacy\settings.py:132 .\templates\_base.html:253
+#: .\MistLegacy\settings.py:134 .\templates\_base.html:253
 msgid "French"
 msgstr "Français"
 
@@ -113,6 +113,16 @@ msgstr "Armes"
 #: .\templates\basics.html:134 .\templates\reputation.html:25
 msgid "Reputations"
 msgstr "Réputations"
+
+#: .\templates\basics.html:157
+#, fuzzy
+#| msgid "Locations"
+msgid "Companions"
+msgstr "Lieux"
+
+#: .\templates\basics.html:180
+msgid "Guilds"
+msgstr "Guildes"
 
 #: .\templates\books.html:33
 #, fuzzy
