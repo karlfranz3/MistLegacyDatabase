@@ -1,0 +1,76 @@
+{% extends "_base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block pagetitle %}{% translate "Spells/Skills" %}{% endblock %}
+
+{% block pagelevelcss %}
+        <link href="{% static "assets/plugins/custom/datatables/datatables.bundle.css" %}" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pagelevelplugins %}
+        <script src="{% static "assets/plugins/custom/datatables/datatables.bundle.js" %}" type="text/javascript"></script>
+{% endblock %}
+
+{% block menu_books %}kt-menu__item--active{% endblock %}
+
+{% block corpsdepage %}
+    <div class="kt-portlet">
+        <div class="kt-portlet__head">
+            <div class="kt-portlet__head-label">
+                <span class="kt-portlet__head-icon">
+                    <i class="fa fa-book"></i>
+                </span>
+                <h3 class="kt-portlet__head-title">
+                    {% translate "Spells/Skills" %}
+                </h3>
+            </div>
+        </div>
+        <div class="kt-portlet__body">
+            <table class="table table-bordered table-hover table-sm" id="spells">
+                <thead class="thead-dark">
+                    <tr>
+                        <th class="kt-font-light">{% translate "Name" %}</th>
+                        <th class="kt-font-light">{% translate "Level" %}</th>
+                        <th class="kt-font-light">{% translate "Location" %}</th>
+                        <th class="kt-font-light">{% translate "NPC" %}</th>
+                        <th class="kt-font-light">{% translate "Reputation" %}</th>
+                        <th class="kt-font-light">{% translate "Guild" %}</th>
+                        <th class="kt-font-light">{% translate "Reputation/Guild value" %}</th>
+                        <th class="kt-font-light">{% translate "Price" %}</th>
+                        <th class="kt-font-light">{% translate "Daytime" %}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
+
+{% block js %}
+<script>
+    $(document).ready(function() {
+
+        const oTable = $('#spells').DataTable( {
+            "processing": true,
+            "serverSide": true,
+            "paging":   false,
+            "info":     false,
+            "ajax": "{% url 'spells_ws' %}",
+            "columnDefs": [
+                {
+                    orderable:true,
+                    "targets":[0,1,2,3,4,5,6,7,8]
+                },
+                {
+                    searchable:true,
+                    "targets":[0,1,2,3,4,5,6,7,8]
+                }
+            ],
+            "order": [[0, 'asc']],
+        } );
+
+    });
+</script>
+{% endblock %}

@@ -21,6 +21,8 @@ urlpatterns = [
     path("ws/books", BooksWS.as_view(), name="books_ws"),
     path('recipes', recipes, name='recipes'),
     path("ws/recipes", RecipesWS.as_view(), name="recipes_ws"),
+    path('spells', spells, name='spells'),
+    path("ws/spells", SpellsWS.as_view(), name="spells_ws"),
 
     path('land/<int:pk>', land, name='land'),
     path('adventure/<int:pk>', adventure, name='adventure'),

@@ -231,3 +231,22 @@ class Training(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Spell(models.Model):
+    name = models.CharField(max_length=64, blank=True, null=True)
+    level = models.IntegerField(default=1)
+    price = models.IntegerField(blank=True, null=True)
+    reputation = models.ForeignKey(Reputation, on_delete=models.CASCADE, blank=True, null=True)
+    guild = models.ForeignKey(Guild, on_delete=models.CASCADE, blank=True, null=True)
+    reputation_guild_value = models.IntegerField(blank=True, null=True)
+    location = models.ForeignKey(Location, on_delete=models.CASCADE, blank=True, null=True)
+    daytime = models.ForeignKey(Daytime, on_delete=models.CASCADE, blank=True, null=True)
+    npc = models.ForeignKey(NPC, on_delete=models.CASCADE, blank=True, null=True)
+    image = models.ImageField(blank=True, null=True)
+
+    class Meta:
+        ordering = ["name"]
+
+    def __str__(self):
+        return self.name

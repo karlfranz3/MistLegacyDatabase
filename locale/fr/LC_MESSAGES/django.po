@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-15 22:14+0100\n"
+"POT-Creation-Date: 2021-02-15 22:38+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -131,16 +131,19 @@ msgid "Book"
 msgstr "Livres"
 
 #: .\templates\books.html:34 .\templates\recipes.html:34
+#: .\templates\spells.html:35
 #, fuzzy
 #| msgid "Locations"
 msgid "Location"
 msgstr "Lieux"
 
 #: .\templates\books.html:35 .\templates\recipes.html:35
+#: .\templates\spells.html:36
 msgid "NPC"
 msgstr "NPC"
 
 #: .\templates\books.html:36 .\templates\recipes.html:36
+#: .\templates\spells.html:37
 #, fuzzy
 #| msgid "Reputations"
 msgid "Reputation"
@@ -150,9 +153,10 @@ msgstr "Réputations"
 #, fuzzy
 #| msgid "Reputations"
 msgid "Reputation value"
-msgstr "Réputations"
+msgstr "Valeur de réputation"
 
 #: .\templates\books.html:38 .\templates\recipes.html:38
+#: .\templates\spells.html:40
 msgid "Price"
 msgstr "Prix"
 
@@ -161,6 +165,7 @@ msgid "Count"
 msgstr "Nombre"
 
 #: .\templates\books.html:40 .\templates\recipes.html:42
+#: .\templates\spells.html:41
 msgid "Daytime"
 msgstr "Jour/Nuit"
 
@@ -177,7 +182,7 @@ msgid "Land"
 msgstr "Terrain"
 
 #: .\templates\locations.html:33 .\templates\recipes.html:33
-#: .\templates\regions.html:33
+#: .\templates\regions.html:33 .\templates\spells.html:33
 msgid "Name"
 msgstr "Nom"
 
@@ -210,3 +215,25 @@ msgstr "Armes"
 #: .\templates\regions.html:35
 msgid "Difficulty"
 msgstr "Difficulté"
+
+#: .\templates\spells.html:5 .\templates\spells.html:25
+#, fuzzy
+#| msgid "Spells"
+msgid "Spells/Skills"
+msgstr "Sorts"
+
+#: .\templates\spells.html:34
+msgid "Level"
+msgstr "Niveau"
+
+#: .\templates\spells.html:38
+#, fuzzy
+#| msgid "Guilds"
+msgid "Guild"
+msgstr "Guildes"
+
+#: .\templates\spells.html:39
+#, fuzzy
+#| msgid "Reputations"
+msgid "Reputation/Guild value"
+msgstr "Valeur de réputation/guilde"
