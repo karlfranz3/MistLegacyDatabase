@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404
 from django.conf import settings
 from django.utils import translation
 
-from front.models import Weapon, Land, Crafting, Gathering, Adventure, Reputation, EquipmentSlot, Region, Location, Book, Training, Recipe
+from front.models import Weapon, Land, Crafting, Gathering, Adventure, Reputation, EquipmentSlot, Region, Location, Book, Training, Recipe, Companion, Guild
 
 
 def set_lang(request, lang):
@@ -24,9 +24,11 @@ def basics(request):
     adventures = Adventure.objects.all()
     weapons = Weapon.objects.all()
     reputations = Reputation.objects.all()
+    companions = Companion.objects.all()
+    guilds = Guild.objects.all()
     return render(request, 'basics.html',
-                  context={'lands': lands, 'craftings': craftings, 'gatherings': gatherings,
-                           'adventures': adventures, 'weapons': weapons, 'reputations': reputations})
+                  context={'lands': lands, 'craftings': craftings, 'gatherings': gatherings, "companions": companions,
+                           'adventures': adventures, 'weapons': weapons, 'reputations': reputations, 'guilds': guilds})
 
 
 def search(request):

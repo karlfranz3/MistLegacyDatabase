@@ -126,6 +126,8 @@ STATIC_ROOT = '/home/Nacros/mldb/static'
 MEDIA_ROOT = '/home/Nacros/mldb/static/upload'
 MEDIA_URL = '/media/'
 
+MODELTRANSLATION_FALLBACK_LANGUAGES = ('en', 'fr')
+MODELTRANSLATION_PREPOPULATE_LANGUAGE = 'en'
 gettext = lambda s: s
 LANGUAGES = (
     ('en', gettext('English')),

@@ -11,7 +11,7 @@
 						<!-- begin:: Content -->
 						<div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
 							<div class="row">
-								<div class="col-lg-4">
+								<div class="col-sm-3">
 									<div class="kt-portlet">
 										<div class="kt-portlet__head">
 											<div class="kt-portlet__head-label">
@@ -34,7 +34,7 @@
 										</div>
 									</div>
                                 </div>
-								<div class="col-lg-4">
+								<div class="col-sm-3">
 									<div class="kt-portlet">
 										<div class="kt-portlet__head">
 											<div class="kt-portlet__head-label">
@@ -57,7 +57,7 @@
 										</div>
 									</div>
                                 </div>
-								<div class="col-lg-4">
+								<div class="col-sm-3">
 									<div class="kt-portlet">
 										<div class="kt-portlet__head">
 											<div class="kt-portlet__head-label">
@@ -80,7 +80,7 @@
 										</div>
 									</div>
                                 </div>
-								<div class="col-lg-4">
+								<div class="col-sm-3">
 									<div class="kt-portlet">
 										<div class="kt-portlet__head">
 											<div class="kt-portlet__head-label">
@@ -103,7 +103,7 @@
 										</div>
 									</div>
                                 </div>
-								<div class="col-lg-4">
+								<div class="col-sm-3">
 									<div class="kt-portlet">
 										<div class="kt-portlet__head">
 											<div class="kt-portlet__head-label">
@@ -126,7 +126,7 @@
 										</div>
 									</div>
                                 </div>
-								<div class="col-lg-4">
+								<div class="col-sm-3">
 									<div class="kt-portlet">
 										<div class="kt-portlet__head">
 											<div class="kt-portlet__head-label">
@@ -142,6 +142,52 @@
 													<div class="kt-list-timeline__item">
 														<span class="kt-list-timeline__badge"></span>
 														<span class="kt-list-timeline__text"><a href="{{ reputation.get_absolute_url }}">{{ reputation }}</a></span>
+													</div>
+												</div>
+                                                {% endfor %}
+											</div>
+										</div>
+									</div>
+                                </div>
+								<div class="col-sm-3">
+									<div class="kt-portlet">
+										<div class="kt-portlet__head">
+											<div class="kt-portlet__head-label">
+												<h3 class="kt-portlet__head-title">
+													{% translate "Companions" %}
+												</h3>
+											</div>
+										</div>
+										<div class="kt-portlet__body">
+											<div class="kt-list-timeline">
+                                                {% for companion in companions %}
+												<div class="kt-list-timeline__items">
+													<div class="kt-list-timeline__item">
+														<span class="kt-list-timeline__badge"></span>
+														<span class="kt-list-timeline__text"><a href="{{ companion.get_absolute_url }}">{{ companion }}</a></span>
+													</div>
+												</div>
+                                                {% endfor %}
+											</div>
+										</div>
+									</div>
+                                </div>
+								<div class="col-sm-3">
+									<div class="kt-portlet">
+										<div class="kt-portlet__head">
+											<div class="kt-portlet__head-label">
+												<h3 class="kt-portlet__head-title">
+													{% translate "Guilds" %}
+												</h3>
+											</div>
+										</div>
+										<div class="kt-portlet__body">
+											<div class="kt-list-timeline">
+                                                {% for guild in guilds %}
+												<div class="kt-list-timeline__items">
+													<div class="kt-list-timeline__item">
+														<span class="kt-list-timeline__badge"></span>
+														<span class="kt-list-timeline__text"><a href="{{ guild.get_absolute_url }}">{{ guild }}</a></span>
 													</div>
 												</div>
                                                 {% endfor %}
