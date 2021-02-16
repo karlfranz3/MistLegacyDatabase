@@ -164,7 +164,7 @@
 												<div class="kt-list-timeline__items">
 													<div class="kt-list-timeline__item">
 														<span class="kt-list-timeline__badge"></span>
-														<span class="kt-list-timeline__text"><a href="{{ companion.get_absolute_url }}">{{ companion }}</a></span>
+														<span class="kt-list-timeline__text"><span data-popover-remote="{{ companion.get_absolute_url }}">{{ companion }}</span></span>
 													</div>
 												</div>
                                                 {% endfor %}
@@ -198,4 +198,46 @@
                             </div>
                         </div>
                     </div>
+{% endblock %}
+
+{% block js %}
+    <style>
+    .popover {
+        min-width: 30em !important;
+    }
+    </style>
+
+    <script>
+        $(document).ready(function () {
+            var popoverRemoteContents = function (element) {
+                if ($(element).data('loaded') !== true) {
+                    var div_id = 'tmp-id-' + $.now();
+                    $.ajax({
+                        url: $(element).data('popover-remote'),
+                        success: function (response) {
+                            $('#' + div_id).html(response);
+                            $(element).attr("data-loaded", true);
+                            $(element).attr("data-content", response);
+                            return $(element).popover('update');
+                        }
+                    });
+                    return '<div id="' + div_id + '">{% translate "Loading..." %}</div>';
+                } else {
+                    return $(element).data('content');
+                }
+            };
+
+            $('[data-popover-remote]')
+                .click(false)
+                .popover({
+                    html: true,
+                    trigger: 'hover',
+                    sanitize: false,
+                    container: 'body',
+                    content: function () {
+                        return popoverRemoteContents(this);
+                    }
+                });
+        });
+    </script>
 {% endblock %}

@@ -31,4 +31,6 @@ urlpatterns = [
     path('weapon/<int:pk>', weapon, name='weapon'),
     path('reputation/<int:pk>', reputation, name='reputation'),
 
+    path('companion_light/<int:pk>', companion_card, name='companion_light'),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

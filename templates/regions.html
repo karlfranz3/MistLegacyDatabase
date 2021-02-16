@@ -43,29 +43,64 @@
 {% endblock %}
 
 {% block js %}
-<script>
-    $(document).ready(function() {
+    <style>
+        .popover {
+            min-width: 30em !important;
+        }
+    </style>
 
-        const oTable = $('#regions').DataTable( {
-            "processing": true,
-            "serverSide": true,
-            "paging":   false,
-            "info":     false,
-            "ajax": "{% url 'regions_ws' %}",
-            "lengthMenu": [[20, 50, 100, 500, -1], [20, 50, 100, 500, "Tout"]],
-            "columnDefs": [
-                {
-                    orderable:true,
-                    "targets":[0,1,2]
-                },
-                {
-                    searchable:true,
-                    "targets":[0,1,2]
+    <script>
+        $(document).ready(function () {
+
+            const oTable = $('#regions').DataTable({
+                "processing": true,
+                "serverSide": true,
+                "paging": false,
+                "info": false,
+                "ajax": "{% url 'regions_ws' %}",
+                "lengthMenu": [[20, 50, 100, 500, -1], [20, 50, 100, 500, "Tout"]],
+                "columnDefs": [
+                    {
+                        orderable: true,
+                        "targets": [0, 1, 2]
+                    },
+                    {
+                        searchable: true,
+                        "targets": [0, 1, 2]
+                    }
+                ],
+                "order": [[0, 'asc']],
+            });
+
+            var popoverRemoteContents = function (element) {
+                if ($(element).data('loaded') !== true) {
+                    var div_id = 'tmp-id-' + $.now();
+                    $.ajax({
+                        url: $(element).data('popover-remote'),
+                        success: function (response) {
+                            $('#' + div_id).html(response);
+                            $(element).attr("data-loaded", true);
+                            $(element).attr("data-content", response);
+                            return $(element).popover('update');
+                        }
+                    });
+                    return '<div id="' + div_id + '">{% translate "Loading..." %}</div>';
+                } else {
+                    return $(element).data('content');
                 }
-            ],
-            "order": [[0, 'asc']],
-        } );
+            };
 
-    });
-</script>
+            $('[data-popover-remote]')
+                .click(false)
+                .popover({
+                    html: true,
+                    trigger: 'hover',
+                    sanitize: false,
+                    container: 'body',
+                    content: function () {
+                        return popoverRemoteContents(this);
+                    }
+                });
+        });
+    </script>
 {% endblock %}

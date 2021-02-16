@@ -1,0 +1,24 @@
+{% load static %}
+{% load i18n %}
+<div>
+    <table class="table table-bordered table-hover table-sm" id="spells">
+        <thead>
+            <tr>
+                <th>{% translate "Name" %}</th>
+                <th>{% translate "Location" %}</th>
+                <th>{% translate "Comfort" %}</th>
+                <th>{% translate "Weapon" %}</th>
+                <th>{% translate "Quest" %}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>{{ companion.name }}</th>
+                <th>{{ companion.location }}</th>
+                <th>{{ companion.comfort }}</th>
+                <th>{{ companion.weapon }}</th>
+                <th>{{ companion.quest }}</th>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -150,6 +150,9 @@ class Companion(models.Model):
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return reverse('companion_light', args=[str(self.id)])
+
 
 class NPC(models.Model):
     name = models.CharField(max_length=64, blank=True, null=True)
