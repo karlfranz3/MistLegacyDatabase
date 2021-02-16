@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-15 22:38+0100\n"
+"POT-Creation-Date: 2021-02-16 23:04+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -124,14 +124,18 @@ msgstr "Lieux"
 msgid "Guilds"
 msgstr "Guildes"
 
+#: .\templates\basics.html:224 .\templates\regions.html:87
+msgid "Loading..."
+msgstr "Chargement..."
+
 #: .\templates\books.html:33
 #, fuzzy
 #| msgid "Books"
 msgid "Book"
 msgstr "Livres"
 
-#: .\templates\books.html:34 .\templates\recipes.html:34
-#: .\templates\spells.html:35
+#: .\templates\books.html:34 .\templates\companion_light.html:8
+#: .\templates\recipes.html:34 .\templates\spells.html:35
 #, fuzzy
 #| msgid "Locations"
 msgid "Location"
@@ -169,6 +173,26 @@ msgstr "Nombre"
 msgid "Daytime"
 msgstr "Jour/Nuit"
 
+#: .\templates\companion_light.html:7 .\templates\locations.html:33
+#: .\templates\recipes.html:33 .\templates\regions.html:33
+#: .\templates\spells.html:33
+msgid "Name"
+msgstr "Nom"
+
+#: .\templates\companion_light.html:9
+msgid "Comfort"
+msgstr "Confort"
+
+#: .\templates\companion_light.html:10 .\templates\recipes.html:41
+#, fuzzy
+#| msgid "Weapons"
+msgid "Weapon"
+msgstr "Armes"
+
+#: .\templates\companion_light.html:11
+msgid "Quest"
+msgstr "Quête"
+
 #: .\templates\home.html:20
 msgid "What are you searching in the mist?"
 msgstr "Que cherchez-vous dans la brume ?"
@@ -180,11 +204,6 @@ msgstr "Votre recherche"
 #: .\templates\land.html:5 .\templates\regions.html:34
 msgid "Land"
 msgstr "Terrain"
-
-#: .\templates\locations.html:33 .\templates\recipes.html:33
-#: .\templates\regions.html:33 .\templates\spells.html:33
-msgid "Name"
-msgstr "Nom"
 
 #: .\templates\locations.html:34
 #, fuzzy
@@ -205,12 +224,6 @@ msgstr "Bâtiment"
 #: .\templates\recipes.html:40
 msgid "Equipment slot"
 msgstr "Emplacement équipement"
-
-#: .\templates\recipes.html:41
-#, fuzzy
-#| msgid "Weapons"
-msgid "Weapon"
-msgstr "Armes"
 
 #: .\templates\regions.html:35
 msgid "Difficulty"
