@@ -2,7 +2,7 @@
 {% load static %}
 {% load i18n %}
 
-{% block pagetitle %}{% translate "Adventure" %}{% endblock %}
+{% block pagetitle %}{% translate "Weapon" %}{% endblock %}
 
 {% block menu_regions %}kt-menu__item--active{% endblock %}
 
@@ -22,7 +22,7 @@
 										<a href="{% url 'basics' %}" class="kt-subheader__breadcrumbs-link">
 											{% translate "Basics" %} </a>
 										<span class="kt-subheader__breadcrumbs-separator"></span>
-											{% translate "Weapons" %}
+											{% translate "Weapon" %}s
 
 										<!-- <span class="kt-subheader__breadcrumbs-link kt-subheader__breadcrumbs-link--active">Active link</span> -->
 									</div>
@@ -34,12 +34,12 @@
 						<!-- begin:: Content -->
 						<div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
 							<div class="row">
-								<div class="col-lg-4">
+								<div class="col-sm-3">
 									<div class="kt-portlet">
 										<div class="kt-portlet__head">
 											<div class="kt-portlet__head-label">
 												<h3 class="kt-portlet__head-title">
-													{% translate "Recipes" %}
+													{% translate "Recipe" %}s
 												</h3>
 											</div>
 										</div>
@@ -57,8 +57,73 @@
 										</div>
 									</div>
                                 </div>
+								<div class="col-sm-3">
+									<div class="kt-portlet">
+										<div class="kt-portlet__head">
+											<div class="kt-portlet__head-label">
+												<h3 class="kt-portlet__head-title">
+													{% translate "Companion" %}s
+												</h3>
+											</div>
+										</div>
+										<div class="kt-portlet__body">
+											<div class="kt-list-timeline">
+                                                {% for companion in companions %}
+												<div class="kt-list-timeline__items">
+													<div class="kt-list-timeline__item">
+														<span class="kt-list-timeline__badge"></span>
+														<span class="kt-list-timeline__text" data-popover-remote="{{ companion.get_absolute_url }}" data-title="{{ companion }}">{{ companion }}</span>
+													</div>
+												</div>
+                                                {% endfor %}
+											</div>
+										</div>
+									</div>
+                                </div>
                             </div>
                         </div>
                     </div>
 
+{% endblock %}
+
+{% block js %}
+    <style>
+    .popover {
+        min-width: 30em !important;
+    }
+    </style>
+
+    <script>
+        $(document).ready(function () {
+            var popoverRemoteContents = function (element) {
+                if ($(element).data('loaded') !== true) {
+                    var div_id = 'tmp-id-' + $.now();
+                    $.ajax({
+                        url: $(element).data('popover-remote'),
+                        success: function (response) {
+                            $('#' + div_id).html(response);
+                            $(element).attr("data-loaded", true);
+                            $(element).attr("data-content", response);
+                            return $(element).popover('update');
+                        }
+                    });
+                    return '<div id="' + div_id + '">{% translate "Loading..." %}</div>';
+                } else {
+                    return $(element).data('content');
+                }
+            };
+
+            $('[data-popover-remote]')
+                .click(false)
+                .popover({
+                    html: true,
+                    trigger: 'hover',
+                    sanitize: false,
+                    container: 'body',
+                    content: function () {
+                        return popoverRemoteContents(this);
+                    }
+                });
+        });
+    </script>
 {% endblock %}

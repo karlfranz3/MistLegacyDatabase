@@ -2,7 +2,7 @@
 {% load static %}
 {% load i18n %}
 
-{% block pagetitle %}{% translate "Reputation" %}{% endblock %}
+{% block pagetitle %}{% translate "Guild" %}{% endblock %}
 
 {% block menu_regions %}kt-menu__item--active{% endblock %}
 
@@ -14,7 +14,7 @@
 								<div class="kt-subheader__main">
 									<h3 class="kt-subheader__title">
 										<button class="kt-subheader__mobile-toggle kt-subheader__mobile-toggle--left" id="kt_subheader_mobile_toggle"><span></span></button>
-										{{ reputation }} </h3>
+										{{ guild }} </h3>
 									<span class="kt-subheader__separator kt-hidden"></span>
 									<div class="kt-subheader__breadcrumbs">
 										<a href="{% url 'basics' %}" class="kt-subheader__breadcrumbs-home"><i class="flaticon2-shelter"></i></a>
@@ -22,7 +22,7 @@
 										<a href="{% url 'basics' %}" class="kt-subheader__breadcrumbs-link">
 											{% translate "Basics" %} </a>
 										<span class="kt-subheader__breadcrumbs-separator"></span>
-											{% translate "Reputation" %}s
+											{% translate "Guild" %}s
 
 										<!-- <span class="kt-subheader__breadcrumbs-link kt-subheader__breadcrumbs-link--active">Active link</span> -->
 									</div>
@@ -34,52 +34,6 @@
 						<!-- begin:: Content -->
 						<div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
 							<div class="row">
-								<div class="col-sm-3">
-									<div class="kt-portlet">
-										<div class="kt-portlet__head">
-											<div class="kt-portlet__head-label">
-												<h3 class="kt-portlet__head-title">
-													{% translate "Recipe" %}s
-												</h3>
-											</div>
-										</div>
-										<div class="kt-portlet__body">
-											<div class="kt-list-timeline">
-                                                {% for recipe in recipes %}
-												<div class="kt-list-timeline__items">
-													<div class="kt-list-timeline__item">
-														<span class="kt-list-timeline__badge"></span>
-                                                        <span class="kt-list-timeline__text"><a href="{{ recipe.get_absolute_url }}">{{ recipe }}</a></span>
-													</div>
-												</div>
-                                                {% endfor %}
-											</div>
-										</div>
-									</div>
-                                </div>
-								<div class="col-sm-3">
-									<div class="kt-portlet">
-										<div class="kt-portlet__head">
-											<div class="kt-portlet__head-label">
-												<h3 class="kt-portlet__head-title">
-													{% translate "Book" %}s
-												</h3>
-											</div>
-										</div>
-										<div class="kt-portlet__body">
-											<div class="kt-list-timeline">
-                                                {% for book in books %}
-												<div class="kt-list-timeline__items">
-													<div class="kt-list-timeline__item">
-														<span class="kt-list-timeline__badge"></span>
-														<span class="kt-list-timeline__text"><a href="{{ book.get_absolute_url }}">{{ book }}</a></span>
-													</div>
-												</div>
-                                                {% endfor %}
-											</div>
-										</div>
-									</div>
-                                </div>
 								<div class="col-sm-3">
 									<div class="kt-portlet">
 										<div class="kt-portlet__head">

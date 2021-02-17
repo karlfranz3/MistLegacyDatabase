@@ -30,6 +30,7 @@ urlpatterns = [
     path('gathering/<int:pk>', gathering, name='gathering'),
     path('weapon/<int:pk>', weapon, name='weapon'),
     path('reputation/<int:pk>', reputation, name='reputation'),
+    path('guild/<int:pk>', guild, name='guild'),
 
     path('companion_light/<int:pk>', companion_card, name='companion_card'),
     path('region_light/<int:pk>', region_card, name='region_card'),

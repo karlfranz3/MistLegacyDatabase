@@ -109,6 +109,9 @@ class Guild(models.Model):
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return reverse('guild', args=[str(self.id)])
+
 
 class Region(models.Model):
     name = models.CharField(max_length=64, blank=True, null=True)
