@@ -34,7 +34,7 @@
 						<!-- begin:: Content -->
 						<div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
 							<div class="row">
-								<div class="col-sm-3">
+								<div class="col-sm-6">
 									<div class="kt-portlet">
 										<div class="kt-portlet__head">
 											<div class="kt-portlet__head-label">
@@ -49,7 +49,7 @@
 												<div class="kt-list-timeline__items">
 													<div class="kt-list-timeline__item">
 														<span class="kt-list-timeline__badge"></span>
-														<span class="kt-list-timeline__text"><a href="{{ spell.get_absolute_url }}">{{ spell }}</a></span>
+														<span class="kt-list-timeline__text"><span data-popover-remote="{{ spell.get_absolute_url }}" data-title="{{ spell }}">{{ spell }}</span> (<span data-popover-remote="{{ spell.location.region.get_absolute_url }}" data-title="{{ spell.location.region }}">{{ spell.location }}</span>)</span>
 													</div>
 												</div>
                                                 {% endfor %}
@@ -61,4 +61,46 @@
                         </div>
                     </div>
 
+{% endblock %}
+
+{% block js %}
+    <style>
+    .popover {
+        min-width: 30em !important;
+    }
+    </style>
+
+    <script>
+        $(document).ready(function () {
+            var popoverRemoteContents = function (element) {
+                if ($(element).data('loaded') !== true) {
+                    var div_id = 'tmp-id-' + $.now();
+                    $.ajax({
+                        url: $(element).data('popover-remote'),
+                        success: function (response) {
+                            $('#' + div_id).html(response);
+                            $(element).attr("data-loaded", true);
+                            $(element).attr("data-content", response);
+                            return $(element).popover('update');
+                        }
+                    });
+                    return '<div id="' + div_id + '">{% translate "Loading..." %}</div>';
+                } else {
+                    return $(element).data('content');
+                }
+            };
+
+            $('[data-popover-remote]')
+                .click(false)
+                .popover({
+                    html: true,
+                    trigger: 'hover',
+                    sanitize: false,
+                    container: 'body',
+                    content: function () {
+                        return popoverRemoteContents(this);
+                    }
+                });
+        });
+    </script>
 {% endblock %}

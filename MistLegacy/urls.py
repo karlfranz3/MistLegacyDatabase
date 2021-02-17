@@ -32,7 +32,11 @@ urlpatterns = [
     path('reputation/<int:pk>', reputation, name='reputation'),
     path('guild/<int:pk>', guild, name='guild'),
 
-    path('companion_light/<int:pk>', companion_card, name='companion_card'),
-    path('region_light/<int:pk>', region_card, name='region_card'),
+    path('companion_card/<int:pk>', companion_card, name='companion_card'),
+    path('region_card/<int:pk>', region_card, name='region_card'),
+    path('location_card/<int:pk>', location_card, name='location_card'),
+    path('book_card/<int:pk>', book_card, name='book_card'),
+    path('spell_card/<int:pk>', spell_card, name='spell_card'),
+    path('recipe_card/<int:pk>', recipe_card, name='recipe_card'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

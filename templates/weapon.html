@@ -4,8 +4,6 @@
 
 {% block pagetitle %}{% translate "Weapon" %}{% endblock %}
 
-{% block menu_regions %}kt-menu__item--active{% endblock %}
-
 {% block corpsdepage %}
                     <div class="kt-content  kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor" id="kt_content">
 						<!-- begin:: Subheader -->
@@ -34,7 +32,7 @@
 						<!-- begin:: Content -->
 						<div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
 							<div class="row">
-								<div class="col-sm-3">
+								<div class="col-sm-4">
 									<div class="kt-portlet">
 										<div class="kt-portlet__head">
 											<div class="kt-portlet__head-label">
@@ -45,11 +43,11 @@
 										</div>
 										<div class="kt-portlet__body">
 											<div class="kt-list-timeline">
-                                                {% for book in books %}
+                                                {% for recipe in recipes %}
 												<div class="kt-list-timeline__items">
 													<div class="kt-list-timeline__item">
 														<span class="kt-list-timeline__badge"></span>
-														<span class="kt-list-timeline__text"><a href="{{ recipe.get_absolute_url }}">{{ recipe }}</a></span>
+														<span class="kt-list-timeline__text"><span data-popover-remote="{{ recipe.get_absolute_url }}" data-title="{{ recipe }}">{{ recipe }}</span> (<span data-popover-remote="{{ recipe.location.region.get_absolute_url }}" data-title="{{ recipe.location.region }}">{{ recipe.location }}</span>)</span>
 													</div>
 												</div>
                                                 {% endfor %}
@@ -57,7 +55,7 @@
 										</div>
 									</div>
                                 </div>
-								<div class="col-sm-3">
+								<div class="col-sm-4">
 									<div class="kt-portlet">
 										<div class="kt-portlet__head">
 											<div class="kt-portlet__head-label">
@@ -72,7 +70,7 @@
 												<div class="kt-list-timeline__items">
 													<div class="kt-list-timeline__item">
 														<span class="kt-list-timeline__badge"></span>
-														<span class="kt-list-timeline__text" data-popover-remote="{{ companion.get_absolute_url }}" data-title="{{ companion }}">{{ companion }}</span>
+														<span class="kt-list-timeline__text"><span data-popover-remote="{{ companion.get_absolute_url }}" data-title="{{ companion }}">{{ companion }}</span> (<span data-popover-remote="{{ companion.location.region.get_absolute_url }}" data-title="{{ companion.location.region }}">{{ companion.location }}</span>)</span>
 													</div>
 												</div>
                                                 {% endfor %}

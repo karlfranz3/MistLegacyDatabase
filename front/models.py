@@ -133,7 +133,6 @@ class Location(models.Model):
     name = models.CharField(max_length=64, blank=True, null=True)
     region = models.ForeignKey(Region, on_delete=models.CASCADE)
     exploration = models.IntegerField(blank=True, null=True)
-    image = models.ImageField(blank=True, null=True)
     quest = models.BooleanField(blank=True, null=True, default=False)
 
     class Meta:
@@ -141,6 +140,9 @@ class Location(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('location_card', args=[str(self.id)])
 
 
 class Companion(models.Model):
@@ -187,12 +189,16 @@ class Recipe(models.Model):
                                        help_text="If not a building")
     weapon = models.ForeignKey(Weapon, on_delete=models.CASCADE, blank=True, null=True,
                                help_text="If equipment_slot is weapon")
+    image = models.ImageField(blank=True, null=True)
 
     class Meta:
         ordering = ["name"]
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('recipe_card', args=[str(self.id)])
 
 
 class Book(models.Model):
@@ -209,6 +215,7 @@ class Book(models.Model):
     location = models.ForeignKey(Location, on_delete=models.CASCADE, blank=True, null=True)
     daytime = models.ForeignKey(Daytime, on_delete=models.CASCADE, blank=True, null=True)
     npc = models.ForeignKey(NPC, on_delete=models.CASCADE, blank=True, null=True)
+    image = models.ImageField(blank=True, null=True)
 
     class Meta:
         ordering = ["gathering", "adventure", "crafting", "land", "weapon"]
@@ -224,6 +231,9 @@ class Book(models.Model):
             return '{} +{}'.format(self.land, self.value)
         elif self.weapon:
             return '{} +{}'.format(self.weapon, self.value)
+
+    def get_absolute_url(self):
+        return reverse('book_card', args=[str(self.id)])
 
 
 class Training(models.Model):
@@ -260,3 +270,6 @@ class Spell(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('spell_card', args=[str(self.id)])
