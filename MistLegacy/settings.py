@@ -123,7 +123,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = '/home/Nacros/mldb/static'
-MEDIA_ROOT = '/home/Nacros/mldb/static/upload'
+MEDIA_ROOT = '/home/Nacros/mldb/media'
 MEDIA_URL = '/media/'
 
 MODELTRANSLATION_FALLBACK_LANGUAGES = ('en', 'fr')

@@ -122,12 +122,16 @@ class Region(models.Model):
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return reverse('region_card', args=[str(self.id)])
+
 
 class Location(models.Model):
     name = models.CharField(max_length=64, blank=True, null=True)
     region = models.ForeignKey(Region, on_delete=models.CASCADE)
     exploration = models.IntegerField(blank=True, null=True)
     image = models.ImageField(blank=True, null=True)
+    quest = models.BooleanField(blank=True, null=True, default=False)
 
     class Meta:
         ordering = ["name"]
@@ -139,7 +143,7 @@ class Location(models.Model):
 class Companion(models.Model):
     name = models.CharField(max_length=64, blank=True, null=True)
     location = models.ForeignKey(Location, on_delete=models.CASCADE, blank=True, null=True)
-    quest = models.BooleanField(blank=True, null=True)
+    quest = models.BooleanField(blank=True, null=True, default=False)
     weapon = models.ForeignKey(Weapon, on_delete=models.CASCADE, blank=True, null=True)
     image = models.ImageField(blank=True, null=True)
     comfort = models.IntegerField(blank=True, null=True)
@@ -151,7 +155,7 @@ class Companion(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('companion_light', args=[str(self.id)])
+        return reverse('companion_card', args=[str(self.id)])
 
 
 class NPC(models.Model):
