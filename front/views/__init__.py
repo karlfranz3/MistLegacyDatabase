@@ -5,3 +5,4 @@ from front.views.books import *
 from front.views.recipes import *
 from front.views.spells import *
 from front.views.cards import *
+from front.views.map import *

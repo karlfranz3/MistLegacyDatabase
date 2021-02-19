@@ -10,6 +10,7 @@ urlpatterns = [
 
     path('set_lang/<str:lang>', set_lang, name="set_lang"),
     path('search', search, name='search'),
+    path('map', map, name='map'),
 
     path('', home, name='home'),
     path('basics', basics, name='basics'),

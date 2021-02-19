@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'front.apps.FrontConfig',
-    'django_distill',
+    'leaflet'
 ]
 
 MIDDLEWARE = [
@@ -137,3 +137,29 @@ LOCALE_PATHS = [
     '/home/Nacros/mldb/locale',
     'C:/Users/Fabrice/PycharmProjects/MistLegacy/locale',
 ]
+
+GDAL_LIBRARY_PATH = r"c:\python37\Lib\site-packages\osgeo\gdal302.dll"
+GEOS_LIBRARY_PATH = r"c:\python37\Lib\site-packages\osgeo\geos_c.dll"
+LEAFLET_CONFIG = {
+    'DEFAULT_CENTER': (6.0, 45.0),
+    'DEFAULT_ZOOM': 5,
+    'MIN_ZOOM': 0,
+    'MAX_ZOOM': 8,
+    'DEFAULT_PRECISION': 6,
+    'TILES': '/static/map/{z}/{y}/{x}.jpg',
+    'ATTRIBUTION_PREFIX': '&copy; Virtys',
+    'SCALE': None,
+    'MINIMAP': True,
+    'PLUGINS': {
+        'MousePosition': {
+            'css': '/static/assets/mldb/map/L.Control.MousePosition.css',
+            'js': 'assets/mldb/map/L.Control.MousePosition.js',
+            'auto-include': True,
+        },
+        'FullScreen': {
+            'css': '/static/assets/mldb/map/leaflet.fullscreen.css',
+            'js': 'assets/mldb/map/leaflet.fullscreen.js',
+            'auto-include': True,
+        },
+    }
+}
