@@ -139,8 +139,9 @@ LOCALE_PATHS = [
     'C:/Users/Fabrice/PycharmProjects/MistLegacy/locale',
 ]
 
-GDAL_LIBRARY_PATH = r"c:\python37\Lib\site-packages\osgeo\gdal302.dll"
-GEOS_LIBRARY_PATH = r"c:\python37\Lib\site-packages\osgeo\geos_c.dll"
+if os.path.exists(r"c:\python37\Lib\site-packages\osgeo"):
+    GDAL_LIBRARY_PATH = r"c:\python37\Lib\site-packages\osgeo\gdal302.dll"
+    GEOS_LIBRARY_PATH = r"c:\python37\Lib\site-packages\osgeo\geos_c.dll"
 LEAFLET_CONFIG = {
     'DEFAULT_CENTER': (-5.0, -57.0),
     'DEFAULT_ZOOM': 6,
