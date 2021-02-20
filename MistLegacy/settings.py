@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'front.apps.FrontConfig',
-    'leaflet'
+    'djgeojson',
+    'leaflet',
 ]
 
 MIDDLEWARE = [
@@ -141,15 +142,14 @@ LOCALE_PATHS = [
 GDAL_LIBRARY_PATH = r"c:\python37\Lib\site-packages\osgeo\gdal302.dll"
 GEOS_LIBRARY_PATH = r"c:\python37\Lib\site-packages\osgeo\geos_c.dll"
 LEAFLET_CONFIG = {
-    'DEFAULT_CENTER': (6.0, 45.0),
-    'DEFAULT_ZOOM': 5,
-    'MIN_ZOOM': 0,
+    'DEFAULT_CENTER': (-5.0, -57.0),
+    'DEFAULT_ZOOM': 6,
+    'MIN_ZOOM': 4,
     'MAX_ZOOM': 8,
-    'DEFAULT_PRECISION': 6,
     'TILES': '/static/map/{z}/{y}/{x}.jpg',
     'ATTRIBUTION_PREFIX': '&copy; Virtys',
     'SCALE': None,
-    'MINIMAP': True,
+    'MINIMAP': False,
     'PLUGINS': {
         'MousePosition': {
             'css': '/static/assets/mldb/map/L.Control.MousePosition.css',
@@ -157,8 +157,8 @@ LEAFLET_CONFIG = {
             'auto-include': True,
         },
         'FullScreen': {
-            'css': '/static/assets/mldb/map/leaflet.fullscreen.css',
-            'js': 'assets/mldb/map/leaflet.fullscreen.js',
+            'css': 'https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css',
+            'js': 'https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js',
             'auto-include': True,
         },
     }

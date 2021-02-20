@@ -1,5 +1,7 @@
 from django.db import models
 from django.urls import reverse
+from djgeojson.fields import PointField, PolygonField
+from django.utils.translation import gettext as _
 
 
 class Daytime(models.Model):
@@ -115,9 +117,9 @@ class Guild(models.Model):
 
 class Region(models.Model):
     name = models.CharField(max_length=64, blank=True, null=True)
-    image = models.ImageField(blank=True, null=True)
     land = models.ForeignKey(Land, on_delete=models.CASCADE, blank=True, null=True)
     land_difficulty = models.IntegerField(blank=True, null=True)
+    #geom = PolygonField(blank=True, null=True)
 
     class Meta:
         ordering = ["name"]
@@ -134,12 +136,39 @@ class Location(models.Model):
     region = models.ForeignKey(Region, on_delete=models.CASCADE)
     exploration = models.IntegerField(blank=True, null=True)
     quest = models.BooleanField(blank=True, null=True, default=False)
+    geom = PointField(blank=True, null=True)
 
     class Meta:
         ordering = ["name"]
 
     def __str__(self):
         return self.name
+
+    @property
+    def map_poi(self):
+        tooltip = "<p>{}</br>{}: {}</br>{}: {}".format(
+            self.name,
+            _("Exploration"), self.exploration,
+            _("Quest"), self.quest)
+        if self.training_set.all().exists():
+            tooltip = tooltip + '</br>{}(s):</br>'.format(_("Training"))
+            for training in self.training_set.all():
+                tooltip = tooltip + '{}/{} ({})</br>'.format(training.daytime, training.adventure, training.difficulty)
+        if self.book_set.all().exists():
+            tooltip = tooltip + '</br>{}(s):</br>'.format(_("Book"))
+            for book in self.book_set.all():
+                tooltip = tooltip + '{}/{} ({}/{})</br>'.format(book.daytime, book.__str__(), book.reputation, book.reputation_value)
+        if self.recipe_set.all().exists():
+            tooltip = tooltip + '</br>{}(s):</br>'.format(_("Recipe"))
+            for recipe in self.recipe_set.all():
+                tooltip = tooltip + '{}/{} ({}/{})</br>'.format(recipe.daytime, recipe.name, recipe.reputation, recipe.reputation_value)
+        if self.spell_set.all().exists():
+            tooltip = tooltip + '</br>{}(s):</br>'.format(_("Spell/Skill"))
+            for spell in self.spell_set.all():
+                rep = spell.reputation or spell.guild
+                tooltip = tooltip + '{}/{} ({}/{})</br>'.format(spell.daytime, spell.name, rep, spell.reputation_guild_value)
+        tooltip = tooltip + '</p>'
+        return tooltip
 
     def get_absolute_url(self):
         return reverse('location_card', args=[str(self.id)])

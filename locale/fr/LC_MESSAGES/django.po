@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-17 18:55+0100\n"
+"POT-Creation-Date: 2021-02-20 15:51+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,13 +18,53 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: .\MistLegacy\settings.py:133 .\templates\_base.html:247
+#: .\MistLegacy\settings.py:134 .\templates\_base.html:247
 msgid "English"
 msgstr "Anglais"
 
-#: .\MistLegacy\settings.py:134 .\templates\_base.html:253
+#: .\MistLegacy\settings.py:135 .\templates\_base.html:253
 msgid "French"
 msgstr "Français"
+
+#: .\front\models.py:151 .\templates\locations.html:35
+#, fuzzy
+#| msgid "Locations"
+msgid "Exploration"
+msgstr "Exploration"
+
+#: .\front\models.py:152 .\templates\companion_card.html:11
+msgid "Quest"
+msgstr "Quête"
+
+#: .\front\models.py:154 .\templates\adventure.html:40
+#, fuzzy
+#| msgid "Trainings"
+msgid "Training"
+msgstr "Entrainement"
+
+#: .\front\models.py:158 .\templates\_base.html:136
+#: .\templates\adventure.html:63 .\templates\books.html:5
+#: .\templates\books.html:25 .\templates\books.html:33
+#: .\templates\crafting.html:40 .\templates\gathering.html:40
+#: .\templates\land.html:63 .\templates\reputation.html:63
+#, fuzzy
+#| msgid "Books"
+msgid "Book"
+msgstr "Livre"
+
+#: .\front\models.py:162 .\templates\_base.html:143 .\templates\recipes.html:5
+#: .\templates\recipes.html:25 .\templates\reputation.html:40
+#: .\templates\weapon.html:40
+#, fuzzy
+#| msgid "Recipes"
+msgid "Recipe"
+msgstr "Recette"
+
+#: .\front\models.py:166
+#, fuzzy
+#| msgid "Spells"
+msgid "Spell/Skill"
+msgstr "Sort/Compétence"
 
 #: .\templates\_base.html:104 .\templates\home.html:5
 msgid "Home"
@@ -54,22 +94,9 @@ msgstr "Région"
 msgid "Location"
 msgstr "Lieu"
 
-#: .\templates\_base.html:136 .\templates\adventure.html:63
-#: .\templates\books.html:5 .\templates\books.html:25 .\templates\books.html:33
-#: .\templates\crafting.html:40 .\templates\gathering.html:40
-#: .\templates\land.html:63 .\templates\reputation.html:63
-#, fuzzy
-#| msgid "Books"
-msgid "Book"
-msgstr "Livre"
-
-#: .\templates\_base.html:143 .\templates\recipes.html:5
-#: .\templates\recipes.html:25 .\templates\reputation.html:40
-#: .\templates\weapon.html:40
-#, fuzzy
-#| msgid "Recipes"
-msgid "Recipe"
-msgstr "Recette"
+#: .\templates\_base.html:127
+msgid "Shop"
+msgstr "Magasin"
 
 #: .\templates\_base.html:150 .\templates\guild.html:42
 #: .\templates\reputation.html:86 .\templates\spells.html:5
@@ -78,6 +105,14 @@ msgstr "Recette"
 #| msgid "Spells"
 msgid "Spells/Skills"
 msgstr "Sort/Compétence"
+
+#: .\templates\_base.html:152
+msgid "Material"
+msgstr "Matières"
+
+#: .\templates\_base.html:156
+msgid "Tool"
+msgstr "Outil"
 
 #: .\templates\_base.html:181
 msgid "Official Mist Legacy Website"
@@ -99,12 +134,6 @@ msgstr "Recherche..."
 #: .\templates\basics.html:42
 msgid "Adventure"
 msgstr "Aventure"
-
-#: .\templates\adventure.html:40
-#, fuzzy
-#| msgid "Trainings"
-msgid "Training"
-msgstr "Entrainement"
 
 #: .\templates\adventure.html:108 .\templates\basics.html:224
 #: .\templates\crafting.html:85 .\templates\gathering.html:85
@@ -203,23 +232,13 @@ msgstr "Nom"
 msgid "Comfort"
 msgstr "Confort"
 
-#: .\templates\companion_card.html:11
-msgid "Quest"
-msgstr "Quête"
-
 #: .\templates\home.html:20
 msgid "What are you searching in the mist?"
 msgstr "Que cherchez-vous dans la brume ?"
 
 #: .\templates\home.html:34
-msgid "Your search"
-msgstr "Votre recherche"
-
-#: .\templates\locations.html:35
-#, fuzzy
-#| msgid "Locations"
-msgid "Exploration"
-msgstr "Exploration"
+msgid "Coming soon..."
+msgstr "Bientôt disponible..."
 
 #: .\templates\recipes.html:39
 msgid "Building"

@@ -1,5 +1,6 @@
 from django.contrib import admin
-from front.models import Region, Reputation, Location, Recipe, Book, Training, Weapon, Land, Gathering, Adventure, Crafting, Daytime, NPC, EquipmentSlot, Companion, Guild, Spell
+from leaflet.admin import LeafletGeoAdmin
+from front.models import *
 from modeltranslation.admin import TranslationAdmin
 
 
@@ -49,12 +50,14 @@ class GuildAdmin(TranslationAdmin):
 
 
 @admin.register(Region)
-class RegionAdmin(TranslationAdmin):
+class RegionAdmin(LeafletGeoAdmin):
+    exclude = ('name',)
     list_display = ('name_en', 'name_fr', 'land', 'land_difficulty')
 
 
 @admin.register(Location)
-class LocationAdmin(TranslationAdmin):
+class LocationAdmin(LeafletGeoAdmin):
+    exclude = ('name',)
     list_display = ('name_en', 'name_fr', 'region', 'exploration')
 
 
@@ -84,5 +87,5 @@ class CompanionAdmin(TranslationAdmin):
 
 
 @admin.register(Spell)
-class SpellAdmin(admin.ModelAdmin):
+class SpellAdmin(TranslationAdmin):
     list_display = ('name', 'reputation', 'guild', 'reputation_guild_value', 'price', 'location', 'npc')

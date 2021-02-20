@@ -1,5 +1,6 @@
 {% load static %}
 {% load leaflet_tags %}
+{% load geojson_tags %}
 <!doctype html>
 <html lang="en">
 <head>
@@ -24,6 +25,21 @@
     {% leaflet_css %}
 </head>
 <body>
-{% leaflet_map "map" %}
+{% leaflet_map "map" callback="window.map_init" %}
+<script>
+    collection = {{ locations|geojsonfeature:"map_poi"|safe }};
+
+    function onEachFeature(feature, layer) {
+        if (feature.properties && feature.properties.map_poi) {
+            layer.bindPopup(feature.properties.map_poi);
+        }
+    }
+
+    function map_init(map, options) {
+        L.control.mousePosition().addTo(map);
+        map.addControl(new L.Control.Fullscreen());
+        L.geoJson(collection, {onEachFeature: onEachFeature}).addTo(map);
+    }
+</script>
 </body>
 </html>
