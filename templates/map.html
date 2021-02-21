@@ -31,21 +31,25 @@
 
     let GenericIcon = L.Icon.extend({
         options: {
-            iconSize: [25,35],
-            iconAnchor: [13,54],
-            shadowSize: [40,55],
-            shadowAnchor: [20,55]
+            iconUrl: "/static/leaflet/images/dummy.png",
+            iconSize: [25, 35],
+            iconAnchor: [13, 54],
+            shadowSize: [40, 55],
+            shadowAnchor: [20, 55]
         }
     });
 
     function onEachFeature(feature, layer) {
         if (feature.properties && feature.properties.map_poi) {
             layer.bindPopup(feature.properties.map_poi);
-            if(feature.properties.logo_style && feature.properties.logo_icon) {
-			  layer.setIcon(new GenericIcon({iconUrl: feature.properties.logo_icon, shadowUrl:feature.properties.logo_style}));
-			} else if(feature.properties.logo_style) {
-			  layer.setIcon(new GenericIcon({shadowUrl:feature.properties.logo_style}));
-			}
+            if (feature.properties.logo_style && feature.properties.logo_icon) {
+                layer.setIcon(new GenericIcon({
+                    iconUrl: feature.properties.logo_icon,
+                    shadowUrl: feature.properties.logo_style
+                }));
+            } else if (feature.properties.logo_style) {
+                layer.setIcon(new GenericIcon({shadowUrl: feature.properties.logo_style}));
+            }
         }
     }
 
@@ -54,8 +58,8 @@
         const northEast = L.latLng(56, 108);
         const bounds = L.latLngBounds(southWest, northEast);
         map.setMaxBounds(bounds);
-        map.on('drag', function() {
-            map.panInsideBounds(bounds, { animate: false });
+        map.on('drag', function () {
+            map.panInsideBounds(bounds, {animate: false});
         });
         L.control.mousePosition().addTo(map);
         map.addControl(new L.Control.Fullscreen());
