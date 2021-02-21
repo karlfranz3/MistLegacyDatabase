@@ -4,7 +4,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Markers Map</title>
+    <title>MLDB Map</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         html, body {
@@ -27,17 +27,38 @@
 <body>
 {% leaflet_map "map" callback="window.map_init" %}
 <script>
-    collection = {{ locations|geojsonfeature:"map_poi"|safe }};
+    collection = {{ locations|geojsonfeature:"map_poi,logo_style,logo_icon"|safe }};
+
+    let GenericIcon = L.Icon.extend({
+        options: {
+            iconSize: [25,35],
+            iconAnchor: [13,54],
+            shadowSize: [40,55],
+            shadowAnchor: [20,55]
+        }
+    });
 
     function onEachFeature(feature, layer) {
         if (feature.properties && feature.properties.map_poi) {
             layer.bindPopup(feature.properties.map_poi);
+            if(feature.properties.logo_style) {
+			  layer.setIcon(new GenericIcon({iconUrl: feature.properties.logo_icon, shadowUrl:feature.properties.logo_style}));
+			}
         }
     }
 
     function map_init(map, options) {
+        const southWest = L.latLng(-55, -108);
+        const northEast = L.latLng(56, 108);
+        const bounds = L.latLngBounds(southWest, northEast);
+        map.setMaxBounds(bounds);
+        map.on('drag', function() {
+            map.panInsideBounds(bounds, { animate: false });
+        });
         L.control.mousePosition().addTo(map);
         map.addControl(new L.Control.Fullscreen());
+        L.Icon.Default.prototype.options.iconUrl = 'Unknown.png';
+        L.Icon.Default.prototype.options.iconSize = L.point(40, 50);
         L.geoJson(collection, {onEachFeature: onEachFeature}).addTo(map);
     }
 </script>

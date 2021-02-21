@@ -2,6 +2,7 @@ from django.db import models
 from django.urls import reverse
 from djgeojson.fields import PointField, PolygonField
 from django.utils.translation import gettext as _
+from filer.fields.image import FilerImageField
 
 
 class Daytime(models.Model):
@@ -137,6 +138,8 @@ class Location(models.Model):
     exploration = models.IntegerField(blank=True, null=True)
     quest = models.BooleanField(blank=True, null=True, default=False)
     geom = PointField(blank=True, null=True)
+    style = FilerImageField(blank=True, null=True, related_name="logo_style", on_delete=models.CASCADE)
+    icon = FilerImageField(blank=True, null=True, related_name="logo_icon", on_delete=models.CASCADE)
 
     class Meta:
         ordering = ["name"]
@@ -169,6 +172,20 @@ class Location(models.Model):
                 tooltip = tooltip + '{}/{} ({}/{})</br>'.format(spell.daytime, spell.name, rep, spell.reputation_guild_value)
         tooltip = tooltip + '</p>'
         return tooltip
+
+    @property
+    def logo_style(self):
+        if self.style:
+            return self.style.url
+        else:
+            return None
+
+    @property
+    def logo_icon(self):
+        if self.icon:
+            return self.icon.url
+        else:
+            return None
 
     def get_absolute_url(self):
         return reverse('location_card', args=[str(self.id)])

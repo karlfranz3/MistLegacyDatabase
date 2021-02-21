@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     'front.apps.FrontConfig',
     'djgeojson',
     'leaflet',
+    'easy_thumbnails',
+    'filer',
+    'mptt',
 ]
 
 MIDDLEWARE = [
@@ -144,7 +147,7 @@ if os.path.exists(r"c:\python37\Lib\site-packages\osgeo"):
     GEOS_LIBRARY_PATH = r"c:\python37\Lib\site-packages\osgeo\geos_c.dll"
 LEAFLET_CONFIG = {
     'DEFAULT_CENTER': (-5.0, -57.0),
-    'DEFAULT_ZOOM': 6,
+    'DEFAULT_ZOOM': 5,
     'MIN_ZOOM': 4,
     'MAX_ZOOM': 8,
     'TILES': '/static/map/{z}/{y}/{x}.jpg',
