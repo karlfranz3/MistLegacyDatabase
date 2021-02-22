@@ -149,7 +149,7 @@ if os.path.exists(r"c:\python37\Lib\site-packages\osgeo"):
 LEAFLET_CONFIG = {
     'DEFAULT_CENTER': (-5.0, -57.0),
     'DEFAULT_ZOOM': 5,
-    'MIN_ZOOM': 4,
+    'MIN_ZOOM': 5,
     'MAX_ZOOM': 8,
     'TILES': '/static/map/{z}/{y}/{x}.jpg',
     'ATTRIBUTION_PREFIX': '&copy; Virtys',

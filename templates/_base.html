@@ -375,8 +375,8 @@ License: You must have a valid license purchased only from themeforest(the above
 
             $(window).on('map:init', function(e) {
                 mymap = e.originalEvent.detail.map;
-                const southWest = L.latLng(-55, -108);
-                const northEast = L.latLng(56, 108);
+                const southWest = L.latLng(-38, -82);
+                const northEast = L.latLng(22, -28);
                 const bounds = L.latLngBounds(southWest, northEast);
                 mymap.setMaxBounds(bounds);
                 mymap.on('drag', function () {
