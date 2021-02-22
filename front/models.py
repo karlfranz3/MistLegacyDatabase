@@ -187,7 +187,6 @@ class Location(models.Model):
     @property
     def coordinates(self):
         if self.geom:
-            print(self.geom)
             return str(self.geom['coordinates']).replace('[', '').replace(']', '').replace(' ', '')
         else:
             return None
