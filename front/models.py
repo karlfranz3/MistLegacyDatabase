@@ -128,9 +128,6 @@ class Region(models.Model):
     def __str__(self):
         return self.name
 
-    def get_absolute_url(self):
-        return reverse('region_card', args=[str(self.id)])
-
 
 class Location(models.Model):
     name = models.CharField(max_length=64, blank=True, null=True)
@@ -194,9 +191,6 @@ class Location(models.Model):
             return str(self.geom['coordinates']).replace('[', '').replace(']', '').replace(' ', '')
         else:
             return None
-
-    def get_absolute_url(self):
-        return reverse('location_card', args=[str(self.id)])
 
 
 class Companion(models.Model):
