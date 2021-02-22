@@ -49,7 +49,7 @@
 												<div class="kt-list-timeline__items">
 													<div class="kt-list-timeline__item">
 														<span class="kt-list-timeline__badge"></span>
-														<span class="kt-list-timeline__text"><span data-popover-remote="{{ spell.get_absolute_url }}" data-title="{{ spell }}">{{ spell }}</span> (<span data-popover-remote="{{ spell.location.region.get_absolute_url }}" data-title="{{ spell.location.region }}">{{ spell.location }}</span>)</span>
+														<span class="kt-list-timeline__text"><span data-popover-remote="{{ spell.get_absolute_url }}" data-title="{{ spell }}">{{ spell }}</span> ({% if spell.location.coordinates %}<a data-toggle="modal" data-target="#modal_map" href="" data-position="{{ spell.location.coordinates }}">{{ spell.location }}</a>{% else %}{{ spell.location }}{% endif %}}</span>)</span>
 													</div>
 												</div>
                                                 {% endfor %}

@@ -187,6 +187,14 @@ class Location(models.Model):
         else:
             return None
 
+    @property
+    def coordinates(self):
+        if self.geom:
+            print(self.geom)
+            return str(self.geom['coordinates']).replace('[', '').replace(']', '').replace(' ', '')
+        else:
+            return None
+
     def get_absolute_url(self):
         return reverse('location_card', args=[str(self.id)])
 

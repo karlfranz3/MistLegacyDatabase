@@ -8,16 +8,6 @@ def companion_card(request, pk):
     return render(request, 'companion_card.html', context={'companion': companion})
 
 
-def region_card(request, pk):
-    region = get_object_or_404(Region, pk=pk)
-    return render(request, 'region_card.html', context={'region': region})
-
-
-def location_card(request, pk):
-    location = get_object_or_404(Location, pk=pk)
-    return render(request, 'location_card.html', context={'location': location})
-
-
 def book_card(request, pk):
     book = get_object_or_404(Book, pk=pk)
     return render(request, 'book_card.html', context={'book': book})

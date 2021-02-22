@@ -47,7 +47,7 @@
 												<div class="kt-list-timeline__items">
 													<div class="kt-list-timeline__item">
 														<span class="kt-list-timeline__badge"></span>
-                                                        <span class="kt-list-timeline__text"><span data-popover-remote="{{ recipe.get_absolute_url }}" data-title="{{ recipe }}">{{ recipe }}</span> (<span data-popover-remote="{{ recipe.location.region.get_absolute_url }}" data-title="{{ recipe.location.region }}">{{ recipe.location }}</span>)</span>
+                                                        <span class="kt-list-timeline__text"><span data-popover-remote="{{ recipe.get_absolute_url }}" data-title="{{ recipe }}">{{ recipe }}</span> ({% if recipe.location.coordinates %}<a data-toggle="modal" data-target="#modal_map" href="" data-position="{{ recipe.location.coordinates }}">{{ recipe.location }}</a>{% else %}{{ recipe.location }}{% endif %})</span>
 													</div>
 												</div>
                                                 {% endfor %}
@@ -70,7 +70,7 @@
 												<div class="kt-list-timeline__items">
 													<div class="kt-list-timeline__item">
 														<span class="kt-list-timeline__badge"></span>
-														<span class="kt-list-timeline__text"><span data-popover-remote="{{ book.get_absolute_url }}" data-title="{{ book }}">{{ book }}</span> (<span data-popover-remote="{{ book.location.region.get_absolute_url }}" data-title="{{ book.location.region }}">{{ book.location }}</span>)</span>
+														<span class="kt-list-timeline__text"><span data-popover-remote="{{ book.get_absolute_url }}" data-title="{{ book }}">{{ book }}</span> ({% if book.location.coordinates %}<a data-toggle="modal" data-target="#modal_map" href="" data-position="{{ book.location.coordinates }}">{{ book.location }}</a>{% else %}{{ book.location }}{% endif %})</span>
 													</div>
 												</div>
                                                 {% endfor %}
@@ -93,7 +93,7 @@
 												<div class="kt-list-timeline__items">
 													<div class="kt-list-timeline__item">
 														<span class="kt-list-timeline__badge"></span>
-                                                        <span class="kt-list-timeline__text"><span data-popover-remote="{{ spell.get_absolute_url }}" data-title="{{ spell }}">{{ spell }}</span> (<span data-popover-remote="{{ spell.location.region.get_absolute_url }}" data-title="{{ spell.location.region }}">{{ spell.location }}</span>)</span>
+                                                        <span class="kt-list-timeline__text"><span data-popover-remote="{{ spell.get_absolute_url }}" data-title="{{ spell }}">{{ spell }}</span> ({% if spell.location.coordinates %}<a data-toggle="modal" data-target="#modal_map" href="" data-position="{{ spell.location.coordinates }}">{{ spell.location }}</a>{% else %}{{ spell.location }}{% endif %})</span>
 													</div>
 												</div>
                                                 {% endfor %}

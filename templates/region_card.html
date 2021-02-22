@@ -1,9 +1,0 @@
-{% load static %}
-{% load i18n %}
-<div>
-    {% if region.image %}
-        <img src="{{ region.image.url }}">
-    {% else %}
-        {% translate "No picture available" %}
-    {% endif %}
-</div>

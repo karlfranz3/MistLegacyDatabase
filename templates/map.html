@@ -1,10 +1,6 @@
 {% load static %}
 {% load leaflet_tags %}
 {% load geojson_tags %}
-<!doctype html>
-<html lang="en">
-<head>
-    <title>MLDB Map</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         html, body {
@@ -23,8 +19,7 @@
     </style>
     {% leaflet_js %}
     {% leaflet_css %}
-</head>
-<body>
+
 {% leaflet_map "map" callback="window.map_init" %}
 <script>
     collection = {{ locations|geojsonfeature:"map_poi,logo_style,logo_icon"|safe }};
@@ -35,7 +30,8 @@
             iconSize: [25, 35],
             iconAnchor: [13, 54],
             shadowSize: [40, 55],
-            shadowAnchor: [20, 55]
+            shadowAnchor: [20, 55],
+            popupAnchor: [0, -30]
         }
     });
 
@@ -54,6 +50,7 @@
     }
 
     function map_init(map, options) {
+        alert(1);
         const southWest = L.latLng(-55, -108);
         const northEast = L.latLng(56, 108);
         const bounds = L.latLngBounds(southWest, northEast);
@@ -66,7 +63,6 @@
         L.Icon.Default.prototype.options.iconUrl = 'Unknown.png';
         L.Icon.Default.prototype.options.iconSize = L.point(40, 50);
         L.geoJson(collection, {onEachFeature: onEachFeature}).addTo(map);
+        alert(2);
     }
 </script>
-</body>
-</html>

@@ -164,7 +164,7 @@
 												<div class="kt-list-timeline__items">
 													<div class="kt-list-timeline__item">
 														<span class="kt-list-timeline__badge"></span>
-														<span class="kt-list-timeline__text"><span data-popover-remote="{{ companion.get_absolute_url }}" data-title="{{ companion }}">{{ companion }}</span> (<span data-popover-remote="{{ companion.location.region.get_absolute_url }}" data-title="{{ companion.location.region }}">{{ companion.location }}</span>)</span>
+														<span class="kt-list-timeline__text"><span data-popover-remote="{{ companion.get_absolute_url }}" data-title="{{ companion }}">{{ companion }}</span> ({% if companion.location.coordinates %}<a data-toggle="modal" data-target="#modal_map" href="" data-position="{{ companion.location.coordinates }}">{{ companion.location }}</a>{% else %}{{ companion.location }}{% endif %})</span>
 													</div>
 												</div>
                                                 {% endfor %}
