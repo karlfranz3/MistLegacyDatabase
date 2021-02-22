@@ -47,7 +47,7 @@
 												<div class="kt-list-timeline__items">
 													<div class="kt-list-timeline__item">
 														<span class="kt-list-timeline__badge"></span>
-                                                        <span class="kt-list-timeline__text"><a href="{{ training.get_absolute_url }}">{{ training }}</a></span>
+                                                        <span class="kt-list-timeline__text">{{ training.difficulty }}-{{ training }} ({% if training.location.coordinates %}<a data-toggle="modal" data-target="#modal_map" href="" data-position="{{ training.location.coordinates }}">{{ training.location }}</a>{% else %}{{ training.location }}{% endif %})</span>
 													</div>
 												</div>
                                                 {% endfor %}
