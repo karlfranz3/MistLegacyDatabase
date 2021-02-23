@@ -88,4 +88,4 @@ class CompanionAdmin(TranslationAdmin):
 
 @admin.register(Spell)
 class SpellAdmin(TranslationAdmin):
-    list_display = ('name', 'reputation', 'guild', 'reputation_guild_value', 'price', 'location', 'npc')
+    list_display = ('name_en', 'name_fr', 'guild', 'reputation_guild_value', 'price', 'location', 'npc')
