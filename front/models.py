@@ -230,7 +230,6 @@ class Recipe(models.Model):
     guild = models.ForeignKey(Guild, on_delete=models.CASCADE, blank=True, null=True)
     reputation_guild_value = models.IntegerField(blank=True, null=True)
     location = models.ForeignKey(Location, on_delete=models.CASCADE, blank=True, null=True)
-    daytime = models.ForeignKey(Daytime, on_delete=models.CASCADE, blank=True, null=True)
     npc = models.ForeignKey(NPC, on_delete=models.CASCADE, blank=True, null=True)
     building = models.BooleanField(default=False)
     equipment_slot = models.ForeignKey(EquipmentSlot, on_delete=models.CASCADE, blank=True, null=True,
@@ -262,7 +261,6 @@ class Book(models.Model):
     guild = models.ForeignKey(Guild, on_delete=models.CASCADE, blank=True, null=True)
     reputation_guild_value = models.IntegerField(blank=True, null=True)
     location = models.ForeignKey(Location, on_delete=models.CASCADE, blank=True, null=True)
-    daytime = models.ForeignKey(Daytime, on_delete=models.CASCADE, blank=True, null=True)
     npc = models.ForeignKey(NPC, on_delete=models.CASCADE, blank=True, null=True)
     image = models.ImageField(blank=True, null=True)
 
@@ -310,7 +308,6 @@ class Spell(models.Model):
     guild = models.ForeignKey(Guild, on_delete=models.CASCADE, blank=True, null=True)
     reputation_guild_value = models.IntegerField(blank=True, null=True)
     location = models.ForeignKey(Location, on_delete=models.CASCADE, blank=True, null=True)
-    daytime = models.ForeignKey(Daytime, on_delete=models.CASCADE, blank=True, null=True)
     npc = models.ForeignKey(NPC, on_delete=models.CASCADE, blank=True, null=True)
     image = models.ImageField(blank=True, null=True)
 
