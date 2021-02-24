@@ -153,20 +153,20 @@ class Location(models.Model):
         if self.training_set.all().exists():
             tooltip = tooltip + '</br>{}(s):</br>'.format(_("Training"))
             for training in self.training_set.all():
-                tooltip = tooltip + '{}/{} ({})</br>'.format(training.daytime, training.adventure, training.difficulty)
+                tooltip = tooltip + '{} ({})</br>'.format(training.adventure, training.difficulty)
         if self.book_set.all().exists():
             tooltip = tooltip + '</br>{}(s):</br>'.format(_("Book"))
             for book in self.book_set.all():
-                tooltip = tooltip + '{}/{} ({}/{})</br>'.format(book.daytime, book.__str__(), book.reputation, book.reputation_guild_value)
+                tooltip = tooltip + '{} ({}/{})</br>'.format(book.__str__(), book.reputation, book.reputation_guild_value)
         if self.recipe_set.all().exists():
             tooltip = tooltip + '</br>{}(s):</br>'.format(_("Recipe"))
             for recipe in self.recipe_set.all():
-                tooltip = tooltip + '{}/{} ({}/{})</br>'.format(recipe.daytime, recipe.name, recipe.reputation, recipe.reputation_guild_value)
+                tooltip = tooltip + '{} ({}/{})</br>'.format(recipe.name, recipe.reputation, recipe.reputation_guild_value)
         if self.spell_set.all().exists():
             tooltip = tooltip + '</br>{}(s):</br>'.format(_("Spell/Skill"))
             for spell in self.spell_set.all():
                 rep = spell.reputation or spell.guild
-                tooltip = tooltip + '{}/{} ({}/{})</br>'.format(spell.daytime, spell.name, rep, spell.reputation_guild_value)
+                tooltip = tooltip + '{} ({}/{})</br>'.format(spell.name, rep, spell.reputation_guild_value)
         tooltip = tooltip + '</p>'
         return tooltip
 
