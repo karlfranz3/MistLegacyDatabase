@@ -135,7 +135,7 @@ class Migration(migrations.Migration):
                 ('name_fr', models.CharField(blank=True, max_length=64, null=True)),
                 ('price', models.IntegerField(blank=True)),
                 ('count', models.IntegerField(blank=True)),
-                ('reputation_guild_value', models.IntegerField(blank=True)),
+                ('reputation_value', models.IntegerField(blank=True)),
                 ('adventure', models.ForeignKey(blank=True, on_delete=django.db.models.deletion.CASCADE, to='front.adventure')),
                 ('crafting', models.ForeignKey(blank=True, on_delete=django.db.models.deletion.CASCADE, to='front.crafting')),
                 ('gathering', models.ForeignKey(blank=True, on_delete=django.db.models.deletion.CASCADE, to='front.gathering')),
