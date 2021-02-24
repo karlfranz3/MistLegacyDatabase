@@ -63,12 +63,12 @@ class LocationAdmin(LeafletGeoAdmin):
 
 @admin.register(Recipe)
 class RecipeAdmin(TranslationAdmin):
-    list_display = ('name_en', 'name_fr', 'reputation', 'reputation_value', 'price', 'location')
+    list_display = ('name_en', 'name_fr', 'reputation', 'guild', 'reputation_guild_value', 'price', 'location')
 
 
 @admin.register(Book)
 class BookAdmin(admin.ModelAdmin):
-    list_display = ('__str__', 'reputation', 'reputation_value', 'price', 'location')
+    list_display = ('__str__', 'reputation', 'guild', 'reputation_guild_value', 'price', 'location')
 
 
 @admin.register(Training)
@@ -88,4 +88,4 @@ class CompanionAdmin(TranslationAdmin):
 
 @admin.register(Spell)
 class SpellAdmin(TranslationAdmin):
-    list_display = ('name_en', 'name_fr', 'guild', 'reputation_guild_value', 'price', 'location', 'npc')
+    list_display = ('name_en', 'name_fr', 'reputation', 'guild', 'reputation_guild_value', 'price', 'location', 'npc')

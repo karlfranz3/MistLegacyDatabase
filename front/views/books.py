@@ -11,7 +11,7 @@ def books(request):
 
 class BooksWS(BaseDatatableView):
     model = Book
-    columns = ['value', 'location', 'npc', 'reputation', 'reputation_value', 'price', 'count', 'daytime']
+    columns = ['value', 'location', 'npc', 'reputation', 'reputation_guild_value', 'price', 'count', 'daytime']
     order_columns = ['location']
 
     def render_column(self, row, column):

@@ -11,7 +11,7 @@ def recipes(request):
 
 class RecipesWS(BaseDatatableView):
     model = Recipe
-    columns = ['name', 'location', 'npc', 'reputation', 'reputation_value', 'price', 'building', 'equipment_slot', 'weapon', 'daytime']
+    columns = ['name', 'location', 'npc', 'reputation', 'reputation_guild_value', 'price', 'building', 'equipment_slot', 'weapon', 'daytime']
     order_columns = ['location']
 
     def filter_queryset(self, qs):

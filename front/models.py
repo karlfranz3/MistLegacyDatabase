@@ -157,11 +157,11 @@ class Location(models.Model):
         if self.book_set.all().exists():
             tooltip = tooltip + '</br>{}(s):</br>'.format(_("Book"))
             for book in self.book_set.all():
-                tooltip = tooltip + '{}/{} ({}/{})</br>'.format(book.daytime, book.__str__(), book.reputation, book.reputation_value)
+                tooltip = tooltip + '{}/{} ({}/{})</br>'.format(book.daytime, book.__str__(), book.reputation, book.reputation_guild_value)
         if self.recipe_set.all().exists():
             tooltip = tooltip + '</br>{}(s):</br>'.format(_("Recipe"))
             for recipe in self.recipe_set.all():
-                tooltip = tooltip + '{}/{} ({}/{})</br>'.format(recipe.daytime, recipe.name, recipe.reputation, recipe.reputation_value)
+                tooltip = tooltip + '{}/{} ({}/{})</br>'.format(recipe.daytime, recipe.name, recipe.reputation, recipe.reputation_guild_value)
         if self.spell_set.all().exists():
             tooltip = tooltip + '</br>{}(s):</br>'.format(_("Spell/Skill"))
             for spell in self.spell_set.all():
@@ -227,7 +227,8 @@ class Recipe(models.Model):
     name = models.CharField(max_length=64, blank=True, null=True)
     price = models.IntegerField(blank=True, null=True)
     reputation = models.ForeignKey(Reputation, on_delete=models.CASCADE, blank=True, null=True)
-    reputation_value = models.IntegerField(blank=True, null=True)
+    guild = models.ForeignKey(Guild, on_delete=models.CASCADE, blank=True, null=True)
+    reputation_guild_value = models.IntegerField(blank=True, null=True)
     location = models.ForeignKey(Location, on_delete=models.CASCADE, blank=True, null=True)
     daytime = models.ForeignKey(Daytime, on_delete=models.CASCADE, blank=True, null=True)
     npc = models.ForeignKey(NPC, on_delete=models.CASCADE, blank=True, null=True)
@@ -258,7 +259,8 @@ class Book(models.Model):
     land = models.ForeignKey(Land, on_delete=models.CASCADE, blank=True, null=True)
     weapon = models.ForeignKey(Weapon, on_delete=models.CASCADE, blank=True, null=True)
     reputation = models.ForeignKey(Reputation, on_delete=models.CASCADE, blank=True, null=True)
-    reputation_value = models.IntegerField(blank=True, null=True)
+    guild = models.ForeignKey(Guild, on_delete=models.CASCADE, blank=True, null=True)
+    reputation_guild_value = models.IntegerField(blank=True, null=True)
     location = models.ForeignKey(Location, on_delete=models.CASCADE, blank=True, null=True)
     daytime = models.ForeignKey(Daytime, on_delete=models.CASCADE, blank=True, null=True)
     npc = models.ForeignKey(NPC, on_delete=models.CASCADE, blank=True, null=True)

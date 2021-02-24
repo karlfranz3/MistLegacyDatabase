@@ -63,7 +63,7 @@ class Migration(migrations.Migration):
         ),
         migrations.AlterField(
             model_name='book',
-            name='reputation_value',
+            name='reputation_guild_value',
             field=models.IntegerField(blank=True, null=True),
         ),
         migrations.AlterField(
@@ -118,7 +118,7 @@ class Migration(migrations.Migration):
         ),
         migrations.AlterField(
             model_name='recipe',
-            name='reputation_value',
+            name='reputation_guild_value',
             field=models.IntegerField(blank=True, null=True),
         ),
         migrations.AlterField(
