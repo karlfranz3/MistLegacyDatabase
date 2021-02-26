@@ -17,6 +17,10 @@ def home(request):
     return render(request, 'home.html', context={})
 
 
+def map(request):
+    return render(request, 'map.html', context={})
+
+
 def basics(request):
     lands = Land.objects.all()
     craftings = Crafting.objects.all()

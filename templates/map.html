@@ -1,6 +1,8 @@
 {% load static %}
 {% load leaflet_tags %}
 {% load geojson_tags %}
+<html>
+<head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         html, body {
@@ -19,10 +21,11 @@
     </style>
     {% leaflet_js %}
     {% leaflet_css %}
-
+</head>
+<body>
 {% leaflet_map "map" callback="window.map_init" %}
 <script>
-    collection = {{ locations|geojsonfeature:"map_poi,logo_style,logo_icon"|safe }};
+    collection = {{ geojson_locations|geojsonfeature:"map_poi,logo_style,logo_icon"|safe }};
 
     let GenericIcon = L.Icon.extend({
         options: {
@@ -49,10 +52,9 @@
         }
     }
 
-    function map_init(map, options) {
-        alert(1);
-        const southWest = L.latLng(-55, -108);
-        const northEast = L.latLng(56, 108);
+    function map_init (map, options) {
+        const southWest = L.latLng(-38, -82);
+        const northEast = L.latLng(22, -28);
         const bounds = L.latLngBounds(southWest, northEast);
         map.setMaxBounds(bounds);
         map.on('drag', function () {
@@ -66,3 +68,5 @@
         alert(2);
     }
 </script>
+</body>
+</html>
