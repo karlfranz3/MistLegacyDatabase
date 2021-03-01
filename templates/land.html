@@ -37,7 +37,7 @@
 										<div class="kt-portlet__head">
 											<div class="kt-portlet__head-label">
 												<h3 class="kt-portlet__head-title">
-													{% translate "Region" %}s
+													{% translate "Region" %}s ({% translate "land difficulty" %})
 												</h3>
 											</div>
 										</div>
@@ -47,7 +47,7 @@
 												<div class="kt-list-timeline__items">
 													<div class="kt-list-timeline__item">
 														<span class="kt-list-timeline__badge"></span>
-                                                        <span class="kt-list-timeline__text">{{ region }}</span>
+                                                        <span class="kt-list-timeline__text">{{ region }} ({{ region.land_difficulty }})</span>
 													</div>
 												</div>
                                                 {% endfor %}

@@ -120,7 +120,7 @@ class Region(models.Model):
     name = models.CharField(max_length=64, blank=True, null=True)
     land = models.ForeignKey(Land, on_delete=models.CASCADE, blank=True, null=True)
     land_difficulty = models.IntegerField(blank=True, null=True)
-    #geom = PolygonField(blank=True, null=True)
+    geom = PolygonField(blank=True, null=True)
 
     class Meta:
         ordering = ["name"]
