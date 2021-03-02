@@ -156,7 +156,7 @@ LEAFLET_CONFIG = {
         'MousePosition': {
             'css': '/static/assets/mldb/map/L.Control.MousePosition.css',
             'js': 'assets/mldb/map/L.Control.MousePosition.js',
-            'auto-include': True,
+            'auto-include': False,
         },
         'FullScreen': {
             'css': 'https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css',
@@ -166,7 +166,12 @@ LEAFLET_CONFIG = {
     }
 }
 
-if os.path.exists(r"c:\python37\Lib\site-packages\osgeo"):
-    GDAL_LIBRARY_PATH = r"c:\python37\Lib\site-packages\osgeo\gdal302.dll"
-    GEOS_LIBRARY_PATH = r"c:\python37\Lib\site-packages\osgeo\geos_c.dll"
-    MEDIA_ROOT = 'C:/Users/Fabrice/PycharmProjects/MistLegacy/media'
+if os.path.exists(r"c:\python37"):
+    os.environ['GDAL_DATA'] = r"C:\Python37\Lib\site-packages\osgeo\data\gdal"
+    os.environ['PROJ_LIB'] = r"C:\Python37\Lib\site-packages\osgeo\data\proj"
+    os.environ['PATH'] = r"C:\Python37\Lib\site-packages\osgeo" + ";" + os.environ['PATH']
+    GDAL_LIBRARY_PATH = r'C:\Python37\Lib\site-packages\osgeo\gdal302.dll'
+    if os.path.exists(r"C:\Users\cantin-f"):
+        MEDIA_ROOT = r'C:\Users\cantin-f\PycharmProjects\mldb\media'
+    else:
+        MEDIA_ROOT = r'C:\Users\Fabrice\PycharmProjects\MistLegacy\media'

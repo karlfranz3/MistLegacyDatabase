@@ -6,6 +6,8 @@
 
 {% block pagetitle %}{% translate "Interactive map" %}{% endblock %}
 
+{% block menu_map %}kt-menu__item--active{% endblock %}
+
 {% block corpsdepage %}
 {% leaflet_map "map" callback="window.map_init" %}
 {% endblock %}
