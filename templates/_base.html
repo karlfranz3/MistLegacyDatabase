@@ -346,7 +346,8 @@ License: You must have a valid license purchased only from themeforest(the above
         {% block js %}{% endblock %}
         <!-- begin::Global Config(global config for global JS sciprts) -->
         <script>
-            collection = {{ geojson_locations|geojsonfeature:"map_poi,logo_style,logo_icon"|safe }};
+            locations = {{ geojson_locations|geojsonfeature:"map_poi,logo_style,logo_icon"|safe }};
+            regions = {{ regions|geojsonfeature:"map_poi"|safe }};
             var mymap;
 
             let GenericIcon = L.Icon.extend({
@@ -387,12 +388,17 @@ License: You must have a valid license purchased only from themeforest(the above
                 mymap.addControl(new L.Control.Fullscreen());
                 L.Icon.Default.prototype.options.iconUrl = 'Unknown.png';
                 L.Icon.Default.prototype.options.iconSize = L.point(40, 50);
-                L.geoJson(collection, {onEachFeature: onEachFeature}).addTo(mymap);
+                L.geoJson(locations, {onEachFeature: onEachFeature}).addTo(mymap);
             });
 
             $('#modal_map').on('show.bs.modal', function (e) {
                 const pos = e.relatedTarget.getAttribute('data-position');
-                if (pos) {
+                const type = e.relatedTarget.getAttribute('data-type');
+                if (pos && type === 'region') {
+                    L.geoJson(regions, {onEachFeature: onEachFeature}).addTo(mymap);
+                    const loc = [pos.split(',')[1], pos.split(',')[0]];
+                    mymap.setView(loc, 8, {animation: true});
+                } else if (pos) {
                     const loc = [pos.split(',')[1], pos.split(',')[0]];
                     mymap.setView(loc, 8, {animation: true});
                 }

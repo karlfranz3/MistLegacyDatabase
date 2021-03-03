@@ -47,7 +47,7 @@
 												<div class="kt-list-timeline__items">
 													<div class="kt-list-timeline__item">
 														<span class="kt-list-timeline__badge"></span>
-                                                        <span class="kt-list-timeline__text">{{ region }} ({{ region.land_difficulty }})</span>
+                                                        <span class="kt-list-timeline__text">{% if region.coordinates %}<a data-toggle="modal" data-target="#modal_map" href="" data-type="region" data-position="{{ region.coordinates }}">{{ region }}</a>{% else %}{{ region }}{% endif %} ({{ region.land_difficulty }})</span>
 													</div>
 												</div>
                                                 {% endfor %}

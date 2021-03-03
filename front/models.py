@@ -3,6 +3,7 @@ from django.urls import reverse
 from djgeojson.fields import PointField, PolygonField
 from django.utils.translation import gettext as _
 from filer.fields.image import FilerImageField
+from .toolbox import centroid
 
 
 class Daytime(models.Model):
@@ -127,6 +128,21 @@ class Region(models.Model):
 
     def __str__(self):
         return self.name
+
+    @property
+    def map_poi(self):
+        tooltip = "<p>{}</br>{}: {}".format(
+            self.name,
+            _("Difficulty"), self.land_difficulty)
+        tooltip = tooltip + '</p>'
+        return tooltip
+
+    @property
+    def coordinates(self):
+        if self.geom:
+            return str(centroid(self.geom)['coordinates']).replace('[', '').replace(']', '').replace(' ', '')
+        else:
+            return None
 
 
 class Location(models.Model):
