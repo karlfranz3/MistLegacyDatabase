@@ -19,7 +19,8 @@ def home(request):
 
 
 def map(request):
-    return render(request, 'map.html', context={})
+    regions = Region.objects.all()
+    return render(request, 'map.html', context={'regions': regions})
 
 
 def basics(request):

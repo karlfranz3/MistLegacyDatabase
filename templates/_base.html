@@ -388,19 +388,21 @@ License: You must have a valid license purchased only from themeforest(the above
                 mymap.addControl(new L.Control.Fullscreen());
                 L.Icon.Default.prototype.options.iconUrl = 'Unknown.png';
                 L.Icon.Default.prototype.options.iconSize = L.point(40, 50);
-                L.geoJson(locations, {onEachFeature: onEachFeature}).addTo(mymap);
+                const layerLocations = L.geoJson(locations, {onEachFeature: onEachFeature}).addTo(mymap);
+                const layerRegions = L.geoJson(regions, {onEachFeature: onEachFeature}).addTo(mymap);
+                var baseMaps = {};
+                var overlayMaps = {
+                    "{% translate "Location" %}s": layerLocations,
+                    "{% translate "Region" %}s": layerRegions,
+                };
+                L.control.layers(baseMaps, overlayMaps, {collapsed: false, position: 'topright'}).addTo(mymap);
             });
 
             $('#modal_map').on('show.bs.modal', function (e) {
                 const pos = e.relatedTarget.getAttribute('data-position');
-                const type = e.relatedTarget.getAttribute('data-type');
-                if (pos && type === 'region') {
-                    L.geoJson(regions, {onEachFeature: onEachFeature}).addTo(mymap);
+                if (pos) {
                     const loc = [pos.split(',')[1], pos.split(',')[0]];
-                    mymap.setView(loc, 8, {animation: true});
-                } else if (pos) {
-                    const loc = [pos.split(',')[1], pos.split(',')[0]];
-                    mymap.setView(loc, 8, {animation: true});
+                    mymap.setView(loc, 8, {animation: false});
                 }
                 $(this).show();
                 mymap.invalidateSize();

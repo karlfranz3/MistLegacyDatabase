@@ -131,9 +131,8 @@ class Region(models.Model):
 
     @property
     def map_poi(self):
-        tooltip = "<p>{}</br>{}: {}".format(
-            self.name,
-            _("Difficulty"), self.land_difficulty)
+        tooltip = "<p>{}</br>{} {} {}".format(
+            self.name, self.land, _("Difficulty"), self.land_difficulty)
         tooltip = tooltip + '</p>'
         return tooltip
 
