@@ -8,6 +8,10 @@
 
 {% block menu_map %}kt-menu__item--active{% endblock %}
 
+{% block menu_toggle %}{% endblock %}
+{% block hideheader %}{% endblock %}
+{% block header %}{% endblock %}
 {% block corpsdepage %}
 {% leaflet_map "map" callback="window.map_init" %}
 {% endblock %}
+{% block footer %}{% endblock %}

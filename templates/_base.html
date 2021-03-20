@@ -71,13 +71,20 @@ License: You must have a valid license purchased only from themeforest(the above
             .django-leaflet-raw-textarea {
                 width: 100%;
             }
+
+            .toto {
+              position: absolute;
+              top: 80px;
+              left: 20px;
+              z-index: 1001;
+            }
         </style>
 
     </head>
     <!-- end::Head -->
 
     <!-- begin::Body -->
-    <body class="kt-offcanvas-panel--right kt-header--fixed kt-aside--enabled kt-aside--fixed">
+    <body class="kt-offcanvas-panel--right {% block hideheader %}kt-header--fixed{% endblock %} kt-aside--enabled kt-aside--fixed">
 
     	<!-- begin:: Page -->
         <div class="kt-grid kt-grid--hor kt-grid--root">
@@ -97,6 +104,7 @@ License: You must have a valid license purchased only from themeforest(the above
 								<img alt="Logo" src="{% static "assets/mldb/img/mldb_logo.png" %}" width="100" />
 							</a>
 						</div>
+                        {% block menu_toggle %}
 						<div class="kt-aside__brand-tools">
 							<button class="kt-aside__brand-aside-toggler" id="kt_aside_toggler">
 								<span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
@@ -115,6 +123,7 @@ License: You must have a valid license purchased only from themeforest(the above
 									</svg></span>
 							</button>
 						</div>
+                        {% endblock %}
 					</div>
 					<!-- end:: Aside -->
 
@@ -204,6 +213,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
                 <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor kt-wrapper" id="kt_wrapper">
 
+                    {% block header %}
 					<!-- begin:: Header -->
 					<div id="kt_header" class="kt-header kt-grid__item  kt-header--fixed ">
 
@@ -247,7 +257,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                         </svg>
                                     </span>
                                 </div>
-                                <div class="dropdown-menu dropdown-menu-fit dropdown-menu-right dropdown-menu-anim dropdown-menu-lg">
+                                <div class="toto dropdown-menu dropdown-menu-fit dropdown-menu-right dropdown-menu-anim dropdown-menu-lg">
                                     <div class="kt-quick-search kt-quick-search--dropdown kt-quick-search--result-compact">
                                         <form method="post" class="kt-quick-search__form" action="{% url 'search' %}">
                                             {% csrf_token %}
@@ -272,18 +282,18 @@ License: You must have a valid license purchased only from themeforest(the above
                                         {% endif %}
 									</span>
 								</div>
-								<div class="dropdown-menu dropdown-menu-fit dropdown-menu-right dropdown-menu-anim dropdown-menu-top-unround">
+								<div class="toto dropdown-menu dropdown-menu-fit dropdown-menu-right dropdown-menu-anim dropdown-menu-top-unround">
 									<ul class="kt-nav kt-margin-t-10 kt-margin-b-10">
 										<li class="kt-nav__item kt-nav__item--active">
 											<a href="{% url 'set_lang' 'en' %}" class="kt-nav__link">
 												<span class="kt-nav__link-icon"><img src="{% static "/assets/media/flags/260-united-kingdom.svg" %}" alt="" /></span>
-												<span class="kt-nav__link-text">{% translate "English" %}</span>
+												<span class="kt-nav__link-text">English</span>
 											</a>
 										</li>
 										<li class="kt-nav__item">
 											<a href="{% url 'set_lang' 'fr' %}" class="kt-nav__link">
 												<span class="kt-nav__link-icon"><img src="{% static "/assets/media/flags/195-france.svg" %}" alt="" /></span>
-												<span class="kt-nav__link-text">{% translate "French" %}</span>
+												<span class="kt-nav__link-text">Français</span>
 											</a>
 										</li>
 									</ul>
@@ -294,9 +304,11 @@ License: You must have a valid license purchased only from themeforest(the above
 						</div>
 						<!-- end:: Header Topbar -->
 					</div>
+                    {% endblock %}
 
                     {% block corpsdepage %}{% endblock %}
 
+                    {% block footer %}
 					<!-- begin:: Footer -->
 					<div class="kt-footer  kt-grid__item kt-grid kt-grid--desktop kt-grid--ver-desktop" id="kt_footer">
 						<div class="kt-container  kt-container--fluid ">
@@ -308,7 +320,7 @@ License: You must have a valid license purchased only from themeforest(the above
 							</div>
 						</div>
 					</div>
-
+                    {% endblock %}
 					<!-- end:: Footer -->
 
 				</div>
@@ -395,7 +407,7 @@ License: You must have a valid license purchased only from themeforest(the above
                     "{% translate "Location" %}s": layerLocations,
                     "{% translate "Region" %}s": layerRegions,
                 };
-                L.control.layers(baseMaps, overlayMaps, {collapsed: false, position: 'topright'}).addTo(mymap);
+                L.control.layers(baseMaps, overlayMaps, {collapsed: false}).addTo(mymap);
             });
 
             $('#modal_map').on('show.bs.modal', function (e) {
