@@ -40,7 +40,7 @@
                                         <div class="kt-portlet__head">
                                             <div class="kt-portlet__head-label">
                                                 <h3 class="kt-portlet__head-title">
-                                                    {% translate "Spells/Skills" %} / {% translate "Reputation" %} ({% translate "Location" %})
+                                                    {% translate "Spells|Skills" %} / {% translate "Reputation" %} ({% translate "Location" %})
                                                 </h3>
                                             </div>
                                         </div>
@@ -50,7 +50,7 @@
                                                     <div class="kt-list-timeline__items">
                                                         <div class="kt-list-timeline__item">
                                                             <span class="kt-list-timeline__badge"></span>
-                                                            <span class="kt-list-timeline__text"><span data-popover-remote="{{ spell.get_absolute_url }}" data-title="{{ spell }}">{{ spell }}</span> / {{ spell.get_reputation|default:none }} ({% if spell.location.coordinates %}<a data-toggle="modal" data-target="#modal_map" href="" data-position="{{ spell.location.coordinates }}">{{ spell.location }}</a>{% else %}{{ spell.location }}{% endif %})</span>
+                                                            <span class="kt-list-timeline__text"><span data-popover-remote="{{ spell.get_absolute_url }}" data-title="{{ spell }}">{{ spell }}</span> / {{ spell.reputation_guild_value|default:none }} ({% if spell.location.coordinates %}<a data-toggle="modal" data-target="#modal_map" href="" data-position="{{ spell.location.coordinates }}">{{ spell.location }}</a>{% else %}{{ spell.location }}{% endif %})</span>
                                                         </div>
                                                     </div>
                                                 {% endfor %}
