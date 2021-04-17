@@ -31,7 +31,6 @@ msgid "Difficulty"
 msgstr "Difficulté"
 
 #: .\front\models.py:166 .\templates\locations.html:35
-#, fuzzy
 #| msgid "Locations"
 msgid "Exploration"
 msgstr "Exploration"
@@ -41,7 +40,6 @@ msgid "Quest"
 msgstr "Quête"
 
 #: .\front\models.py:169 .\templates\adventure.html:41
-#, fuzzy
 #| msgid "Trainings"
 msgid "Training"
 msgstr "Entrainement"
@@ -51,7 +49,6 @@ msgstr "Entrainement"
 #: .\templates\books.html:25 .\templates\books.html:33
 #: .\templates\crafting.html:41 .\templates\gathering.html:41
 #: .\templates\land.html:64 .\templates\reputation.html:64
-#, fuzzy
 #| msgid "Books"
 msgid "Book"
 msgstr "Livre"
@@ -59,13 +56,11 @@ msgstr "Livre"
 #: .\front\models.py:177 .\templates\_base.html:190 .\templates\recipes.html:5
 #: .\templates\recipes.html:25 .\templates\reputation.html:41
 #: .\templates\weapon.html:41
-#, fuzzy
 #| msgid "Recipes"
 msgid "Recipe"
 msgstr "Recette"
 
 #: .\front\models.py:181
-#, fuzzy
 #| msgid "Spells"
 msgid "Spell/Skill"
 msgstr "Sort/Compétence"
@@ -86,7 +81,6 @@ msgid "Geography"
 msgstr "Géographie"
 
 #: .\templates\_base.html:158 .\templates\map.html:7
-#, fuzzy
 #| msgid "Interactive Map"
 msgid "Interactive map"
 msgstr "Carte interactive"
@@ -94,7 +88,6 @@ msgstr "Carte interactive"
 #: .\templates\_base.html:165 .\templates\_base.html:408
 #: .\templates\land.html:41 .\templates\locations.html:34
 #: .\templates\regions.html:5 .\templates\regions.html:25
-#, fuzzy
 #| msgid "Regions"
 msgid "Region"
 msgstr "Région"
@@ -108,7 +101,6 @@ msgstr "Région"
 #: .\templates\reputation.html:41 .\templates\reputation.html:64
 #: .\templates\reputation.html:87 .\templates\spells.html:35
 #: .\templates\weapon.html:41
-#, fuzzy
 #| msgid "Locations"
 msgid "Location"
 msgstr "Lieu"
@@ -120,7 +112,6 @@ msgstr "Magasin"
 #: .\templates\_base.html:197 .\templates\guild.html:43
 #: .\templates\reputation.html:87 .\templates\spells.html:5
 #: .\templates\spells.html:25
-#, fuzzy
 #| msgid "Spells"
 msgid "Spells/Skills"
 msgstr "Sort/Compétence"
@@ -131,7 +122,6 @@ msgstr "Matières"
 
 #: .\templates\_base.html:203 .\templates\basics.html:65
 #: .\templates\crafting.html:5 .\templates\crafting.html:24
-#, fuzzy
 #| msgid "Craftings"
 msgid "Crafting"
 msgstr "Artisanat"
@@ -168,7 +158,6 @@ msgstr "Aucune"
 #: .\templates\reputation.html:41 .\templates\reputation.html:64
 #: .\templates\reputation.html:87 .\templates\spells.html:37
 #: .\templates\weapon.html:41
-#, fuzzy
 #| msgid "Reputations"
 msgid "Reputation"
 msgstr "Réputation"
@@ -188,7 +177,6 @@ msgstr "Terrain"
 
 #: .\templates\basics.html:88 .\templates\gathering.html:5
 #: .\templates\gathering.html:24
-#, fuzzy
 #| msgid "Gatherings"
 msgid "Gathering"
 msgstr "Cueillette"
@@ -196,20 +184,17 @@ msgstr "Cueillette"
 #: .\templates\basics.html:111 .\templates\companion_card.html:10
 #: .\templates\recipes.html:41 .\templates\weapon.html:5
 #: .\templates\weapon.html:24
-#, fuzzy
 #| msgid "Weapons"
 msgid "Weapon"
 msgstr "Arme"
 
 #: .\templates\basics.html:157 .\templates\weapon.html:64
-#, fuzzy
 #| msgid "Locations"
 msgid "Companion"
 msgstr "Compagnon"
 
 #: .\templates\basics.html:180 .\templates\guild.html:5
 #: .\templates\guild.html:26 .\templates\spells.html:38
-#, fuzzy
 #| msgid "Guilds"
 msgid "Guild"
 msgstr "Guilde"
@@ -225,7 +210,6 @@ msgid "NPC"
 msgstr "NPC"
 
 #: .\templates\books.html:37 .\templates\recipes.html:37
-#, fuzzy
 #| msgid "Reputations"
 msgid "Reputation value"
 msgstr "Valeur de réputation"
@@ -258,7 +242,6 @@ msgid "Coming soon..."
 msgstr "Bientôt disponible..."
 
 #: .\templates\land.html:41
-#, fuzzy
 #| msgid "Difficulty"
 msgid "land difficulty"
 msgstr "Difficulté"
@@ -276,28 +259,6 @@ msgid "Level"
 msgstr "Niveau"
 
 #: .\templates\spells.html:39
-#, fuzzy
 #| msgid "Reputations"
 msgid "Reputation/Guild value"
 msgstr "Valeur de réputation/guilde"
-
-#, fuzzy
-#~| msgid "Locations"
-#~ msgid "Syndication"
-#~ msgstr "Lieu"
-
-#, fuzzy
-#~| msgid "Land"
-#~ msgid "and"
-#~ msgstr "Terrain"
-
-#, fuzzy
-#~| msgid "Reputations"
-#~ msgid "Duration"
-#~ msgstr "Réputation"
-
-#~ msgid "Tool"
-#~ msgstr "Outil"
-
-#~ msgid "Daytime"
-#~ msgstr "Jour/Nuit"
