@@ -262,6 +262,12 @@ class Recipe(models.Model):
     def get_absolute_url(self):
         return reverse('recipe_card', args=[str(self.id)])
 
+    def get_reputation(self):
+        if self.reputation:
+            return '{} {}'.format(self.reputation, self.reputation_guild_value)
+        elif self.guild:
+            return '{} {}'.format(self.guild, self.reputation_guild_value)
+
 
 class Book(models.Model):
     value = models.IntegerField(default=1)
@@ -296,6 +302,12 @@ class Book(models.Model):
 
     def get_absolute_url(self):
         return reverse('book_card', args=[str(self.id)])
+
+    def get_reputation(self):
+        if self.reputation:
+            return '{} {}'.format(self.reputation, self.reputation_guild_value)
+        elif self.guild:
+            return '{} {}'.format(self.guild, self.reputation_guild_value)
 
 
 class Training(models.Model):
@@ -334,3 +346,9 @@ class Spell(models.Model):
 
     def get_absolute_url(self):
         return reverse('spell_card', args=[str(self.id)])
+
+    def get_reputation(self):
+        if self.reputation:
+            return '{} {}'.format(self.reputation, self.reputation_guild_value)
+        elif self.guild:
+            return '{} {}'.format(self.guild, self.reputation_guild_value)

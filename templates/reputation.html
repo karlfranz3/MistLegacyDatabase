@@ -5,6 +5,7 @@
 {% block pagetitle %}{% translate "Reputation" %}{% endblock %}
 
 {% block corpsdepage %}
+    {% trans "None" as none %}
                     <div class="kt-content  kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor" id="kt_content">
 						<!-- begin:: Subheader -->
 						<div class="kt-subheader   kt-grid__item" id="kt_subheader">
@@ -32,12 +33,12 @@
 						<!-- begin:: Content -->
 						<div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
 							<div class="row">
-								<div class="col-sm-4">
+								<div class="col-sm-6">
 									<div class="kt-portlet">
 										<div class="kt-portlet__head">
 											<div class="kt-portlet__head-label">
 												<h3 class="kt-portlet__head-title">
-													{% translate "Recipe" %}s
+                                                    {% translate "Recipe" %}s / {% translate "Reputation" %} ({% translate "Location" %})
 												</h3>
 											</div>
 										</div>
@@ -47,7 +48,7 @@
 												<div class="kt-list-timeline__items">
 													<div class="kt-list-timeline__item">
 														<span class="kt-list-timeline__badge"></span>
-                                                        <span class="kt-list-timeline__text"><span data-popover-remote="{{ recipe.get_absolute_url }}" data-title="{{ recipe }}">{{ recipe }}</span> ({% if recipe.location.coordinates %}<a data-toggle="modal" data-target="#modal_map" href="" data-position="{{ recipe.location.coordinates }}">{{ recipe.location }}</a>{% else %}{{ recipe.location }}{% endif %})</span>
+                                                        <span class="kt-list-timeline__text"><span data-popover-remote="{{ recipe.get_absolute_url }}" data-title="{{ recipe }}">{{ recipe }}</span> / {{ recipe.get_reputation|default:none }} ({% if recipe.location.coordinates %}<a data-toggle="modal" data-target="#modal_map" href="" data-position="{{ recipe.location.coordinates }}">{{ recipe.location }}</a>{% else %}{{ recipe.location }}{% endif %})</span>
 													</div>
 												</div>
                                                 {% endfor %}
@@ -55,12 +56,12 @@
 										</div>
 									</div>
                                 </div>
-								<div class="col-sm-4">
+								<div class="col-sm-6">
 									<div class="kt-portlet">
 										<div class="kt-portlet__head">
 											<div class="kt-portlet__head-label">
 												<h3 class="kt-portlet__head-title">
-													{% translate "Book" %}s
+                                                    {% translate "Book" %}s / {% translate "Reputation" %} ({% translate "Location" %})
 												</h3>
 											</div>
 										</div>
@@ -70,7 +71,7 @@
 												<div class="kt-list-timeline__items">
 													<div class="kt-list-timeline__item">
 														<span class="kt-list-timeline__badge"></span>
-														<span class="kt-list-timeline__text"><span data-popover-remote="{{ book.get_absolute_url }}" data-title="{{ book }}">{{ book }}</span> ({% if book.location.coordinates %}<a data-toggle="modal" data-target="#modal_map" href="" data-position="{{ book.location.coordinates }}">{{ book.location }}</a>{% else %}{{ book.location }}{% endif %})</span>
+														<span class="kt-list-timeline__text"><span data-popover-remote="{{ book.get_absolute_url }}" data-title="{{ book }}">{{ book }}</span> / {{ book.get_reputation|default:none }} ({% if book.location.coordinates %}<a data-toggle="modal" data-target="#modal_map" href="" data-position="{{ book.location.coordinates }}">{{ book.location }}</a>{% else %}{{ book.location }}{% endif %})</span>
 													</div>
 												</div>
                                                 {% endfor %}
@@ -78,12 +79,12 @@
 										</div>
 									</div>
                                 </div>
-								<div class="col-sm-4">
+								<div class="col-sm-6">
 									<div class="kt-portlet">
 										<div class="kt-portlet__head">
 											<div class="kt-portlet__head-label">
 												<h3 class="kt-portlet__head-title">
-													{% translate "Spells/Skills" %}
+													{% translate "Spells/Skills" %} / {% translate "Reputation" %} ({% translate "Location" %})
 												</h3>
 											</div>
 										</div>
@@ -93,7 +94,7 @@
 												<div class="kt-list-timeline__items">
 													<div class="kt-list-timeline__item">
 														<span class="kt-list-timeline__badge"></span>
-                                                        <span class="kt-list-timeline__text"><span data-popover-remote="{{ spell.get_absolute_url }}" data-title="{{ spell }}">{{ spell }}</span> ({% if spell.location.coordinates %}<a data-toggle="modal" data-target="#modal_map" href="" data-position="{{ spell.location.coordinates }}">{{ spell.location }}</a>{% else %}{{ spell.location }}{% endif %})</span>
+                                                        <span class="kt-list-timeline__text"><span data-popover-remote="{{ spell.get_absolute_url }}" data-title="{{ spell }}">{{ spell }}</span> / {{ spell.get_reputation|default:none }} ({% if spell.location.coordinates %}<a data-toggle="modal" data-target="#modal_map" href="" data-position="{{ spell.location.coordinates }}">{{ spell.location }}</a>{% else %}{{ spell.location }}{% endif %})</span>
 													</div>
 												</div>
                                                 {% endfor %}
