@@ -12,7 +12,7 @@ def recipes(request):
 class RecipesWS(BaseDatatableView):
     model = Recipe
     columns = ['name', 'location', 'npc', 'reputation', 'reputation_guild_value', 'price', 'building', 'equipment_slot', 'weapon', 'daytime']
-    order_columns = ['location']
+    order_columns = ['name', 'location', 'npc', 'reputation', 'reputation_guild_value', 'price', 'building', 'equipment_slot', 'weapon', 'daytime']
 
     def filter_queryset(self, qs):
         search = self.request.GET.get('search[value]', None)

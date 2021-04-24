@@ -12,7 +12,7 @@ def regions(request):
 class RegionsWS(BaseDatatableView):
     model = Region
     columns = ['name', 'land', 'land_difficulty']
-    order_columns = ['name']
+    order_columns = ['name', 'land', 'land_difficulty']
 
     def filter_queryset(self, qs):
         search = self.request.GET.get('search[value]', None)

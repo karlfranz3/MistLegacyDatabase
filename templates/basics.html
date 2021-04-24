@@ -4,240 +4,105 @@
 
 {% block pagetitle %}Basics{% endblock %}
 
-{% block menu_basics %}kt-menu__item--active{% endblock %}
+{% block menu_basics %}active{% endblock %}
 
 {% block corpsdepage %}
-                    <div class="kt-content  kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor" id="kt_content">
-						<!-- begin:: Content -->
-						<div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
-							<div class="row">
-								<div class="col-sm-3">
-									<div class="kt-portlet">
-										<div class="kt-portlet__head">
-											<div class="kt-portlet__head-label">
-												<h3 class="kt-portlet__head-title">
-													{% translate "Land" %}s
-												</h3>
-											</div>
-										</div>
-										<div class="kt-portlet__body">
-											<div class="kt-list-timeline">
-                                                {% for land in lands %}
-												<div class="kt-list-timeline__items">
-													<div class="kt-list-timeline__item">
-														<span class="kt-list-timeline__badge"></span>
-                                                        <span class="kt-list-timeline__text"><a href="{{ land.get_absolute_url }}">{{ land }}</a></span>
-													</div>
-												</div>
-                                                {% endfor %}
-											</div>
-										</div>
-									</div>
-                                </div>
-								<div class="col-sm-3">
-									<div class="kt-portlet">
-										<div class="kt-portlet__head">
-											<div class="kt-portlet__head-label">
-												<h3 class="kt-portlet__head-title">
-													{% translate "Adventure" %}s
-												</h3>
-											</div>
-										</div>
-										<div class="kt-portlet__body">
-											<div class="kt-list-timeline">
-                                                {% for adventure in adventures %}
-												<div class="kt-list-timeline__items">
-													<div class="kt-list-timeline__item">
-														<span class="kt-list-timeline__badge"></span>
-														<span class="kt-list-timeline__text"><a href="{{ adventure.get_absolute_url }}">{{ adventure }}</a></span>
-													</div>
-												</div>
-                                                {% endfor %}
-											</div>
-										</div>
-									</div>
-                                </div>
-								<div class="col-sm-3">
-									<div class="kt-portlet">
-										<div class="kt-portlet__head">
-											<div class="kt-portlet__head-label">
-												<h3 class="kt-portlet__head-title">
-													{% translate "Crafting" %}s
-												</h3>
-											</div>
-										</div>
-										<div class="kt-portlet__body">
-											<div class="kt-list-timeline">
-                                                {% for crafting in craftings %}
-												<div class="kt-list-timeline__items">
-													<div class="kt-list-timeline__item">
-														<span class="kt-list-timeline__badge"></span>
-														<span class="kt-list-timeline__text"><a href="{{ crafting.get_absolute_url }}">{{ crafting }}</a></span>
-													</div>
-												</div>
-                                                {% endfor %}
-											</div>
-										</div>
-									</div>
-                                </div>
-								<div class="col-sm-3">
-									<div class="kt-portlet">
-										<div class="kt-portlet__head">
-											<div class="kt-portlet__head-label">
-												<h3 class="kt-portlet__head-title">
-													{% translate "Gathering" %}s
-												</h3>
-											</div>
-										</div>
-										<div class="kt-portlet__body">
-											<div class="kt-list-timeline">
-                                                {% for gathering in gatherings %}
-												<div class="kt-list-timeline__items">
-													<div class="kt-list-timeline__item">
-														<span class="kt-list-timeline__badge"></span>
-														<span class="kt-list-timeline__text"><a href="{{ gathering.get_absolute_url }}">{{ gathering }}</a></span>
-													</div>
-												</div>
-                                                {% endfor %}
-											</div>
-										</div>
-									</div>
-                                </div>
-								<div class="col-sm-3">
-									<div class="kt-portlet">
-										<div class="kt-portlet__head">
-											<div class="kt-portlet__head-label">
-												<h3 class="kt-portlet__head-title">
-													{% translate "Weapon" %}s
-												</h3>
-											</div>
-										</div>
-										<div class="kt-portlet__body">
-											<div class="kt-list-timeline">
-                                                {% for weapon in weapons %}
-												<div class="kt-list-timeline__items">
-													<div class="kt-list-timeline__item">
-														<span class="kt-list-timeline__badge"></span>
-														<span class="kt-list-timeline__text"><a href="{{ weapon.get_absolute_url }}">{{ weapon }}</a></span>
-													</div>
-												</div>
-                                                {% endfor %}
-											</div>
-										</div>
-									</div>
-                                </div>
-								<div class="col-sm-3">
-									<div class="kt-portlet">
-										<div class="kt-portlet__head">
-											<div class="kt-portlet__head-label">
-												<h3 class="kt-portlet__head-title">
-													{% translate "Reputation" %}s
-												</h3>
-											</div>
-										</div>
-										<div class="kt-portlet__body">
-											<div class="kt-list-timeline">
-                                                {% for reputation in reputations %}
-												<div class="kt-list-timeline__items">
-													<div class="kt-list-timeline__item">
-														<span class="kt-list-timeline__badge"></span>
-														<span class="kt-list-timeline__text"><a href="{{ reputation.get_absolute_url }}">{{ reputation }}</a></span>
-													</div>
-												</div>
-                                                {% endfor %}
-											</div>
-										</div>
-									</div>
-                                </div>
-								<div class="col-sm-3">
-									<div class="kt-portlet">
-										<div class="kt-portlet__head">
-											<div class="kt-portlet__head-label">
-												<h3 class="kt-portlet__head-title">
-													{% translate "Companion" %}s
-												</h3>
-											</div>
-										</div>
-										<div class="kt-portlet__body">
-											<div class="kt-list-timeline">
-                                                {% for companion in companions %}
-												<div class="kt-list-timeline__items">
-													<div class="kt-list-timeline__item">
-														<span class="kt-list-timeline__badge"></span>
-														<span class="kt-list-timeline__text"><span data-popover-remote="{{ companion.get_absolute_url }}" data-title="{{ companion }}">{{ companion }}</span> ({% if companion.location.coordinates %}<a data-toggle="modal" data-target="#modal_map" href="" data-position="{{ companion.location.coordinates }}">{{ companion.location }}</a>{% else %}{{ companion.location }}{% endif %})</span>
-													</div>
-												</div>
-                                                {% endfor %}
-											</div>
-										</div>
-									</div>
-                                </div>
-								<div class="col-sm-3">
-									<div class="kt-portlet">
-										<div class="kt-portlet__head">
-											<div class="kt-portlet__head-label">
-												<h3 class="kt-portlet__head-title">
-													{% translate "Guild" %}s
-												</h3>
-											</div>
-										</div>
-										<div class="kt-portlet__body">
-											<div class="kt-list-timeline">
-                                                {% for guild in guilds %}
-												<div class="kt-list-timeline__items">
-													<div class="kt-list-timeline__item">
-														<span class="kt-list-timeline__badge"></span>
-														<span class="kt-list-timeline__text"><a href="{{ guild.get_absolute_url }}">{{ guild }}</a></span>
-													</div>
-												</div>
-                                                {% endfor %}
-											</div>
-										</div>
-									</div>
-                                </div>
+
+    <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+        <div class="toolbar" id="kt_toolbar">
+            <div id="kt_toolbar_container" class="container-fluid d-flex flex-stack">
+                <div class="d-flex align-items-center me-3">
+                    <h1 class="d-flex align-items-center text-dark fw-bolder my-1 fs-3">{% translate "Basics" %}</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="post d-flex flex-column-fluid" id="kt_post">
+            <div id="kt_content_container" class="container">
+                <div class="row g-5 g-xl-8">
+                    <div class="col-lg-4 col-xxl-3">
+                        <div class="card h-100">
+                            <div class="card-body p-9">
+                                <div class="fs-2hx fw-bolder">{% translate "Land" %}s</div>
+                                {% for land in lands %}
+                                    <div class="fw-bold"><a href="{{ land.get_absolute_url }}">{{ land }}</a></div>
+                                {% endfor %}
                             </div>
                         </div>
                     </div>
-{% endblock %}
+                    <div class="col-lg-4 col-xxl-3">
+                        <div class="card h-100">
+                            <div class="card-body p-9">
+                                <div class="fs-2hx fw-bolder">{% translate "Adventure" %}s</div>
+                                {% for adventure in adventures %}
+                                    <div class="fw-bold"><a href="{{ adventure.get_absolute_url }}">{{ adventure }}</a></div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-xxl-3">
+                        <div class="card h-100">
+                            <div class="card-body p-9">
+                                <div class="fs-2hx fw-bolder">{% translate "Crafting" %}s</div>
+                                {% for crafting in craftings %}
+                                    <div class="fw-bold"><a href="{{ crafting.get_absolute_url }}">{{ crafting }}</a></div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-xxl-3">
+                        <div class="card h-100">
+                            <div class="card-body p-9">
+                                <div class="fs-2hx fw-bolder">{% translate "Gathering" %}s</div>
+                                {% for gathering in gatherings %}
+                                    <div class="fw-bold"><a href="{{ gathering.get_absolute_url }}">{{ gathering }}</a></div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-xxl-3">
+                        <div class="card h-100">
+                            <div class="card-body p-9">
+                                <div class="fs-2hx fw-bolder">{% translate "Weapon" %}s</div>
+                                {% for weapon in weapons %}
+                                    <div class="fw-bold"><a href="{{ weapon.get_absolute_url }}">{{ weapon }}</a></div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-xxl-3">
+                        <div class="card h-100">
+                            <div class="card-body p-9">
+                                <div class="fs-2hx fw-bolder">{% translate "Reputation" %}s</div>
+                                {% for reputation in reputations %}
+                                    <div class="fw-bold"><a href="{{ reputation.get_absolute_url }}">{{ reputation }}</a></div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-xxl-3">
+                        <div class="card h-100">
+                            <div class="card-body p-9">
+                                <div class="fs-2hx fw-bolder">{% translate "Companion" %}s</div>
+                                {% for companion in companions %}
+                                    <div class="fw-bold"><span data-popover-remote="{{ companion.get_absolute_url }}" data-title="{{ companion }}">{{ companion }}</span> ({% if companion.location.coordinates %}<a data-bs-toggle="modal" data-bs-target="#modal_map" href="" data-bs-position="{{ companion.location.coordinates }}">{{ companion.location }}</a>{% else %}{{ companion.location }}{% endif %})</div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-xxl-3">
+                        <div class="card h-100">
+                            <div class="card-body p-9">
+                                <div class="fs-2hx fw-bolder">{% translate "Guild" %}s</div>
+                                {% for guild in guilds %}
+                                    <div class="fw-bold"><a href="{{ guild.get_absolute_url }}">{{ guild }}</a></div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-{% block js %}
-    <style>
-    .popover {
-        min-width: 30em !important;
-    }
-    </style>
-
-    <script>
-        $(document).ready(function () {
-            var popoverRemoteContents = function (element) {
-                if ($(element).data('loaded') !== true) {
-                    var div_id = 'tmp-id-' + $.now();
-                    $.ajax({
-                        url: $(element).data('popover-remote'),
-                        success: function (response) {
-                            $('#' + div_id).html(response);
-                            $(element).attr("data-loaded", true);
-                            $(element).attr("data-content", response);
-                            return $(element).popover('update');
-                        }
-                    });
-                    return '<div id="' + div_id + '">{% translate "Loading..." %}</div>';
-                } else {
-                    return $(element).data('content');
-                }
-            };
-
-            $('[data-popover-remote]')
-                .click(false)
-                .popover({
-                    html: true,
-                    trigger: 'hover',
-                    sanitize: false,
-                    container: 'body',
-                    content: function () {
-                        return popoverRemoteContents(this);
-                    }
-                });
-        });
-    </script>
 {% endblock %}

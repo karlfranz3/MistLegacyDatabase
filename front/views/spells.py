@@ -12,7 +12,7 @@ def spells(request):
 class SpellsWS(BaseDatatableView):
     model = Spell
     columns = ['name', 'level', 'location', 'npc', 'reputation', 'guild', 'reputation_guild_value', 'price', 'daytime']
-    order_columns = ['name']
+    order_columns = ['name', 'level', 'location', 'npc', 'reputation', 'guild', 'reputation_guild_value', 'price', 'daytime']
 
     def filter_queryset(self, qs):
         search = self.request.GET.get('search[value]', None)

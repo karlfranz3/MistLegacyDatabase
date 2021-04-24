@@ -12,34 +12,44 @@
         <script src="{% static "assets/plugins/custom/datatables/datatables.bundle.js" %}" type="text/javascript"></script>
 {% endblock %}
 
-{% block menu_locations %}kt-menu__item--active{% endblock %}
+{% block menu_locations %}active{% endblock %}
 
 {% block corpsdepage %}
-    <div class="kt-portlet">
-        <div class="kt-portlet__head">
-            <div class="kt-portlet__head-label">
-                <span class="kt-portlet__head-icon">
-                    <i class="fa fa-book"></i>
-                </span>
-                <h3 class="kt-portlet__head-title">
-                    {% translate "Location" %}s
-                </h3>
+
+    <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+        <div class="toolbar" id="kt_toolbar">
+            <div id="kt_toolbar_container" class="container-fluid d-flex flex-stack">
+                <div class="d-flex align-items-center me-3">
+                    <h1 class="d-flex align-items-center text-dark fw-bolder my-1 fs-3">{% translate "Location" %}s</h1>
+                </div>
             </div>
         </div>
-        <div class="kt-portlet__body">
-            <table class="table table-bordered table-hover table-sm" id="locations">
-                <thead class="thead-dark">
-                    <tr>
-                        <th class="kt-font-light">{% translate "Name" %}</th>
-                        <th class="kt-font-light">{% translate "Region" %}</th>
-                        <th class="kt-font-light">{% translate "Exploration" %}</th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
+        <div class="post d-flex flex-column-fluid" id="kt_post">
+            <div id="kt_content_container" class="container">
+                <div class="card">
+                    <div class="card-body fs-6 p-10 p-lg-15">
+                        <div class="pb-10">
+                            <h1 class="anchor fw-bolder mb-5" id="column-rendering">{% translate "Location" %}s</h1>
+                            <div class="my-5">
+                                <table id="locations" class="table table-striped border rounded gy-5 gs-7">
+                                    <thead>
+                                    <tr class="fw-bold fs-6 text-gray-800">
+                                        <th>{% translate "Name" %}</th>
+                                        <th>{% translate "Region" %}</th>
+                                        <th>{% translate "Exploration" %}</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+
 {% endblock %}
 
 {% block js %}

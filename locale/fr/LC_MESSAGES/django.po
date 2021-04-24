@@ -106,11 +106,11 @@ msgstr "Magasin"
 #: .\templates\spells.html:25
 #| msgid "Spells/Skills"
 msgid "Spells|Skills"
-msgstr "Sort|Compétence"
+msgstr "Sorts|Compétences"
 
 #: .\templates\_base.html:199
-msgid "Material"
-msgstr "Matières"
+msgid "Materials"
+msgstr "Matières premières"
 
 #: .\templates\_base.html:203 .\templates\basics.html:65
 #: .\templates\crafting.html:5 .\templates\crafting.html:24
