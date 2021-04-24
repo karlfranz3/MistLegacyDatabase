@@ -12,7 +12,7 @@ def books(request):
 class BooksWS(BaseDatatableView):
     model = Book
     columns = ['value', 'location', 'npc', 'reputation', 'reputation_guild_value', 'price', 'count', 'daytime']
-    order_columns = ['location']
+    order_columns = ['value', 'location', 'npc', 'reputation', 'reputation_guild_value', 'price', 'count', 'daytime']
 
     def render_column(self, row, column):
         # We want to render user as a custom column

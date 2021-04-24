@@ -12,7 +12,7 @@ def locations(request):
 class LocationsWS(BaseDatatableView):
     model = Location
     columns = ['name', 'region', 'exploration']
-    order_columns = ['name']
+    order_columns = ['name', 'region', 'exploration']
 
     def filter_queryset(self, qs):
         search = self.request.GET.get('search[value]', None)
