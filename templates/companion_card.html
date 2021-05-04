@@ -1,11 +1,9 @@
 {% load static %}
 {% load i18n %}
 <div>
-    <table class="table table-bordered table-hover table-sm" id="spells">
+    <table class="table table-row-bordered gy-5">
         <thead>
             <tr>
-                <th>{% translate "Name" %}</th>
-                <th>{% translate "Location" %}</th>
                 <th>{% translate "Comfort" %}</th>
                 <th>{% translate "Weapon" %}</th>
                 <th>{% translate "Quest" %}</th>
@@ -13,8 +11,6 @@
         </thead>
         <tbody>
             <tr>
-                <th>{{ companion.name }}</th>
-                <th>{{ companion.location }}</th>
                 <th>{{ companion.comfort }}</th>
                 <th>{{ companion.weapon }}</th>
                 <th>{{ companion.quest }}</th>
