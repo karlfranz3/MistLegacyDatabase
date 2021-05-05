@@ -2,14 +2,15 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django.conf import settings
 from django.utils import translation
-from django.contrib.gis.db.models.functions import Centroid, AsGeoJSON
+from django.urls import translate_url
 
 from front.models import *
 
 
 def set_lang(request, lang):
+    redirect_to = translate_url(request.META['HTTP_REFERER'], lang)
     translation.activate(lang)
-    response = HttpResponseRedirect(redirect_to=request.META['HTTP_REFERER'])
+    response = HttpResponseRedirect(redirect_to=redirect_to)
     response.set_cookie(settings.LANGUAGE_COOKIE_NAME, lang)
     return response
 

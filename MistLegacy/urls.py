@@ -3,16 +3,16 @@ from django.urls import path
 from front.views import *
 from django.conf import settings
 from django.conf.urls.static import static
+from django.conf.urls.i18n import i18n_patterns
 
 
-urlpatterns = [
-    path('admin/', admin.site.urls),
-
+urlpatterns = i18n_patterns(
+    path('', home, name='home'),
     path('set_lang/<str:lang>', set_lang, name="set_lang"),
+    path('admin/', admin.site.urls),
     path('search', search, name='search'),
     path('map', map, name='map'),
 
-    path('', home, name='home'),
     path('basics', basics, name='basics'),
     path('regions', regions, name='regions'),
     path("ws/regions", RegionsWS.as_view(), name="regions_ws"),
@@ -37,5 +37,5 @@ urlpatterns = [
     path('book_card/<int:pk>', book_card, name='book_card'),
     path('spell_card/<int:pk>', spell_card, name='spell_card'),
     path('recipe_card/<int:pk>', recipe_card, name='recipe_card'),
-
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    prefix_default_language=False
+) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
