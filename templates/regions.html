@@ -37,9 +37,19 @@
                                         <th>{% translate "Name" %}</th>
                                         <th>{% translate "Land" %}</th>
                                         <th>{% translate "Difficulty" %}</th>
+                                        <th></th>
                                     </tr>
                                     </thead>
                                     <tbody>
+                                    {% for region in regions %}
+                                        <tr>
+                                            {% trans '-- no translation yet --' as transl %}
+                                            <th>{{ region.name|default_if_none:transl }}</th>
+                                            <th>{{ region.land|default_if_none:"" }}</th>
+                                            <th>{{ region.land_difficulty|default_if_none:"" }}</th>
+                                            <th>{{ region.coordinates|default_if_none:"" }}</th>
+                                        </tr>
+                                    {% endfor %}
                                     </tbody>
                                 </table>
                             </div>
@@ -54,27 +64,38 @@
 
 {% block js %}
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
 
-            const oTable = $('#regions').DataTable({
-                "processing": true,
-                "serverSide": true,
-                "paging": false,
+            $('#regions').DataTable( {
+                "paging":   false,
                 "info": false,
-                "ajax": "{% url 'regions_ws' %}",
-                "lengthMenu": [[20, 50, 100, 500, -1], [20, 50, 100, 500, "Tout"]],
                 "columnDefs": [
                     {
-                        orderable: true,
-                        "targets": [0, 1, 2]
+                        orderable:true,
+                        "targets":[0,1,2]
                     },
                     {
-                        searchable: true,
-                        "targets": [0, 1, 2]
-                    }
+                        searchable:true,
+                        "targets":[0,1,2]
+                    },
+                    {
+                        visible:false,
+                        "targets": 3
+                    },
+                    {
+                        "render": function ( data, type, row ) {
+                            if (row[3] === '') {
+                                return data
+                            }
+                            return "<a data-bs-toggle='modal' data-bs-target='#modal_map' href='' data-bs-position='"+row[3]+"'>"+data+"</a>";
+                        },
+                        "targets": 0
+                    },
                 ],
                 "order": [[0, 'asc']],
-            });
+                dom:"<'row'<'col-sm-6 d-flex align-items-center justify-conten-start'l><'col-sm-6 d-flex align-items-center justify-content-end'f>><'table-responsive'tr><'row'<'col-sm-12 col-md-5 d-flex align-items-center justify-content-center justify-content-md-start'i><'col-sm-12 col-md-7 d-flex align-items-center justify-content-center justify-content-md-end'p>>"
+            } );
+
         });
     </script>
 {% endblock %}

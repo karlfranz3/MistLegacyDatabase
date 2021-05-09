@@ -38,14 +38,28 @@
                                         <th class="kt-font-light">{% translate "Location" %}</th>
                                         <th class="kt-font-light">{% translate "NPC" %}</th>
                                         <th class="kt-font-light">{% translate "Reputation" %}</th>
-                                        <th class="kt-font-light">{% translate "Reputation value" %}</th>
                                         <th class="kt-font-light">{% translate "Price" %}</th>
                                         <th class="kt-font-light">{% translate "Building" %}</th>
-                                        <th class="kt-font-light">{% translate "Equipment slot" %}</th>
+                                        <th class="kt-font-light">{% translate "Slot" %}</th>
                                         <th class="kt-font-light">{% translate "Weapon" %}</th>
+                                        <th class="kt-font-light"></th>
                                     </tr>
                                     </thead>
                                     <tbody>
+                                    {% for recipe in recipes %}
+                                        <tr>
+                                            {% trans '-- no translation yet --' as transl %}
+                                            <th>{{ recipe.name|default_if_none:transl }}</th>
+                                            <th>{{ recipe.location.name|default_if_none:transl }}</th>
+                                            <th>{{ recipe.npc.name|default_if_none:transl }}</th>
+                                            <th>{{ recipe.get_reputation|default_if_none:"" }}</th>
+                                            <th>{{ recipe.price }}</th>
+                                            <th>{{ recipe.building }}</th>
+                                            <th>{{ recipe.equipment_slot|default_if_none:"" }}</th>
+                                            <th>{{ recipe.weapon|default_if_none:"" }}</th>
+                                            <th>{{ recipe.location.coordinates|default_if_none:"" }}</th>
+                                        </tr>
+                                    {% endfor %}
                                     </tbody>
                                 </table>
                             </div>
@@ -59,28 +73,39 @@
 {% endblock %}
 
 {% block js %}
-<script>
-    $(document).ready(function() {
+    <script>
+        $(document).ready(function() {
 
-        const oTable = $('#recipes').DataTable( {
-            "processing": true,
-            "serverSide": true,
-            "paging":   false,
-            "info":     false,
-            "ajax": "{% url 'recipes_ws' %}",
-            "columnDefs": [
-                {
-                    orderable:true,
-                    "targets":[0,1,2,3,4,5,6,7,8]
-                },
-                {
-                    searchable:true,
-                    "targets":[0,1,2,3,4,5,6,7,8]
-                }
-            ],
-            "order": [[0, 'asc']],
-        } );
+            $('#recipes').DataTable( {
+                "paging":   false,
+                "info": false,
+                "columnDefs": [
+                    {
+                        orderable:true,
+                        "targets":[0,1,2,3,4,5,6,7]
+                    },
+                    {
+                        searchable:true,
+                        "targets":[0,1,2,3,4,5,6,7]
+                    },
+                    {
+                        visible:false,
+                        "targets": 8
+                    },
+                    {
+                        "render": function ( data, type, row ) {
+                            if (row[8] === '') {
+                                return data
+                            }
+                            return "<a data-bs-toggle='modal' data-bs-target='#modal_map' href='' data-bs-position='"+row[8]+"'>"+data+"</a>";
+                        },
+                        "targets": 1
+                    }
+                ],
+                "order": [[0, 'asc']],
+                dom:"<'row'<'col-sm-6 d-flex align-items-center justify-conten-start'l><'col-sm-6 d-flex align-items-center justify-content-end'f>><'table-responsive'tr><'row'<'col-sm-12 col-md-5 d-flex align-items-center justify-content-center justify-content-md-start'i><'col-sm-12 col-md-7 d-flex align-items-center justify-content-center justify-content-md-end'p>>"
+            } );
 
-    });
-</script>
+        });
+    </script>
 {% endblock %}

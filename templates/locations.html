@@ -2,7 +2,7 @@
 {% load static %}
 {% load i18n %}
 
-{% block pagetitle %}{% translate "Location" %}s{% endblock %}
+{% block pagetitle %}{% translate "Locations" %}{% endblock %}
 
 {% block pagelevelcss %}
         <link href="{% static "assets/plugins/custom/datatables/datatables.bundle.css" %}" rel="stylesheet" type="text/css" />
@@ -29,7 +29,7 @@
                 <div class="card">
                     <div class="card-body fs-6 p-10 p-lg-15">
                         <div class="pb-10">
-                            <h1 class="anchor fw-bolder mb-5" id="column-rendering">{% translate "Location" %}s</h1>
+                            <h1 class="anchor fw-bolder mb-5" id="column-rendering">{% translate "Locations" %}s</h1>
                             <div class="my-5">
                                 <table id="locations" class="table table-striped border rounded gy-5 gs-7">
                                     <thead>
@@ -37,9 +37,21 @@
                                         <th>{% translate "Name" %}</th>
                                         <th>{% translate "Region" %}</th>
                                         <th>{% translate "Exploration" %}</th>
+                                        <th></th>
+                                        <th></th>
                                     </tr>
                                     </thead>
                                     <tbody>
+                                    {% for location in locations %}
+                                        <tr>
+                                            {% trans '-- no translation yet --' as transl %}
+                                            <th>{{ location.name|default_if_none:transl }}</th>
+                                            <th>{{ location.region.name|default_if_none:transl }}</th>
+                                            <th>{{ location.exploration|default_if_none:"" }}</th>
+                                            <th>{{ location.coordinates|default_if_none:"" }}</th>
+                                            <th>{{ location.region.coordinates|default_if_none:"" }}</th>
+                                        </tr>
+                                    {% endfor %}
                                     </tbody>
                                 </table>
                             </div>
@@ -53,28 +65,48 @@
 {% endblock %}
 
 {% block js %}
-<script>
-    $(document).ready(function() {
+    <script>
+        $(document).ready(function() {
 
-        const oTable = $('#locations').DataTable( {
-            "processing": true,
-            "serverSide": true,
-            "paging":   false,
-            "info":     false,
-            "ajax": "{% url 'locations_ws' %}",
-            "columnDefs": [
-                {
-                    orderable:true,
-                    "targets":[0,1,2]
-                },
-                {
-                    searchable:true,
-                    "targets":[0,1,2]
-                }
-            ],
-            "order": [[0, 'asc']],
-        } );
+            $('#locations').DataTable( {
+                "paging":   false,
+                "info": false,
+                "columnDefs": [
+                    {
+                        orderable:true,
+                        "targets":[0,1,2]
+                    },
+                    {
+                        searchable:true,
+                        "targets":[0,1,2]
+                    },
+                    {
+                        visible:false,
+                        "targets": [3,4]
+                    },
+                    {
+                        "render": function ( data, type, row ) {
+                            if (row[3] === '') {
+                                return data
+                            }
+                            return "<a data-bs-toggle='modal' data-bs-target='#modal_map' href='' data-bs-position='"+row[3]+"'>"+data+"</a>";
+                        },
+                        "targets": 0
+                    },
+                    {
+                        "render": function ( data, type, row ) {
+                            if (row[4] === '') {
+                                return data
+                            }
+                            return "<a data-bs-toggle='modal' data-bs-target='#modal_map' href='' data-bs-position='"+row[4]+"'>"+data+"</a>";
+                        },
+                        "targets": 1
+                    }
+                ],
+                "order": [[0, 'asc']],
+                dom:"<'row'<'col-sm-6 d-flex align-items-center justify-conten-start'l><'col-sm-6 d-flex align-items-center justify-content-end'f>><'table-responsive'tr><'row'<'col-sm-12 col-md-5 d-flex align-items-center justify-content-center justify-content-md-start'i><'col-sm-12 col-md-7 d-flex align-items-center justify-content-center justify-content-md-end'p>>"
+            } );
 
-    });
-</script>
+        });
+    </script>
 {% endblock %}

@@ -127,7 +127,10 @@ class Region(models.Model):
         ordering = ["name"]
 
     def __str__(self):
-        return self.name
+        if self.name:
+            return self.name
+        else:
+            return _('-- no translation yet --')
 
     @property
     def map_poi(self):
@@ -157,7 +160,10 @@ class Location(models.Model):
         ordering = ["name"]
 
     def __str__(self):
-        return self.name
+        if self.name:
+            return self.name
+        else:
+            return _('-- no translation yet --')
 
     @property
     def map_poi(self):
@@ -219,7 +225,10 @@ class Companion(models.Model):
         ordering = ["name"]
 
     def __str__(self):
-        return self.name
+        if self.name:
+            return self.name
+        else:
+            return _('-- no translation yet --')
 
     def get_absolute_url(self):
         return reverse('companion_card', args=[str(self.id)])
@@ -235,7 +244,10 @@ class NPC(models.Model):
         ordering = ["name"]
 
     def __str__(self):
-        return self.name
+        if self.name:
+            return self.name
+        else:
+            return _('-- no translation yet --')
 
 
 class Recipe(models.Model):
@@ -257,7 +269,10 @@ class Recipe(models.Model):
         ordering = ["name"]
 
     def __str__(self):
-        return self.name
+        if self.name:
+            return self.name
+        else:
+            return _('-- no translation yet --')
 
     def get_absolute_url(self):
         return reverse('recipe_card', args=[str(self.id)])
@@ -280,7 +295,7 @@ class Book(models.Model):
     weapon = models.ForeignKey(Weapon, on_delete=models.CASCADE, blank=True, null=True)
     reputation = models.ForeignKey(Reputation, on_delete=models.CASCADE, blank=True, null=True)
     guild = models.ForeignKey(Guild, on_delete=models.CASCADE, blank=True, null=True)
-    reputation_guild_value = models.IntegerField(blank=True, null=True)
+    reputation_guild_value = models.IntegerField(blank=True, null=True, default=0)
     location = models.ForeignKey(Location, on_delete=models.CASCADE, blank=True, null=True)
     npc = models.ForeignKey(NPC, on_delete=models.CASCADE, blank=True, null=True)
     image = models.ImageField(blank=True, null=True)
@@ -324,7 +339,10 @@ class Training(models.Model):
         ordering = ["name"]
 
     def __str__(self):
-        return self.name
+        if self.name:
+            return self.name
+        else:
+            return _('-- no translation yet --')
 
 
 class Spell(models.Model):
@@ -342,7 +360,10 @@ class Spell(models.Model):
         ordering = ["name"]
 
     def __str__(self):
-        return self.name
+        if self.name:
+            return self.name
+        else:
+            return _('-- no translation yet --')
 
     def get_absolute_url(self):
         return reverse('spell_card', args=[str(self.id)])

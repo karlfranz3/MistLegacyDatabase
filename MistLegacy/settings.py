@@ -73,7 +73,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'front.context_processor.geojson_locations'
+                'front.context_processor.geojson_locations',
+                'front.context_processor.geojson_regions'
             ],
         },
     },
@@ -92,6 +93,7 @@ DATABASES = {
     }
 }
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+'''
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
@@ -99,6 +101,7 @@ CACHES = {
         'TIMEOUT': 3600
     }
 }
+'''
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -140,7 +143,7 @@ STATIC_ROOT = '/home/Nacros/mldb/static'
 MEDIA_ROOT = '/home/Nacros/mldb/media'
 MEDIA_URL = '/media/'
 
-MODELTRANSLATION_FALLBACK_LANGUAGES = ('en', 'fr')
+MODELTRANSLATION_ENABLE_FALLBACKS = False
 MODELTRANSLATION_PREPOPULATE_LANGUAGE = 'en'
 gettext = lambda s: s
 LANGUAGES = (

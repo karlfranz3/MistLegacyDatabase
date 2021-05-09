@@ -29,7 +29,7 @@
                 <div class="card">
                     <div class="card-body fs-6 p-10 p-lg-15">
                         <div class="pb-10">
-                            <h1 class="anchor fw-bolder mb-5" id="column-rendering">{% translate "Spells|Skills" %}s</h1>
+                            <h1 class="anchor fw-bolder mb-5" id="column-rendering">{% translate "Spells|Skills" %}</h1>
                             <div class="my-5">
                                 <table id="spells" class="table table-striped border rounded gy-5 gs-7">
                                     <thead>
@@ -39,12 +39,23 @@
                                         <th class="kt-font-light">{% translate "Location" %}</th>
                                         <th class="kt-font-light">{% translate "NPC" %}</th>
                                         <th class="kt-font-light">{% translate "Reputation" %}</th>
-                                        <th class="kt-font-light">{% translate "Guild" %}</th>
-                                        <th class="kt-font-light">{% translate "Reputation/Guild value" %}</th>
                                         <th class="kt-font-light">{% translate "Price" %}</th>
+                                        <th></th>
                                     </tr>
                                     </thead>
                                     <tbody>
+                                    {% for spell in spells %}
+                                        <tr>
+                                            {% trans '-- no translation yet --' as transl %}
+                                            <th>{{ spell }}</th>
+                                            <th>{{ spell.level }}</th>
+                                            <th>{{ spell.location.name|default_if_none:transl }}</th>
+                                            <th>{{ spell.npc.name|default_if_none:transl }}</th>
+                                            <th>{{ spell.get_reputation }}</th>
+                                            <th>{{ spell.price }}</th>
+                                            <th>{{ spell.location.coordinates|default_if_none:"" }}</th>
+                                        </tr>
+                                    {% endfor %}
                                     </tbody>
                                 </table>
                             </div>
@@ -58,28 +69,39 @@
 {% endblock %}
 
 {% block js %}
-<script>
-    $(document).ready(function() {
+    <script>
+        $(document).ready(function() {
 
-        const oTable = $('#spells').DataTable( {
-            "processing": true,
-            "serverSide": true,
-            "paging":   false,
-            "info":     false,
-            "ajax": "{% url 'spells_ws' %}",
-            "columnDefs": [
-                {
-                    orderable:true,
-                    "targets":[0,1,2,3,4,5,6,7]
-                },
-                {
-                    searchable:true,
-                    "targets":[0,1,2,3,4,5,6,7]
-                }
-            ],
-            "order": [[0, 'asc']],
-        } );
+            $('#spells').DataTable( {
+                "paging":   false,
+                "info": false,
+                "columnDefs": [
+                    {
+                        orderable:true,
+                        "targets":[0,1,2,3,4,5]
+                    },
+                    {
+                        searchable:true,
+                        "targets":[0,1,2,3,4,5]
+                    },
+                    {
+                        visible:false,
+                        "targets": 6
+                    },
+                    {
+                        "render": function ( data, type, row ) {
+                            if (row[6] === '') {
+                                return data
+                            }
+                            return "<a data-bs-toggle='modal' data-bs-target='#modal_map' href='' data-bs-position='"+row[6]+"'>"+data+"</a>";
+                        },
+                        "targets": 2
+                    }
+                ],
+                "order": [[0, 'asc']],
+                dom:"<'row'<'col-sm-6 d-flex align-items-center justify-conten-start'l><'col-sm-6 d-flex align-items-center justify-content-end'f>><'table-responsive'tr><'row'<'col-sm-12 col-md-5 d-flex align-items-center justify-content-center justify-content-md-start'i><'col-sm-12 col-md-7 d-flex align-items-center justify-content-center justify-content-md-end'p>>"
+            } );
 
-    });
-</script>
+        });
+    </script>
 {% endblock %}

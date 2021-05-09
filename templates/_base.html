@@ -243,7 +243,7 @@ License: For each use you must have a valid license purchased only from above li
                                 </div>
                                 <div class="menu-item">
                                     <div class="menu-content pt-8 pb-2">
-                                        <span class="menu-section text-muted text-uppercase fs-8">{% translate "Material" %}s</span>
+                                        <span class="menu-section text-muted text-uppercase fs-8">{% translate "Materials" %}</span>
                                     </div>
                                 </div>
                                 <div class="menu-item">
@@ -444,7 +444,7 @@ License: For each use you must have a valid license purchased only from above li
         {% block js %}{% endblock %}
         <script>
             locations = {{ geojson_locations|geojsonfeature:"map_poi,logo_style,logo_icon"|safe }};
-            regions = {{ regions|geojsonfeature:"map_poi"|safe }};
+            regions = {{ geojson_regions|geojsonfeature:"map_poi"|safe }};
             var mymap;
 
             let GenericIcon = L.Icon.extend({

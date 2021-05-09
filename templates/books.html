@@ -38,12 +38,23 @@
                                         <th class="kt-font-light">{% translate "Location" %}</th>
                                         <th class="kt-font-light">{% translate "NPC" %}</th>
                                         <th class="kt-font-light">{% translate "Reputation" %}</th>
-                                        <th class="kt-font-light">{% translate "Reputation value" %}</th>
                                         <th class="kt-font-light">{% translate "Price" %}</th>
                                         <th class="kt-font-light">{% translate "Count" %}</th>
+                                        <th class="kt-font-light"></th>
                                     </tr>
                                     </thead>
                                     <tbody>
+                                        {% for book in books %}
+                                            <tr>
+                                                <th>{{ book }}</th>
+                                                <th>{{ book.location.name }}</th>
+                                                <th>{{ book.npc.name|default_if_none:"" }}</th>
+                                                <th>{{ book.get_reputation }}</th>
+                                                <th>{{ book.price }}</th>
+                                                <th>{{ book.count|default_if_none:"" }}</th>
+                                                <th>{{ book.location.coordinates|default_if_none:"" }}</th>
+                                            </tr>
+                                        {% endfor %}
                                     </tbody>
                                 </table>
                             </div>
@@ -60,23 +71,34 @@
 <script>
     $(document).ready(function() {
 
-        const oTable = $('#books').DataTable( {
-            "processing": true,
-            "serverSide": true,
+        $('#books').DataTable( {
             "paging":   false,
-            "info":     false,
-            "ajax": "{% url 'books_ws' %}",
+            "info": false,
             "columnDefs": [
                 {
                     orderable:true,
-                    "targets":[0,1,2,3,4,5,6]
+                    "targets":[0,1,2,3,4,5]
                 },
                 {
                     searchable:true,
-                    "targets":[0,1,2,3,4,5,6]
+                    "targets":[0,1,2,3,4,5]
+                },
+                {
+                    visible:false,
+                    "targets": 6
+                },
+                {
+                    "render": function ( data, type, row ) {
+                        if (row[6] === '') {
+                            return data
+                        }
+                        return "<a data-bs-toggle='modal' data-bs-target='#modal_map' href='' data-bs-position='"+row[6]+"'>"+data+"</a>";
+                    },
+                    "targets": 1
                 }
             ],
             "order": [[0, 'asc']],
+            dom:"<'row'<'col-sm-6 d-flex align-items-center justify-conten-start'l><'col-sm-6 d-flex align-items-center justify-content-end'f>><'table-responsive'tr><'row'<'col-sm-12 col-md-5 d-flex align-items-center justify-content-center justify-content-md-start'i><'col-sm-12 col-md-7 d-flex align-items-center justify-content-center justify-content-md-end'p>>"
         } );
 
     });

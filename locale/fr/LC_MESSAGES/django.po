@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-05 22:00+0200\n"
+"POT-Creation-Date: 2021-05-09 09:10+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,32 +18,40 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: .\MistLegacy\settings.py:146
+#: .\MistLegacy\settings.py:150
 msgid "English"
 msgstr "Anglais"
 
-#: .\MistLegacy\settings.py:147
+#: .\MistLegacy\settings.py:151
 msgid "French"
 msgstr "Français"
 
-#: .\front\models.py:135 .\templates\regions.html:39
+#: .\front\models.py:133 .\front\models.py:166 .\front\models.py:231
+#: .\front\models.py:250 .\front\models.py:275 .\front\models.py:345
+#: .\front\models.py:366 .\templates\locations.html:47
+#: .\templates\recipes.html:51 .\templates\regions.html:46
+#: .\templates\spells.html:49
+msgid "-- no translation yet --"
+msgstr "-- traduction indisponible --"
+
+#: .\front\models.py:138 .\templates\regions.html:39
 msgid "Difficulty"
 msgstr "Difficulté"
 
-#: .\front\models.py:166 .\templates\locations.html:39
+#: .\front\models.py:172 .\templates\locations.html:39
 msgid "Exploration"
 msgstr "Exploration"
 
-#: .\front\models.py:167 .\templates\companion_card.html:9
+#: .\front\models.py:173 .\templates\companion_card.html:9
 msgid "Quest"
 msgstr "Quête"
 
-#: .\front\models.py:169 .\templates\adventure.html:35
+#: .\front\models.py:175 .\templates\adventure.html:35
 #: .\templates\adventure.html:36
 msgid "Training"
 msgstr "Entrainement"
 
-#: .\front\models.py:173 .\templates\_base.html:211
+#: .\front\models.py:179 .\templates\_base.html:211
 #: .\templates\adventure.html:46 .\templates\adventure.html:47
 #: .\templates\books.html:5 .\templates\books.html:23 .\templates\books.html:32
 #: .\templates\books.html:37 .\templates\crafting.html:35
@@ -54,14 +62,14 @@ msgstr "Entrainement"
 msgid "Book"
 msgstr "Livre"
 
-#: .\front\models.py:177 .\templates\_base.html:226 .\templates\recipes.html:5
+#: .\front\models.py:183 .\templates\_base.html:226 .\templates\recipes.html:5
 #: .\templates\recipes.html:23 .\templates\recipes.html:32
 #: .\templates\reputation.html:35 .\templates\reputation.html:36
 #: .\templates\weapon.html:35 .\templates\weapon.html:36
 msgid "Recipe"
 msgstr "Recette"
 
-#: .\front\models.py:181
+#: .\front\models.py:187
 msgid "Spell/Skill"
 msgstr "Sort/Compétence"
 
@@ -93,6 +101,7 @@ msgid "Region"
 msgstr "Région"
 
 #: .\templates\_base.html:191 .\templates\_base.html:492
+#: .\templates\locations.html:5 .\templates\locations.html:32
 msgid "Locations"
 msgstr "Lieux"
 
@@ -108,8 +117,8 @@ msgid "Spells|Skills"
 msgstr "Sorts|Compétences"
 
 #: .\templates\_base.html:246
-msgid "Material"
-msgstr "Matière première"
+msgid "Materials"
+msgstr "Matières première"
 
 #: .\templates\_base.html:251 .\templates\basics.html:46
 #: .\templates\crafting.html:5 .\templates\crafting.html:21
@@ -143,8 +152,7 @@ msgstr "Aucune"
 #: .\templates\adventure.html:36 .\templates\adventure.html:47
 #: .\templates\books.html:38 .\templates\crafting.html:36
 #: .\templates\gathering.html:36 .\templates\guild.html:38
-#: .\templates\land.html:47 .\templates\locations.html:5
-#: .\templates\locations.html:23 .\templates\locations.html:32
+#: .\templates\land.html:47 .\templates\locations.html:23
 #: .\templates\recipes.html:38 .\templates\reputation.html:36
 #: .\templates\reputation.html:47 .\templates\reputation.html:58
 #: .\templates\spells.html:39 .\templates\weapon.html:36
@@ -174,7 +182,7 @@ msgid "Gathering"
 msgstr "Cueillette"
 
 #: .\templates\basics.html:66 .\templates\companion_card.html:8
-#: .\templates\recipes.html:45 .\templates\weapon.html:5
+#: .\templates\recipes.html:44 .\templates\weapon.html:5
 #: .\templates\weapon.html:21
 msgid "Weapon"
 msgstr "Arme"
@@ -185,7 +193,7 @@ msgid "Companion"
 msgstr "Compagnon"
 
 #: .\templates\basics.html:96 .\templates\guild.html:5
-#: .\templates\guild.html:23 .\templates\spells.html:42
+#: .\templates\guild.html:23
 msgid "Guild"
 msgstr "Guilde"
 
@@ -200,15 +208,11 @@ msgid "NPC"
 msgstr "NPC"
 
 #: .\templates\books.html:41 .\templates\recipes.html:41
-msgid "Reputation value"
-msgstr "Valeur de réputation"
-
-#: .\templates\books.html:42 .\templates\recipes.html:42
-#: .\templates\spells.html:44
+#: .\templates\spells.html:42
 msgid "Price"
 msgstr "Prix"
 
-#: .\templates\books.html:43
+#: .\templates\books.html:42
 msgid "Count"
 msgstr "Nombre"
 
@@ -221,7 +225,7 @@ msgid "Coming soon..."
 msgstr "Bientôt disponible..."
 
 #: .\templates\home.html:62
-msgid "Search..."
+msgid "Search"
 msgstr "Recherche..."
 
 #: .\templates\land.html:36
@@ -233,18 +237,14 @@ msgstr "Difficulté"
 msgid "Name"
 msgstr "Nom"
 
-#: .\templates\recipes.html:43
+#: .\templates\recipes.html:42
 msgid "Building"
 msgstr "Bâtiment"
 
-#: .\templates\recipes.html:44
-msgid "Equipment slot"
-msgstr "Emplacement d'équipement"
+#: .\templates\recipes.html:43
+msgid "Slot"
+msgstr "Emplacement"
 
 #: .\templates\spells.html:38
 msgid "Level"
 msgstr "Niveau"
-
-#: .\templates\spells.html:43
-msgid "Reputation/Guild value"
-msgstr "Valeur de réputation/guilde"

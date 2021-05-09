@@ -15,15 +15,10 @@ urlpatterns = i18n_patterns(
 
     path('basics', basics, name='basics'),
     path('regions', regions, name='regions'),
-    path("ws/regions", RegionsWS.as_view(), name="regions_ws"),
     path('locations', locations, name='locations'),
-    path("ws/locations", LocationsWS.as_view(), name="locations_ws"),
     path('books', books, name='books'),
-    path("ws/books", BooksWS.as_view(), name="books_ws"),
     path('recipes', recipes, name='recipes'),
-    path("ws/recipes", RecipesWS.as_view(), name="recipes_ws"),
     path('spells', spells, name='spells'),
-    path("ws/spells", SpellsWS.as_view(), name="spells_ws"),
 
     path('land/<int:pk>', land, name='land'),
     path('adventure/<int:pk>', adventure, name='adventure'),

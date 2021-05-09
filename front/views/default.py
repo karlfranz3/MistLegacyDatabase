@@ -20,8 +20,7 @@ def home(request):
 
 
 def map(request):
-    regions = Region.objects.all()
-    return render(request, 'map.html', context={'regions': regions})
+    return render(request, 'map.html', context={})
 
 
 def basics(request):
@@ -94,3 +93,23 @@ def guild(request, pk):
     spells = Spell.objects.filter(guild=guild)
     return render(request, 'guild.html', context={'guild': guild,
                                                   'spells': spells})
+
+
+def regions(request):
+    return render(request, 'regions.html', context={'regions': Region.objects.all()})
+
+
+def locations(request):
+    return render(request, 'locations.html', context={'locations': Location.objects.all()})
+
+
+def books(request):
+    return render(request, 'books.html', context={'books': Book.objects.all()})
+
+
+def recipes(request):
+    return render(request, 'recipes.html', context={'recipes': Recipe.objects.all()})
+
+
+def spells(request):
+    return render(request, 'spells.html', context={'spells': Spell.objects.all()})
