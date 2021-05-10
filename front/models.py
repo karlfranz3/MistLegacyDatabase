@@ -218,7 +218,6 @@ class Companion(models.Model):
     location = models.ForeignKey(Location, on_delete=models.CASCADE, blank=True, null=True)
     quest = models.BooleanField(blank=True, null=True, default=False)
     weapon = models.ForeignKey(Weapon, on_delete=models.CASCADE, blank=True, null=True)
-    image = models.ImageField(blank=True, null=True)
     comfort = models.IntegerField(blank=True, null=True)
 
     class Meta:
@@ -238,7 +237,6 @@ class NPC(models.Model):
     name = models.CharField(max_length=64, blank=True, null=True)
     location = models.ForeignKey(Location, on_delete=models.CASCADE, blank=True, null=True)
     daytime = models.ForeignKey(Daytime, on_delete=models.CASCADE, blank=True, null=True)
-    image = models.ImageField(blank=True, null=True)
 
     class Meta:
         ordering = ["name"]
@@ -263,7 +261,6 @@ class Recipe(models.Model):
                                        help_text="If not a building")
     weapon = models.ForeignKey(Weapon, on_delete=models.CASCADE, blank=True, null=True,
                                help_text="If equipment_slot is weapon")
-    image = models.ImageField(blank=True, null=True)
 
     class Meta:
         ordering = ["name"]
@@ -298,7 +295,6 @@ class Book(models.Model):
     reputation_guild_value = models.IntegerField(blank=True, null=True, default=0)
     location = models.ForeignKey(Location, on_delete=models.CASCADE, blank=True, null=True)
     npc = models.ForeignKey(NPC, on_delete=models.CASCADE, blank=True, null=True)
-    image = models.ImageField(blank=True, null=True)
 
     class Meta:
         ordering = ["gathering", "adventure", "crafting", "land", "weapon"]
@@ -354,7 +350,6 @@ class Spell(models.Model):
     reputation_guild_value = models.IntegerField(blank=True, null=True)
     location = models.ForeignKey(Location, on_delete=models.CASCADE, blank=True, null=True)
     npc = models.ForeignKey(NPC, on_delete=models.CASCADE, blank=True, null=True)
-    image = models.ImageField(blank=True, null=True)
 
     class Meta:
         ordering = ["name"]
@@ -373,3 +368,109 @@ class Spell(models.Model):
             return '{} {}'.format(self.reputation, self.reputation_guild_value)
         elif self.guild:
             return '{} {}'.format(self.guild, self.reputation_guild_value)
+
+'''
+class Material_type(models.Model):
+    name = models.CharField(max_length=64, blank=True, null=True)
+
+    class Meta:
+        ordering = ["name"]
+'''
+'''
+class Substance_type(models.Model):
+    name = models.CharField(max_length=64, blank=True, null=True)
+
+    class Meta:
+        ordering = ["name"]
+'''
+'''
+class Material(models.Model):
+    name = models.CharField(max_length=64, blank=True, null=True)
+    type = models.ForeignKey(Material_type, on_delete=models.CASCADE, blank=False, null=False)
+    level = models.IntegerField(blank=False, null=False)
+    density = models.IntegerField(blank=False, null=False)
+    purity = models.IntegerField(blank=False, null=False)
+    flexibility = models.IntegerField(blank=False, null=False)
+    rigidity = models.IntegerField(blank=False, null=False)
+    hardness = models.IntegerField(blank=False, null=False)
+    radiance = models.IntegerField(blank=False, null=False)
+    absorbency = models.IntegerField(blank=False, null=False)
+    durability = models.IntegerField(blank=False, null=False)
+    difficulty = models.IntegerField(blank=False, null=False)
+    encumbrance = models.IntegerField(blank=False, null=False)
+
+    class Meta:
+        ordering = ["name"]
+
+    def __str__(self):
+        if self.name:
+            return self.name
+        else:
+            return _('-- no translation yet --')
+'''
+'''
+class Substance(models.Model):
+    name = models.CharField(max_length=64, blank=True, null=True)
+    type = models.ForeignKey(Substance_type, on_delete=models.CASCADE, blank=False, null=False)
+    level = models.IntegerField(blank=False, null=False)
+    lithram = models.IntegerField(blank=False, null=False)
+    magnam = models.IntegerField(blank=False, null=False)
+    radiam = models.IntegerField(blank=False, null=False)
+    hydram = models.IntegerField(blank=False, null=False)
+    pyram = models.IntegerField(blank=False, null=False)
+    stratam = models.IntegerField(blank=False, null=False)
+    encumbrance = models.IntegerField(blank=False, null=False)
+
+    class Meta:
+        ordering = ["name"]
+
+    def __str__(self):
+        if self.name:
+            return self.name
+        else:
+            return _('-- no translation yet --')
+'''
+'''
+class Plant(models.Model):
+    name = models.CharField(max_length=64, blank=True, null=True)
+    level = models.IntegerField(blank=False, null=False)
+    activator = models.IntegerField(blank=False, null=False)
+    binder = models.IntegerField(blank=False, null=False)
+    energizer = models.IntegerField(blank=False, null=False)
+    deteriorator = models.IntegerField(blank=False, null=False)
+    focuser = models.IntegerField(blank=False, null=False)
+    fortifier = models.IntegerField(blank=False, null=False)
+    putrefier = models.IntegerField(blank=False, null=False)
+    stimulator = models.IntegerField(blank=False, null=False)
+    tranquilizer = models.IntegerField(blank=False, null=False)
+    toner = models.IntegerField(blank=False, null=False)
+    difficulty = models.IntegerField(blank=False, null=False)
+    encumbrance = models.IntegerField(blank=False, null=False)
+
+    class Meta:
+        ordering = ["name"]
+
+    def __str__(self):
+        if self.name:
+            return self.name
+        else:
+            return _('-- no translation yet --')
+'''
+
+'''
+class Gem(models.Model):
+    name = models.CharField(max_length=64, blank=True, null=True)
+    level = models.IntegerField(blank=False, null=False)
+    #TODO
+    difficulty = models.IntegerField(blank=False, null=False)
+    encumbrance = models.IntegerField(blank=False, null=False)
+
+    class Meta:
+        ordering = ["name"]
+
+    def __str__(self):
+        if self.name:
+            return self.name
+        else:
+            return _('-- no translation yet --')
+'''

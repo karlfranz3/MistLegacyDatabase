@@ -59,7 +59,7 @@ class LocationTranslationOptions(TranslationOptions):
 
 @register(Recipe)
 class RecipeTranslationOptions(TranslationOptions):
-    fields = ('name', 'image',)
+    fields = ('name',)
 
 
 @register(Training)
@@ -79,9 +79,4 @@ class CompanionTranslationOptions(TranslationOptions):
 
 @register(Spell)
 class SpellTranslationOptions(TranslationOptions):
-    fields = ('name', 'image',)
-
-
-@register(Book)
-class BookTranslationOptions(TranslationOptions):
-    fields = ('image',)
+    fields = ('name',)
