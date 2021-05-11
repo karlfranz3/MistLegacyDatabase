@@ -153,8 +153,7 @@ class Location(models.Model):
     exploration = models.IntegerField(blank=True, null=True)
     quest = models.BooleanField(blank=True, null=True, default=False)
     geom = PointField(blank=True, null=True)
-    style = FilerImageField(blank=True, null=True, related_name="logo_style", on_delete=models.CASCADE)
-    icon = FilerImageField(blank=True, null=True, related_name="logo_icon", on_delete=models.CASCADE)
+    icon = FilerImageField(blank=True, null=True, related_name="location_icon", on_delete=models.CASCADE)
 
     class Meta:
         ordering = ["name"]
@@ -192,16 +191,23 @@ class Location(models.Model):
         return tooltip
 
     @property
-    def logo_style(self):
-        if self.style:
-            return self.style.url
+    def icon_url(self):
+        if self.icon:
+            return self.icon.url
         else:
             return None
 
     @property
-    def logo_icon(self):
+    def icon_width(self):
         if self.icon:
-            return self.icon.url
+            return self.icon.width
+        else:
+            return None
+
+    @property
+    def icon_height(self):
+        if self.icon:
+            return self.icon.height
         else:
             return None
 
