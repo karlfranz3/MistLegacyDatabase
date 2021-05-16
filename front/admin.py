@@ -89,3 +89,13 @@ class CompanionAdmin(TranslationAdmin):
 @admin.register(Spell)
 class SpellAdmin(TranslationAdmin):
     list_display = ('name_en', 'name_fr', 'reputation', 'guild', 'reputation_guild_value', 'price', 'location', 'npc')
+
+
+@admin.register(MaterialType)
+class MaterialTypeAdmin(TranslationAdmin):
+    list_display = ('name_en', 'name_fr')
+
+
+@admin.register(Material)
+class MaterialAdmin(TranslationAdmin):
+    list_display = ('name_en', 'name_fr', 'material_type', 'level', 'difficulty', 'encumbrance')

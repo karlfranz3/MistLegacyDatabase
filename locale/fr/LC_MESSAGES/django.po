@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-09 09:10+0200\n"
+"POT-Creation-Date: 2021-05-16 12:05+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,35 +26,36 @@ msgstr "Anglais"
 msgid "French"
 msgstr "Français"
 
-#: .\front\models.py:133 .\front\models.py:166 .\front\models.py:231
-#: .\front\models.py:250 .\front\models.py:275 .\front\models.py:345
-#: .\front\models.py:366 .\templates\locations.html:47
-#: .\templates\recipes.html:51 .\templates\regions.html:46
-#: .\templates\spells.html:49
+#: .\front\models.py:133 .\front\models.py:165 .\front\models.py:236
+#: .\front\models.py:254 .\front\models.py:278 .\front\models.py:347
+#: .\front\models.py:367 .\front\models.py:420 .\templates\locations.html:48
+#: .\templates\recipes.html:52 .\templates\regions.html:47
+#: .\templates\spells.html:50
 msgid "-- no translation yet --"
 msgstr "-- traduction indisponible --"
 
-#: .\front\models.py:138 .\templates\regions.html:39
+#: .\front\models.py:138 .\templates\materials.html:47
+#: .\templates\regions.html:40
 msgid "Difficulty"
 msgstr "Difficulté"
 
-#: .\front\models.py:172 .\templates\locations.html:39
+#: .\front\models.py:171 .\templates\locations.html:40
 msgid "Exploration"
 msgstr "Exploration"
 
-#: .\front\models.py:173 .\templates\companion_card.html:9
+#: .\front\models.py:172 .\templates\companion_card.html:9
 msgid "Quest"
 msgstr "Quête"
 
-#: .\front\models.py:175 .\templates\adventure.html:35
+#: .\front\models.py:174 .\templates\adventure.html:35
 #: .\templates\adventure.html:36
 msgid "Training"
 msgstr "Entrainement"
 
-#: .\front\models.py:179 .\templates\_base.html:211
+#: .\front\models.py:178 .\templates\_base.html:204
 #: .\templates\adventure.html:46 .\templates\adventure.html:47
-#: .\templates\books.html:5 .\templates\books.html:23 .\templates\books.html:32
-#: .\templates\books.html:37 .\templates\crafting.html:35
+#: .\templates\books.html:5 .\templates\books.html:24 .\templates\books.html:33
+#: .\templates\books.html:38 .\templates\crafting.html:35
 #: .\templates\crafting.html:36 .\templates\gathering.html:35
 #: .\templates\gathering.html:36 .\templates\land.html:46
 #: .\templates\land.html:47 .\templates\reputation.html:46
@@ -62,14 +63,14 @@ msgstr "Entrainement"
 msgid "Book"
 msgstr "Livre"
 
-#: .\front\models.py:183 .\templates\_base.html:226 .\templates\recipes.html:5
-#: .\templates\recipes.html:23 .\templates\recipes.html:32
+#: .\front\models.py:182 .\templates\_base.html:212 .\templates\recipes.html:5
+#: .\templates\recipes.html:24 .\templates\recipes.html:33
 #: .\templates\reputation.html:35 .\templates\reputation.html:36
 #: .\templates\weapon.html:35 .\templates\weapon.html:36
 msgid "Recipe"
 msgstr "Recette"
 
-#: .\front\models.py:187
+#: .\front\models.py:186
 msgid "Spell/Skill"
 msgstr "Sort/Compétence"
 
@@ -77,7 +78,11 @@ msgstr "Sort/Compétence"
 msgid "Home"
 msgstr "Accueil"
 
-#: .\templates\_base.html:141 .\templates\adventure.html:18
+#: .\templates\_base.html:131
+msgid "General"
+msgstr "Général"
+
+#: .\templates\_base.html:146 .\templates\adventure.html:18
 #: .\templates\basics.html:15 .\templates\crafting.html:18
 #: .\templates\gathering.html:18 .\templates\guild.html:20
 #: .\templates\land.html:18 .\templates\reputation.html:18
@@ -85,55 +90,79 @@ msgstr "Accueil"
 msgid "Basics"
 msgstr "Basiques"
 
-#: .\templates\_base.html:146
+#: .\templates\_base.html:161
 msgid "Geography"
 msgstr "Géographie"
 
-#: .\templates\_base.html:161 .\templates\map.html:7
-msgid "Interactive map"
-msgstr "Carte interactive"
-
-#: .\templates\_base.html:176 .\templates\_base.html:493
+#: .\templates\_base.html:170 .\templates\_base.html:528
 #: .\templates\land.html:35 .\templates\land.html:36
-#: .\templates\locations.html:38 .\templates\regions.html:5
-#: .\templates\regions.html:23 .\templates\regions.html:32
+#: .\templates\locations.html:39 .\templates\regions.html:5
+#: .\templates\regions.html:24 .\templates\regions.html:33
 msgid "Region"
 msgstr "Région"
 
-#: .\templates\_base.html:191 .\templates\_base.html:492
-#: .\templates\locations.html:5 .\templates\locations.html:32
+#: .\templates\_base.html:178 .\templates\_base.html:527
+#: .\templates\locations.html:5 .\templates\locations.html:33
 msgid "Locations"
 msgstr "Lieux"
 
-#: .\templates\_base.html:196
+#: .\templates\_base.html:195
 msgid "Shop"
 msgstr "Magasin"
 
-#: .\templates\_base.html:241 .\templates\guild.html:37
+#: .\templates\_base.html:220 .\templates\guild.html:37
 #: .\templates\guild.html:38 .\templates\reputation.html:57
 #: .\templates\reputation.html:58 .\templates\spells.html:5
-#: .\templates\spells.html:23 .\templates\spells.html:32
+#: .\templates\spells.html:24 .\templates\spells.html:33
 msgid "Spells|Skills"
 msgstr "Sorts|Compétences"
 
-#: .\templates\_base.html:246
-msgid "Materials"
-msgstr "Matières première"
+#: .\templates\_base.html:227
+msgid "Raw Materials"
+msgstr "Matières premières"
 
-#: .\templates\_base.html:251 .\templates\basics.html:46
+#: .\templates\_base.html:242 .\templates\materials.html:5
+msgid "Materials"
+msgstr "Matériaux"
+
+#: .\templates\_base.html:251
+msgid "Stone"
+msgstr "Pierre"
+
+#: .\templates\_base.html:259
+msgid "Metal"
+msgstr "Métal"
+
+#: .\templates\_base.html:267
+msgid "Wood"
+msgstr "Bois"
+
+#: .\templates\_base.html:275
+msgid "Leather"
+msgstr "Cuir"
+
+#: .\templates\_base.html:283
+msgid "Fiber"
+msgstr "Fibre"
+
+#: .\templates\_base.html:290 .\templates\basics.html:46
 #: .\templates\crafting.html:5 .\templates\crafting.html:21
 msgid "Crafting"
 msgstr "Artisanat"
 
-#: .\templates\_base.html:306
+#: .\templates\_base.html:345
 msgid "Official Website"
 msgstr "Site officiel"
 
-#: .\templates\_base.html:311
+#: .\templates\_base.html:350
 msgid "Official Discord"
 msgstr "Discord officiel"
 
-#: .\templates\_base.html:521
+#: .\templates\_base.html:355
+msgid "Interactive Map"
+msgstr "Carte interactive"
+
+#: .\templates\_base.html:556
 msgid "Loading..."
 msgstr "Chargement..."
 
@@ -150,29 +179,29 @@ msgid "None"
 msgstr "Aucune"
 
 #: .\templates\adventure.html:36 .\templates\adventure.html:47
-#: .\templates\books.html:38 .\templates\crafting.html:36
+#: .\templates\books.html:39 .\templates\crafting.html:36
 #: .\templates\gathering.html:36 .\templates\guild.html:38
-#: .\templates\land.html:47 .\templates\locations.html:23
-#: .\templates\recipes.html:38 .\templates\reputation.html:36
+#: .\templates\land.html:47 .\templates\locations.html:24
+#: .\templates\recipes.html:39 .\templates\reputation.html:36
 #: .\templates\reputation.html:47 .\templates\reputation.html:58
-#: .\templates\spells.html:39 .\templates\weapon.html:36
+#: .\templates\spells.html:40 .\templates\weapon.html:36
 #: .\templates\weapon.html:47
 msgid "Location"
 msgstr "Lieu"
 
 #: .\templates\adventure.html:47 .\templates\basics.html:76
-#: .\templates\books.html:40 .\templates\crafting.html:36
+#: .\templates\books.html:41 .\templates\crafting.html:36
 #: .\templates\gathering.html:36 .\templates\guild.html:38
-#: .\templates\land.html:47 .\templates\recipes.html:40
+#: .\templates\land.html:47 .\templates\recipes.html:41
 #: .\templates\reputation.html:5 .\templates\reputation.html:21
 #: .\templates\reputation.html:36 .\templates\reputation.html:47
-#: .\templates\reputation.html:58 .\templates\spells.html:41
+#: .\templates\reputation.html:58 .\templates\spells.html:42
 #: .\templates\weapon.html:36
 msgid "Reputation"
 msgstr "Réputation"
 
 #: .\templates\basics.html:26 .\templates\land.html:5 .\templates\land.html:21
-#: .\templates\regions.html:38
+#: .\templates\regions.html:39
 msgid "Land"
 msgstr "Terrain"
 
@@ -182,7 +211,7 @@ msgid "Gathering"
 msgstr "Cueillette"
 
 #: .\templates\basics.html:66 .\templates\companion_card.html:8
-#: .\templates\recipes.html:44 .\templates\weapon.html:5
+#: .\templates\recipes.html:45 .\templates\weapon.html:5
 #: .\templates\weapon.html:21
 msgid "Weapon"
 msgstr "Arme"
@@ -202,17 +231,17 @@ msgstr "Guilde"
 msgid "No picture available"
 msgstr "Pas d'image disponible"
 
-#: .\templates\books.html:39 .\templates\recipes.html:39
-#: .\templates\spells.html:40
+#: .\templates\books.html:40 .\templates\recipes.html:40
+#: .\templates\spells.html:41
 msgid "NPC"
 msgstr "NPC"
 
-#: .\templates\books.html:41 .\templates\recipes.html:41
-#: .\templates\spells.html:42
+#: .\templates\books.html:42 .\templates\recipes.html:42
+#: .\templates\spells.html:43
 msgid "Price"
 msgstr "Prix"
 
-#: .\templates\books.html:42
+#: .\templates\books.html:43
 msgid "Count"
 msgstr "Nombre"
 
@@ -232,19 +261,60 @@ msgstr "Recherche..."
 msgid "land difficulty"
 msgstr "Difficulté"
 
-#: .\templates\locations.html:37 .\templates\recipes.html:37
-#: .\templates\regions.html:37 .\templates\spells.html:37
+#: .\templates\locations.html:38 .\templates\materials.html:37
+#: .\templates\recipes.html:38 .\templates\regions.html:38
+#: .\templates\spells.html:38
 msgid "Name"
 msgstr "Nom"
 
-#: .\templates\recipes.html:42
+#: .\templates\map.html:7
+msgid "Interactive map"
+msgstr "Carte interactive"
+
+#: .\templates\materials.html:38 .\templates\spells.html:39
+msgid "Level"
+msgstr "Niveau"
+
+#: .\templates\materials.html:39
+msgid "Density"
+msgstr "Densité"
+
+#: .\templates\materials.html:40
+msgid "Purity"
+msgstr "Pureté"
+
+#: .\templates\materials.html:41
+msgid "Flexib."
+msgstr "Flexib."
+
+#: .\templates\materials.html:42
+msgid "Rigidi."
+msgstr "Rigidi."
+
+#: .\templates\materials.html:43
+msgid "Hardne."
+msgstr "Dureté"
+
+#: .\templates\materials.html:44
+msgid "Radian."
+msgstr "Eclat"
+
+#: .\templates\materials.html:45
+msgid "Absorb."
+msgstr "Absorb."
+
+#: .\templates\materials.html:46
+msgid "Durability"
+msgstr "Durabilité"
+
+#: .\templates\materials.html:48
+msgid "Encumbrance"
+msgstr "Encombrement"
+
+#: .\templates\recipes.html:43
 msgid "Building"
 msgstr "Bâtiment"
 
-#: .\templates\recipes.html:43
+#: .\templates\recipes.html:44
 msgid "Slot"
 msgstr "Emplacement"
-
-#: .\templates\spells.html:38
-msgid "Level"
-msgstr "Niveau"

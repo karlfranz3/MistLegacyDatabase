@@ -80,3 +80,13 @@ class CompanionTranslationOptions(TranslationOptions):
 @register(Spell)
 class SpellTranslationOptions(TranslationOptions):
     fields = ('name',)
+
+
+@register(MaterialType)
+class MaterialTypeTranslationOptions(TranslationOptions):
+    fields = ('name',)
+
+
+@register(Material)
+class MaterialTypeTranslationOptions(TranslationOptions):
+    fields = ('name',)

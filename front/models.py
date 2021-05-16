@@ -375,33 +375,38 @@ class Spell(models.Model):
         elif self.guild:
             return '{} {}'.format(self.guild, self.reputation_guild_value)
 
+
+class MaterialType(models.Model):
+    name = models.CharField(max_length=64, blank=True, null=True)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        ordering = ["name"]
+
+
 '''
-class Material_type(models.Model):
+class SubstanceType(models.Model):
     name = models.CharField(max_length=64, blank=True, null=True)
 
     class Meta:
         ordering = ["name"]
 '''
-'''
-class Substance_type(models.Model):
-    name = models.CharField(max_length=64, blank=True, null=True)
 
-    class Meta:
-        ordering = ["name"]
-'''
-'''
+
 class Material(models.Model):
     name = models.CharField(max_length=64, blank=True, null=True)
-    type = models.ForeignKey(Material_type, on_delete=models.CASCADE, blank=False, null=False)
+    material_type = models.ForeignKey(MaterialType, on_delete=models.CASCADE, blank=False, null=False)
     level = models.IntegerField(blank=False, null=False)
-    density = models.IntegerField(blank=False, null=False)
-    purity = models.IntegerField(blank=False, null=False)
-    flexibility = models.IntegerField(blank=False, null=False)
-    rigidity = models.IntegerField(blank=False, null=False)
-    hardness = models.IntegerField(blank=False, null=False)
-    radiance = models.IntegerField(blank=False, null=False)
-    absorbency = models.IntegerField(blank=False, null=False)
-    durability = models.IntegerField(blank=False, null=False)
+    density = models.IntegerField(blank=True, null=True)
+    purity = models.IntegerField(blank=True, null=True)
+    flexibility = models.IntegerField(blank=True, null=True)
+    rigidity = models.IntegerField(blank=True, null=True)
+    hardness = models.IntegerField(blank=True, null=True)
+    radiance = models.IntegerField(blank=True, null=True)
+    absorbency = models.IntegerField(blank=True, null=True)
+    durability = models.IntegerField(blank=True, null=True)
     difficulty = models.IntegerField(blank=False, null=False)
     encumbrance = models.IntegerField(blank=False, null=False)
 
@@ -413,11 +418,12 @@ class Material(models.Model):
             return self.name
         else:
             return _('-- no translation yet --')
-'''
+
+
 '''
 class Substance(models.Model):
     name = models.CharField(max_length=64, blank=True, null=True)
-    type = models.ForeignKey(Substance_type, on_delete=models.CASCADE, blank=False, null=False)
+    type = models.ForeignKey(SubstanceType, on_delete=models.CASCADE, blank=False, null=False)
     level = models.IntegerField(blank=False, null=False)
     lithram = models.IntegerField(blank=False, null=False)
     magnam = models.IntegerField(blank=False, null=False)

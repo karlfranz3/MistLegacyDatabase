@@ -113,3 +113,8 @@ def recipes(request):
 
 def spells(request):
     return render(request, 'spells.html', context={'spells': Spell.objects.all()})
+
+
+def materials(request, material_type):
+    return render(request, 'materials.html', context={'qs': Material.objects.filter(material_type__name_en__exact=material_type),
+                                                      'material_type': material_type})
