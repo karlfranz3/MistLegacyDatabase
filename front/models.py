@@ -406,7 +406,7 @@ class Material(models.Model):
     hardness = models.IntegerField(blank=True, null=True)
     radiance = models.IntegerField(blank=True, null=True)
     absorbency = models.IntegerField(blank=True, null=True)
-    durability = models.IntegerField(blank=True, null=True)
+    durability = models.IntegerField(blank=False, null=False)
     difficulty = models.IntegerField(blank=False, null=False)
     encumbrance = models.IntegerField(blank=False, null=False)
 
