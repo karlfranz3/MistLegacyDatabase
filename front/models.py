@@ -386,13 +386,11 @@ class MaterialType(models.Model):
         ordering = ["name"]
 
 
-'''
-class SubstanceType(models.Model):
+class IngredientType(models.Model):
     name = models.CharField(max_length=64, blank=True, null=True)
 
     class Meta:
         ordering = ["name"]
-'''
 
 
 class Material(models.Model):
@@ -420,10 +418,9 @@ class Material(models.Model):
             return _('-- no translation yet --')
 
 
-'''
-class Substance(models.Model):
+class Ingredient(models.Model):
     name = models.CharField(max_length=64, blank=True, null=True)
-    type = models.ForeignKey(SubstanceType, on_delete=models.CASCADE, blank=False, null=False)
+    ingredient_type = models.ForeignKey(IngredientType, on_delete=models.CASCADE, blank=False, null=False)
     level = models.IntegerField(blank=False, null=False)
     lithram = models.IntegerField(blank=False, null=False)
     magnam = models.IntegerField(blank=False, null=False)
@@ -441,7 +438,7 @@ class Substance(models.Model):
             return self.name
         else:
             return _('-- no translation yet --')
-'''
+
 '''
 class Plant(models.Model):
     name = models.CharField(max_length=64, blank=True, null=True)

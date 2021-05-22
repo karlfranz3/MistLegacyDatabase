@@ -99,3 +99,13 @@ class MaterialTypeAdmin(TranslationAdmin):
 @admin.register(Material)
 class MaterialAdmin(TranslationAdmin):
     list_display = ('name_en', 'name_fr', 'material_type', 'level', 'difficulty', 'encumbrance')
+
+
+@admin.register(IngredientType)
+class IngredientTypeAdmin(TranslationAdmin):
+    list_display = ('name_en', 'name_fr')
+
+
+@admin.register(Ingredient)
+class IngredientAdmin(TranslationAdmin):
+    list_display = ('name_en', 'name_fr', 'ingredient_type', 'level', 'encumbrance')

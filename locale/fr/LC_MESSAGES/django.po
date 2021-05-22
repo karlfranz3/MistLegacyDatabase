@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-16 12:05+0200\n"
+"POT-Creation-Date: 2021-05-22 11:10+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,9 +28,9 @@ msgstr "Français"
 
 #: .\front\models.py:133 .\front\models.py:165 .\front\models.py:236
 #: .\front\models.py:254 .\front\models.py:278 .\front\models.py:347
-#: .\front\models.py:367 .\front\models.py:420 .\templates\locations.html:48
-#: .\templates\recipes.html:52 .\templates\regions.html:47
-#: .\templates\spells.html:50
+#: .\front\models.py:367 .\front\models.py:418 .\front\models.py:440
+#: .\templates\locations.html:48 .\templates\recipes.html:52
+#: .\templates\regions.html:47 .\templates\spells.html:50
 msgid "-- no translation yet --"
 msgstr "-- traduction indisponible --"
 
@@ -94,14 +94,14 @@ msgstr "Basiques"
 msgid "Geography"
 msgstr "Géographie"
 
-#: .\templates\_base.html:170 .\templates\_base.html:528
+#: .\templates\_base.html:170 .\templates\_base.html:562
 #: .\templates\land.html:35 .\templates\land.html:36
 #: .\templates\locations.html:39 .\templates\regions.html:5
 #: .\templates\regions.html:24 .\templates\regions.html:33
 msgid "Region"
 msgstr "Région"
 
-#: .\templates\_base.html:178 .\templates\_base.html:527
+#: .\templates\_base.html:178 .\templates\_base.html:561
 #: .\templates\locations.html:5 .\templates\locations.html:33
 msgid "Locations"
 msgstr "Lieux"
@@ -121,7 +121,7 @@ msgstr "Sorts|Compétences"
 msgid "Raw Materials"
 msgstr "Matières premières"
 
-#: .\templates\_base.html:242 .\templates\materials.html:5
+#: .\templates\_base.html:242
 msgid "Materials"
 msgstr "Matériaux"
 
@@ -145,24 +145,36 @@ msgstr "Cuir"
 msgid "Fiber"
 msgstr "Fibre"
 
-#: .\templates\_base.html:290 .\templates\basics.html:46
+#: .\templates\_base.html:300
+msgid "Ingredient"
+msgstr "Ingrédient"
+
+#: .\templates\_base.html:309
+msgid "Powder"
+msgstr "Poudre"
+
+#: .\templates\_base.html:317
+msgid "Substance"
+msgstr "Substance"
+
+#: .\templates\_base.html:324 .\templates\basics.html:46
 #: .\templates\crafting.html:5 .\templates\crafting.html:21
 msgid "Crafting"
 msgstr "Artisanat"
 
-#: .\templates\_base.html:345
+#: .\templates\_base.html:379
 msgid "Official Website"
 msgstr "Site officiel"
 
-#: .\templates\_base.html:350
+#: .\templates\_base.html:384
 msgid "Official Discord"
 msgstr "Discord officiel"
 
-#: .\templates\_base.html:355
+#: .\templates\_base.html:389
 msgid "Interactive Map"
 msgstr "Carte interactive"
 
-#: .\templates\_base.html:556
+#: .\templates\_base.html:590
 msgid "Loading..."
 msgstr "Chargement..."
 
@@ -257,23 +269,28 @@ msgstr "Bientôt disponible..."
 msgid "Search"
 msgstr "Recherche..."
 
+#: .\templates\ingredients.html:37 .\templates\locations.html:38
+#: .\templates\materials.html:37 .\templates\recipes.html:38
+#: .\templates\regions.html:38 .\templates\spells.html:38
+msgid "Name"
+msgstr "Nom"
+
+#: .\templates\ingredients.html:38 .\templates\materials.html:38
+#: .\templates\spells.html:39
+msgid "Level"
+msgstr "Niveau"
+
+#: .\templates\ingredients.html:45 .\templates\materials.html:48
+msgid "Encumbrance"
+msgstr "Encombrement"
+
 #: .\templates\land.html:36
 msgid "land difficulty"
 msgstr "Difficulté"
 
-#: .\templates\locations.html:38 .\templates\materials.html:37
-#: .\templates\recipes.html:38 .\templates\regions.html:38
-#: .\templates\spells.html:38
-msgid "Name"
-msgstr "Nom"
-
 #: .\templates\map.html:7
 msgid "Interactive map"
 msgstr "Carte interactive"
-
-#: .\templates\materials.html:38 .\templates\spells.html:39
-msgid "Level"
-msgstr "Niveau"
 
 #: .\templates\materials.html:39
 msgid "Density"
@@ -306,10 +323,6 @@ msgstr "Absorb."
 #: .\templates\materials.html:46
 msgid "Durability"
 msgstr "Durabilité"
-
-#: .\templates\materials.html:48
-msgid "Encumbrance"
-msgstr "Encombrement"
 
 #: .\templates\recipes.html:43
 msgid "Building"

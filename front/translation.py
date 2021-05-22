@@ -90,3 +90,13 @@ class MaterialTypeTranslationOptions(TranslationOptions):
 @register(Material)
 class MaterialTypeTranslationOptions(TranslationOptions):
     fields = ('name',)
+
+
+@register(IngredientType)
+class IngredientTypeTranslationOptions(TranslationOptions):
+    fields = ('name',)
+
+
+@register(Ingredient)
+class IngredientTranslationOptions(TranslationOptions):
+    fields = ('name',)
