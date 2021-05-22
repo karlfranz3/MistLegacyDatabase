@@ -59,8 +59,7 @@
                                                 <th>{{ elem.hydram|default_if_none:"" }}</th>
                                                 <th>{{ elem.pyram|default_if_none:"" }}</th>
                                                 <th>{{ elem.stratam|default_if_none:"" }}</th>
-                                                <th>{{ elem.absorbancy|default_if_none:"" }}</th>
-                                                <th>{{ elem.difficulty }}</th>
+                                                <th>{{ elem.difficulty|default_if_none:"" }}</th>
                                                 <th>{{ elem.encumbrance }}</th>
                                             </tr>
                                         {% endfor %}
