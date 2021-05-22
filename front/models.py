@@ -431,7 +431,7 @@ class Ingredient(models.Model):
     hydram = models.IntegerField(blank=True, null=True)
     pyram = models.IntegerField(blank=True, null=True)
     stratam = models.IntegerField(blank=True, null=True)
-    difficulty = models.IntegerField(blank=False, null=False)
+    difficulty = models.IntegerField(blank=True, null=True)
     encumbrance = models.IntegerField(blank=False, null=False)
 
     class Meta:
