@@ -100,3 +100,8 @@ class IngredientTypeTranslationOptions(TranslationOptions):
 @register(Ingredient)
 class IngredientTranslationOptions(TranslationOptions):
     fields = ('name',)
+
+
+@register(Plant)
+class PlantTranslationOptions(TranslationOptions):
+    fields = ('name',)

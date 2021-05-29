@@ -109,3 +109,8 @@ class IngredientTypeAdmin(TranslationAdmin):
 @admin.register(Ingredient)
 class IngredientAdmin(TranslationAdmin):
     list_display = ('name_en', 'name_fr', 'ingredient_type', 'level', 'difficulty', 'encumbrance')
+
+
+@admin.register(Plant)
+class PlantAdmin(TranslationAdmin):
+    list_display = ('name_en', 'name_fr', 'level', 'difficulty', 'encumbrance')

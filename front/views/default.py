@@ -123,3 +123,7 @@ def materials(request, material_type):
 def ingredients(request, ingredient_type):
     return render(request, 'ingredients.html', context={'qs': Ingredient.objects.filter(ingredient_type__name_en__exact=ingredient_type),
                                                         'ingredient_type': ingredient_type})
+
+
+def plants(request):
+    return render(request, 'plants.html', context={'qs': Plant.objects.all()})

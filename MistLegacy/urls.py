@@ -30,6 +30,7 @@ urlpatterns = i18n_patterns(
 
     path('materials/<str:material_type>', materials, name='materials'),
     path('ingredients/<str:ingredient_type>', ingredients, name='ingredients'),
+    path('plants', plants, name='plants'),
 
     path('companion_card/<int:pk>', companion_card, name='companion_card'),
     path('book_card/<int:pk>', book_card, name='book_card'),

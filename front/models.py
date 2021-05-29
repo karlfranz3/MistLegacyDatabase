@@ -443,20 +443,20 @@ class Ingredient(models.Model):
         else:
             return _('-- no translation yet --')
 
-'''
+
 class Plant(models.Model):
     name = models.CharField(max_length=64, blank=True, null=True)
     level = models.IntegerField(blank=False, null=False)
-    activator = models.IntegerField(blank=False, null=False)
-    binder = models.IntegerField(blank=False, null=False)
-    energizer = models.IntegerField(blank=False, null=False)
-    deteriorator = models.IntegerField(blank=False, null=False)
-    focuser = models.IntegerField(blank=False, null=False)
-    fortifier = models.IntegerField(blank=False, null=False)
-    putrefier = models.IntegerField(blank=False, null=False)
-    stimulator = models.IntegerField(blank=False, null=False)
-    tranquilizer = models.IntegerField(blank=False, null=False)
-    toner = models.IntegerField(blank=False, null=False)
+    activator = models.IntegerField(blank=True, null=True)
+    binder = models.IntegerField(blank=True, null=True)
+    energizer = models.IntegerField(blank=True, null=True)
+    deteriorator = models.IntegerField(blank=True, null=True)
+    focuser = models.IntegerField(blank=True, null=True)
+    fortifier = models.IntegerField(blank=True, null=True)
+    putrefier = models.IntegerField(blank=True, null=True)
+    stimulator = models.IntegerField(blank=True, null=True)
+    tranquilizer = models.IntegerField(blank=True, null=True)
+    toner = models.IntegerField(blank=True, null=True)
     difficulty = models.IntegerField(blank=False, null=False)
     encumbrance = models.IntegerField(blank=False, null=False)
 
@@ -468,7 +468,7 @@ class Plant(models.Model):
             return self.name
         else:
             return _('-- no translation yet --')
-'''
+
 
 '''
 class Gem(models.Model):
