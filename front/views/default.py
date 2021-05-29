@@ -3,6 +3,10 @@ from django.shortcuts import render, get_object_or_404
 from django.conf import settings
 from django.utils import translation
 from django.urls import translate_url
+from django.core.cache import cache
+from django.core.exceptions import PermissionDenied
+from django.http import HttpResponse
+from django.views.decorators.cache import never_cache
 
 from front.models import *
 
@@ -13,6 +17,14 @@ def set_lang(request, lang):
     response = HttpResponseRedirect(redirect_to=redirect_to)
     response.set_cookie(settings.LANGUAGE_COOKIE_NAME, lang)
     return response
+
+
+@never_cache
+def clear_cache(request):
+    if not request.user.is_superuser:
+        raise PermissionDenied
+    cache.clear()
+    return HttpResponse('Cache has been cleared')
 
 
 def home(request):

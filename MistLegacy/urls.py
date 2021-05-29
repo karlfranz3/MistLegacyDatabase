@@ -9,6 +9,7 @@ from django.conf.urls.i18n import i18n_patterns
 urlpatterns = i18n_patterns(
     path('', home, name='home'),
     path('set_lang/<str:lang>', set_lang, name="set_lang"),
+    path('clear_cache/', clear_cache),
     path('admin/', admin.site.urls),
     path('search', search, name='search'),
     path('map', map, name='map'),
