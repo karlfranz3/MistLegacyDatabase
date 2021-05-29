@@ -56,7 +56,7 @@
                                     <tbody>
                                         {% for elem in qs %}
                                             <tr>
-                                                <th>{{ elem.name }}</th>
+                                                <th>{{ elem }}</th>
                                                 <th>{{ elem.level }}</th>
                                                 <th>{{ elem.density|default_if_none:"" }}</th>
                                                 <th>{{ elem.purity|default_if_none:"" }}</th>
