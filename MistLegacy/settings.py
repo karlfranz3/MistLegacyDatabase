@@ -137,8 +137,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = '/home/Nacros/mldb/static'
-MEDIA_ROOT = '/home/Nacros/mldb/media'
+STATIC_ROOT = '/mldb/mldb/static'
+MEDIA_ROOT = '/mldb/mldb/media'
 MEDIA_URL = '/media/'
 
 MODELTRANSLATION_ENABLE_FALLBACKS = False
