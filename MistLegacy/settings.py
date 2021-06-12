@@ -137,8 +137,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = '/mldb/mldb/static'
-MEDIA_ROOT = '/mldb/mldb/media'
+STATIC_ROOT = '/mldb/static'
+MEDIA_ROOT = '/mldb/media'
 MEDIA_URL = '/media/'
 
 MODELTRANSLATION_ENABLE_FALLBACKS = False
@@ -149,7 +149,7 @@ LANGUAGES = (
     ('fr', gettext('French')),
 )
 LOCALE_PATHS = [
-    '/home/Nacros/mldb/locale',
+    '/mldb/locale',
     'C:/Users/Fabrice/PycharmProjects/MistLegacy/locale',
 ]
 
