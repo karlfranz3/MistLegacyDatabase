@@ -149,7 +149,7 @@ LANGUAGES = (
     ('fr', gettext('French')),
 )
 LOCALE_PATHS = [
-    '/mldb/locale',
+    '/mldb/mldb/locale',
     'C:/Users/Fabrice/PycharmProjects/MistLegacy/locale',
 ]
 
