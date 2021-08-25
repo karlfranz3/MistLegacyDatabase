@@ -33,6 +33,10 @@ urlpatterns = i18n_patterns(
     path('ingredients/<str:ingredient_type>', ingredients, name='ingredients'),
     path('plants', plants, name='plants'),
 
+    path('blueflags', blueflags, name='blueflags'),
+    path('quests', quests, name='quests'),
+    path('monsters', monsters, name='monsters'),
+
     path('companion_card/<int:pk>', companion_card, name='companion_card'),
     path('book_card/<int:pk>', book_card, name='book_card'),
     path('spell_card/<int:pk>', spell_card, name='spell_card'),

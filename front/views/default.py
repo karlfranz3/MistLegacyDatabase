@@ -139,3 +139,15 @@ def ingredients(request, ingredient_type):
 
 def plants(request):
     return render(request, 'plants.html', context={'qs': Plant.objects.all()})
+
+
+def blueflags(request):
+    return render(request, 'blueflags.html', context={'qs': Plant.objects.all()})
+
+
+def quests(request):
+    return render(request, 'todo.html', context={'qs': Plant.objects.all()})
+
+
+def monsters(request):
+    return render(request, 'todo.html', context={'qs': Plant.objects.all()})
