@@ -74,7 +74,8 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'front.context_processor.geojson_locations',
-                'front.context_processor.geojson_regions'
+                'front.context_processor.geojson_regions',
+                'front.context_processor.geojson_blueflags'
             ],
         },
     },

@@ -105,3 +105,8 @@ class IngredientTranslationOptions(TranslationOptions):
 @register(Plant)
 class PlantTranslationOptions(TranslationOptions):
     fields = ('name',)
+
+
+@register(BlueFlags)
+class PlantTranslationOptions(TranslationOptions):
+    fields = ('name',)

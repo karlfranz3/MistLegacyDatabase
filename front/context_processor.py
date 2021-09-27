@@ -1,4 +1,4 @@
-from .models import Location, Region
+from .models import Location, Region, BlueFlags
 
 
 def geojson_locations(request):
@@ -7,3 +7,7 @@ def geojson_locations(request):
 
 def geojson_regions(request):
     return {'geojson_regions': Region.objects.all()}
+
+
+def geojson_blueflags(request):
+    return {'geojson_blueflags': BlueFlags.objects.all()}

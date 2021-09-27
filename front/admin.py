@@ -114,3 +114,19 @@ class IngredientAdmin(TranslationAdmin):
 @admin.register(Plant)
 class PlantAdmin(TranslationAdmin):
     list_display = ('name_en', 'name_fr', 'level', 'difficulty', 'encumbrance')
+
+
+@admin.register(BlueFlags)
+class BlueFlagsAdmin(LeafletGeoAdmin):
+    exclude = ('name',)
+    list_display = ('name_en', 'name_fr')
+
+
+@admin.register(BlueFlagsStep)
+class BlueFlagsStepAdmin(admin.ModelAdmin):
+    list_display = ('flag', 'adventure', 'difficulty',)
+
+
+@admin.register(BlueFlagsReward)
+class BlueFlagsRewardAdmin(admin.ModelAdmin):
+    list_display = ('flag', 'material', 'number',)

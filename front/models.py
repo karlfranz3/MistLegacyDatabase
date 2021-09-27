@@ -470,6 +470,59 @@ class Plant(models.Model):
             return _('-- no translation yet --')
 
 
+class BlueFlags(models.Model):
+    name = models.CharField(max_length=64, blank=True, null=True)
+    geom = PointField(blank=True, null=True)
+
+    class Meta:
+        ordering = ["name"]
+
+    def __str__(self):
+        if self.name:
+            return self.name
+        else:
+            return _('-- no translation yet --')
+
+    @property
+    def map_poi(self):
+        tooltip = "<p>{}</br>".format(self.name)
+        if self.blueflagsstep_set.all().exists():
+            tooltip = tooltip + '</br>{}(s):</br>'.format(_("Step"))
+            for step in self.blueflagsstep_set.all():
+                tooltip = tooltip + '{}% {} ({})</br>'.format(step.percent, step.adventure, step.difficulty)
+        if self.blueflagsreward_set.all().exists():
+            tooltip = tooltip + '</br>{}(s):</br>'.format(_("Reward"))
+            for reward in self.blueflagsreward_set.all():
+                tooltip = tooltip + '{} ({})</br>'.format(reward.__str__(), reward.number)
+        tooltip = tooltip + '</p>'
+        return tooltip
+
+    @property
+    def coordinates(self):
+        if self.geom:
+            return str(self.geom['coordinates']).replace('[', '').replace(']', '').replace(' ', '')
+        else:
+            return None
+
+
+class BlueFlagsStep(models.Model):
+    flag = models.ForeignKey(BlueFlags, null=False, blank=False, on_delete=models.CASCADE)
+    adventure = models.ForeignKey(Adventure, on_delete=models.CASCADE)
+    difficulty = models.IntegerField(null=False, blank=False)
+    percent = models.IntegerField(default=0, null=False, blank=False)
+
+
+class BlueFlagsReward(models.Model):
+    flag = models.ForeignKey(BlueFlags, null=False, blank=False, on_delete=models.CASCADE)
+    material = models.ForeignKey(Material, null=True, blank=True, on_delete=models.CASCADE)
+    number = models.IntegerField(blank=False, null=False)
+
+    def __str__(self):
+        if self.material:
+            return self.material
+        else:
+            return _('-- no translation yet --')
+
 '''
 class Gem(models.Model):
     name = models.CharField(max_length=64, blank=True, null=True)
