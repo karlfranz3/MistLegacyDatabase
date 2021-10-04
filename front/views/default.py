@@ -65,8 +65,9 @@ def adventure(request, pk):
     adventure = get_object_or_404(Adventure, pk=pk)
     trainings = Training.objects.filter(adventure=adventure)
     books = Book.objects.filter(adventure=adventure)
-    return render(request, 'adventure.html', context={'adventure': adventure,
-                                                      'trainings': trainings, 'books': books})
+    flagsteps = BlueFlagsStep.objects.filter(adventure=adventure)
+    return render(request, 'adventure.html', context={'adventure': adventure, 'trainings': trainings,
+                                                      'books': books, 'flagsteps': flagsteps})
 
 
 def crafting(request, pk):
@@ -142,11 +143,7 @@ def plants(request):
 
 
 def blueflags(request):
-    return render(request, 'blueflags.html', context={'qs': Plant.objects.all()})
-
-
-def quests(request):
-    return render(request, 'todo.html', context={'qs': Plant.objects.all()})
+    return render(request, 'blueflags.html', context={'qs': BlueFlags.objects.all()})
 
 
 def monsters(request):

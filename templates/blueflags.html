@@ -35,19 +35,26 @@
                                     <thead>
                                     <tr class="fw-bold fs-6 text-gray-800">
                                         <th>{% translate "Name" %}</th>
-                                        <th>{% translate "Land" %}</th>
-                                        <th>{% translate "Difficulty" %}</th>
+                                        <th>{% translate "Adventure" %}</th>
+                                        <th>{% translate "Reward" %}</th>
                                         <th></th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    {% for blueflag in blueflags %}
+                                    {% for elem in qs %}
                                         <tr>
                                             {% trans '-- no translation yet --' as transl %}
-                                            <th>{{ region.name|default_if_none:transl }}</th>
-                                            <th>{{ region.land|default_if_none:"" }}</th>
-                                            <th>{{ region.land_difficulty|default_if_none:"" }}</th>
-                                            <th>{{ region.coordinates|default_if_none:"" }}</th>
+                                            <th>{% if elem.coordinates %}<a data-bs-toggle="modal" data-bs-target="#modal_map" href="" data-bs-position="{{ elem.coordinates }}">{{ elem|default_if_none:transl }}</a>{% else %}{{ elem }}{% endif %}</th>
+                                            <th>
+                                                {% for adventure in elem.blueflagsstep_set.all %}
+                                                    {{ adventure.percent }}% {{ adventure.adventure }} ({{ adventure.difficulty }})</br>
+                                                {% endfor %}
+                                            </th>
+                                            <th>
+                                                {% for reward in elem.blueflagsreward_set.all %}
+                                                    {{ reward.number }} x {{ reward.material }}</br>
+                                                {% endfor %}
+                                            </th>
                                         </tr>
                                     {% endfor %}
                                     </tbody>

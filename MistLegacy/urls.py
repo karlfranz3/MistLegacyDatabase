@@ -34,7 +34,6 @@ urlpatterns = i18n_patterns(
     path('plants', plants, name='plants'),
 
     path('blueflags', blueflags, name='blueflags'),
-    path('quests', quests, name='quests'),
     path('monsters', monsters, name='monsters'),
 
     path('companion_card/<int:pk>', companion_card, name='companion_card'),

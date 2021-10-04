@@ -588,9 +588,9 @@ License: For each use you must have a valid license purchased only from above li
                 const layerLocations = L.geoJson(locations, {onEachFeature: onEachFeature}).addTo(mymap);
                 const layerRegions = L.geoJson(regions, {onEachFeature: onEachFeature}).addTo(mymap);
                 L.Icon.Default.prototype.options.iconUrl = 'blueflags.png';
-                L.Icon.Default.prototype.options.iconSize = L.point(45,60);
-                L.Icon.Default.prototype.options.iconAnchor = L.point(22,56);
-                L.Icon.Default.prototype.options.popupAnchor = L.point(0,-60);
+                L.Icon.Default.prototype.options.iconSize = L.point(30,40);
+                L.Icon.Default.prototype.options.iconAnchor = L.point(15,35);
+                L.Icon.Default.prototype.options.popupAnchor = L.point(0,-40);
                 const layerFlags = L.geoJson(blueflags, {onEachFeature: onEachFeature}).addTo(mymap);
                 var baseMaps = {};
                 var overlayMaps = {
