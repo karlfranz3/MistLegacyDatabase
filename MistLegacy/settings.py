@@ -25,7 +25,7 @@ SECRET_KEY = 'y9xucupzvxm1jmi5g=88r45ifi7r6_3*qqttiq$42crwjr@t94'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['nacros.eu.pythonanywhere.com', '127.0.0.1', 'localhost', 'mldb.nacros.ovh']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'mldb.nacros.ovh', 'www.mistlegacydb.com']
 
 
 # Application definition
