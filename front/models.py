@@ -515,11 +515,17 @@ class BlueFlagsStep(models.Model):
 class BlueFlagsReward(models.Model):
     flag = models.ForeignKey(BlueFlags, null=False, blank=False, on_delete=models.CASCADE)
     material = models.ForeignKey(Material, null=True, blank=True, on_delete=models.CASCADE)
+    ingredient = models.ForeignKey(Ingredient, null=True, blank=True, on_delete=models.CASCADE)
+    plant = models.ForeignKey(Plant, null=True, blank=True, on_delete=models.CASCADE)
     number = models.IntegerField(blank=False, null=False)
 
     def __str__(self):
         if self.material:
             return self.material.name
+        elif self.ingredient:
+            return self.ingredient.name
+        elif self.plant:
+            return self.plant.name
         else:
             return _('-- no translation yet --')
 
