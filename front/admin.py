@@ -129,4 +129,4 @@ class BlueFlagsStepAdmin(admin.ModelAdmin):
 
 @admin.register(BlueFlagsReward)
 class BlueFlagsRewardAdmin(admin.ModelAdmin):
-    list_display = ('flag', 'material', 'number',)
+    list_display = ('flag', 'material', 'ingredient', 'plant', 'number',)
