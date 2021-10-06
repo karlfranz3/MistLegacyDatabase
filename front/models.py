@@ -519,7 +519,7 @@ class BlueFlagsReward(models.Model):
 
     def __str__(self):
         if self.material:
-            return self.material
+            return self.material.name
         else:
             return _('-- no translation yet --')
 
