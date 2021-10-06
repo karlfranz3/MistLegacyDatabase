@@ -48,6 +48,7 @@
                                         <th class="kt-font-light">{% translate "Hardne." %}</th>
                                         <th class="kt-font-light">{% translate "Radian." %}</th>
                                         <th class="kt-font-light">{% translate "Absorb." %}</th>
+                                        <th class="kt-font-light">{% translate "Lightn." %}</th>
                                         <th class="kt-font-light">{% translate "Durability" %}</th>
                                         <th class="kt-font-light">{% translate "Difficulty" %}</th>
                                         <th class="kt-font-light">{% translate "Encumbrance" %}</th>
@@ -65,6 +66,7 @@
                                                 <th>{{ elem.hardness|default_if_none:"" }}</th>
                                                 <th>{{ elem.radiance|default_if_none:"" }}</th>
                                                 <th>{{ elem.absorbancy|default_if_none:"" }}</th>
+                                                <th>{{ elem.lightness|default_if_none:"" }}</th>
                                                 <th>{{ elem.durability|default_if_none:"" }}</th>
                                                 <th>{{ elem.difficulty }}</th>
                                                 <th>{{ elem.encumbrance }}</th>
@@ -92,11 +94,11 @@
             "columnDefs": [
                 {
                     orderable:true,
-                    "targets":[0,1,2,3,4,5,6,7,8,9,10,11]
+                    "targets":[0,1,2,3,4,5,6,7,8,9,10,11,12]
                 },
                 {
                     searchable:true,
-                    "targets":[0,1,2,3,4,5,6,7,8,9,10,11]
+                    "targets":[0,1,2,3,4,5,6,7,8,9,10,11,12]
                 }
             ],
             "order": [[0, 'asc']],
