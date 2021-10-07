@@ -429,6 +429,10 @@ class Ingredient(models.Model):
     hydram = models.IntegerField(blank=True, null=True)
     pyram = models.IntegerField(blank=True, null=True)
     stratam = models.IntegerField(blank=True, null=True)
+    frimam = models.IntegerField(blank=True, null=True, default=None)
+    lectram = models.IntegerField(blank=True, null=True, default=None)
+    psycham = models.IntegerField(blank=True, null=True, default=None)
+    elioam = models.IntegerField(blank=True, null=True, default=None)
     difficulty = models.IntegerField(blank=True, null=True)
     encumbrance = models.IntegerField(blank=False, null=False)
 

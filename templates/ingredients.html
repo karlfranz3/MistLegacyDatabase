@@ -15,6 +15,9 @@
 {% block menu_ingredients %}hover show{% endblock %}
 {% block menu_powder %}{% if ingredient_type == 'Powder' %}active{% endif %}{% endblock %}
 {% block menu_substance %}{% if ingredient_type == 'Substance' %}active{% endif %}{% endblock %}
+{% block menu_sap %}{% if ingredient_type == 'Sap' %}active{% endif %}{% endblock %}
+{% block menu_gem %}{% if ingredient_type == 'Gem' %}active{% endif %}{% endblock %}
+{% block menu_pollen %}{% if ingredient_type == 'Pollen' %}active{% endif %}{% endblock %}
 
 {% block corpsdepage %}
 
@@ -44,6 +47,10 @@
                                         <th class="kt-font-light">Hydram</th>
                                         <th class="kt-font-light">Pyram</th>
                                         <th class="kt-font-light">Stratam</th>
+                                        <th class="kt-font-light">Frimam</th>
+                                        <th class="kt-font-light">Lectram</th>
+                                        <th class="kt-font-light">Psycham</th>
+                                        <th class="kt-font-light">Elioam</th>
                                         <th class="kt-font-light">{% translate "Difficulty" %}</th>
                                         <th class="kt-font-light">{% translate "Encumbrance" %}</th>
                                     </tr>
@@ -59,6 +66,10 @@
                                                 <th>{{ elem.hydram|default_if_none:"" }}</th>
                                                 <th>{{ elem.pyram|default_if_none:"" }}</th>
                                                 <th>{{ elem.stratam|default_if_none:"" }}</th>
+                                                <th>{{ elem.frimam|default_if_none:"" }}</th>
+                                                <th>{{ elem.lectram|default_if_none:"" }}</th>
+                                                <th>{{ elem.psycham|default_if_none:"" }}</th>
+                                                <th>{{ elem.elioam|default_if_none:"" }}</th>
                                                 <th>{{ elem.difficulty|default_if_none:"" }}</th>
                                                 <th>{{ elem.encumbrance }}</th>
                                             </tr>
@@ -85,11 +96,11 @@
             "columnDefs": [
                 {
                     orderable:true,
-                    "targets":[0,1,2,3,4,5,6,7,8,9]
+                    "targets":[0,1,2,3,4,5,6,7,8,9,10,11,12,13]
                 },
                 {
                     searchable:true,
-                    "targets":[0,1,2,3,4,5,6,7,8,9]
+                    "targets":[0,1,2,3,4,5,6,7,8,9,10,11,12,13]
                 }
             ],
             "order": [[0, 'asc']],
