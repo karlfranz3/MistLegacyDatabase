@@ -563,19 +563,7 @@ License: For each use you must have a valid license purchased only from above li
             locations = {{ geojson_locations|geojsonfeature:"map_poi,icon_url,icon_width,icon_height"|safe }};
             regions = {{ geojson_regions|geojsonfeature:"map_poi"|safe }};
             blueflags = {{ geojson_blueflags|geojsonfeature:"map_poi"|safe }};
-            var mymap;
-            var blueflagIcon = L.icon({
-                iconUrl: 'blueflags.png',
-                iconSize:     [30, 40],
-                iconAnchor:   [15, 35],
-                popupAnchor:  [0, -40]
-            });
-            var unknownIcon = L.icon({
-                iconUrl: '/static/leaflet/images/Unknown.png',
-                iconSize: [30, 40],
-                iconAnchor: [15, 35],
-                popupAnchor: [0, -40]
-            });
+            let mymap;
 
             function onEachFeature(feature, layer) {
                 if (feature.properties && feature.properties.map_poi) {
@@ -587,8 +575,6 @@ License: For each use you must have a valid license purchased only from above li
                             iconAnchor: [feature.properties.icon_width/4,feature.properties.icon_height/2-5],
                             popupAnchor: [0,-feature.properties.icon_height/2]
                         }));
-                    } else {
-                        layer.setIcon(unknownIcon);
                     }
                 }
             }
@@ -596,7 +582,12 @@ License: For each use you must have a valid license purchased only from above li
             function onEachFeatureBF(feature, layer) {
                 if (feature.properties && feature.properties.map_poi) {
                     layer.bindPopup(feature.properties.map_poi);
-                    layer.setIcon(blueflagIcon);
+                    layer.setIcon(new L.Icon({
+                        iconUrl: '/static/leaflet/images/blueflags.png',
+                        iconSize: [30, 40],
+                        iconAnchor: [15, 35],
+                        popupAnchor: [0, -40]
+                    }));
                 }
             }
 
@@ -611,6 +602,10 @@ License: For each use you must have a valid license purchased only from above li
                 });
                 //L.control.mousePosition().addTo(mymap);
                 mymap.addControl(new L.Control.Fullscreen());
+                L.Icon.Default.prototype.options.iconUrl = 'Unknown.png';
+                L.Icon.Default.prototype.options.iconSize = L.point(45,56);
+                L.Icon.Default.prototype.options.iconAnchor = L.point(22,51);
+                L.Icon.Default.prototype.options.popupAnchor = L.point(0,-56);
                 const layerLocations = L.geoJson(locations, {onEachFeature: onEachFeature}).addTo(mymap);
                 const layerRegions = L.geoJson(regions, {onEachFeature: onEachFeature}).addTo(mymap);
                 const layerFlags = L.geoJson(blueflags, {onEachFeature: onEachFeatureBF}).addTo(mymap);
