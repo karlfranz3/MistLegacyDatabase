@@ -564,7 +564,7 @@ License: For each use you must have a valid license purchased only from above li
             regions = {{ geojson_regions|geojsonfeature:"map_poi"|safe }};
             blueflags = {{ geojson_blueflags|geojsonfeature:"map_poi"|safe }};
             var mymap;
-            var blueflagIcon = L.Icon.extend({
+            var blueflagIcon = L.icon({
                 iconUrl: 'blueflags.png',
                 iconSize:     [30, 40],
                 iconAnchor:   [15, 35],
