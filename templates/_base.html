@@ -593,6 +593,13 @@ License: For each use you must have a valid license purchased only from above li
                 }
             }
 
+            function onEachFeatureBF(feature, layer) {
+                if (feature.properties && feature.properties.map_poi) {
+                    layer.bindPopup(feature.properties.map_poi);
+                    layer.setIcon(blueflagIcon);
+                }
+            }
+
             $(window).on('map:init', function(e) {
                 mymap = e.originalEvent.detail.map;
                 const southWest = L.latLng(-38, -82);
@@ -606,7 +613,7 @@ License: For each use you must have a valid license purchased only from above li
                 mymap.addControl(new L.Control.Fullscreen());
                 const layerLocations = L.geoJson(locations, {onEachFeature: onEachFeature}).addTo(mymap);
                 const layerRegions = L.geoJson(regions, {onEachFeature: onEachFeature}).addTo(mymap);
-                const layerFlags = L.geoJson(blueflags, {onEachFeature: onEachFeature}).addTo(mymap);
+                const layerFlags = L.geoJson(blueflags, {onEachFeature: onEachFeatureBF}).addTo(mymap);
                 var baseMaps = {};
                 var overlayMaps = {
                     "{% translate "Locations" %}": layerLocations,
