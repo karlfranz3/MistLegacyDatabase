@@ -564,6 +564,18 @@ License: For each use you must have a valid license purchased only from above li
             regions = {{ geojson_regions|geojsonfeature:"map_poi"|safe }};
             blueflags = {{ geojson_blueflags|geojsonfeature:"map_poi"|safe }};
             var mymap;
+            let unknownIcon = L.icon({
+                iconUrl: 'Unknown.png',
+                iconSize:     [45, 56],
+                iconAnchor:   [22, 51],
+                popupAnchor:  [0, -56]
+            });
+            let blueflagIcon = L.icon({
+                iconUrl: 'blueflags.png',
+                iconSize:     [30, 40],
+                iconAnchor:   [15, 35],
+                popupAnchor:  [0, -40]
+            });
 
             function onEachFeature(feature, layer) {
                 if (feature.properties && feature.properties.map_poi) {
@@ -575,6 +587,8 @@ License: For each use you must have a valid license purchased only from above li
                             iconAnchor: [feature.properties.icon_width/4,feature.properties.icon_height/2-5],
                             popupAnchor: [0,-feature.properties.icon_height/2]
                         }));
+                    } else {
+                        layer.setIcon(unknownIcon)
                     }
                 }
             }
@@ -590,21 +604,9 @@ License: For each use you must have a valid license purchased only from above li
                 });
                 //L.control.mousePosition().addTo(mymap);
                 mymap.addControl(new L.Control.Fullscreen());
-                let unknownIcon = L.icon({
-                    iconUrl: 'Unknown.png',
-                    iconSize:     [45, 56],
-                    iconAnchor:   [22, 51],
-                    popupAnchor:  [0, -56]
-                });
-                let blueflagIcon = L.icon({
-                    iconUrl: 'blueflags.png',
-                    iconSize:     [30, 40],
-                    iconAnchor:   [15, 35],
-                    popupAnchor:  [0, -40]
-                });
-                const layerLocations = L.geoJson(locations, {onEachFeature: onEachFeature, icon: unknownIcon}).addTo(mymap);
+                const layerLocations = L.geoJson(locations, {onEachFeature: onEachFeature}).addTo(mymap);
                 const layerRegions = L.geoJson(regions, {onEachFeature: onEachFeature}).addTo(mymap);
-                const layerFlags = L.geoJson(blueflags, {onEachFeature: onEachFeature, icon: blueflagIcon}).addTo(mymap);
+                const layerFlags = L.geoJson(blueflags, {onEachFeature: onEachFeature}).addTo(mymap);
                 var baseMaps = {};
                 var overlayMaps = {
                     "{% translate "Locations" %}": layerLocations,
