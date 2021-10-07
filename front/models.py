@@ -331,10 +331,7 @@ class Training(models.Model):
     name = models.CharField(max_length=64, blank=True, null=True)
     adventure = models.ForeignKey(Adventure, on_delete=models.CASCADE)
     location = models.ForeignKey(Location, on_delete=models.CASCADE, blank=True, null=True)
-    daytime = models.ForeignKey(Daytime, on_delete=models.CASCADE, blank=True, null=True)
     difficulty = models.IntegerField(blank=True, null=True)
-    recovery = models.IntegerField(blank=True, null=True)
-    gold_reward = models.IntegerField(blank=True, null=True)
     npc = models.ForeignKey(NPC, on_delete=models.CASCADE, blank=True, null=True)
 
     class Meta:

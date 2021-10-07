@@ -37,7 +37,6 @@
                                         <th>{% translate "Name" %}</th>
                                         <th>{% translate "Adventure" %}</th>
                                         <th>{% translate "Reward" %}</th>
-                                        <th></th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -52,7 +51,7 @@
                                             </th>
                                             <th>
                                                 {% for reward in elem.blueflagsreward_set.all %}
-                                                    {{ reward.number }} x {{ reward.material }}</br>
+                                                    {{ reward.number }} x {{ reward }}</br>
                                                 {% endfor %}
                                             </th>
                                         </tr>

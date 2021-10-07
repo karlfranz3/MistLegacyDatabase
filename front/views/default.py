@@ -55,38 +55,38 @@ def search(request):
 
 def land(request, pk):
     land = get_object_or_404(Land, pk=pk)
-    books = Book.objects.filter(land=land)
-    regions = Region.objects.filter(land=land)
+    books = Book.objects.filter(land=land).order_by('reputation', 'guild', 'reputation_guild_value')
+    regions = Region.objects.filter(land=land).order_by('-land_difficulty')
     return render(request, 'land.html', context={'land': land,
                                                  'regions': regions, 'books': books})
 
 
 def adventure(request, pk):
     adventure = get_object_or_404(Adventure, pk=pk)
-    trainings = Training.objects.filter(adventure=adventure)
-    books = Book.objects.filter(adventure=adventure)
-    flagsteps = BlueFlagsStep.objects.filter(adventure=adventure)
+    trainings = Training.objects.filter(adventure=adventure).order_by('-difficulty')
+    books = Book.objects.filter(adventure=adventure).order_by('reputation', 'guild', 'reputation_guild_value')
+    flagsteps = BlueFlagsStep.objects.filter(adventure=adventure).order_by('-difficulty')
     return render(request, 'adventure.html', context={'adventure': adventure, 'trainings': trainings,
                                                       'books': books, 'flagsteps': flagsteps})
 
 
 def crafting(request, pk):
     crafting = get_object_or_404(Crafting, pk=pk)
-    books = Book.objects.filter(crafting=crafting)
+    books = Book.objects.filter(crafting=crafting).order_by('reputation', 'guild', 'reputation_guild_value')
     return render(request, 'crafting.html', context={'crafting': crafting,
                                                      'books': books})
 
 
 def gathering(request, pk):
     gathering = get_object_or_404(Gathering, pk=pk)
-    books = Book.objects.filter(gathering=gathering)
+    books = Book.objects.filter(gathering=gathering).order_by('reputation', 'guild', 'reputation_guild_value')
     return render(request, 'gathering.html', context={'gathering': gathering,
                                                       'books': books})
 
 
 def weapon(request, pk):
     weapon = get_object_or_404(Weapon, pk=pk)
-    recipes = Recipe.objects.filter(weapon=weapon)
+    recipes = Recipe.objects.filter(weapon=weapon).order_by('reputation', 'guild', 'reputation_guild_value')
     companions = Companion.objects.filter(weapon=weapon)
     return render(request, 'weapon.html', context={'weapon': weapon,
                                                    'recipes': recipes, 'companions': companions})
@@ -95,15 +95,15 @@ def weapon(request, pk):
 def reputation(request, pk):
     reputation = get_object_or_404(Reputation, pk=pk)
     recipes = Recipe.objects.filter(reputation=reputation)
-    books = Book.objects.filter(reputation=reputation)
-    spells = Spell.objects.filter(reputation=reputation)
+    books = Book.objects.filter(reputation=reputation).order_by('reputation', 'guild', 'reputation_guild_value')
+    spells = Spell.objects.filter(reputation=reputation).order_by('reputation', 'guild', 'reputation_guild_value')
     return render(request, 'reputation.html', context={'reputation': reputation,
                                                        'recipes': recipes, 'books': books, 'spells': spells})
 
 
 def guild(request, pk):
     guild = get_object_or_404(Guild, pk=pk)
-    spells = Spell.objects.filter(guild=guild)
+    spells = Spell.objects.filter(guild=guild).order_by('reputation', 'guild', 'reputation_guild_value')
     return render(request, 'guild.html', context={'guild': guild,
                                                   'spells': spells})
 
