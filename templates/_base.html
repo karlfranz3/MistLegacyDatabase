@@ -570,6 +570,12 @@ License: For each use you must have a valid license purchased only from above li
                 iconAnchor:   [15, 35],
                 popupAnchor:  [0, -40]
             });
+            var unknownIcon = L.icon({
+                iconUrl: '/static/leaflet/images/Unknown.png',
+                iconSize: [30, 40],
+                iconAnchor: [15, 35],
+                popupAnchor: [0, -40]
+            });
 
             function onEachFeature(feature, layer) {
                 if (feature.properties && feature.properties.map_poi) {
@@ -582,12 +588,7 @@ License: For each use you must have a valid license purchased only from above li
                             popupAnchor: [0,-feature.properties.icon_height/2]
                         }));
                     } else {
-                        layer.setIcon(new L.Icon({
-                            iconUrl: '/static/leaflet/images/Unknown.png',
-                            iconSize: [30, 40],
-                            iconAnchor: [15, 35],
-                            popupAnchor: [0, -40]
-                        }));
+                        layer.setIcon(new unknownIcon);
                     }
                 }
             }
