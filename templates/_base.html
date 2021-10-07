@@ -590,17 +590,21 @@ License: For each use you must have a valid license purchased only from above li
                 });
                 //L.control.mousePosition().addTo(mymap);
                 mymap.addControl(new L.Control.Fullscreen());
-                L.Icon.Default.prototype.options.iconUrl = 'Unknown.png';
-                L.Icon.Default.prototype.options.iconSize = L.point(45,56);
-                L.Icon.Default.prototype.options.iconAnchor = L.point(22,51);
-                L.Icon.Default.prototype.options.popupAnchor = L.point(0,-56);
-                const layerLocations = L.geoJson(locations, {onEachFeature: onEachFeature}).addTo(mymap);
+                let unknownIcon = L.icon({
+                    iconUrl: 'Unknown.png',
+                    iconSize:     [45, 56],
+                    iconAnchor:   [22, 51],
+                    popupAnchor:  [0, -56]
+                });
+                let blueflagIcon = L.icon({
+                    iconUrl: 'blueflags.png',
+                    iconSize:     [30, 40],
+                    iconAnchor:   [15, 35],
+                    popupAnchor:  [0, -40]
+                });
+                const layerLocations = L.geoJson(locations, {onEachFeature: onEachFeature, icon: unknownIcon}).addTo(mymap);
                 const layerRegions = L.geoJson(regions, {onEachFeature: onEachFeature}).addTo(mymap);
-                L.Icon.Default.prototype.options.iconUrl = 'blueflags.png';
-                L.Icon.Default.prototype.options.iconSize = L.point(30,40);
-                L.Icon.Default.prototype.options.iconAnchor = L.point(15,35);
-                L.Icon.Default.prototype.options.popupAnchor = L.point(0,-40);
-                const layerFlags = L.geoJson(blueflags, {onEachFeature: onEachFeature}).addTo(mymap);
+                const layerFlags = L.geoJson(blueflags, {onEachFeature: onEachFeature, icon: blueflagIcon}).addTo(mymap);
                 var baseMaps = {};
                 var overlayMaps = {
                     "{% translate "Locations" %}": layerLocations,
