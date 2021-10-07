@@ -564,13 +564,14 @@ License: For each use you must have a valid license purchased only from above li
             regions = {{ geojson_regions|geojsonfeature:"map_poi"|safe }};
             blueflags = {{ geojson_blueflags|geojsonfeature:"map_poi"|safe }};
             var mymap;
-            let unknownIcon = L.icon({
+            var unknownIcon = L.Icon.extend({
+                options:
                 iconUrl: 'Unknown.png',
                 iconSize:     [45, 56],
                 iconAnchor:   [22, 51],
                 popupAnchor:  [0, -56]
             });
-            let blueflagIcon = L.icon({
+            var blueflagIcon = L.Icon.extend({
                 iconUrl: 'blueflags.png',
                 iconSize:     [30, 40],
                 iconAnchor:   [15, 35],
@@ -588,7 +589,12 @@ License: For each use you must have a valid license purchased only from above li
                             popupAnchor: [0,-feature.properties.icon_height/2]
                         }));
                     } else {
-                        layer.setIcon(new unknownIcon);
+                        layer.setIcon(new L.Icon({
+                            iconUrl: 'Unknown.png',
+                            iconSize: [30, 40],
+                            iconAnchor: [15, 35],
+                            popupAnchor: [0, -40]
+                        }));
                     }
                 }
             }
