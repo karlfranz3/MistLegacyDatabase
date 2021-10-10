@@ -307,6 +307,14 @@ License: For each use you must have a valid license purchased only from above li
                                                 <span class="menu-title">{% translate "Fiber" %}s</span>
                                             </a>
                                         </div>
+                                        <div class="menu-item">
+                                            <a class="menu-link {% block menu_bone %}{% endblock %}" href="{% url 'materials' material_type='Bone'%}">
+												<span class="menu-bullet">
+													<span class="bullet bullet-dot"></span>
+												</span>
+                                                <span class="menu-title">{% translate "Bone" %}s</span>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                                 <div data-kt-menu-trigger="click" class="menu-item menu-accordion {% block menu_ingredients %}{% endblock %}">
@@ -529,7 +537,7 @@ License: For each use you must have a valid license purchased only from above li
                             <!--begin::Copyright-->
                             <div class="text-dark order-2 order-md-1">
                                 <span class="text-muted fw-bold me-1">2021©</span>
-                                Mist Legacy DB v0.2.2 - All visuals are property of&nbsp;<a href="https://virtys.com/" target="_blank" class="kt-link">Virtys</a>. Thanks kgg, Ythuriel & Mr.Piao for their help. Contact : Nacros on official ML Discord
+                                Mist Legacy DB v0.2.3 - All visuals are property of&nbsp;<a href="https://virtys.com/" target="_blank" class="kt-link">Virtys</a>. Thanks kgg, Ythuriel & Mr.Piao for their help. Contact : Nacros on official ML Discord
                             </div>
                             <!--end::Copyright-->
                         </div>
@@ -631,7 +639,7 @@ License: For each use you must have a valid license purchased only from above li
                 L.Icon.Default.prototype.options.iconAnchor = L.point(22,51);
                 L.Icon.Default.prototype.options.popupAnchor = L.point(0,-56);
                 const layerLocations = L.geoJson(locations, {onEachFeature: onEachFeature}).addTo(mymap);
-                const layerRegions = L.geoJson(regions, {onEachFeature: onEachFeature}).addTo(mymap);
+                const layerRegions = L.geoJson(regions, {onEachFeature: onEachFeature});
                 const layerFlags = L.geoJson(blueflags, {onEachFeature: onEachFeatureBF}).addTo(mymap);
                 var baseMaps = {};
                 var overlayMaps = {

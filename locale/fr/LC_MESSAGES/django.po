@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-07 19:14+0200\n"
+"POT-Creation-Date: 2021-10-10 17:28+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,7 +37,7 @@ msgid "-- no translation yet --"
 msgstr "-- traduction indisponible --"
 
 #: .\front\models.py:138 .\templates\ingredients.html:54
-#: .\templates\materials.html:53 .\templates\plants.html:49
+#: .\templates\materials.html:54 .\templates\plants.html:49
 #: .\templates\regions.html:40
 msgid "Difficulty"
 msgstr "Difficulté"
@@ -101,7 +101,7 @@ msgstr "Général"
 msgid "Basics"
 msgstr "Basiques"
 
-#: .\templates\_base.html:170 .\templates\_base.html:640
+#: .\templates\_base.html:170 .\templates\_base.html:648
 #: .\templates\adventure.html:57 .\templates\blueflags.html:5
 #: .\templates\blueflags.html:23 .\templates\blueflags.html:32
 msgid "Blue Flags"
@@ -111,14 +111,14 @@ msgstr "Drapeaux bleus"
 msgid "Geography"
 msgstr "Géographie"
 
-#: .\templates\_base.html:194 .\templates\_base.html:639
+#: .\templates\_base.html:194 .\templates\_base.html:647
 #: .\templates\land.html:35 .\templates\land.html:36
 #: .\templates\locations.html:39 .\templates\regions.html:5
 #: .\templates\regions.html:24 .\templates\regions.html:33
 msgid "Region"
 msgstr "Région"
 
-#: .\templates\_base.html:202 .\templates\_base.html:638
+#: .\templates\_base.html:202 .\templates\_base.html:646
 #: .\templates\locations.html:5 .\templates\locations.html:33
 msgid "Locations"
 msgstr "Lieux"
@@ -162,53 +162,57 @@ msgstr "Cuir"
 msgid "Fiber"
 msgstr "Fibre"
 
-#: .\templates\_base.html:324
+#: .\templates\_base.html:315
+msgid "Bone"
+msgstr "Os"
+
+#: .\templates\_base.html:332
 msgid "Ingredient"
 msgstr "Ingrédient"
 
-#: .\templates\_base.html:333
+#: .\templates\_base.html:341
 msgid "Powder"
 msgstr "Poudre"
 
-#: .\templates\_base.html:341
+#: .\templates\_base.html:349
 msgid "Substance"
 msgstr "Substance"
 
-#: .\templates\_base.html:349
+#: .\templates\_base.html:357
 msgid "Gem"
 msgstr "Gemme"
 
-#: .\templates\_base.html:357
+#: .\templates\_base.html:365
 msgid "Sap"
 msgstr "Sève"
 
-#: .\templates\_base.html:365
+#: .\templates\_base.html:373
 msgid "Pollen"
 msgstr "Pollen"
 
-#: .\templates\_base.html:382 .\templates\plants.html:5
+#: .\templates\_base.html:390 .\templates\plants.html:5
 #: .\templates\plants.html:23 .\templates\plants.html:32
 msgid "Plant"
 msgstr "Plante"
 
-#: .\templates\_base.html:387 .\templates\basics.html:46
+#: .\templates\_base.html:395 .\templates\basics.html:46
 #: .\templates\crafting.html:5 .\templates\crafting.html:21
 msgid "Crafting"
 msgstr "Artisanat"
 
-#: .\templates\_base.html:442
+#: .\templates\_base.html:450
 msgid "Official Website"
 msgstr "Site officiel"
 
-#: .\templates\_base.html:447
+#: .\templates\_base.html:455
 msgid "Official Discord"
 msgstr "Discord officiel"
 
-#: .\templates\_base.html:452
+#: .\templates\_base.html:460
 msgid "Interactive Map"
 msgstr "Carte interactive"
 
-#: .\templates\_base.html:668
+#: .\templates\_base.html:676
 msgid "Loading..."
 msgstr "Chargement..."
 
@@ -225,7 +229,7 @@ msgid "None"
 msgstr "Aucune"
 
 #: .\templates\adventure.html:36 .\templates\adventure.html:58
-#: .\templates\ingredients.html:43 .\templates\materials.html:43
+#: .\templates\ingredients.html:43 .\templates\materials.html:44
 #: .\templates\plants.html:38 .\templates\spells.html:39
 msgid "Level"
 msgstr "Niveau"
@@ -283,7 +287,7 @@ msgid "Guild"
 msgstr "Guilde"
 
 #: .\templates\blueflags.html:37 .\templates\ingredients.html:42
-#: .\templates\locations.html:38 .\templates\materials.html:42
+#: .\templates\locations.html:38 .\templates\materials.html:43
 #: .\templates\plants.html:37 .\templates\recipes.html:38
 #: .\templates\regions.html:38 .\templates\spells.html:38
 msgid "Name"
@@ -320,7 +324,7 @@ msgstr "Bientôt disponible..."
 msgid "Search"
 msgstr "Recherche..."
 
-#: .\templates\ingredients.html:55 .\templates\materials.html:54
+#: .\templates\ingredients.html:55 .\templates\materials.html:55
 #: .\templates\plants.html:50
 msgid "Encumbrance"
 msgstr "Encombrement"
@@ -333,39 +337,39 @@ msgstr "Difficulté"
 msgid "Interactive map"
 msgstr "Carte interactive"
 
-#: .\templates\materials.html:44
+#: .\templates\materials.html:45
 msgid "Density"
 msgstr "Densité"
 
-#: .\templates\materials.html:45
+#: .\templates\materials.html:46
 msgid "Purity"
 msgstr "Pureté"
 
-#: .\templates\materials.html:46
+#: .\templates\materials.html:47
 msgid "Flexib."
 msgstr "Flexib."
 
-#: .\templates\materials.html:47
+#: .\templates\materials.html:48
 msgid "Rigidi."
 msgstr "Rigidi."
 
-#: .\templates\materials.html:48
+#: .\templates\materials.html:49
 msgid "Hardne."
 msgstr "Dureté"
 
-#: .\templates\materials.html:49
+#: .\templates\materials.html:50
 msgid "Radian."
 msgstr "Eclat"
 
-#: .\templates\materials.html:50
+#: .\templates\materials.html:51
 msgid "Absorb."
 msgstr "Absorb."
 
-#: .\templates\materials.html:51
+#: .\templates\materials.html:52
 msgid "Lightn."
 msgstr "Légèreté"
 
-#: .\templates\materials.html:52
+#: .\templates\materials.html:53
 msgid "Durability"
 msgstr "Durabilité"
 
