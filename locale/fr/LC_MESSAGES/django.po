@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-10 17:28+0200\n"
+"POT-Creation-Date: 2021-10-13 10:34+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,26 +18,26 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: .\MistLegacy\settings.py:149
+#: .\MistLegacy\settings.py:151
 msgid "English"
 msgstr "Anglais"
 
-#: .\MistLegacy\settings.py:150
+#: .\MistLegacy\settings.py:152
 msgid "French"
 msgstr "Français"
 
 #: .\front\models.py:133 .\front\models.py:165 .\front\models.py:236
 #: .\front\models.py:254 .\front\models.py:278 .\front\models.py:344
-#: .\front\models.py:364 .\front\models.py:419 .\front\models.py:446
-#: .\front\models.py:472 .\front\models.py:486 .\front\models.py:532
-#: .\templates\blueflags.html:45 .\templates\locations.html:48
-#: .\templates\recipes.html:52 .\templates\regions.html:47
-#: .\templates\spells.html:50
+#: .\front\models.py:364 .\front\models.py:441 .\front\models.py:490
+#: .\front\models.py:538 .\front\models.py:552 .\front\models.py:598
+#: .\front\models.py:631 .\templates\blueflags.html:45
+#: .\templates\locations.html:48 .\templates\recipes.html:52
+#: .\templates\regions.html:47 .\templates\spells.html:50
 msgid "-- no translation yet --"
 msgstr "-- traduction indisponible --"
 
 #: .\front\models.py:138 .\templates\ingredients.html:54
-#: .\templates\materials.html:54 .\templates\plants.html:49
+#: .\templates\materials.html:55 .\templates\plants.html:50
 #: .\templates\regions.html:40
 msgid "Difficulty"
 msgstr "Difficulté"
@@ -77,13 +77,17 @@ msgstr "Recette"
 msgid "Spell/Skill"
 msgstr "Sort/Compétence"
 
-#: .\front\models.py:492
+#: .\front\models.py:558
 msgid "Step"
 msgstr "Etape"
 
-#: .\front\models.py:496 .\templates\blueflags.html:39
+#: .\front\models.py:562 .\templates\blueflags.html:39
 msgid "Reward"
 msgstr "Récompense"
+
+#: .\front\models.py:605
+msgid "Vigor"
+msgstr "Vigor"
 
 #: .\templates\_base.html:135 .\templates\home.html:5 .\templates\home.html:20
 msgid "Home"
@@ -101,7 +105,7 @@ msgstr "Général"
 msgid "Basics"
 msgstr "Basiques"
 
-#: .\templates\_base.html:170 .\templates\_base.html:648
+#: .\templates\_base.html:170 .\templates\_base.html:664
 #: .\templates\adventure.html:57 .\templates\blueflags.html:5
 #: .\templates\blueflags.html:23 .\templates\blueflags.html:32
 msgid "Blue Flags"
@@ -111,14 +115,14 @@ msgstr "Drapeaux bleus"
 msgid "Geography"
 msgstr "Géographie"
 
-#: .\templates\_base.html:194 .\templates\_base.html:647
+#: .\templates\_base.html:194 .\templates\_base.html:663
 #: .\templates\land.html:35 .\templates\land.html:36
 #: .\templates\locations.html:39 .\templates\regions.html:5
 #: .\templates\regions.html:24 .\templates\regions.html:33
 msgid "Region"
 msgstr "Région"
 
-#: .\templates\_base.html:202 .\templates\_base.html:646
+#: .\templates\_base.html:202 .\templates\_base.html:662
 #: .\templates\locations.html:5 .\templates\locations.html:33
 msgid "Locations"
 msgstr "Lieux"
@@ -212,7 +216,17 @@ msgstr "Discord officiel"
 msgid "Interactive Map"
 msgstr "Carte interactive"
 
-#: .\templates\_base.html:676
+#: .\templates\_base.html:665
+msgid "Elixirs"
+msgstr "Elixirs"
+
+#: .\templates\_base.html:666
+#, fuzzy
+#| msgid "Gathering"
+msgid "Gathering Points"
+msgstr "Cueillette"
+
+#: .\templates\_base.html:694
 msgid "Loading..."
 msgstr "Chargement..."
 
@@ -229,8 +243,8 @@ msgid "None"
 msgstr "Aucune"
 
 #: .\templates\adventure.html:36 .\templates\adventure.html:58
-#: .\templates\ingredients.html:43 .\templates\materials.html:44
-#: .\templates\plants.html:38 .\templates\spells.html:39
+#: .\templates\ingredients.html:43 .\templates\materials.html:45
+#: .\templates\plants.html:39 .\templates\spells.html:39
 msgid "Level"
 msgstr "Niveau"
 
@@ -287,8 +301,8 @@ msgid "Guild"
 msgstr "Guilde"
 
 #: .\templates\blueflags.html:37 .\templates\ingredients.html:42
-#: .\templates\locations.html:38 .\templates\materials.html:43
-#: .\templates\plants.html:37 .\templates\recipes.html:38
+#: .\templates\locations.html:38 .\templates\materials.html:44
+#: .\templates\plants.html:38 .\templates\recipes.html:38
 #: .\templates\regions.html:38 .\templates\spells.html:38
 msgid "Name"
 msgstr "Nom"
@@ -324,8 +338,8 @@ msgstr "Bientôt disponible..."
 msgid "Search"
 msgstr "Recherche..."
 
-#: .\templates\ingredients.html:55 .\templates\materials.html:55
-#: .\templates\plants.html:50
+#: .\templates\ingredients.html:55 .\templates\materials.html:56
+#: .\templates\plants.html:51
 msgid "Encumbrance"
 msgstr "Encombrement"
 
@@ -337,79 +351,79 @@ msgstr "Difficulté"
 msgid "Interactive map"
 msgstr "Carte interactive"
 
-#: .\templates\materials.html:45
+#: .\templates\materials.html:46
 msgid "Density"
 msgstr "Densité"
 
-#: .\templates\materials.html:46
+#: .\templates\materials.html:47
 msgid "Purity"
 msgstr "Pureté"
 
-#: .\templates\materials.html:47
+#: .\templates\materials.html:48
 msgid "Flexib."
 msgstr "Flexib."
 
-#: .\templates\materials.html:48
+#: .\templates\materials.html:49
 msgid "Rigidi."
 msgstr "Rigidi."
 
-#: .\templates\materials.html:49
+#: .\templates\materials.html:50
 msgid "Hardne."
 msgstr "Dureté"
 
-#: .\templates\materials.html:50
+#: .\templates\materials.html:51
 msgid "Radian."
 msgstr "Eclat"
 
-#: .\templates\materials.html:51
+#: .\templates\materials.html:52
 msgid "Absorb."
 msgstr "Absorb."
 
-#: .\templates\materials.html:52
+#: .\templates\materials.html:53
 msgid "Lightn."
 msgstr "Légèreté"
 
-#: .\templates\materials.html:53
+#: .\templates\materials.html:54
 msgid "Durability"
 msgstr "Durabilité"
 
-#: .\templates\plants.html:39
+#: .\templates\plants.html:40
 msgid "Activ."
 msgstr "Activ."
 
-#: .\templates\plants.html:40
+#: .\templates\plants.html:41
 msgid "Binder"
 msgstr "Binder"
 
-#: .\templates\plants.html:41
+#: .\templates\plants.html:42
 msgid "Energi."
 msgstr "Energi."
 
-#: .\templates\plants.html:42
+#: .\templates\plants.html:43
 msgid "Deteri."
 msgstr "Deteri."
 
-#: .\templates\plants.html:43
+#: .\templates\plants.html:44
 msgid "Focuser"
 msgstr "Focuser"
 
-#: .\templates\plants.html:44
+#: .\templates\plants.html:45
 msgid "Fortif."
 msgstr "Fortif."
 
-#: .\templates\plants.html:45
+#: .\templates\plants.html:46
 msgid "Putref."
 msgstr "Putref."
 
-#: .\templates\plants.html:46
+#: .\templates\plants.html:47
 msgid "Stimul."
 msgstr "Stimul."
 
-#: .\templates\plants.html:47
+#: .\templates\plants.html:48
 msgid "Tranqu."
 msgstr "Tranqu."
 
-#: .\templates\plants.html:48
+#: .\templates\plants.html:49
 msgid "Toner"
 msgstr "Toner"
 
