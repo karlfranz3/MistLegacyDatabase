@@ -40,6 +40,7 @@
                                 <table id="materials" class="table table-striped border rounded gy-5 gs-7">
                                     <thead>
                                     <tr class="fw-bold fs-6 text-gray-800">
+                                        <th class="kt-font-light"></th>
                                         <th class="kt-font-light">{% translate "Name" %}</th>
                                         <th class="kt-font-light">{% translate "Level" %}</th>
                                         <th class="kt-font-light">{% translate "Density" %}</th>
@@ -58,6 +59,7 @@
                                     <tbody>
                                         {% for elem in qs %}
                                             <tr>
+                                                <th>{% if elem.icon %}<img src="{{ elem.icon_url }}" alt="{{ elem }}">{% endif %}</th>
                                                 <th>{{ elem }}</th>
                                                 <th>{{ elem.level }}</th>
                                                 <th>{{ elem.density|default_if_none:"" }}</th>
@@ -95,14 +97,14 @@
             "columnDefs": [
                 {
                     orderable:true,
-                    "targets":[0,1,2,3,4,5,6,7,8,9,10,11,12]
+                    "targets":[1,2,3,4,5,6,7,8,9,10,11,12,13]
                 },
                 {
                     searchable:true,
-                    "targets":[0,1,2,3,4,5,6,7,8,9,10,11,12]
+                    "targets":[1,2,3,4,5,6,7,8,9,10,11,12,13]
                 }
             ],
-            "order": [[0, 'asc']],
+            "order": [[1, 'asc']],
             dom:"<'row'<'col-sm-6 d-flex align-items-center justify-conten-start'l><'col-sm-6 d-flex align-items-center justify-content-end'f>><'table-responsive'tr><'row'<'col-sm-12 col-md-5 d-flex align-items-center justify-content-center justify-content-md-start'i><'col-sm-12 col-md-7 d-flex align-items-center justify-content-center justify-content-md-end'p>>"
         } );
 

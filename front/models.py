@@ -408,9 +408,31 @@ class Material(models.Model):
     durability = models.IntegerField(blank=False, null=False)
     difficulty = models.IntegerField(blank=False, null=False)
     encumbrance = models.IntegerField(blank=False, null=False)
+    icon = FilerImageField(blank=True, null=True, related_name="material_icon", on_delete=models.CASCADE)
 
     class Meta:
         ordering = ["name"]
+
+    @property
+    def icon_url(self):
+        if self.icon:
+            return self.icon.url
+        else:
+            return None
+
+    @property
+    def icon_width(self):
+        if self.icon:
+            return self.icon.width
+        else:
+            return None
+
+    @property
+    def icon_height(self):
+        if self.icon:
+            return self.icon.height
+        else:
+            return None
 
     def __str__(self):
         if self.name:
@@ -435,9 +457,31 @@ class Ingredient(models.Model):
     elioam = models.IntegerField(blank=True, null=True, default=None)
     difficulty = models.IntegerField(blank=True, null=True)
     encumbrance = models.IntegerField(blank=False, null=False)
+    icon = FilerImageField(blank=True, null=True, related_name="ingredient_icon", on_delete=models.CASCADE)
 
     class Meta:
         ordering = ["name"]
+
+    @property
+    def icon_url(self):
+        if self.icon:
+            return self.icon.url
+        else:
+            return None
+
+    @property
+    def icon_width(self):
+        if self.icon:
+            return self.icon.width
+        else:
+            return None
+
+    @property
+    def icon_height(self):
+        if self.icon:
+            return self.icon.height
+        else:
+            return None
 
     def __str__(self):
         if self.name:
@@ -461,9 +505,31 @@ class Plant(models.Model):
     toner = models.IntegerField(blank=True, null=True)
     difficulty = models.IntegerField(blank=False, null=False)
     encumbrance = models.IntegerField(blank=False, null=False)
+    icon = FilerImageField(blank=True, null=True, related_name="plant_icon", on_delete=models.CASCADE)
 
     class Meta:
         ordering = ["name"]
+
+    @property
+    def icon_url(self):
+        if self.icon:
+            return self.icon.url
+        else:
+            return None
+
+    @property
+    def icon_width(self):
+        if self.icon:
+            return self.icon.width
+        else:
+            return None
+
+    @property
+    def icon_height(self):
+        if self.icon:
+            return self.icon.height
+        else:
+            return None
 
     def __str__(self):
         if self.name:
@@ -541,6 +607,62 @@ class Elixir(models.Model):
     @property
     def map_poi(self):
         return self.__str__()
+
+    @property
+    def coordinates(self):
+        if self.geom:
+            return str(self.geom['coordinates']).replace('[', '').replace(']', '').replace(' ', '')
+        else:
+            return None
+
+
+class GatheringPoint(models.Model):
+    material = models.ForeignKey(Material, null=True, blank=True, on_delete=models.CASCADE)
+    plant = models.ForeignKey(Plant, null=True, blank=True, on_delete=models.CASCADE)
+    number = models.IntegerField(blank=True, null=True)
+    geom = PointField(blank=True, null=True)
+
+    def __str__(self):
+        if self.material:
+            return self.material.name
+        elif self.plant:
+            return self.plant.name
+        else:
+            return _('-- no translation yet --')
+
+    @property
+    def map_poi(self):
+        if self.material:
+            return '{} x {}'.format(self.material.name, self.number)
+        if self.plant:
+            return '{} x {}'.format(self.plant.name, self.number)
+
+    @property
+    def icon_url(self):
+        if self.material.icon:
+            return self.material.icon.url
+        elif self.plant.icon:
+            return self.plant.icon.url
+        else:
+            return None
+
+    @property
+    def icon_width(self):
+        if self.material.icon:
+            return self.material.icon.width
+        elif self.plant.icon:
+            return self.plant.icon.width
+        else:
+            return None
+
+    @property
+    def icon_height(self):
+        if self.material.icon:
+            return self.material.icon.height
+        elif self.plant.icon:
+            return self.plant.icon.height
+        else:
+            return None
 
     @property
     def coordinates(self):
