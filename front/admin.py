@@ -130,3 +130,8 @@ class BlueFlagsStepAdmin(admin.ModelAdmin):
 @admin.register(BlueFlagsReward)
 class BlueFlagsRewardAdmin(admin.ModelAdmin):
     list_display = ('flag', 'material', 'ingredient', 'plant', 'number',)
+
+
+@admin.register(Elixir)
+class ElixirAdmin(LeafletGeoAdmin):
+    pass

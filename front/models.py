@@ -531,20 +531,20 @@ class BlueFlagsReward(models.Model):
         else:
             return _('-- no translation yet --')
 
-'''
-class Gem(models.Model):
-    name = models.CharField(max_length=64, blank=True, null=True)
-    level = models.IntegerField(blank=False, null=False)
-    #TODO
-    difficulty = models.IntegerField(blank=False, null=False)
-    encumbrance = models.IntegerField(blank=False, null=False)
 
-    class Meta:
-        ordering = ["name"]
+class Elixir(models.Model):
+    geom = PointField(blank=True, null=True)
 
     def __str__(self):
-        if self.name:
-            return self.name
+        return _('Vigor')
+
+    @property
+    def map_poi(self):
+        return self.__str__()
+
+    @property
+    def coordinates(self):
+        if self.geom:
+            return str(self.geom['coordinates']).replace('[', '').replace(']', '').replace(' ', '')
         else:
-            return _('-- no translation yet --')
-'''
+            return None

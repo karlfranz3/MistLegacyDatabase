@@ -1,4 +1,4 @@
-from .models import Location, Region, BlueFlags
+from .models import Location, Region, BlueFlags, Elixir
 
 
 def geojson_locations(request):
@@ -11,3 +11,7 @@ def geojson_regions(request):
 
 def geojson_blueflags(request):
     return {'geojson_blueflags': BlueFlags.objects.all()}
+
+
+def geojson_elixirs(request):
+    return {'geojson_elixirs': Elixir.objects.all()}
