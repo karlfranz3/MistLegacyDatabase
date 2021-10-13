@@ -596,7 +596,7 @@ License: For each use you must have a valid license purchased only from above li
             regions = {{ geojson_regions|geojsonfeature:"map_poi"|safe }};
             blueflags = {{ geojson_blueflags|geojsonfeature:"map_poi"|safe }};
             elixirs = {{ geojson_elixirs|geojsonfeature:"map_poi"|safe }};
-            gatheringpoints = {{ geojson_gatheringpoints|geojsonfeature:"map_poi,icon_url,icon_width,icon_height"|safe }};
+            gatheringpoints = {{ geojson_gatheringpoints|geojsonfeature:"map_poi,icon_url"|safe }};
             let mymap;
 
             function onEachFeature(feature, layer) {
@@ -608,6 +608,20 @@ License: For each use you must have a valid license purchased only from above li
                             iconSize: [feature.properties.icon_width/2, feature.properties.icon_height/2],
                             iconAnchor: [feature.properties.icon_width/4,feature.properties.icon_height/2-5],
                             popupAnchor: [0,-feature.properties.icon_height/2]
+                        }));
+                    }
+                }
+            }
+
+            function onEachFeatureGP(feature, layer) {
+                if (feature.properties && feature.properties.map_poi) {
+                    layer.bindPopup(feature.properties.map_poi);
+                    if (feature.properties.icon_url) {
+                        layer.setIcon(new L.Icon({
+                            iconUrl: feature.properties.icon_url,
+                            iconSize: [50, 50],
+                            iconAnchor: [25,20],
+                            popupAnchor: [0,-25]
                         }));
                     }
                 }
@@ -656,7 +670,7 @@ License: For each use you must have a valid license purchased only from above li
                 const layerRegions = L.geoJson(regions, {onEachFeature: onEachFeature});
                 const layerFlags = L.geoJson(blueflags, {onEachFeature: onEachFeatureBF}).addTo(mymap);
                 const layerElixirs = L.geoJson(elixirs, {onEachFeature: onEachFeatureElixir}).addTo(mymap);
-                const layerGatheringPoints = L.geoJson(gatheringpoints, {onEachFeature: onEachFeature}).addTo(mymap);
+                const layerGatheringPoints = L.geoJson(gatheringpoints, {onEachFeature: onEachFeatureGP}).addTo(mymap);
                 var baseMaps = {};
                 var overlayMaps = {
                     "{% translate "Locations" %}": layerLocations,

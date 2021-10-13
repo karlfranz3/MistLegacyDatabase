@@ -647,24 +647,6 @@ class GatheringPoint(models.Model):
             return None
 
     @property
-    def icon_width(self):
-        if self.material.icon:
-            return self.material.icon.width
-        elif self.plant.icon:
-            return self.plant.icon.width
-        else:
-            return None
-
-    @property
-    def icon_height(self):
-        if self.material.icon:
-            return self.material.icon.height
-        elif self.plant.icon:
-            return self.plant.icon.height
-        else:
-            return None
-
-    @property
     def coordinates(self):
         if self.geom:
             return str(self.geom['coordinates']).replace('[', '').replace(']', '').replace(' ', '')

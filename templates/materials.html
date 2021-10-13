@@ -59,7 +59,7 @@
                                     <tbody>
                                         {% for elem in qs %}
                                             <tr>
-                                                <th>{% if elem.icon %}<img src="{{ elem.icon_url }}" alt="{{ elem }}">{% endif %}</th>
+                                                <th>{% if elem.icon %}<img src="{{ elem.icon_url }}" alt="{{ elem }}" width="50" height="50">{% endif %}</th>
                                                 <th>{{ elem }}</th>
                                                 <th>{{ elem.level }}</th>
                                                 <th>{{ elem.density|default_if_none:"" }}</th>
