@@ -301,6 +301,7 @@ class Book(models.Model):
     reputation_guild_value = models.IntegerField(blank=True, null=True, default=0)
     location = models.ForeignKey(Location, on_delete=models.CASCADE, blank=True, null=True)
     npc = models.ForeignKey(NPC, on_delete=models.CASCADE, blank=True, null=True)
+    blueflag = models.ForeignKey('BlueFlags', on_delete=models.CASCADE, blank=True, null=True, default=None)
 
     class Meta:
         ordering = ["gathering", "adventure", "crafting", "land", "weapon"]
@@ -325,6 +326,14 @@ class Book(models.Model):
             return '{} {}'.format(self.reputation, self.reputation_guild_value)
         elif self.guild:
             return '{} {}'.format(self.guild, self.reputation_guild_value)
+
+    def get_location(self):
+        if self.location:
+            return self.location
+        elif self.blueflag:
+            return self.blueflag
+        else:
+            return None
 
 
 class Training(models.Model):

@@ -537,7 +537,7 @@ License: For each use you must have a valid license purchased only from above li
                             <!--begin::Copyright-->
                             <div class="text-dark order-2 order-md-1">
                                 <span class="text-muted fw-bold me-1">2021©</span>
-                                Mist Legacy DB v0.2.4 - All visuals are property of&nbsp;<a href="https://virtys.com/" target="_blank" class="kt-link">Virtys</a>. Thanks kgg, Mr.Piao for their help. Contact : Nacros on official ML Discord
+                                Mist Legacy DB v0.2.5 - All visuals are property of&nbsp;<a href="https://virtys.com/" target="_blank" class="kt-link">Virtys</a>. Thanks kgg, Mr.Piao for their help. Contact : Nacros on official ML Discord
                             </div>
                             <!--end::Copyright-->
                         </div>
@@ -653,13 +653,13 @@ License: For each use you must have a valid license purchased only from above li
 
             $(window).on('map:init', function(e) {
                 mymap = e.originalEvent.detail.map;
-                const southWest = L.latLng(-38, -82);
-                const northEast = L.latLng(22, -28);
-                const bounds = L.latLngBounds(southWest, northEast);
-                mymap.setMaxBounds(bounds);
-                mymap.on('drag', function () {
-                    mymap.panInsideBounds(bounds, {animate: false});
-                });
+                //const southWest = L.latLng(-38, -82);
+                //const northEast = L.latLng(22, -28);
+                //const bounds = L.latLngBounds(southWest, northEast);
+                //mymap.setMaxBounds(bounds);
+                //mymap.on('drag', function () {
+                    //mymap.panInsideBounds(bounds, {animate: false});
+                //});
                 //L.control.mousePosition().addTo(mymap);
                 mymap.addControl(new L.Control.Fullscreen());
                 L.Icon.Default.prototype.options.iconUrl = 'Unknown.png';

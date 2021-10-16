@@ -36,7 +36,7 @@
                                     <thead>
                                     <tr class="fw-bold fs-6 text-gray-800">
                                         <th class="kt-font-light">{% translate "Book" %}</th>
-                                        <th class="kt-font-light">{% translate "Location" %}</th>
+                                        <th class="kt-font-light">{% translate "Location" %}/{% translate "Blue Flag" %}</th>
                                         <th class="kt-font-light">{% translate "NPC" %}</th>
                                         <th class="kt-font-light">{% translate "Reputation" %}</th>
                                         <th class="kt-font-light">{% translate "Price" %}</th>
@@ -48,12 +48,12 @@
                                         {% for book in books %}
                                             <tr>
                                                 <th>{{ book }}</th>
-                                                <th>{{ book.location.name }}</th>
+                                                <th>{{ book.get_location.name }}</th>
                                                 <th>{{ book.npc.name|default_if_none:"" }}</th>
                                                 <th>{{ book.get_reputation }}</th>
                                                 <th>{{ book.price }}</th>
                                                 <th>{{ book.count|default_if_none:"" }}</th>
-                                                <th>{{ book.location.coordinates|default_if_none:"" }}</th>
+                                                <th>{{ book.get_location.coordinates|default_if_none:"" }}</th>
                                             </tr>
                                         {% endfor %}
                                     </tbody>
