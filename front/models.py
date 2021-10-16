@@ -639,9 +639,9 @@ class GatheringPoint(models.Model):
 
     @property
     def icon_url(self):
-        if self.material.icon:
+        if self.material and self.material.icon:
             return self.material.icon.url
-        elif self.plant.icon:
+        elif self.plant and self.plant.icon:
             return self.plant.icon.url
         else:
             return None
