@@ -51,6 +51,17 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-lg-6 col-xxl-4">
+                        <div class="card h-100">
+                            <div class="card-body p-9">
+                                <div class="fs-2hx fw-bolder">{% translate "Blue Flags" %}</div>
+                                <div class="fs-4 fw-bold text-gray-400 mb-7">{% translate "Level" %}-{% translate "Blue Flag" %}</div>
+                                {% for flagstep in flagsteps %}
+                                    <div class="fw-bold">{{ flagstep.difficulty }}-{% if flagstep.flag.coordinates %}<a data-bs-toggle="modal" data-bs-target="#modal_map" href="" data-bs-position="{{ flagstep.flag.coordinates }}">{{ flagstep.flag }}</a>{% else %}{{ flagstep.flag }}{% endif %}</div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

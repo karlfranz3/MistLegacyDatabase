@@ -45,8 +45,14 @@
                                             {% trans '-- no translation yet --' as transl %}
                                             <th>{% if elem.coordinates %}<a data-bs-toggle="modal" data-bs-target="#modal_map" href="" data-bs-position="{{ elem.coordinates }}">{{ elem|default_if_none:transl }}</a>{% else %}{{ elem }}{% endif %}</th>
                                             <th>
-                                                {% for adventure in elem.blueflagsstep_set.all %}
-                                                    {{ adventure.percent }}% {{ adventure.adventure }} ({{ adventure.difficulty }})</br>
+                                                {% for item in elem.blueflagsstep_set.all %}
+                                                    {% if item.adventure %}
+                                                    {{ item.percent }}% {{ item.adventure }} ({{ item.difficulty }})</br>
+                                                    {% elif item.weapon %}
+                                                    {{ item.percent }}% {{ item.weapon }} ({{ item.difficulty }})</br>
+                                                    {% elif item.gathering %}
+                                                    {{ item.percent }}% {{ item.gathering }} ({{ item.difficulty }})</br>
+                                                    {% endif %}
                                                 {% endfor %}
                                             </th>
                                             <th>

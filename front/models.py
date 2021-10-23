@@ -267,6 +267,7 @@ class Recipe(models.Model):
                                        help_text="If not a building")
     weapon = models.ForeignKey(Weapon, on_delete=models.CASCADE, blank=True, null=True,
                                help_text="If equipment_slot is weapon")
+    blueflag = models.ForeignKey('BlueFlags', on_delete=models.CASCADE, blank=True, null=True, default=None)
 
     class Meta:
         ordering = ["name"]
@@ -285,6 +286,14 @@ class Recipe(models.Model):
             return '{} {}'.format(self.reputation, self.reputation_guild_value)
         elif self.guild:
             return '{} {}'.format(self.guild, self.reputation_guild_value)
+
+    def get_location(self):
+        if self.location:
+            return self.location
+        elif self.blueflag:
+            return self.blueflag
+        else:
+            return None
 
 
 class Book(models.Model):
@@ -566,7 +575,12 @@ class BlueFlags(models.Model):
         if self.blueflagsstep_set.all().exists():
             tooltip = tooltip + '</br>{}(s):</br>'.format(_("Step"))
             for step in self.blueflagsstep_set.all():
-                tooltip = tooltip + '{}% {} ({})</br>'.format(step.percent, step.adventure, step.difficulty)
+                if step.adventure:
+                    tooltip = tooltip + '{}% {} ({})</br>'.format(step.percent, step.adventure, step.difficulty)
+                elif step.weapon:
+                    tooltip = tooltip + '{}% {} ({})</br>'.format(step.percent, step.weapon, step.difficulty)
+                elif step.gathering:
+                    tooltip = tooltip + '{}% {} ({})</br>'.format(step.percent, step.gathering, step.difficulty)
         if self.blueflagsreward_set.all().exists():
             tooltip = tooltip + '</br>{}(s):</br>'.format(_("Reward"))
             for reward in self.blueflagsreward_set.all():
@@ -584,7 +598,9 @@ class BlueFlags(models.Model):
 
 class BlueFlagsStep(models.Model):
     flag = models.ForeignKey(BlueFlags, null=False, blank=False, on_delete=models.CASCADE)
-    adventure = models.ForeignKey(Adventure, on_delete=models.CASCADE)
+    adventure = models.ForeignKey(Adventure, null=True, blank=True, on_delete=models.CASCADE)
+    weapon = models.ForeignKey(Weapon, null=True, blank=True, on_delete=models.CASCADE, default=None)
+    gathering = models.ForeignKey(Gathering, null=True, blank=True, on_delete=models.CASCADE, default=None)
     difficulty = models.IntegerField(null=False, blank=False)
     percent = models.IntegerField(default=0, null=False, blank=False)
 

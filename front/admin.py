@@ -124,7 +124,7 @@ class BlueFlagsAdmin(LeafletGeoAdmin):
 
 @admin.register(BlueFlagsStep)
 class BlueFlagsStepAdmin(admin.ModelAdmin):
-    list_display = ('flag', 'adventure', 'difficulty',)
+    list_display = ('flag', 'adventure', 'weapon', 'gathering', 'difficulty',)
 
 
 @admin.register(BlueFlagsReward)

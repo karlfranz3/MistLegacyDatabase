@@ -80,7 +80,8 @@ def crafting(request, pk):
 def gathering(request, pk):
     gathering = get_object_or_404(Gathering, pk=pk)
     books = Book.objects.filter(gathering=gathering).order_by('reputation', 'guild', 'reputation_guild_value')
-    return render(request, 'gathering.html', context={'gathering': gathering,
+    flagsteps = BlueFlagsStep.objects.filter(gathering=gathering).order_by('-difficulty')
+    return render(request, 'gathering.html', context={'gathering': gathering, 'flagsteps': flagsteps,
                                                       'books': books})
 
 
@@ -88,7 +89,8 @@ def weapon(request, pk):
     weapon = get_object_or_404(Weapon, pk=pk)
     recipes = Recipe.objects.filter(weapon=weapon).order_by('reputation', 'guild', 'reputation_guild_value')
     companions = Companion.objects.filter(weapon=weapon)
-    return render(request, 'weapon.html', context={'weapon': weapon,
+    flagsteps = BlueFlagsStep.objects.filter(weapon=weapon).order_by('-difficulty')
+    return render(request, 'weapon.html', context={'weapon': weapon, 'flagsteps': flagsteps,
                                                    'recipes': recipes, 'companions': companions})
 
 
