@@ -36,7 +36,7 @@
                                     <thead>
                                     <tr class="fw-bold fs-6 text-gray-800">
                                         <th class="kt-font-light">{% translate "Name" %}</th>
-                                        <th class="kt-font-light">{% translate "Location" %}</th>
+                                        <th class="kt-font-light">{% translate "Location" %}/{% translate "Blue Flag" %}</th>
                                         <th class="kt-font-light">{% translate "NPC" %}</th>
                                         <th class="kt-font-light">{% translate "Reputation" %}</th>
                                         <th class="kt-font-light">{% translate "Price" %}</th>
@@ -51,7 +51,7 @@
                                         <tr>
                                             {% trans '-- no translation yet --' as transl %}
                                             <th>{{ recipe.name|default_if_none:transl }}</th>
-                                            <th>{{ recipe.location.name|default_if_none:transl }}</th>
+                                            <th>{{ recipe.get_location.name|default_if_none:transl }}</th>
                                             <th>{{ recipe.npc.name|default_if_none:transl }}</th>
                                             <th>{{ recipe.get_reputation|default_if_none:"" }}</th>
                                             <th>{{ recipe.price }}</th>
