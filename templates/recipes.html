@@ -58,7 +58,7 @@
                                             <th>{{ recipe.building }}</th>
                                             <th>{{ recipe.equipment_slot|default_if_none:"" }}</th>
                                             <th>{{ recipe.weapon|default_if_none:"" }}</th>
-                                            <th>{{ recipe.location.coordinates|default_if_none:"" }}</th>
+                                            <th>{{ recipe.get_location.coordinates|default_if_none:"" }}</th>
                                         </tr>
                                     {% endfor %}
                                     </tbody>
