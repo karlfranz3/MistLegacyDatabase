@@ -40,5 +40,8 @@ urlpatterns = i18n_patterns(
     path('book_card/<int:pk>', book_card, name='book_card'),
     path('spell_card/<int:pk>', spell_card, name='spell_card'),
     path('recipe_card/<int:pk>', recipe_card, name='recipe_card'),
+
+    path('jenniel1', jenniel1, name='jenniel1'),
+
     prefix_default_language=False
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

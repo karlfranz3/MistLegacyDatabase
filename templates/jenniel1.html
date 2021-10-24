@@ -1,0 +1,13 @@
+{% load static %}
+{% load i18n %}
+<div>
+    Materials :<br/><br/>
+    {% for material in materials %}
+        {{ material.material__name }},{{ material.total }}<br/>
+    {% endfor %}
+
+    <br/>Plants :<br/><br/>
+    {% for plant in plants %}
+        {{ plant.plant__name }},{{ plant.total }}<br/>
+    {% endfor %}
+</div>
