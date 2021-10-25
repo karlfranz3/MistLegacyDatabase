@@ -171,7 +171,7 @@ License: For each use you must have a valid license purchased only from above li
                                     </a>
                                 </div>
                                 <div class="menu-item">
-                                    <a class="menu-link {% block menu_blueflags %}{% endblock %}" href="{% url 'blueflags' %}">
+                                    <a class="menu-link {% block menu_flags %}{% endblock %}" href="{% url 'flags' %}">
                                             <span class="menu-icon">
                                                 <!--begin::Svg Icon | path: icons/stockholm/Design/PenAndRuller.svg-->
                                                 <span class="svg-icon svg-icon-2">
@@ -182,7 +182,7 @@ License: For each use you must have a valid license purchased only from above li
                                                 </span>
                                                 <!--end::Svg Icon-->
                                             </span>
-                                        <span class="menu-title">{% translate "Blue Flags" %}</span>
+                                        <span class="menu-title">{% translate "Flags" %}</span>
                                     </a>
                                 </div>
                                 <div data-kt-menu-trigger="click" class="menu-item menu-accordion {% block menu_geography %}{% endblock %}">
@@ -552,7 +552,7 @@ License: For each use you must have a valid license purchased only from above li
                             <!--begin::Copyright-->
                             <div class="text-dark order-2 order-md-1">
                                 <span class="text-muted fw-bold me-1">2021©</span>
-                                Mist Legacy DB v0.3.0 - All visuals are property of&nbsp;<a href="https://virtys.com/" target="_blank" class="kt-link">Virtys</a>. Thanks to the community for their help. Contact : Nacros on official ML Discord
+                                Mist Legacy DB v0.3.1 - All visuals are property of&nbsp;<a href="https://virtys.com/" target="_blank" class="kt-link">Virtys</a>. Thanks to the community for their help. Contact : Nacros on official ML Discord
                             </div>
                             <!--end::Copyright-->
                         </div>
@@ -609,7 +609,7 @@ License: For each use you must have a valid license purchased only from above li
         <script>
             locations = {{ geojson_locations|geojsonfeature:"map_poi,icon_url,icon_width,icon_height"|safe }};
             regions = {{ geojson_regions|geojsonfeature:"map_poi"|safe }};
-            blueflags = {{ geojson_blueflags|geojsonfeature:"map_poi"|safe }};
+            blueflags = {{ geojson_blueflags|geojsonfeature:"map_poi,icon_url"|safe }};
             elixirs = {{ geojson_elixirs|geojsonfeature:"map_poi"|safe }};
             gatheringpoints = {{ geojson_gatheringpoints|geojsonfeature:"map_poi,icon_url"|safe }};
             let mymap;
@@ -645,12 +645,21 @@ License: For each use you must have a valid license purchased only from above li
             function onEachFeatureBF(feature, layer) {
                 if (feature.properties && feature.properties.map_poi) {
                     layer.bindPopup(feature.properties.map_poi);
-                    layer.setIcon(new L.Icon({
-                        iconUrl: '/static/leaflet/images/blueflags.png',
-                        iconSize: [30, 40],
-                        iconAnchor: [15, 35],
-                        popupAnchor: [0, -40]
-                    }));
+                    if (feature.properties.icon_url) {
+                        layer.setIcon(new L.Icon({
+                            iconUrl: feature.properties.icon_url,
+                            iconSize: [30, 40],
+                            iconAnchor: [15, 35],
+                            popupAnchor: [0, -40]
+                        }));
+                    } else {
+                        layer.setIcon(new L.Icon({
+                            iconUrl: '/static/leaflet/images/blueflags.png',
+                            iconSize: [30, 40],
+                            iconAnchor: [15, 35],
+                            popupAnchor: [0, -40]
+                        }));
+                    }
                 }
             }
 
@@ -690,7 +699,7 @@ License: For each use you must have a valid license purchased only from above li
                 var overlayMaps = {
                     "{% translate "Locations" %}": layerLocations,
                     "{% translate "Region" %}s": layerRegions,
-                    "{% translate "Blue Flags" %}": layerFlags,
+                    "{% translate "Flags" %}": layerFlags,
                     "{% translate "Elixirs" %}": layerElixirs,
                     "{% translate "Gathering Points" %}": layerGatheringPoints
                 };

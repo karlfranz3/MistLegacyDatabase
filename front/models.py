@@ -559,6 +559,7 @@ class Plant(models.Model):
 class BlueFlags(models.Model):
     name = models.CharField(max_length=64, blank=True, null=True)
     geom = PointField(blank=True, null=True)
+    icon = FilerImageField(blank=True, null=True, related_name="blueflag_icon", on_delete=models.CASCADE)
 
     class Meta:
         ordering = ["name"]
@@ -581,10 +582,16 @@ class BlueFlags(models.Model):
                     tooltip = tooltip + '{}% {} ({})</br>'.format(step.percent, step.weapon, step.difficulty)
                 elif step.gathering:
                     tooltip = tooltip + '{}% {} ({})</br>'.format(step.percent, step.gathering, step.difficulty)
+        tooltip = tooltip + '</br>{}(s):</br>'.format(_("Reward"))
         if self.blueflagsreward_set.all().exists():
-            tooltip = tooltip + '</br>{}(s):</br>'.format(_("Reward"))
             for reward in self.blueflagsreward_set.all():
                 tooltip = tooltip + '{} ({})</br>'.format(reward.__str__(), reward.number)
+        if self.book_set.all().exists():
+            for book in self.book_set.all():
+                tooltip = tooltip + '{} {}</br>'.format(_("Book"), book.__str__())
+        if self.recipe_set.all().exists():
+            for recipe in self.recipe_set.all():
+                tooltip = tooltip + '{} {}</br>'.format(_("Recipe"), recipe.__str__())
         tooltip = tooltip + '</p>'
         return tooltip
 
@@ -592,6 +599,13 @@ class BlueFlags(models.Model):
     def coordinates(self):
         if self.geom:
             return str(self.geom['coordinates']).replace('[', '').replace(']', '').replace(' ', '')
+        else:
+            return None
+
+    @property
+    def icon_url(self):
+        if self.icon:
+            return self.icon.url
         else:
             return None
 

@@ -144,8 +144,8 @@ def plants(request):
     return render(request, 'plants.html', context={'qs': Plant.objects.all()})
 
 
-def blueflags(request):
-    return render(request, 'blueflags.html', context={'qs': BlueFlags.objects.all()})
+def flags(request):
+    return render(request, 'flags.html', context={'qs': BlueFlags.objects.all()})
 
 
 def monsters(request):
