@@ -150,3 +150,7 @@ def blueflags(request):
 
 def monsters(request):
     return render(request, 'todo.html', context={'qs': Plant.objects.all()})
+
+
+def guides(request):
+    return render(request, 'guides.html', context={'guides': Guide.objects.all().order_by('name')})

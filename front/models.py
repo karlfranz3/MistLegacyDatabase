@@ -350,7 +350,7 @@ class Training(models.Model):
     adventure = models.ForeignKey(Adventure, on_delete=models.CASCADE)
     location = models.ForeignKey(Location, on_delete=models.CASCADE, blank=True, null=True)
     difficulty = models.IntegerField(blank=True, null=True)
-    npc = models.ForeignKey(NPC, on_delete=models.CASCADE, blank=True, null=True)
+    daytime = models.ForeignKey(Daytime, on_delete=models.CASCADE, blank=True, null=True, default=3)
 
     class Meta:
         ordering = ["name"]
@@ -677,3 +677,10 @@ class GatheringPoint(models.Model):
             return str(self.geom['coordinates']).replace('[', '').replace(']', '').replace(' ', '')
         else:
             return None
+
+
+class Guide(models.Model):
+    name = models.CharField(max_length=256, blank=True, null=True)
+    link = models.CharField(max_length=256, blank=True, null=True)
+    author = models.CharField(max_length=64, blank=True, null=True)
+    contact = models.CharField(max_length=256, blank=True, null=True)

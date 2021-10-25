@@ -140,3 +140,8 @@ class ElixirAdmin(LeafletGeoAdmin):
 @admin.register(GatheringPoint)
 class GatheringPointAdmin(LeafletGeoAdmin):
     list_display = ('material', 'plant')
+
+
+@admin.register(Guide)
+class GuideAdmin(admin.ModelAdmin):
+    list_display = ('name', 'author')
