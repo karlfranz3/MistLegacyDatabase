@@ -426,7 +426,7 @@ class Material(models.Model):
     durability = models.IntegerField(blank=False, null=False)
     craft_difficulty = models.IntegerField(blank=True, null=True)
     harvest_difficulty = models.IntegerField(blank=True, null=True)
-    cooldown = models.IntegerField(blank=True, null=True)
+    cooldown = models.FloatField(blank=True, null=True)
     encumbrance = models.IntegerField(blank=True, null=True)
     icon = FilerImageField(blank=True, null=True, related_name="material_icon", on_delete=models.CASCADE)
 
@@ -525,7 +525,7 @@ class Plant(models.Model):
     toner = models.IntegerField(blank=True, null=True)
     craft_difficulty = models.IntegerField(blank=True, null=True)
     harvest_difficulty = models.IntegerField(blank=True, null=True)
-    cooldown = models.IntegerField(blank=True, null=True)
+    cooldown = models.FloatField(blank=True, null=True)
     encumbrance = models.IntegerField(blank=True, null=True)
     icon = FilerImageField(blank=True, null=True, related_name="plant_icon", on_delete=models.CASCADE)
 
