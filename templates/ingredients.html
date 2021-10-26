@@ -51,7 +51,7 @@
                                         <th class="kt-font-light">Lectram</th>
                                         <th class="kt-font-light">Psycham</th>
                                         <th class="kt-font-light">Elioam</th>
-                                        <th class="kt-font-light">{% translate "Difficulty" %}</th>
+                                        <th class="kt-font-light">{% translate "Craft Difficulty" %}</th>
                                         <th class="kt-font-light">{% translate "Encumbrance" %}</th>
                                     </tr>
                                     </thead>
@@ -70,8 +70,8 @@
                                                 <th>{{ elem.lectram|default_if_none:"" }}</th>
                                                 <th>{{ elem.psycham|default_if_none:"" }}</th>
                                                 <th>{{ elem.elioam|default_if_none:"" }}</th>
-                                                <th>{{ elem.difficulty|default_if_none:"" }}</th>
-                                                <th>{{ elem.encumbrance }}</th>
+                                                <th>{{ elem.craft_difficulty|default_if_none:"" }}</th>
+                                                <th>{{ elem.encumbrance|default_if_none:"" }}</th>
                                             </tr>
                                         {% endfor %}
                                     </tbody>

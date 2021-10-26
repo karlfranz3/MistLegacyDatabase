@@ -47,7 +47,9 @@
                                         <th class="kt-font-light">{% translate "Stimul." %}</th>
                                         <th class="kt-font-light">{% translate "Tranqu." %}</th>
                                         <th class="kt-font-light">{% translate "Toner" %}</th>
-                                        <th class="kt-font-light">{% translate "Difficulty" %}</th>
+                                        <th class="kt-font-light">{% translate "Craft Difficulty" %}</th>
+                                        <th class="kt-font-light">{% translate "Harvest Difficulty" %}</th>
+                                        <th class="kt-font-light">{% translate "Cooldown" %}</th>
                                         <th class="kt-font-light">{% translate "Encumbrance" %}</th>
                                     </tr>
                                     </thead>
@@ -67,8 +69,10 @@
                                                 <th>{{ elem.stimulator|default_if_none:"" }}</th>
                                                 <th>{{ elem.tranquilizer|default_if_none:"" }}</th>
                                                 <th>{{ elem.toner|default_if_none:"" }}</th>
-                                                <th>{{ elem.difficulty }}</th>
-                                                <th>{{ elem.encumbrance }}</th>
+                                                <th>{{ elem.craft_difficulty|default_if_none:"" }}</th>
+                                                <th>{{ elem.harvest_difficulty|default_if_none:"" }}</th>
+                                                <th>{{ elem.cooldown|default_if_none:"" }}</th>
+                                                <th>{{ elem.encumbrance|default_if_none:"" }}</th>
                                             </tr>
                                         {% endfor %}
                                     </tbody>

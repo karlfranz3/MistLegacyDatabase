@@ -98,7 +98,7 @@ class MaterialTypeAdmin(TranslationAdmin):
 
 @admin.register(Material)
 class MaterialAdmin(TranslationAdmin):
-    list_display = ('name_en', 'name_fr', 'material_type', 'level', 'difficulty', 'encumbrance')
+    list_display = ('name_en', 'name_fr', 'material_type', 'level', 'craft_difficulty', 'harvest_difficulty', 'encumbrance')
 
 
 @admin.register(IngredientType)
@@ -108,12 +108,12 @@ class IngredientTypeAdmin(TranslationAdmin):
 
 @admin.register(Ingredient)
 class IngredientAdmin(TranslationAdmin):
-    list_display = ('name_en', 'name_fr', 'ingredient_type', 'level', 'difficulty', 'encumbrance')
+    list_display = ('name_en', 'name_fr', 'ingredient_type', 'level', 'craft_difficulty', 'encumbrance')
 
 
 @admin.register(Plant)
 class PlantAdmin(TranslationAdmin):
-    list_display = ('name_en', 'name_fr', 'level', 'difficulty', 'encumbrance')
+    list_display = ('name_en', 'name_fr', 'level', 'craft_difficulty', 'harvest_difficulty', 'encumbrance')
 
 
 @admin.register(BlueFlags)

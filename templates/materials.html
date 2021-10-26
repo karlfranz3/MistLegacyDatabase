@@ -52,7 +52,9 @@
                                         <th class="kt-font-light">{% translate "Absorb." %}</th>
                                         <th class="kt-font-light">{% translate "Lightn." %}</th>
                                         <th class="kt-font-light">{% translate "Durability" %}</th>
-                                        <th class="kt-font-light">{% translate "Difficulty" %}</th>
+                                        <th class="kt-font-light">{% translate "Craft Difficulty" %}</th>
+                                        <th class="kt-font-light">{% translate "Harvest Difficulty" %}</th>
+                                        <th class="kt-font-light">{% translate "Cooldown" %}</th>
                                         <th class="kt-font-light">{% translate "Encumbrance" %}</th>
                                     </tr>
                                     </thead>
@@ -71,8 +73,10 @@
                                                 <th>{{ elem.absorbancy|default_if_none:"" }}</th>
                                                 <th>{{ elem.lightness|default_if_none:"" }}</th>
                                                 <th>{{ elem.durability|default_if_none:"" }}</th>
-                                                <th>{{ elem.difficulty }}</th>
-                                                <th>{{ elem.encumbrance }}</th>
+                                                <th>{{ elem.craft_difficulty|default_if_none:"" }}</th>
+                                                <th>{{ elem.harvest_difficulty|default_if_none:"" }}</th>
+                                                <th>{{ elem.cooldown|default_if_none:"" }}</th>
+                                                <th>{{ elem.encumbrance|default_if_none:"" }}</th>
                                             </tr>
                                         {% endfor %}
                                     </tbody>

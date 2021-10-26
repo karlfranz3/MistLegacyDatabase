@@ -424,8 +424,10 @@ class Material(models.Model):
     absorbency = models.IntegerField(blank=True, null=True)
     lightness = models.IntegerField(blank=True, null=True)
     durability = models.IntegerField(blank=False, null=False)
-    difficulty = models.IntegerField(blank=False, null=False)
-    encumbrance = models.IntegerField(blank=False, null=False)
+    craft_difficulty = models.IntegerField(blank=True, null=True)
+    harvest_difficulty = models.IntegerField(blank=True, null=True)
+    cooldown = models.IntegerField(blank=True, null=True)
+    encumbrance = models.IntegerField(blank=True, null=True)
     icon = FilerImageField(blank=True, null=True, related_name="material_icon", on_delete=models.CASCADE)
 
     class Meta:
@@ -473,8 +475,8 @@ class Ingredient(models.Model):
     lectram = models.IntegerField(blank=True, null=True, default=None)
     psycham = models.IntegerField(blank=True, null=True, default=None)
     elioam = models.IntegerField(blank=True, null=True, default=None)
-    difficulty = models.IntegerField(blank=True, null=True)
-    encumbrance = models.IntegerField(blank=False, null=False)
+    craft_difficulty = models.IntegerField(blank=True, null=True)
+    encumbrance = models.IntegerField(blank=True, null=True)
     icon = FilerImageField(blank=True, null=True, related_name="ingredient_icon", on_delete=models.CASCADE)
 
     class Meta:
@@ -521,8 +523,10 @@ class Plant(models.Model):
     stimulator = models.IntegerField(blank=True, null=True)
     tranquilizer = models.IntegerField(blank=True, null=True)
     toner = models.IntegerField(blank=True, null=True)
-    difficulty = models.IntegerField(blank=False, null=False)
-    encumbrance = models.IntegerField(blank=False, null=False)
+    craft_difficulty = models.IntegerField(blank=True, null=True)
+    harvest_difficulty = models.IntegerField(blank=True, null=True)
+    cooldown = models.IntegerField(blank=True, null=True)
+    encumbrance = models.IntegerField(blank=True, null=True)
     icon = FilerImageField(blank=True, null=True, related_name="plant_icon", on_delete=models.CASCADE)
 
     class Meta:
