@@ -581,10 +581,7 @@ class BlueFlags(models.Model):
         ordering = ["name"]
 
     def __str__(self):
-        if self.name:
-            return self.name
-        else:
-            return _('-- no translation yet --')
+        return self.name
 
     @property
     def map_poi(self):
