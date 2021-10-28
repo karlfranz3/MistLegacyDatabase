@@ -83,12 +83,12 @@ class NPCAdmin(TranslationAdmin):
 
 @admin.register(Companion)
 class CompanionAdmin(TranslationAdmin):
-    list_display = ('name_en', 'name_fr', 'location', 'quest', 'comfort', 'weapon')
+    list_display = ('name_en', 'name_fr', 'location', 'quest', 'comfort', 'convenience', 'weapon')
 
 
 @admin.register(CompanionSkill)
 class CompanionSkillAdmin(admin.ModelAdmin):
-    list_display = ('adventure', 'crafting', 'land', 'gathering', 'bonus')
+    list_display = ('companion', 'adventure', 'crafting', 'land', 'gathering', 'bonus')
 
 
 @admin.register(Spell)

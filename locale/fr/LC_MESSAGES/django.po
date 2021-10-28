@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-28 19:23+0200\n"
+"POT-Creation-Date: 2021-10-28 19:55+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -160,27 +160,33 @@ msgid "Materials"
 msgstr "Matériaux"
 
 #: .\templates\_base.html:305
-msgid "Stone"
-msgstr "Pierre"
+#| msgid "Stone"
+msgid "Stones"
+msgstr "Pierres"
 
 #: .\templates\_base.html:313
-msgid "Metal"
-msgstr "Métal"
+#| msgid "Metal"
+msgid "Metals"
+msgstr "Métaux"
 
 #: .\templates\_base.html:321
-msgid "Wood"
+#| msgid "Wood"
+msgid "Woods"
 msgstr "Bois"
 
 #: .\templates\_base.html:329
-msgid "Leather"
-msgstr "Cuir"
+#| msgid "Leather"
+msgid "Leathers"
+msgstr "Cuirs"
 
 #: .\templates\_base.html:337
-msgid "Fiber"
-msgstr "Fibre"
+#| msgid "Fiber"
+msgid "Fibers"
+msgstr "Fibres"
 
 #: .\templates\_base.html:345
-msgid "Bone"
+#| msgid "Bone"
+msgid "Bones"
 msgstr "Os"
 
 #: .\templates\_base.html:362
