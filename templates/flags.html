@@ -47,11 +47,11 @@
                                             <th>
                                                 {% for item in elem.blueflagsstep_set.all %}
                                                     {% if item.adventure %}
-                                                    {{ item.percent }}% {{ item.adventure }} ({{ item.difficulty }})</br>
+                                                    {{ item.percent }}% {{ item.adventure.name }} ({{ item.difficulty }})</br>
                                                     {% elif item.weapon %}
-                                                    {{ item.percent }}% {{ item.weapon }} ({{ item.difficulty }})</br>
+                                                    {{ item.percent }}% {{ item.weapon.name }} ({{ item.difficulty }})</br>
                                                     {% elif item.gathering %}
-                                                    {{ item.percent }}% {{ item.gathering }} ({{ item.difficulty }})</br>
+                                                    {{ item.percent }}% {{ item.gathering.name }} ({{ item.difficulty }})</br>
                                                     {% endif %}
                                                 {% endfor %}
                                             </th>

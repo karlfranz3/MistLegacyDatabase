@@ -640,11 +640,11 @@ class BlueFlagsReward(models.Model):
     number = models.IntegerField(blank=False, null=False)
 
     def __str__(self):
-        if self.material:
+        if self.material and self.material.name:
             return self.material.name
-        elif self.ingredient:
+        elif self.ingredient and self.ingredient.name:
             return self.ingredient.name
-        elif self.plant:
+        elif self.plant and self.plant.name:
             return self.plant.name
         else:
             return _('-- no translation yet --')
