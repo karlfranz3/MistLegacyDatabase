@@ -123,8 +123,7 @@ class PlantAdmin(TranslationAdmin):
 
 @admin.register(BlueFlags)
 class BlueFlagsAdmin(LeafletGeoAdmin):
-    exclude = ('name',)
-    list_display = ('name_en', 'name_fr')
+    pass
 
 
 @admin.register(BlueFlagsStep)
