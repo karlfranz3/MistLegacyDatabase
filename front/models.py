@@ -221,10 +221,16 @@ class Location(models.Model):
 
 class Companion(models.Model):
     name = models.CharField(max_length=64, blank=True, null=True)
+    lvl = models.IntegerField(blank=True, null=True)
     location = models.ForeignKey(Location, on_delete=models.CASCADE, blank=True, null=True)
     quest = models.BooleanField(blank=True, null=True, default=False)
     weapon = models.ForeignKey(Weapon, on_delete=models.CASCADE, blank=True, null=True)
+    weapon_lvl = models.IntegerField(blank=True, null=True)
     comfort = models.IntegerField(blank=True, null=True)
+    convenience = models.IntegerField(blank=True, null=True)
+    armor = models.IntegerField(blank=True, null=True)
+    life = models.IntegerField(blank=True, null=True)
+    stamina = models.IntegerField(blank=True, null=True)
 
     class Meta:
         ordering = ["name"]
@@ -235,8 +241,14 @@ class Companion(models.Model):
         else:
             return _('-- no translation yet --')
 
-    def get_absolute_url(self):
-        return reverse('companion_card', args=[str(self.id)])
+
+class CompanionSkill(models.Model):
+    companion = models.ForeignKey(Companion, null=False, blank=False, on_delete=models.CASCADE)
+    adventure = models.ForeignKey(Adventure, null=True, blank=True, on_delete=models.CASCADE)
+    gathering = models.ForeignKey(Gathering, null=True, blank=True, on_delete=models.CASCADE, default=None)
+    land = models.ForeignKey(Land, null=True, blank=True, on_delete=models.CASCADE, default=None)
+    crafting = models.ForeignKey(Crafting, null=True, blank=True, on_delete=models.CASCADE, default=None)
+    bonus = models.IntegerField(null=False, blank=False)
 
 
 class NPC(models.Model):
@@ -702,3 +714,6 @@ class Guide(models.Model):
     link = models.CharField(max_length=256, blank=True, null=True)
     author = models.CharField(max_length=64, blank=True, null=True)
     contact = models.CharField(max_length=256, blank=True, null=True)
+
+    class Meta:
+        ordering = ["name"]

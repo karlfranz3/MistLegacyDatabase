@@ -57,7 +57,8 @@ def land(request, pk):
     land = get_object_or_404(Land, pk=pk)
     books = Book.objects.filter(land=land).order_by('reputation', 'guild', 'reputation_guild_value')
     regions = Region.objects.filter(land=land).order_by('-land_difficulty')
-    return render(request, 'land.html', context={'land': land,
+    companions = CompanionSkill.objects.filter(land=land).order_by('-bonus')
+    return render(request, 'land.html', context={'land': land, 'companions': companions,
                                                  'regions': regions, 'books': books})
 
 
@@ -66,14 +67,16 @@ def adventure(request, pk):
     trainings = Training.objects.filter(adventure=adventure).order_by('-difficulty')
     books = Book.objects.filter(adventure=adventure).order_by('reputation', 'guild', 'reputation_guild_value')
     flagsteps = BlueFlagsStep.objects.filter(adventure=adventure).order_by('-difficulty')
-    return render(request, 'adventure.html', context={'adventure': adventure, 'trainings': trainings,
+    companions = CompanionSkill.objects.filter(adventure=adventure).order_by('-bonus')
+    return render(request, 'adventure.html', context={'adventure': adventure, 'trainings': trainings, 'companions': companions,
                                                       'books': books, 'flagsteps': flagsteps})
 
 
 def crafting(request, pk):
     crafting = get_object_or_404(Crafting, pk=pk)
     books = Book.objects.filter(crafting=crafting).order_by('reputation', 'guild', 'reputation_guild_value')
-    return render(request, 'crafting.html', context={'crafting': crafting,
+    companions = CompanionSkill.objects.filter(crafting=crafting).order_by('-bonus')
+    return render(request, 'crafting.html', context={'crafting': crafting, 'companions': companions,
                                                      'books': books})
 
 
@@ -81,7 +84,8 @@ def gathering(request, pk):
     gathering = get_object_or_404(Gathering, pk=pk)
     books = Book.objects.filter(gathering=gathering).order_by('reputation', 'guild', 'reputation_guild_value')
     flagsteps = BlueFlagsStep.objects.filter(gathering=gathering).order_by('-difficulty')
-    return render(request, 'gathering.html', context={'gathering': gathering, 'flagsteps': flagsteps,
+    companions = CompanionSkill.objects.filter(gathering=gathering).order_by('-bonus')
+    return render(request, 'gathering.html', context={'gathering': gathering, 'flagsteps': flagsteps, 'companions': companions,
                                                       'books': books})
 
 
@@ -153,4 +157,8 @@ def monsters(request):
 
 
 def guides(request):
-    return render(request, 'guides.html', context={'guides': Guide.objects.all().order_by('name')})
+    return render(request, 'guides.html', context={'guides': Guide.objects.all()})
+
+
+def companions(request):
+    return render(request, 'companion.html', context={'companions': Companion.objects.all()})

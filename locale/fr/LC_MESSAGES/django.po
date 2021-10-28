@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-26 21:43+0200\n"
+"POT-Creation-Date: 2021-10-28 19:23+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,11 +26,11 @@ msgstr "Anglais"
 msgid "French"
 msgstr "Français"
 
-#: .\front\models.py:133 .\front\models.py:165 .\front\models.py:236
-#: .\front\models.py:254 .\front\models.py:279 .\front\models.py:362
-#: .\front\models.py:382 .\front\models.py:461 .\front\models.py:510
-#: .\front\models.py:560 .\front\models.py:575 .\front\models.py:641
-#: .\front\models.py:674 .\templates\flags.html:45
+#: .\front\models.py:133 .\front\models.py:165 .\front\models.py:242
+#: .\front\models.py:266 .\front\models.py:291 .\front\models.py:374
+#: .\front\models.py:394 .\front\models.py:473 .\front\models.py:522
+#: .\front\models.py:572 .\front\models.py:587 .\front\models.py:653
+#: .\front\models.py:686 .\templates\flags.html:45
 #: .\templates\locations.html:48 .\templates\recipes.html:52
 #: .\templates\regions.html:47 .\templates\spells.html:50
 msgid "-- no translation yet --"
@@ -44,7 +44,7 @@ msgstr "Difficulté"
 msgid "Exploration"
 msgstr "Exploration"
 
-#: .\front\models.py:172 .\templates\companion_card.html:9
+#: .\front\models.py:172 .\templates\companion.html:40
 msgid "Quest"
 msgstr "Quête"
 
@@ -53,7 +53,7 @@ msgstr "Quête"
 msgid "Training"
 msgstr "Entrainement"
 
-#: .\front\models.py:178 .\front\models.py:595 .\templates\_base.html:243
+#: .\front\models.py:178 .\front\models.py:607 .\templates\_base.html:258
 #: .\templates\adventure.html:46 .\templates\adventure.html:47
 #: .\templates\books.html:5 .\templates\books.html:24 .\templates\books.html:33
 #: .\templates\books.html:38 .\templates\crafting.html:35
@@ -64,7 +64,7 @@ msgstr "Entrainement"
 msgid "Book"
 msgstr "Livre"
 
-#: .\front\models.py:182 .\front\models.py:598 .\templates\_base.html:251
+#: .\front\models.py:182 .\front\models.py:610 .\templates\_base.html:266
 #: .\templates\flags.html:66 .\templates\recipes.html:5
 #: .\templates\recipes.html:24 .\templates\recipes.html:33
 #: .\templates\reputation.html:35 .\templates\reputation.html:36
@@ -76,15 +76,15 @@ msgstr "Recette"
 msgid "Spell/Skill"
 msgstr "Sort/Compétence"
 
-#: .\front\models.py:581
+#: .\front\models.py:593
 msgid "Step"
 msgstr "Etape"
 
-#: .\front\models.py:589 .\templates\flags.html:39
+#: .\front\models.py:601 .\templates\flags.html:39
 msgid "Reward"
 msgstr "Récompense"
 
-#: .\front\models.py:648
+#: .\front\models.py:660
 msgid "Vigor"
 msgstr "Vigor"
 
@@ -109,125 +109,135 @@ msgstr "Général"
 msgid "Basics"
 msgstr "Basiques"
 
-#: .\templates\_base.html:185 .\templates\_base.html:702
+#: .\templates\_base.html:185 .\templates\_base.html:717
 #: .\templates\flags.html:5 .\templates\flags.html:23 .\templates\flags.html:32
 msgid "Flags"
 msgstr "Drapeaux"
 
-#: .\templates\_base.html:200
+#: .\templates\_base.html:200 .\templates\adventure.html:68
+#: .\templates\adventure.html:69 .\templates\companion.html:5
+#: .\templates\companion.html:23 .\templates\companion.html:32
+#: .\templates\crafting.html:46 .\templates\crafting.html:47
+#: .\templates\gathering.html:57 .\templates\gathering.html:58
+#: .\templates\land.html:57 .\templates\land.html:58 .\templates\weapon.html:46
+#: .\templates\weapon.html:47
+msgid "Companion"
+msgstr "Compagnon"
+
+#: .\templates\_base.html:215
 msgid "Geography"
 msgstr "Géographie"
 
-#: .\templates\_base.html:209 .\templates\_base.html:701
+#: .\templates\_base.html:224 .\templates\_base.html:716
 #: .\templates\land.html:35 .\templates\land.html:36
 #: .\templates\locations.html:39 .\templates\regions.html:5
 #: .\templates\regions.html:24 .\templates\regions.html:33
 msgid "Region"
 msgstr "Région"
 
-#: .\templates\_base.html:217 .\templates\_base.html:700
+#: .\templates\_base.html:232 .\templates\_base.html:715
 #: .\templates\locations.html:5 .\templates\locations.html:33
 msgid "Locations"
 msgstr "Lieux"
 
-#: .\templates\_base.html:234
+#: .\templates\_base.html:249
 msgid "Shop"
 msgstr "Magasin"
 
-#: .\templates\_base.html:259 .\templates\guild.html:37
+#: .\templates\_base.html:274 .\templates\guild.html:37
 #: .\templates\guild.html:38 .\templates\reputation.html:57
 #: .\templates\reputation.html:58 .\templates\spells.html:5
 #: .\templates\spells.html:24 .\templates\spells.html:33
 msgid "Spells|Skills"
 msgstr "Sorts|Compétences"
 
-#: .\templates\_base.html:266
+#: .\templates\_base.html:281
 msgid "Raw Materials"
 msgstr "Matières premières"
 
-#: .\templates\_base.html:281
+#: .\templates\_base.html:296
 msgid "Materials"
 msgstr "Matériaux"
 
-#: .\templates\_base.html:290
+#: .\templates\_base.html:305
 msgid "Stone"
 msgstr "Pierre"
 
-#: .\templates\_base.html:298
+#: .\templates\_base.html:313
 msgid "Metal"
 msgstr "Métal"
 
-#: .\templates\_base.html:306
+#: .\templates\_base.html:321
 msgid "Wood"
 msgstr "Bois"
 
-#: .\templates\_base.html:314
+#: .\templates\_base.html:329
 msgid "Leather"
 msgstr "Cuir"
 
-#: .\templates\_base.html:322
+#: .\templates\_base.html:337
 msgid "Fiber"
 msgstr "Fibre"
 
-#: .\templates\_base.html:330
+#: .\templates\_base.html:345
 msgid "Bone"
 msgstr "Os"
 
-#: .\templates\_base.html:347
+#: .\templates\_base.html:362
 msgid "Ingredient"
 msgstr "Ingrédient"
 
-#: .\templates\_base.html:356
+#: .\templates\_base.html:371
 msgid "Powder"
 msgstr "Poudre"
 
-#: .\templates\_base.html:364
+#: .\templates\_base.html:379
 msgid "Substance"
 msgstr "Substance"
 
-#: .\templates\_base.html:372
+#: .\templates\_base.html:387
 msgid "Gem"
 msgstr "Gemme"
 
-#: .\templates\_base.html:380
+#: .\templates\_base.html:395
 msgid "Sap"
 msgstr "Sève"
 
-#: .\templates\_base.html:388
+#: .\templates\_base.html:403
 msgid "Pollen"
 msgstr "Pollen"
 
-#: .\templates\_base.html:405 .\templates\plants.html:5
+#: .\templates\_base.html:420 .\templates\plants.html:5
 #: .\templates\plants.html:23 .\templates\plants.html:32
 msgid "Plant"
 msgstr "Plante"
 
-#: .\templates\_base.html:410 .\templates\basics.html:46
+#: .\templates\_base.html:425 .\templates\basics.html:46
 #: .\templates\crafting.html:5 .\templates\crafting.html:21
 msgid "Crafting"
 msgstr "Artisanat"
 
-#: .\templates\_base.html:465
+#: .\templates\_base.html:480
 msgid "Official Website"
 msgstr "Site officiel"
 
-#: .\templates\_base.html:470
+#: .\templates\_base.html:485
 msgid "Official Discord"
 msgstr "Discord officiel"
 
-#: .\templates\_base.html:475
+#: .\templates\_base.html:490
 msgid "Interactive Map"
 msgstr "Carte interactive"
 
-#: .\templates\_base.html:703
+#: .\templates\_base.html:718
 msgid "Elixirs"
 msgstr "Elixirs"
 
-#: .\templates\_base.html:704
+#: .\templates\_base.html:719
 msgid "Gathering Points"
 msgstr "Points de collecte"
 
-#: .\templates\_base.html:732
+#: .\templates\_base.html:747
 msgid "Loading..."
 msgstr "Chargement..."
 
@@ -251,13 +261,13 @@ msgid "Level"
 msgstr "Niveau"
 
 #: .\templates\adventure.html:36 .\templates\adventure.html:47
-#: .\templates\books.html:39 .\templates\crafting.html:36
-#: .\templates\gathering.html:36 .\templates\guild.html:38
-#: .\templates\land.html:47 .\templates\locations.html:24
-#: .\templates\recipes.html:39 .\templates\reputation.html:36
-#: .\templates\reputation.html:47 .\templates\reputation.html:58
-#: .\templates\spells.html:40 .\templates\weapon.html:36
-#: .\templates\weapon.html:47
+#: .\templates\books.html:39 .\templates\companion.html:39
+#: .\templates\crafting.html:36 .\templates\gathering.html:36
+#: .\templates\guild.html:38 .\templates\land.html:47
+#: .\templates\locations.html:24 .\templates\recipes.html:39
+#: .\templates\reputation.html:36 .\templates\reputation.html:47
+#: .\templates\reputation.html:58 .\templates\spells.html:40
+#: .\templates\weapon.html:36 .\templates\weapon.html:47
 msgid "Location"
 msgstr "Lieu"
 
@@ -283,6 +293,12 @@ msgstr "Drapeaux bleus"
 msgid "Blue Flag"
 msgstr "Drapeau bleu"
 
+#: .\templates\adventure.html:69 .\templates\companion.html:48
+#: .\templates\crafting.html:47 .\templates\gathering.html:58
+#: .\templates\land.html:58
+msgid "Bonus"
+msgstr "Bonus"
+
 #: .\templates\basics.html:26 .\templates\land.html:5 .\templates\land.html:21
 #: .\templates\regions.html:39
 msgid "Land"
@@ -293,18 +309,13 @@ msgstr "Terrain"
 msgid "Gathering"
 msgstr "Cueillette"
 
-#: .\templates\basics.html:66 .\templates\companion_card.html:8
+#: .\templates\basics.html:66 .\templates\companion.html:41
 #: .\templates\recipes.html:45 .\templates\weapon.html:5
 #: .\templates\weapon.html:21
 msgid "Weapon"
 msgstr "Arme"
 
-#: .\templates\basics.html:86 .\templates\weapon.html:46
-#: .\templates\weapon.html:47
-msgid "Companion"
-msgstr "Compagnon"
-
-#: .\templates\basics.html:96 .\templates\guild.html:5
+#: .\templates\basics.html:86 .\templates\guild.html:5
 #: .\templates\guild.html:23
 msgid "Guild"
 msgstr "Guilde"
@@ -328,17 +339,41 @@ msgstr "Prix"
 msgid "Count"
 msgstr "Nombre"
 
-#: .\templates\companion_card.html:7
+#: .\templates\companion.html:37 .\templates\flags.html:37
+#: .\templates\guides.html:37 .\templates\ingredients.html:42
+#: .\templates\locations.html:38 .\templates\materials.html:44
+#: .\templates\plants.html:38 .\templates\recipes.html:38
+#: .\templates\regions.html:38 .\templates\spells.html:38
+msgid "Name"
+msgstr "Nom"
+
+#: .\templates\companion.html:38
+msgid "Level max"
+msgstr "Niveau max"
+
+#: .\templates\companion.html:42
+msgid "Max weapon level"
+msgstr "Arme niveau max"
+
+#: .\templates\companion.html:43
 msgid "Comfort"
 msgstr "Confort"
 
-#: .\templates\flags.html:37 .\templates\guides.html:37
-#: .\templates\ingredients.html:42 .\templates\locations.html:38
-#: .\templates\materials.html:44 .\templates\plants.html:38
-#: .\templates\recipes.html:38 .\templates\regions.html:38
-#: .\templates\spells.html:38
-msgid "Name"
-msgstr "Nom"
+#: .\templates\companion.html:44
+msgid "Convenience"
+msgstr "Commodité"
+
+#: .\templates\companion.html:45
+msgid "Max armor"
+msgstr "Armure max"
+
+#: .\templates\companion.html:46
+msgid "Max life"
+msgstr "Vie max"
+
+#: .\templates\companion.html:47
+msgid "Max stamina"
+msgstr "Energie max"
 
 #: .\templates\guides.html:38
 msgid "Author"
@@ -354,7 +389,6 @@ msgstr "Recherche..."
 
 #: .\templates\ingredients.html:54 .\templates\materials.html:55
 #: .\templates\plants.html:50
-#| msgid "Difficulty"
 msgid "Craft Difficulty"
 msgstr "Difficulté artisanat"
 
@@ -408,7 +442,6 @@ msgid "Durability"
 msgstr "Durabilité"
 
 #: .\templates\materials.html:56 .\templates\plants.html:51
-#| msgid "Difficulty"
 msgid "Harvest Difficulty"
 msgstr "Difficulté récolte"
 

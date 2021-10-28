@@ -83,16 +83,6 @@
                     <div class="col-lg-4 col-xxl-3">
                         <div class="card h-100">
                             <div class="card-body p-9">
-                                <div class="fs-2hx fw-bolder">{% translate "Companion" %}s</div>
-                                {% for companion in companions %}
-                                    <div class="fw-bold"><span data-popover-remote="{{ companion.get_absolute_url }}" data-title="{{ companion }}">{{ companion }}</span> ({% if companion.location.coordinates %}<a data-bs-toggle="modal" data-bs-target="#modal_map" href="" data-bs-position="{{ companion.location.coordinates }}">{{ companion.location }}</a>{% else %}{{ companion.location }}{% endif %})</div>
-                                {% endfor %}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-xxl-3">
-                        <div class="card h-100">
-                            <div class="card-body p-9">
                                 <div class="fs-2hx fw-bolder">{% translate "Guild" %}s</div>
                                 {% for guild in guilds %}
                                     <div class="fw-bold"><a href="{{ guild.get_absolute_url }}">{{ guild }}</a></div>

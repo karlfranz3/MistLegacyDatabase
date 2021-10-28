@@ -14,13 +14,18 @@ urlpatterns = i18n_patterns(
     path('search', search, name='search'),
     path('map', map, name='map'),
 
+    path('guides', guides, name='guides'),
+
     path('basics', basics, name='basics'),
+    path('flags', flags, name='flags'),
+    path('companions', companions, name='companions'),
+    path('monsters', monsters, name='monsters'),
     path('regions', regions, name='regions'),
     path('locations', locations, name='locations'),
     path('books', books, name='books'),
     path('recipes', recipes, name='recipes'),
     path('spells', spells, name='spells'),
-    path('guides', guides, name='guides'),
+
 
     path('land/<int:pk>', land, name='land'),
     path('adventure/<int:pk>', adventure, name='adventure'),
@@ -33,9 +38,6 @@ urlpatterns = i18n_patterns(
     path('materials/<str:material_type>', materials, name='materials'),
     path('ingredients/<str:ingredient_type>', ingredients, name='ingredients'),
     path('plants', plants, name='plants'),
-
-    path('flags', flags, name='flags'),
-    path('monsters', monsters, name='monsters'),
 
     path('companion_card/<int:pk>', companion_card, name='companion_card'),
     path('book_card/<int:pk>', book_card, name='book_card'),

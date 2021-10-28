@@ -86,6 +86,11 @@ class CompanionAdmin(TranslationAdmin):
     list_display = ('name_en', 'name_fr', 'location', 'quest', 'comfort', 'weapon')
 
 
+@admin.register(CompanionSkill)
+class CompanionSkillAdmin(admin.ModelAdmin):
+    list_display = ('adventure', 'crafting', 'land', 'gathering', 'bonus')
+
+
 @admin.register(Spell)
 class SpellAdmin(TranslationAdmin):
     list_display = ('name_en', 'name_fr', 'reputation', 'guild', 'reputation_guild_value', 'price', 'location', 'npc')
