@@ -100,7 +100,7 @@ def weapon(request, pk):
 
 def reputation(request, pk):
     reputation = get_object_or_404(Reputation, pk=pk)
-    recipes = Recipe.objects.filter(reputation=reputation)
+    recipes = Recipe.objects.filter(reputation=reputation).order_by('reputation', 'guild', 'reputation_guild_value')
     books = Book.objects.filter(reputation=reputation).order_by('reputation', 'guild', 'reputation_guild_value')
     spells = Spell.objects.filter(reputation=reputation).order_by('reputation', 'guild', 'reputation_guild_value')
     return render(request, 'reputation.html', context={'reputation': reputation,
@@ -109,8 +109,9 @@ def reputation(request, pk):
 
 def guild(request, pk):
     guild = get_object_or_404(Guild, pk=pk)
+    recipes = Recipe.objects.filter(guild=guild).order_by('reputation', 'guild', 'reputation_guild_value')
     spells = Spell.objects.filter(guild=guild).order_by('reputation', 'guild', 'reputation_guild_value')
-    return render(request, 'guild.html', context={'guild': guild,
+    return render(request, 'guild.html', context={'guild': guild, 'recipes': recipes,
                                                   'spells': spells})
 
 

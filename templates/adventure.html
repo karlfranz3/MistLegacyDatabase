@@ -28,30 +28,9 @@
 
         <div class="post d-flex flex-column-fluid" id="kt_post">
             <div id="kt_content_container" class="container">
-                <div class="row g-5 g-xl-5">
-                    <div class="col-lg-6 col-xxl-4">
-                        <div class="card h-100">
-                            <div class="card-body p-9">
-                                <div class="fs-2hx fw-bolder">{% translate "Training" %}s</div>
-                                <div class="fs-4 fw-bold text-gray-400 mb-7">{% translate "Level" %}-{% translate "Training" %} ({% translate "Location" %})</div>
-                                {% for training in trainings %}
-                                    <div class="fw-bold">{{ training.difficulty }}-{{ training }} ({% if training.location.coordinates %}<a data-bs-toggle="modal" data-bs-target="#modal_map" href="" data-bs-position="{{ training.location.coordinates }}">{{ training.location }}</a>{% else %}{{ training.location }}{% endif %})</div>
-                                {% endfor %}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-xxl-4">
-                        <div class="card h-100">
-                            <div class="card-body p-9">
-                                <div class="fs-2hx fw-bolder">{% translate "Book" %}s</div>
-                                <div class="fs-4 fw-bold text-gray-400 mb-7">{% translate "Book" %} / {% translate "Reputation" %} ({% translate "Location" %})</div>
-                                {% for book in books %}
-                                    <div class="fw-bold"><span data-popover-remote="{{ book.get_absolute_url }}" data-title="{{ book }}">{{ book }}</span> / {{ book.get_reputation|default:none }} ({% if book.get_location.coordinates %}<a data-bs-toggle="modal" data-bs-target="#modal_map" href="" data-bs-position="{{ book.get_location.coordinates }}">{{ book.get_location }}</a>{% else %}{{ book.get_location }}{% endif %})</div>
-                                {% endfor %}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-xxl-4">
+                <div class="row">
+
+                    <div class="col-lg-4">
                         <div class="card h-100">
                             <div class="card-body p-9">
                                 <div class="fs-2hx fw-bolder">{% translate "Blue Flags" %}</div>
@@ -62,17 +41,46 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-xxl-4">
-                        <div class="card h-100">
-                            <div class="card-body p-9">
-                                <div class="fs-2hx fw-bolder">{% translate "Companion" %}s</div>
-                                <div class="fs-4 fw-bold text-gray-400 mb-7">+{% translate "Bonus" %}-{% translate "Companion" %} ({% if skill.companion.location.coordinates %}<a data-bs-toggle="modal" data-bs-target="#modal_map" href="" data-bs-position="{{ skill.companion.location.coordinates }}">{{ skill.companion.location }}</a>{% else %}{{ skill.companion.location }}{% endif %})</div>
-                                {% for skill in companions %}
-                                    <div class="fw-bold">+{{ skill.bonus }}-{{ skill.companion }}</div>
-                                {% endfor %}
+                    <div class="col-lg-8">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="card h-100">
+                                    <div class="card-body p-9">
+                                        <div class="fs-2hx fw-bolder">{% translate "Book" %}s</div>
+                                        <div class="fs-4 fw-bold text-gray-400 mb-7">{% translate "Book" %} / {% translate "Reputation" %} ({% translate "Location" %})</div>
+                                        {% for book in books %}
+                                            <div class="fw-bold"><span data-popover-remote="{{ book.get_absolute_url }}" data-title="{{ book }}">{{ book }}</span> / {{ book.get_reputation|default:none }} ({% if book.get_location.coordinates %}<a data-bs-toggle="modal" data-bs-target="#modal_map" href="" data-bs-position="{{ book.get_location.coordinates }}">{{ book.get_location }}</a>{% else %}{{ book.get_location }}{% endif %})</div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="card h-100">
+                                    <div class="card-body p-9">
+                                        <div class="fs-2hx fw-bolder">{% translate "Training" %}s</div>
+                                        <div class="fs-4 fw-bold text-gray-400 mb-7">{% translate "Level" %}-{% translate "Training" %} ({% translate "Location" %})</div>
+                                        {% for training in trainings %}
+                                            <div class="fw-bold">{{ training.difficulty }}-{{ training }} ({% if training.location.coordinates %}<a data-bs-toggle="modal" data-bs-target="#modal_map" href="" data-bs-position="{{ training.location.coordinates }}">{{ training.location }}</a>{% else %}{{ training.location }}{% endif %})</div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="card h-100">
+                                    <div class="card-body p-9">
+                                        <div class="fs-2hx fw-bolder">{% translate "Companion" %}s</div>
+                                        <div class="fs-4 fw-bold text-gray-400 mb-7">+{% translate "Bonus" %}-{% translate "Companion" %} ({% if skill.companion.location.coordinates %}<a data-bs-toggle="modal" data-bs-target="#modal_map" href="" data-bs-position="{{ skill.companion.location.coordinates }}">{{ skill.companion.location }}</a>{% else %}{{ skill.companion.location }}{% endif %})</div>
+                                        {% for skill in companions %}
+                                            <div class="fw-bold">+{{ skill.bonus }}-{{ skill.companion }}</div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>

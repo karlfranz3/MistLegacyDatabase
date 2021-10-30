@@ -31,13 +31,24 @@
         <div class="post d-flex flex-column-fluid" id="kt_post">
             <div id="kt_content_container" class="container">
                 <div class="row g-5 g-xl-5">
-                    <div class="col-lg-6 col-xxl-6">
+                    <div class="col-lg-6 col-xxl-4">
+                        <div class="card h-100">
+                            <div class="card-body p-9">
+                                <div class="fs-2hx fw-bolder">{% translate "Recipe" %}s</div>
+                                <div class="fs-4 fw-bold text-gray-400 mb-7">{% translate "Reputation" %}-{% translate "Recipe" %} ({% translate "Location" %})</div>
+                                {% for recipe in recipes %}
+                                    <div class="fw-bold">{{ recipe.reputation_guild_value|default:none }}-<span data-popover-remote="{{ recipe.get_absolute_url }}" data-title="{{ recipe }}">{{ recipe }}</span> ({% if recipe.location.coordinates %}<a data-bs-toggle="modal" data-bs-target="#modal_map" href="" data-bs-position="{{ recipe.location.coordinates }}">{{ recipe.location }}</a>{% else %}{{ recipe.location }}{% endif %})</div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xxl-4">
                         <div class="card h-100">
                             <div class="card-body p-9">
                                 <div class="fs-2hx fw-bolder">{% translate "Spells|Skills" %}</div>
-                                <div class="fs-4 fw-bold text-gray-400 mb-7">{% translate "Spells|Skills" %} / {% translate "Reputation" %} ({% translate "Location" %})</div>
+                                <div class="fs-4 fw-bold text-gray-400 mb-7">{% translate "Reputation" %}-{% translate "Spells|Skills" %} ({% translate "Location" %})</div>
                                 {% for spell in spells %}
-                                    <div class="fw-bold"><span data-popover-remote="{{ spell.get_absolute_url }}" data-title="{{ spell }}">{{ spell }}</span> / {{ spell.reputation_guild_value|default:none }} ({% if spell.location.coordinates %}<a data-bs-toggle="modal" data-bs-target="#modal_map" href="" data-bs-position="{{ spell.location.coordinates }}">{{ spell.location }}</a>{% else %}{{ spell.location }}{% endif %})</div>
+                                    <div class="fw-bold">{{ spell.reputation_guild_value|default:none }}-<span data-popover-remote="{{ spell.get_absolute_url }}" data-title="{{ spell }}">{{ spell }}</span> ({% if spell.location.coordinates %}<a data-bs-toggle="modal" data-bs-target="#modal_map" href="" data-bs-position="{{ spell.location.coordinates }}">{{ spell.location }}</a>{% else %}{{ spell.location }}{% endif %})</div>
                                 {% endfor %}
                             </div>
                         </div>
