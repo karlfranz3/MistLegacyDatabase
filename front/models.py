@@ -714,3 +714,15 @@ class Guide(models.Model):
 
     class Meta:
         ordering = ["name"]
+
+
+class Somberseason(models.Model):
+    clue = models.CharField(max_length=64, blank=True, null=True)
+    geom = PointField(blank=True, null=True)
+
+    @property
+    def map_poi(self):
+        if self.clue:
+            return self.clue
+        else:
+            return _('Always')

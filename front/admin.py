@@ -123,7 +123,7 @@ class PlantAdmin(TranslationAdmin):
 
 @admin.register(BlueFlags)
 class BlueFlagsAdmin(LeafletGeoAdmin):
-    pass
+    list_display = ('name', 'geom')
 
 
 @admin.register(BlueFlagsStep)
@@ -149,3 +149,8 @@ class GatheringPointAdmin(LeafletGeoAdmin):
 @admin.register(Guide)
 class GuideAdmin(admin.ModelAdmin):
     list_display = ('name', 'author')
+
+
+@admin.register(Somberseason)
+class SomberseasonAdmin(LeafletGeoAdmin):
+    list_display = ('clue', 'geom')

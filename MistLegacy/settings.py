@@ -77,7 +77,8 @@ TEMPLATES = [
                 'front.context_processor.geojson_regions',
                 'front.context_processor.geojson_blueflags',
                 'front.context_processor.geojson_elixirs',
-                'front.context_processor.geojson_gatheringpoints'
+                'front.context_processor.geojson_gatheringpoints',
+                'front.context_processor.geojson_somberseason'
             ],
         },
     },
