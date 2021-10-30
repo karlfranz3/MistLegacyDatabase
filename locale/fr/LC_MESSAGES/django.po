@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-28 19:55+0200\n"
+"POT-Creation-Date: 2021-10-30 09:49+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,21 +18,21 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: .\MistLegacy\settings.py:151
+#: .\MistLegacy\settings.py:152
 msgid "English"
 msgstr "Anglais"
 
-#: .\MistLegacy\settings.py:152
+#: .\MistLegacy\settings.py:153
 msgid "French"
 msgstr "Français"
 
 #: .\front\models.py:133 .\front\models.py:165 .\front\models.py:242
 #: .\front\models.py:266 .\front\models.py:291 .\front\models.py:374
 #: .\front\models.py:394 .\front\models.py:473 .\front\models.py:522
-#: .\front\models.py:572 .\front\models.py:587 .\front\models.py:653
-#: .\front\models.py:686 .\templates\flags.html:45
-#: .\templates\locations.html:48 .\templates\recipes.html:52
-#: .\templates\regions.html:47 .\templates\spells.html:50
+#: .\front\models.py:572 .\front\models.py:650 .\front\models.py:683
+#: .\templates\flags.html:45 .\templates\locations.html:48
+#: .\templates\recipes.html:52 .\templates\regions.html:47
+#: .\templates\spells.html:50
 msgid "-- no translation yet --"
 msgstr "-- traduction indisponible --"
 
@@ -53,7 +53,7 @@ msgstr "Quête"
 msgid "Training"
 msgstr "Entrainement"
 
-#: .\front\models.py:178 .\front\models.py:607 .\templates\_base.html:258
+#: .\front\models.py:178 .\front\models.py:604 .\templates\_base.html:258
 #: .\templates\adventure.html:46 .\templates\adventure.html:47
 #: .\templates\books.html:5 .\templates\books.html:24 .\templates\books.html:33
 #: .\templates\books.html:38 .\templates\crafting.html:35
@@ -64,7 +64,7 @@ msgstr "Entrainement"
 msgid "Book"
 msgstr "Livre"
 
-#: .\front\models.py:182 .\front\models.py:610 .\templates\_base.html:266
+#: .\front\models.py:182 .\front\models.py:607 .\templates\_base.html:266
 #: .\templates\flags.html:66 .\templates\recipes.html:5
 #: .\templates\recipes.html:24 .\templates\recipes.html:33
 #: .\templates\reputation.html:35 .\templates\reputation.html:36
@@ -76,17 +76,21 @@ msgstr "Recette"
 msgid "Spell/Skill"
 msgstr "Sort/Compétence"
 
-#: .\front\models.py:593
+#: .\front\models.py:590
 msgid "Step"
 msgstr "Etape"
 
-#: .\front\models.py:601 .\templates\flags.html:39
+#: .\front\models.py:598 .\templates\flags.html:39
 msgid "Reward"
 msgstr "Récompense"
 
-#: .\front\models.py:660
+#: .\front\models.py:657
 msgid "Vigor"
 msgstr "Vigor"
+
+#: .\front\models.py:728
+msgid "Always"
+msgstr "Toujours"
 
 #: .\templates\_base.html:135 .\templates\home.html:5 .\templates\home.html:20
 msgid "Home"
@@ -109,7 +113,7 @@ msgstr "Général"
 msgid "Basics"
 msgstr "Basiques"
 
-#: .\templates\_base.html:185 .\templates\_base.html:717
+#: .\templates\_base.html:185 .\templates\_base.html:731
 #: .\templates\flags.html:5 .\templates\flags.html:23 .\templates\flags.html:32
 msgid "Flags"
 msgstr "Drapeaux"
@@ -128,14 +132,14 @@ msgstr "Compagnon"
 msgid "Geography"
 msgstr "Géographie"
 
-#: .\templates\_base.html:224 .\templates\_base.html:716
+#: .\templates\_base.html:224 .\templates\_base.html:730
 #: .\templates\land.html:35 .\templates\land.html:36
 #: .\templates\locations.html:39 .\templates\regions.html:5
 #: .\templates\regions.html:24 .\templates\regions.html:33
 msgid "Region"
 msgstr "Région"
 
-#: .\templates\_base.html:232 .\templates\_base.html:715
+#: .\templates\_base.html:232 .\templates\_base.html:729
 #: .\templates\locations.html:5 .\templates\locations.html:33
 msgid "Locations"
 msgstr "Lieux"
@@ -160,32 +164,26 @@ msgid "Materials"
 msgstr "Matériaux"
 
 #: .\templates\_base.html:305
-#| msgid "Stone"
 msgid "Stones"
 msgstr "Pierres"
 
 #: .\templates\_base.html:313
-#| msgid "Metal"
 msgid "Metals"
 msgstr "Métaux"
 
 #: .\templates\_base.html:321
-#| msgid "Wood"
 msgid "Woods"
 msgstr "Bois"
 
 #: .\templates\_base.html:329
-#| msgid "Leather"
 msgid "Leathers"
 msgstr "Cuirs"
 
 #: .\templates\_base.html:337
-#| msgid "Fiber"
 msgid "Fibers"
 msgstr "Fibres"
 
 #: .\templates\_base.html:345
-#| msgid "Bone"
 msgid "Bones"
 msgstr "Os"
 
@@ -235,15 +233,19 @@ msgstr "Discord officiel"
 msgid "Interactive Map"
 msgstr "Carte interactive"
 
-#: .\templates\_base.html:718
+#: .\templates\_base.html:732
 msgid "Elixirs"
 msgstr "Elixirs"
 
-#: .\templates\_base.html:719
+#: .\templates\_base.html:733
 msgid "Gathering Points"
 msgstr "Points de collecte"
 
-#: .\templates\_base.html:747
+#: .\templates\_base.html:734
+msgid "Somberseason"
+msgstr "Sombresaison"
+
+#: .\templates\_base.html:762
 msgid "Loading..."
 msgstr "Chargement..."
 
