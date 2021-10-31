@@ -77,7 +77,7 @@ class CompanionTranslationOptions(TranslationOptions):
     fields = ('name',)
 
 
-@register(Spell)
+@register(Talent)
 class SpellTranslationOptions(TranslationOptions):
     fields = ('name',)
 
@@ -92,12 +92,12 @@ class MaterialTypeTranslationOptions(TranslationOptions):
     fields = ('name',)
 
 
-@register(IngredientType)
+@register(ComponentType)
 class IngredientTypeTranslationOptions(TranslationOptions):
     fields = ('name',)
 
 
-@register(Ingredient)
+@register(Component)
 class IngredientTranslationOptions(TranslationOptions):
     fields = ('name',)
 

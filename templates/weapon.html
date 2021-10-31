@@ -35,7 +35,7 @@
                                 <div class="fs-2hx fw-bolder">{% translate "Recipe" %}s</div>
                                 <div class="fs-4 fw-bold text-gray-400 mb-7">{% translate "Recipe" %} / {% translate "Reputation" %} ({% translate "Location" %})</div>
                                 {% for recipe in recipes %}
-                                    <div class="fw-bold"><span data-popover-remote="{{ recipe.get_absolute_url }}" data-title="{{ recipe }}">{{ recipe }}</span> / {{ recipe.get_reputation|default:none }} ({% if recipe.location.coordinates %}<a data-bs-toggle="modal" data-bs-target="#modal_map" href="" data-bs-position="{{ recipe.location.coordinates }}">{{ recipe.location }}</a>{% else %}{{ recipe.location }}{% endif %})</div>
+                                    <div class="fw-bold">{{ recipe }} / {{ recipe.get_reputation|default:none }} ({% if recipe.location.coordinates %}<a data-bs-toggle="modal" data-bs-target="#modal_map" href="" data-bs-position="{{ recipe.location.coordinates }}">{{ recipe.location }}</a>{% else %}{{ recipe.location }}{% endif %})</div>
                                 {% endfor %}
                             </div>
                         </div>

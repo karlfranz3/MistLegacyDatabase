@@ -35,7 +35,7 @@
                                 <div class="fs-2hx fw-bolder">{% translate "Recipe" %}s</div>
                                 <div class="fs-4 fw-bold text-gray-400 mb-7">{% translate "Reputation" %}-{% translate "Recipe" %} ({% translate "Location" %})</div>
                                 {% for recipe in recipes %}
-                                    <div class="fw-bold">{{ recipe.reputation_guild_value|default:none }}-<span data-popover-remote="{{ recipe.get_absolute_url }}" data-title="{{ recipe }}">{{ recipe }}</span> ({% if recipe.location.coordinates %}<a data-bs-toggle="modal" data-bs-target="#modal_map" href="" data-bs-position="{{ recipe.location.coordinates }}">{{ recipe.location }}</a>{% else %}{{ recipe.location }}{% endif %})</div>
+                                    <div class="fw-bold">{{ recipe.reputation_guild_value|default:none }}-{{ recipe }} ({% if recipe.location.coordinates %}<a data-bs-toggle="modal" data-bs-target="#modal_map" href="" data-bs-position="{{ recipe.location.coordinates }}">{{ recipe.location }}</a>{% else %}{{ recipe.location }}{% endif %})</div>
                                 {% endfor %}
                             </div>
                         </div>
@@ -46,7 +46,7 @@
                                 <div class="fs-2hx fw-bolder">{% translate "Book" %}s</div>
                                 <div class="fs-4 fw-bold text-gray-400 mb-7">{% translate "Reputation" %}-{% translate "Book" %} ({% translate "Location" %})</div>
                                 {% for book in books %}
-                                    <div class="fw-bold">{{ book.reputation_guild_value|default:none }}-<span data-popover-remote="{{ book.get_absolute_url }}" data-title="{{ book }}">{{ book }}</span> ({% if book.location.coordinates %}<a data-bs-toggle="modal" data-bs-target="#modal_map" href="" data-bs-position="{{ book.location.coordinates }}">{{ book.location }}</a>{% else %}{{ book.location }}{% endif %})</div>
+                                    <div class="fw-bold">{{ book.reputation_guild_value|default:none }}-{{ book }} ({% if book.location.coordinates %}<a data-bs-toggle="modal" data-bs-target="#modal_map" href="" data-bs-position="{{ book.location.coordinates }}">{{ book.location }}</a>{% else %}{{ book.location }}{% endif %})</div>
                                 {% endfor %}
                             </div>
                         </div>
@@ -54,10 +54,10 @@
                     <div class="col-lg-6 col-xxl-4">
                         <div class="card h-100">
                             <div class="card-body p-9">
-                                <div class="fs-2hx fw-bolder">{% translate "Spells|Skills" %}</div>
-                                <div class="fs-4 fw-bold text-gray-400 mb-7">{% translate "Reputation" %}-{% translate "Spells|Skills" %} ({% translate "Location" %})</div>
-                                {% for spell in spells %}
-                                    <div class="fw-bold">{{ spell.reputation_guild_value|default:none }}-<span data-popover-remote="{{ spell.get_absolute_url }}" data-title="{{ spell }}">{{ spell }}</span> ({% if spell.location.coordinates %}<a data-bs-toggle="modal" data-bs-target="#modal_map" href="" data-bs-position="{{ spell.location.coordinates }}">{{ spell.location }}</a>{% else %}{{ spell.location }}{% endif %})</div>
+                                <div class="fs-2hx fw-bolder">{% translate "Talent" %}s</div>
+                                <div class="fs-4 fw-bold text-gray-400 mb-7">{% translate "Reputation" %}-{% translate "Talent" %} ({% translate "Location" %})</div>
+                                {% for talent in talents %}
+                                    <div class="fw-bold">{{ talent.reputation_guild_value|default:none }}-{{ talent }} ({% if talent.location.coordinates %}<a data-bs-toggle="modal" data-bs-target="#modal_map" href="" data-bs-position="{{ talent.location.coordinates }}">{{ talent.location }}</a>{% else %}{{ talent.location }}{% endif %})</div>
                                 {% endfor %}
                             </div>
                         </div>

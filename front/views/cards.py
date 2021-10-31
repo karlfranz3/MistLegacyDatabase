@@ -13,9 +13,9 @@ def book_card(request, pk):
     return render(request, 'book_card.html', context={'book': book})
 
 
-def spell_card(request, pk):
-    spell = get_object_or_404(Spell, pk=pk)
-    return render(request, 'spell_card.html', context={'spell': spell})
+def talent_card(request, pk):
+    talent = get_object_or_404(Talent, pk=pk)
+    return render(request, 'talent_card.html', context={'talent': talent})
 
 
 def recipe_card(request, pk):

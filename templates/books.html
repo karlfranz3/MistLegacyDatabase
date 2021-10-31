@@ -50,7 +50,7 @@
                                                 <th>{{ book }}</th>
                                                 <th>{{ book.get_location.name }}</th>
                                                 <th>{{ book.npc.name|default_if_none:"" }}</th>
-                                                <th>{{ book.get_reputation }}</th>
+                                                <th>{{ book.get_reputation|default_if_none:"" }}</th>
                                                 <th>{{ book.price }}</th>
                                                 <th>{{ book.count|default_if_none:"" }}</th>
                                                 <th>{{ book.get_location.coordinates|default_if_none:"" }}</th>

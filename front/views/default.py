@@ -102,17 +102,17 @@ def reputation(request, pk):
     reputation = get_object_or_404(Reputation, pk=pk)
     recipes = Recipe.objects.filter(reputation=reputation).order_by('reputation', 'guild', 'reputation_guild_value')
     books = Book.objects.filter(reputation=reputation).order_by('reputation', 'guild', 'reputation_guild_value')
-    spells = Spell.objects.filter(reputation=reputation).order_by('reputation', 'guild', 'reputation_guild_value')
+    talents = Talent.objects.filter(reputation=reputation).order_by('reputation', 'guild', 'reputation_guild_value')
     return render(request, 'reputation.html', context={'reputation': reputation,
-                                                       'recipes': recipes, 'books': books, 'spells': spells})
+                                                       'recipes': recipes, 'books': books, 'talents': talents})
 
 
 def guild(request, pk):
     guild = get_object_or_404(Guild, pk=pk)
     recipes = Recipe.objects.filter(guild=guild).order_by('reputation', 'guild', 'reputation_guild_value')
-    spells = Spell.objects.filter(guild=guild).order_by('reputation', 'guild', 'reputation_guild_value')
+    talents = Talent.objects.filter(guild=guild).order_by('reputation', 'guild', 'reputation_guild_value')
     return render(request, 'guild.html', context={'guild': guild, 'recipes': recipes,
-                                                  'spells': spells})
+                                                  'talents': talents})
 
 
 def regions(request):
@@ -131,8 +131,8 @@ def recipes(request):
     return render(request, 'recipes.html', context={'recipes': Recipe.objects.all()})
 
 
-def spells(request):
-    return render(request, 'spells.html', context={'spells': Spell.objects.all()})
+def talents(request):
+    return render(request, 'talents.html', context={'talents': Talent.objects.all()})
 
 
 def materials(request, material_type):
@@ -140,9 +140,9 @@ def materials(request, material_type):
                                                       'material_type': material_type})
 
 
-def ingredients(request, ingredient_type):
-    return render(request, 'ingredients.html', context={'qs': Ingredient.objects.filter(ingredient_type__name_en__exact=ingredient_type),
-                                                        'ingredient_type': ingredient_type})
+def components(request, component_type):
+    return render(request, 'components.html', context={'qs': Component.objects.filter(component_type__name_en__exact=component_type),
+                                                       'component_type': component_type})
 
 
 def plants(request):

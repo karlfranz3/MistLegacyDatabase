@@ -182,9 +182,9 @@ class Location(models.Model):
             tooltip = tooltip + '</br>{}(s):</br>'.format(_("Recipe"))
             for recipe in self.recipe_set.all():
                 tooltip = tooltip + '{} ({}/{})</br>'.format(recipe.name, recipe.reputation, recipe.reputation_guild_value)
-        if self.spell_set.all().exists():
+        if self.talent_set.all().exists():
             tooltip = tooltip + '</br>{}(s):</br>'.format(_("Spell/Skill"))
-            for spell in self.spell_set.all():
+            for spell in self.talent_set.all():
                 rep = spell.reputation or spell.guild
                 tooltip = tooltip + '{} ({}/{})</br>'.format(spell.name, rep, spell.reputation_guild_value)
         tooltip = tooltip + '</p>'
@@ -374,7 +374,7 @@ class Training(models.Model):
             return _('-- no translation yet --')
 
 
-class Spell(models.Model):
+class Talent(models.Model):
     name = models.CharField(max_length=64, blank=True, null=True)
     level = models.IntegerField(default=1)
     price = models.IntegerField(blank=True, null=True)
@@ -394,7 +394,7 @@ class Spell(models.Model):
             return _('-- no translation yet --')
 
     def get_absolute_url(self):
-        return reverse('spell_card', args=[str(self.id)])
+        return reverse('talent_card', args=[str(self.id)])
 
     def get_reputation(self):
         if self.reputation:
@@ -413,7 +413,7 @@ class MaterialType(models.Model):
         ordering = ["name"]
 
 
-class IngredientType(models.Model):
+class ComponentType(models.Model):
     name = models.CharField(max_length=64, blank=True, null=True)
 
     def __str__(self):
@@ -473,9 +473,9 @@ class Material(models.Model):
             return _('-- no translation yet --')
 
 
-class Ingredient(models.Model):
+class Component(models.Model):
     name = models.CharField(max_length=64, blank=True, null=True)
-    ingredient_type = models.ForeignKey(IngredientType, on_delete=models.CASCADE, blank=False, null=False)
+    component_type = models.ForeignKey(ComponentType, on_delete=models.CASCADE, blank=False, null=False)
     level = models.IntegerField(blank=False, null=False)
     lithram = models.IntegerField(blank=True, null=True)
     magnam = models.IntegerField(blank=True, null=True)
@@ -635,15 +635,15 @@ class BlueFlagsStep(models.Model):
 class BlueFlagsReward(models.Model):
     flag = models.ForeignKey(BlueFlags, null=False, blank=False, on_delete=models.CASCADE)
     material = models.ForeignKey(Material, null=True, blank=True, on_delete=models.CASCADE)
-    ingredient = models.ForeignKey(Ingredient, null=True, blank=True, on_delete=models.CASCADE)
+    component = models.ForeignKey(Component, null=True, blank=True, on_delete=models.CASCADE)
     plant = models.ForeignKey(Plant, null=True, blank=True, on_delete=models.CASCADE)
     number = models.IntegerField(blank=False, null=False)
 
     def __str__(self):
         if self.material and self.material.name:
             return self.material.name
-        elif self.ingredient and self.ingredient.name:
-            return self.ingredient.name
+        elif self.component and self.component.name:
+            return self.component.name
         elif self.plant and self.plant.name:
             return self.plant.name
         else:

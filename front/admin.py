@@ -91,7 +91,7 @@ class CompanionSkillAdmin(admin.ModelAdmin):
     list_display = ('companion', 'adventure', 'crafting', 'land', 'gathering', 'bonus')
 
 
-@admin.register(Spell)
+@admin.register(Talent)
 class SpellAdmin(TranslationAdmin):
     list_display = ('name_en', 'name_fr', 'reputation', 'guild', 'reputation_guild_value', 'price', 'location', 'npc')
 
@@ -106,14 +106,14 @@ class MaterialAdmin(TranslationAdmin):
     list_display = ('name_en', 'name_fr', 'material_type', 'level', 'craft_difficulty', 'harvest_difficulty', 'encumbrance')
 
 
-@admin.register(IngredientType)
-class IngredientTypeAdmin(TranslationAdmin):
+@admin.register(ComponentType)
+class ComponentTypeAdmin(TranslationAdmin):
     list_display = ('name_en', 'name_fr')
 
 
-@admin.register(Ingredient)
-class IngredientAdmin(TranslationAdmin):
-    list_display = ('name_en', 'name_fr', 'ingredient_type', 'level', 'craft_difficulty', 'encumbrance')
+@admin.register(Component)
+class ComponentAdmin(TranslationAdmin):
+    list_display = ('name_en', 'name_fr', 'component_type', 'level', 'craft_difficulty', 'encumbrance')
 
 
 @admin.register(Plant)
@@ -133,7 +133,7 @@ class BlueFlagsStepAdmin(admin.ModelAdmin):
 
 @admin.register(BlueFlagsReward)
 class BlueFlagsRewardAdmin(admin.ModelAdmin):
-    list_display = ('flag', 'material', 'ingredient', 'plant', 'number',)
+    list_display = ('flag', 'material', 'component', 'plant', 'number',)
 
 
 @admin.register(Elixir)

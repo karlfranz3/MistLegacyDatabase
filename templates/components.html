@@ -12,12 +12,12 @@
         <script src="{% static "assets/plugins/custom/datatables/datatables.bundle.js" %}" type="text/javascript"></script>
 {% endblock %}
 
-{% block menu_ingredients %}hover show{% endblock %}
-{% block menu_powder %}{% if ingredient_type == 'Powder' %}active{% endif %}{% endblock %}
-{% block menu_substance %}{% if ingredient_type == 'Substance' %}active{% endif %}{% endblock %}
-{% block menu_sap %}{% if ingredient_type == 'Sap' %}active{% endif %}{% endblock %}
-{% block menu_gem %}{% if ingredient_type == 'Gem' %}active{% endif %}{% endblock %}
-{% block menu_pollen %}{% if ingredient_type == 'Pollen' %}active{% endif %}{% endblock %}
+{% block menu_components %}hover show{% endblock %}
+{% block menu_powder %}{% if component_type == 'Powder' %}active{% endif %}{% endblock %}
+{% block menu_substance %}{% if component_type == 'Substance' %}active{% endif %}{% endblock %}
+{% block menu_sap %}{% if component_type == 'Sap' %}active{% endif %}{% endblock %}
+{% block menu_gem %}{% if component_type == 'Gem' %}active{% endif %}{% endblock %}
+{% block menu_pollen %}{% if component_type == 'Pollen' %}active{% endif %}{% endblock %}
 
 {% block corpsdepage %}
 
@@ -25,7 +25,7 @@
         <div class="toolbar" id="kt_toolbar">
             <div id="kt_toolbar_container" class="container-fluid d-flex flex-stack">
                 <div class="d-flex align-items-center me-3">
-                    <h1 class="d-flex align-items-center text-dark fw-bolder my-1 fs-3">{% translate ingredient_type %}s</h1>
+                    <h1 class="d-flex align-items-center text-dark fw-bolder my-1 fs-3">{% translate component_type %}s</h1>
                 </div>
             </div>
         </div>
@@ -34,7 +34,7 @@
                 <div class="card">
                     <div class="card-body fs-6 p-10 p-lg-15">
                         <div class="pb-10">
-                            <h1 class="anchor fw-bolder mb-5" id="column-rendering">{% translate ingredient_type %}s</h1>
+                            <h1 class="anchor fw-bolder mb-5" id="column-rendering">{% translate component_type %}s</h1>
                             <div class="my-5">
                                 <table id="ingredients" class="table table-striped border rounded gy-5 gs-7">
                                     <thead>

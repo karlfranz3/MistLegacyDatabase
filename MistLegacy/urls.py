@@ -7,7 +7,7 @@ from django.conf.urls.i18n import i18n_patterns
 
 
 urlpatterns = i18n_patterns(
-    path('', home, name='home'),
+    path('', map, name='home'),
     path('set_lang/<str:lang>', set_lang, name="set_lang"),
     path('clear_cache/', clear_cache),
     path('admin/', admin.site.urls),
@@ -24,7 +24,7 @@ urlpatterns = i18n_patterns(
     path('locations', locations, name='locations'),
     path('books', books, name='books'),
     path('recipes', recipes, name='recipes'),
-    path('spells', spells, name='spells'),
+    path('talents', talents, name='talents'),
 
 
     path('land/<int:pk>', land, name='land'),
@@ -36,13 +36,13 @@ urlpatterns = i18n_patterns(
     path('guild/<int:pk>', guild, name='guild'),
 
     path('materials/<str:material_type>', materials, name='materials'),
-    path('ingredients/<str:ingredient_type>', ingredients, name='ingredients'),
+    path('components/<str:component_type>', components, name='components'),
     path('plants', plants, name='plants'),
 
-    path('companion_card/<int:pk>', companion_card, name='companion_card'),
-    path('book_card/<int:pk>', book_card, name='book_card'),
-    path('spell_card/<int:pk>', spell_card, name='spell_card'),
-    path('recipe_card/<int:pk>', recipe_card, name='recipe_card'),
+    #path('companion_card/<int:pk>', companion_card, name='companion_card'),
+    #path('book_card/<int:pk>', book_card, name='book_card'),
+    #path('talent_card/<int:pk>', talent_card, name='talent_card'),
+    #path('recipe_card/<int:pk>', recipe_card, name='recipe_card'),
 
     path('jenniel1', jenniel1, name='jenniel1'),
 

@@ -53,16 +53,16 @@
                                     {% for companion in companions %}
                                         <tr>
                                             <th>{{ companion }}</th>
-                                            <th>{{ companion.lvl }}</th>
-                                            <th>{{ companion.location }}</th>
-                                            <th>{{ companion.quest }}</th>
-                                            <th>{{ companion.weapon }}</th>
-                                            <th>{{ companion.weapon_lvl }}</th>
-                                            <th>{{ companion.comfort }}</th>
-                                            <th>{{ companion.convenience }}</th>
-                                            <th>{{ companion.armor }}</th>
-                                            <th>{{ companion.life }}</th>
-                                            <th>{{ companion.stamina }}</th>
+                                            <th>{{ companion.lvl|default_if_none:"" }}</th>
+                                            <th>{{ companion.location|default_if_none:"" }}</th>
+                                            <th>{{ companion.quest|default_if_none:"" }}</th>
+                                            <th>{{ companion.weapon|default_if_none:"" }}</th>
+                                            <th>{{ companion.weapon_lvl|default_if_none:"" }}</th>
+                                            <th>{{ companion.comfort|default_if_none:"" }}</th>
+                                            <th>{{ companion.convenience|default_if_none:"" }}</th>
+                                            <th>{{ companion.armor|default_if_none:"" }}</th>
+                                            <th>{{ companion.life|default_if_none:"" }}</th>
+                                            <th>{{ companion.stamina|default_if_none:"" }}</th>
                                             <th>
                                             {% for item in companion.companionskill_set.all %}
                                                 {% if item.adventure %}
