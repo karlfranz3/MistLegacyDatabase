@@ -52,13 +52,13 @@ class GuildAdmin(TranslationAdmin):
 @admin.register(Region)
 class RegionAdmin(LeafletGeoAdmin):
     exclude = ('name',)
-    list_display = ('name_en', 'name_fr', 'land', 'land_difficulty')
+    list_display = ('name_en', 'name_fr', 'land', 'land_difficulty', 'geom')
 
 
 @admin.register(Location)
 class LocationAdmin(LeafletGeoAdmin):
     exclude = ('name',)
-    list_display = ('name_en', 'name_fr', 'region', 'exploration')
+    list_display = ('name_en', 'name_fr', 'region', 'exploration', 'geom')
 
 
 @admin.register(Recipe)
