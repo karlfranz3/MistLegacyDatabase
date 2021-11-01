@@ -753,7 +753,10 @@ class Monster(models.Model):
         ordering = ["name"]
 
     def __str__(self):
-        return self.name
+        if self.name:
+            return self.name
+        else:
+            return _('-- no translation yet --')
 
 
 class MonsterWeakness(models.Model):
@@ -780,7 +783,10 @@ class Boss(models.Model):
         ordering = ["name"]
 
     def __str__(self):
-        return self.name
+        if self.name:
+            return self.name
+        else:
+            return _('-- no translation yet --')
 
     @property
     def map_poi(self):
