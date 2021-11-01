@@ -63,7 +63,7 @@
                                                 <th>{{ elem.substance|default_if_none:"" }}</th>
                                                 <th>
                                                     {% for item in elem.bossweakness_set.all %}
-                                                        {{ item.magicschool }} {{ item.percent }}%</br>
+                                                        {{ item.magic_school }} {{ item.percent }}%</br>
                                                     {% endfor %}
                                                 </th>
                                                 <th>{% translate "Map" %}</th>

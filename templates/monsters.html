@@ -61,7 +61,7 @@
                                                 <th>{{ elem.substance|default_if_none:"" }}</th>
                                                 <th>
                                                 {% for item in elem.monsterweakness_set.all %}
-                                                    {{ item.magicschool }} {{ item.percent }}%</br>
+                                                    {{ item.magic_school }} {{ item.percent }}%</br>
                                                 {% endfor %}
                                                 </th>
                                                 <th>{{ elem.region|default_if_none:"" }}</th>
