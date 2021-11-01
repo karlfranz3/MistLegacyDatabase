@@ -44,6 +44,7 @@
                                         <th class="kt-font-light">{% translate "Armor" %}</th>
                                         <th class="kt-font-light">{% translate "Cooldown" %}</th>
                                         <th class="kt-font-light">{% translate "Substance" %}</th>
+                                        <th class="kt-font-light">{% translate "Weakness" %}</th>
                                         <th class="kt-font-light">{% translate "Location" %}</th>
                                         <th></th>
                                     </tr>
@@ -60,6 +61,11 @@
                                                 <th>{{ elem.armor|default_if_none:"" }}</th>
                                                 <th>{{ elem.cooldown|default_if_none:"" }}</th>
                                                 <th>{{ elem.substance|default_if_none:"" }}</th>
+                                                <th>
+                                                    {% for item in elem.bossweakness_set.all %}
+                                                        {{ item.magicschool }} {{ item.percent }}%</br>
+                                                    {% endfor %}
+                                                </th>
                                                 <th>{% translate "Map" %}</th>
                                                 <th>{{ elem.coordinates|default_if_none:"" }}</th>
                                             </tr>
@@ -86,27 +92,27 @@
                 "columnDefs": [
                     {
                         orderable:true,
-                        "targets":[1,2,3,4,5,6,7,8,9]
+                        "targets":[1,2,3,4,5,6,7,8,9,10]
                     },
                     {
                         searchable:true,
-                        "targets":[1,2,3,4,5,6,7,8,9]
+                        "targets":[1,2,3,4,5,6,7,8,9,10]
                     },
                     {
                         visible:false,
-                        "targets": 10
+                        "targets": 11
                     },
                     {
                         "render": function ( data, type, row ) {
-                            if (row[10] === '') {
+                            if (row[11] === '') {
                                 return data
                             }
-                            return "<a data-bs-toggle='modal' data-bs-target='#modal_map' href='' data-bs-position='"+row[10]+"'>"+data+"</a>";
+                            return "<a data-bs-toggle='modal' data-bs-target='#modal_map' href='' data-bs-position='"+row[11]+"'>"+data+"</a>";
                         },
-                        "targets": 9
+                        "targets": 10
                     },
                 ],
-                "order": [[0, 'asc']],
+                "order": [[1, 'asc']],
                 dom:"<'row'<'col-sm-6 d-flex align-items-center justify-conten-start'l><'col-sm-6 d-flex align-items-center justify-content-end'f>><'table-responsive'tr><'row'<'col-sm-12 col-md-5 d-flex align-items-center justify-content-center justify-content-md-start'i><'col-sm-12 col-md-7 d-flex align-items-center justify-content-center justify-content-md-end'p>>"
             } );
 
