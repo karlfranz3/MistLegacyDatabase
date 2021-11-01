@@ -200,6 +200,40 @@ License: For each use you must have a valid license purchased only from above li
                                         <span class="menu-title">{% translate "Companion" %}s</span>
                                     </a>
                                 </div>
+                                <div data-kt-menu-trigger="click" class="menu-item menu-accordion {% block menu_fight %}{% endblock %}">
+									<span class="menu-link">
+										<span class="menu-icon">
+											<!--begin::Svg Icon | path: icons/duotone/Code/Compiling.svg-->
+											<span class="svg-icon svg-icon-2">
+												<svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+													<path d="M2.56066017,10.6819805 L4.68198052,8.56066017 C5.26776695,7.97487373 6.21751442,7.97487373 6.80330086,8.56066017 L8.9246212,10.6819805 C9.51040764,11.267767 9.51040764,12.2175144 8.9246212,12.8033009 L6.80330086,14.9246212 C6.21751442,15.5104076 5.26776695,15.5104076 4.68198052,14.9246212 L2.56066017,12.8033009 C1.97487373,12.2175144 1.97487373,11.267767 2.56066017,10.6819805 Z M14.5606602,10.6819805 L16.6819805,8.56066017 C17.267767,7.97487373 18.2175144,7.97487373 18.8033009,8.56066017 L20.9246212,10.6819805 C21.5104076,11.267767 21.5104076,12.2175144 20.9246212,12.8033009 L18.8033009,14.9246212 C18.2175144,15.5104076 17.267767,15.5104076 16.6819805,14.9246212 L14.5606602,12.8033009 C13.9748737,12.2175144 13.9748737,11.267767 14.5606602,10.6819805 Z" fill="#000000" opacity="0.3" />
+													<path d="M8.56066017,16.6819805 L10.6819805,14.5606602 C11.267767,13.9748737 12.2175144,13.9748737 12.8033009,14.5606602 L14.9246212,16.6819805 C15.5104076,17.267767 15.5104076,18.2175144 14.9246212,18.8033009 L12.8033009,20.9246212 C12.2175144,21.5104076 11.267767,21.5104076 10.6819805,20.9246212 L8.56066017,18.8033009 C7.97487373,18.2175144 7.97487373,17.267767 8.56066017,16.6819805 Z M8.56066017,4.68198052 L10.6819805,2.56066017 C11.267767,1.97487373 12.2175144,1.97487373 12.8033009,2.56066017 L14.9246212,4.68198052 C15.5104076,5.26776695 15.5104076,6.21751442 14.9246212,6.80330086 L12.8033009,8.9246212 C12.2175144,9.51040764 11.267767,9.51040764 10.6819805,8.9246212 L8.56066017,6.80330086 C7.97487373,6.21751442 7.97487373,5.26776695 8.56066017,4.68198052 Z" fill="#000000" />
+												</svg>
+											</span>
+                                            <!--end::Svg Icon-->
+										</span>
+										<span class="menu-title">{% translate "Fight" %}s</span>
+										<span class="menu-arrow"></span>
+									</span>
+                                    <div class="menu-sub menu-sub-accordion menu-active-bg">
+                                        <div class="menu-item">
+                                            <a class="menu-link {% block menu_monsters %}{% endblock %}" href="{% url 'monsters' %}">
+												<span class="menu-bullet">
+													<span class="bullet bullet-dot"></span>
+												</span>
+                                                <span class="menu-title">{% translate "Monster" %}s</span>
+                                            </a>
+                                        </div>
+                                        <div class="menu-item">
+                                            <a class="menu-link {% block menu_boss %}{% endblock %}" href="{% url 'boss' %}">
+												<span class="menu-bullet">
+													<span class="bullet bullet-dot"></span>
+												</span>
+                                                <span class="menu-title">{% translate "Boss" %}</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div data-kt-menu-trigger="click" class="menu-item menu-accordion {% block menu_geography %}{% endblock %}">
 									<span class="menu-link">
 										<span class="menu-icon">
@@ -560,7 +594,7 @@ License: For each use you must have a valid license purchased only from above li
                             <!--begin::Copyright-->
                             <div class="text-dark order-2 order-md-1">
                                 <span class="text-muted fw-bold me-1">2021©</span>
-                                Mist Legacy DB v0.4.3 - All visuals are property of&nbsp;<a href="https://virtys.com/" target="_blank" class="kt-link">Virtys</a>. Thanks to the community for their help. Contact : Nacros on official ML Discord
+                                Mist Legacy DB v0.5.0 - All visuals are property of&nbsp;<a href="https://virtys.com/" target="_blank" class="kt-link">Virtys</a>. Thanks to the community for their help. Contact : Nacros on official ML Discord
                             </div>
                             <!--end::Copyright-->
                         </div>
@@ -619,6 +653,7 @@ License: For each use you must have a valid license purchased only from above li
             regions = {{ geojson_regions|geojsonfeature:"map_poi"|safe }};
             blueflags = {{ geojson_blueflags|geojsonfeature:"map_poi,icon_url"|safe }};
             elixirs = {{ geojson_elixirs|geojsonfeature:"map_poi"|safe }};
+            boss = {{ geojson_boss|geojsonfeature:"map_poi"|safe }};
             somberseason = {{ geojson_somberseason|geojsonfeature:"map_poi"|safe }};
             gatheringpoints = {{ geojson_gatheringpoints|geojsonfeature:"map_poi,icon_url"|safe }};
             let mymap;
@@ -696,6 +731,18 @@ License: For each use you must have a valid license purchased only from above li
                 }
             }
 
+            function onEachFeatureBOSS(feature, layer) {
+                if (feature.properties && feature.properties.map_poi) {
+                    layer.bindPopup(feature.properties.map_poi);
+                    layer.setIcon(new L.Icon({
+                        iconUrl: '/static/leaflet/images/boss.png',
+                        iconSize: [32, 32],
+                        iconAnchor: [16, 27],
+                        popupAnchor: [0, -32]
+                    }));
+                }
+            }
+
             $(window).on('map:init', function(e) {
                 mymap = e.originalEvent.detail.map;
                 //const southWest = L.latLng(-38, -82);
@@ -716,6 +763,7 @@ License: For each use you must have a valid license purchased only from above li
                 const layerSomberseason = L.geoJson(somberseason, {onEachFeature: onEachFeatureSS});
                 const layerFlags = L.geoJson(blueflags, {onEachFeature: onEachFeatureBF}).addTo(mymap);
                 const layerElixirs = L.geoJson(elixirs, {onEachFeature: onEachFeatureElixir}).addTo(mymap);
+                const layerBoss = L.geoJson(boss, {onEachFeature: onEachFeatureBOSS}).addTo(mymap);
                 const layerGatheringPoints = L.geoJson(gatheringpoints, {onEachFeature: onEachFeatureGP}).addTo(mymap);
                 var baseMaps = {};
                 var overlayMaps = {
@@ -724,6 +772,7 @@ License: For each use you must have a valid license purchased only from above li
                     "{% translate "Flags" %}": layerFlags,
                     "{% translate "Elixirs" %}": layerElixirs,
                     "{% translate "Gathering Points" %}": layerGatheringPoints,
+                    "{% translate "Boss" %}": layerBoss,
                     "{% translate "Somberseason" %}": layerSomberseason
                 };
                 L.control.layers(baseMaps, overlayMaps, {collapsed: false}).addTo(mymap);

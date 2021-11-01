@@ -154,7 +154,11 @@ def flags(request):
 
 
 def monsters(request):
-    return render(request, 'todo.html', context={'qs': Plant.objects.all()})
+    return render(request, 'monsters.html', context={'qs': Monster.objects.all()})
+
+
+def boss(request):
+    return render(request, 'boss.html', context={'qs': Boss.objects.all()})
 
 
 def guides(request):

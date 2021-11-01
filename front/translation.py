@@ -105,3 +105,18 @@ class IngredientTranslationOptions(TranslationOptions):
 @register(Plant)
 class PlantTranslationOptions(TranslationOptions):
     fields = ('name',)
+
+
+@register(MagicSchool)
+class MagicSchoolTranslationOptions(TranslationOptions):
+    fields = ('name',)
+
+
+@register(Monster)
+class MonsterTranslationOptions(TranslationOptions):
+    fields = ('name',)
+
+
+@register(Boss)
+class BossTranslationOptions(TranslationOptions):
+    fields = ('name',)

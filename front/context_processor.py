@@ -1,4 +1,4 @@
-from .models import Location, Region, BlueFlags, Elixir, GatheringPoint, Somberseason
+from .models import Location, Region, BlueFlags, Elixir, GatheringPoint, Somberseason, Boss
 
 
 def geojson_locations(request):
@@ -23,3 +23,7 @@ def geojson_gatheringpoints(request):
 
 def geojson_somberseason(request):
     return {'geojson_somberseason': Somberseason.objects.all()}
+
+
+def geojson_boss(request):
+    return {'geojson_boss': Boss.objects.all()}

@@ -20,6 +20,7 @@ urlpatterns = i18n_patterns(
     path('flags', flags, name='flags'),
     path('companions', companions, name='companions'),
     path('monsters', monsters, name='monsters'),
+    path('boss', boss, name='boss'),
     path('regions', regions, name='regions'),
     path('locations', locations, name='locations'),
     path('books', books, name='books'),

@@ -154,3 +154,31 @@ class GuideAdmin(admin.ModelAdmin):
 @admin.register(Somberseason)
 class SomberseasonAdmin(LeafletGeoAdmin):
     list_display = ('clue', 'geom')
+
+
+@admin.register(MagicSchool)
+class MagicSchoolAdmin(admin.ModelAdmin):
+    exclude = ('name',)
+    list_display = ('name_en', 'name_fr')
+
+
+@admin.register(Monster)
+class MagicSchoolAdmin(LeafletGeoAdmin):
+    exclude = ('name',)
+    list_display = ('name_en', 'name_fr', 'lvl', 'life', 'stamina', 'armor', 'attack', 'substance', 'region', 'image')
+
+
+@admin.register(MonsterWeakness)
+class MonsterWeaknessAdmin(admin.ModelAdmin):
+    list_display = ('monster', 'magic_school', 'percent')
+
+
+@admin.register(Boss)
+class BossAdmin(LeafletGeoAdmin):
+    exclude = ('name',)
+    list_display = ('name_en', 'name_fr', 'lvl', 'life', 'stamina', 'armor', 'attack', 'substance', 'cooldown', 'image')
+
+
+@admin.register(BossWeakness)
+class BossWeaknessAdmin(admin.ModelAdmin):
+    list_display = ('boss', 'magic_school', 'percent')
