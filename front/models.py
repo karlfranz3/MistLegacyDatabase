@@ -5,6 +5,11 @@ from django.utils.translation import gettext as _
 from filer.fields.image import FilerImageField
 from .toolbox import centroid
 
+WEAKNESS_CHOICES = [
+    ('+', '+'),
+    ('-', '-')
+]
+
 
 class Daytime(models.Model):
     name = models.CharField(max_length=64, blank=True, null=True)
@@ -762,10 +767,12 @@ class Monster(models.Model):
 class MonsterWeakness(models.Model):
     monster = models.ForeignKey(Monster, blank=True, null=True, on_delete=models.CASCADE)
     magic_school = models.ForeignKey(MagicSchool, blank=True, null=True, on_delete=models.CASCADE)
+    bonus = models.CharField(max_length=1, blank=True, null=True, choices=WEAKNESS_CHOICES, default='+')
     percent = models.IntegerField(blank=True, null=True)
 
     def __str__(self):
         return self.magic_school.name
+
 
 class Boss(models.Model):
     name = models.CharField(max_length=64, blank=True, null=True)
@@ -803,6 +810,7 @@ class Boss(models.Model):
 class BossWeakness(models.Model):
     boss = models.ForeignKey(Boss, blank=True, null=True, on_delete=models.CASCADE)
     magic_school = models.ForeignKey(MagicSchool, blank=True, null=True, on_delete=models.CASCADE)
+    bonus = models.CharField(max_length=1, blank=True, null=True, choices=WEAKNESS_CHOICES, default='+')
     percent = models.IntegerField(blank=True, null=True)
 
     def __str__(self):
