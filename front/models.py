@@ -11,8 +11,8 @@ WEAKNESS_CHOICES = [
 ]
 
 COOLDOWN_CHOICES = [
-    ('Daily', _('Daily')),
-    ('Weekly', _('Weekly'))
+    (_('Daily'), 'Daily'),
+    (_('Weekly'), 'Weekly')
 ]
 
 
