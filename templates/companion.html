@@ -25,7 +25,7 @@
             </div>
         </div>
         <div class="post d-flex flex-column-fluid" id="kt_post">
-            <div id="kt_content_container" class="container">
+
                 <div class="card">
                     <div class="card-body fs-6 p-10 p-lg-15">
                         <div class="pb-10">
@@ -46,7 +46,6 @@
                                         <th class="kt-font-light">{% translate "Max life" %}</th>
                                         <th class="kt-font-light">{% translate "Max stamina" %}</th>
                                         <th class="kt-font-light">{% translate "Bonus" %}</th>
-                                        <th class="kt-font-light"></th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -54,7 +53,7 @@
                                         <tr>
                                             <th>{{ companion }}</th>
                                             <th>{{ companion.lvl|default_if_none:"" }}</th>
-                                            <th>{{ companion.location|default_if_none:"" }}</th>
+                                            <th>{% if companion.location.coordinates %}<a data-bs-toggle="modal" data-bs-target="#modal_map" href="" data-bs-position="{{ companion.location.coordinates }}">{{ companion.location }}</a>{% else %}{{ companion.location }}{% endif %}</th>
                                             <th>{{ companion.quest|default_if_none:"" }}</th>
                                             <th>{{ companion.weapon|default_if_none:"" }}</th>
                                             <th>{{ companion.weapon_lvl|default_if_none:"" }}</th>
@@ -76,7 +75,6 @@
                                                 {% endif %}
                                             {% endfor %}
                                             </th>
-                                            <th>{{ companion.location.coordinates|default_if_none:"" }}</th>
                                         </tr>
                                     {% endfor %}
                                     </tbody>
@@ -85,7 +83,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+
         </div>
     </div>
 
@@ -107,19 +105,6 @@
                         searchable:true,
                         "targets":[0,1,2,3,4,5,6,7,8,9,10,11]
                     },
-                    {
-                        visible:false,
-                        "targets": 12
-                    },
-                    {
-                        "render": function ( data, type, row ) {
-                            if (row[12] === '') {
-                                return data
-                            }
-                            return "<a data-bs-toggle='modal' data-bs-target='#modal_map' href='' data-bs-position='"+row[12]+"'>"+data+"</a>";
-                        },
-                        "targets": 2
-                    }
                 ],
                 "order": [[0, 'asc']],
                 dom:"<'row'<'col-sm-6 d-flex align-items-center justify-conten-start'l><'col-sm-6 d-flex align-items-center justify-content-end'f>><'table-responsive'tr><'row'<'col-sm-12 col-md-5 d-flex align-items-center justify-content-center justify-content-md-start'i><'col-sm-12 col-md-7 d-flex align-items-center justify-content-center justify-content-md-end'p>>"

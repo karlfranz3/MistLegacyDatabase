@@ -43,7 +43,6 @@
                                         <th class="kt-font-light">{% translate "Building" %}</th>
                                         <th class="kt-font-light">{% translate "Slot" %}</th>
                                         <th class="kt-font-light">{% translate "Weapon" %}</th>
-                                        <th class="kt-font-light"></th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -51,14 +50,13 @@
                                         <tr>
                                             {% trans '-- no translation yet --' as transl %}
                                             <th>{{ recipe.name|default_if_none:transl }}</th>
-                                            <th>{{ recipe.get_location.name|default_if_none:transl }}</th>
+                                            <th>{% if recipe.get_location.coordinates %}<a data-bs-toggle="modal" data-bs-target="#modal_map" href="" data-bs-position="{{ recipe.get_location.coordinates }}">{{ recipe.get_location|default_if_none:transl }}</a>{% else %}{{ recipe.get_location|default_if_none:transl }}{% endif %}</th>
                                             <th>{{ recipe.npc.name|default_if_none:transl }}</th>
                                             <th>{{ recipe.get_reputation|default_if_none:"" }}</th>
                                             <th>{{ recipe.price }}</th>
                                             <th>{{ recipe.building }}</th>
                                             <th>{{ recipe.equipment_slot|default_if_none:"" }}</th>
                                             <th>{{ recipe.weapon|default_if_none:"" }}</th>
-                                            <th>{{ recipe.get_location.coordinates|default_if_none:"" }}</th>
                                         </tr>
                                     {% endfor %}
                                     </tbody>
@@ -89,19 +87,6 @@
                         searchable:true,
                         "targets":[0,1,2,3,4,5,6,7]
                     },
-                    {
-                        visible:false,
-                        "targets": 8
-                    },
-                    {
-                        "render": function ( data, type, row ) {
-                            if (row[8] === '') {
-                                return data
-                            }
-                            return "<a data-bs-toggle='modal' data-bs-target='#modal_map' href='' data-bs-position='"+row[8]+"'>"+data+"</a>";
-                        },
-                        "targets": 1
-                    }
                 ],
                 "order": [[0, 'asc']],
                 dom:"<'row'<'col-sm-6 d-flex align-items-center justify-conten-start'l><'col-sm-6 d-flex align-items-center justify-content-end'f>><'table-responsive'tr><'row'<'col-sm-12 col-md-5 d-flex align-items-center justify-content-center justify-content-md-start'i><'col-sm-12 col-md-7 d-flex align-items-center justify-content-center justify-content-md-end'p>>"

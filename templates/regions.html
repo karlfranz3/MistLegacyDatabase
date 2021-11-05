@@ -38,17 +38,15 @@
                                         <th>{% translate "Name" %}</th>
                                         <th>{% translate "Land" %}</th>
                                         <th>{% translate "Difficulty" %}</th>
-                                        <th></th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     {% for region in regions %}
                                         <tr>
                                             {% trans '-- no translation yet --' as transl %}
-                                            <th>{{ region.name|default_if_none:transl }}</th>
+                                            <th>{% if region.coordinates %}<a data-bs-toggle="modal" data-bs-target="#modal_map" href="" data-bs-position="{{ region.coordinates }}">{{ region|default_if_none:transl }}</a>{% else %}{{ region|default_if_none:transl }}{% endif %}</th>
                                             <th>{{ region.land|default_if_none:"" }}</th>
                                             <th>{{ region.land_difficulty|default_if_none:"" }}</th>
-                                            <th>{{ region.coordinates|default_if_none:"" }}</th>
                                         </tr>
                                     {% endfor %}
                                     </tbody>
@@ -78,19 +76,6 @@
                     {
                         searchable:true,
                         "targets":[0,1,2]
-                    },
-                    {
-                        visible:false,
-                        "targets": 3
-                    },
-                    {
-                        "render": function ( data, type, row ) {
-                            if (row[3] === '') {
-                                return data
-                            }
-                            return "<a data-bs-toggle='modal' data-bs-target='#modal_map' href='' data-bs-position='"+row[3]+"'>"+data+"</a>";
-                        },
-                        "targets": 0
                     },
                 ],
                 "order": [[0, 'asc']],

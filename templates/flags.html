@@ -31,7 +31,7 @@
                         <div class="pb-10">
                             <h1 class="anchor fw-bolder mb-5" id="column-rendering">{% translate "Flags" %}</h1>
                             <div class="my-5">
-                                <table id="regions" class="table table-striped border rounded gy-5 gs-7">
+                                <table id="flags" class="table table-striped border rounded gy-5 gs-7">
                                     <thead>
                                     <tr class="fw-bold fs-6 text-gray-800">
                                         <th>{% translate "Name" %}</th>
@@ -84,7 +84,7 @@
     <script>
         $(document).ready(function() {
 
-            $('#regions').DataTable( {
+            $('#flags').DataTable( {
                 "paging":   false,
                 "info": false,
                 "columnDefs": [
@@ -95,19 +95,6 @@
                     {
                         searchable:true,
                         "targets":[0,1,2]
-                    },
-                    {
-                        visible:false,
-                        "targets": 3
-                    },
-                    {
-                        "render": function ( data, type, row ) {
-                            if (row[3] === '') {
-                                return data
-                            }
-                            return "<a data-bs-toggle='modal' data-bs-target='#modal_map' href='' data-bs-position='"+row[3]+"'>"+data+"</a>";
-                        },
-                        "targets": 0
                     },
                 ],
                 "order": [[0, 'asc']],

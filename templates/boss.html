@@ -26,7 +26,7 @@
             </div>
         </div>
         <div class="post d-flex flex-column-fluid" id="kt_post">
-            <div id="kt_content_container" class="container">
+
                 <div class="card">
                     <div class="card-body fs-6 p-10 p-lg-15">
                         <div class="pb-10">
@@ -44,9 +44,8 @@
                                         <th class="kt-font-light">{% translate "Armor" %}</th>
                                         <th class="kt-font-light">{% translate "Cooldown" %}</th>
                                         <th class="kt-font-light">{% translate "Substance" %}</th>
-                                        <th class="kt-font-light">{% translate "Weakness" %}</th>
+                                        <th class="kt-font-light">{% translate "Weak/Resist" %}</th>
                                         <th class="kt-font-light">{% translate "Location" %}</th>
-                                        <th></th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -66,8 +65,7 @@
                                                         {{ item.magic_school }} {{ item.bonus }}{{ item.percent }}%</br>
                                                     {% endfor %}
                                                 </th>
-                                                <th>{% translate "Map" %}</th>
-                                                <th>{{ elem.coordinates|default_if_none:"" }}</th>
+                                                <th>{% if elem.coordinates %}<a data-bs-toggle="modal" data-bs-target="#modal_map" href="" data-bs-position="{{ elem.coordinates }}">{% translate "Map" %}</a>{% else %}{% translate "Map" %}{% endif %}</th>
                                             </tr>
                                         {% endfor %}
                                     </tbody>
@@ -76,7 +74,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
         </div>
     </div>
 
@@ -97,19 +94,6 @@
                     {
                         searchable:true,
                         "targets":[1,2,3,4,5,6,7,8,9,10]
-                    },
-                    {
-                        visible:false,
-                        "targets": 11
-                    },
-                    {
-                        "render": function ( data, type, row ) {
-                            if (row[11] === '') {
-                                return data
-                            }
-                            return "<a data-bs-toggle='modal' data-bs-target='#modal_map' href='' data-bs-position='"+row[11]+"'>"+data+"</a>";
-                        },
-                        "targets": 10
                     },
                 ],
                 "order": [[1, 'asc']],

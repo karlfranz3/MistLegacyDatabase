@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-01 16:56+0100\n"
+"POT-Creation-Date: 2021-11-05 12:24+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,34 +26,42 @@ msgstr "Anglais"
 msgid "French"
 msgstr "Français"
 
-#: .\front\models.py:133 .\front\models.py:165 .\front\models.py:242
-#: .\front\models.py:266 .\front\models.py:291 .\front\models.py:374
-#: .\front\models.py:394 .\front\models.py:473 .\front\models.py:522
-#: .\front\models.py:572 .\front\models.py:650 .\front\models.py:683
-#: .\templates\flags.html:45 .\templates\locations.html:48
-#: .\templates\recipes.html:52 .\templates\regions.html:47
-#: .\templates\talents.html:50
+#: .\front\models.py:14
+msgid "Daily"
+msgstr "Quotidien"
+
+#: .\front\models.py:15
+msgid "Weekly"
+msgstr "Hebdomadaire"
+
+#: .\front\models.py:143 .\front\models.py:175 .\front\models.py:252
+#: .\front\models.py:276 .\front\models.py:301 .\front\models.py:384
+#: .\front\models.py:404 .\front\models.py:483 .\front\models.py:532
+#: .\front\models.py:582 .\front\models.py:660 .\front\models.py:693
+#: .\front\models.py:769 .\front\models.py:801 .\templates\flags.html:45
+#: .\templates\locations.html:46 .\templates\recipes.html:51
+#: .\templates\regions.html:46 .\templates\talents.html:49
 msgid "-- no translation yet --"
 msgstr "-- traduction indisponible --"
 
-#: .\front\models.py:138 .\templates\regions.html:40
+#: .\front\models.py:148 .\templates\regions.html:40
 msgid "Difficulty"
 msgstr "Difficulté"
 
-#: .\front\models.py:171 .\templates\locations.html:40
+#: .\front\models.py:181 .\templates\locations.html:40
 msgid "Exploration"
 msgstr "Exploration"
 
-#: .\front\models.py:172 .\templates\companion.html:40
+#: .\front\models.py:182 .\templates\companion.html:40
 msgid "Quest"
 msgstr "Quête"
 
-#: .\front\models.py:174 .\templates\adventure.html:60
+#: .\front\models.py:184 .\templates\adventure.html:60
 #: .\templates\adventure.html:61
 msgid "Training"
 msgstr "Entrainement"
 
-#: .\front\models.py:178 .\front\models.py:604 .\templates\_base.html:292
+#: .\front\models.py:188 .\front\models.py:614 .\templates\_base.html:292
 #: .\templates\adventure.html:49 .\templates\adventure.html:50
 #: .\templates\books.html:5 .\templates\books.html:24 .\templates\books.html:33
 #: .\templates\books.html:38 .\templates\crafting.html:35
@@ -64,7 +72,7 @@ msgstr "Entrainement"
 msgid "Book"
 msgstr "Livre"
 
-#: .\front\models.py:182 .\front\models.py:607 .\templates\_base.html:300
+#: .\front\models.py:192 .\front\models.py:617 .\templates\_base.html:300
 #: .\templates\flags.html:66 .\templates\guild.html:37
 #: .\templates\guild.html:38 .\templates\recipes.html:5
 #: .\templates\recipes.html:24 .\templates\recipes.html:33
@@ -73,23 +81,23 @@ msgstr "Livre"
 msgid "Recipe"
 msgstr "Recette"
 
-#: .\front\models.py:186
+#: .\front\models.py:196
 msgid "Spell/Skill"
 msgstr "Sort/Compétence"
 
-#: .\front\models.py:590
+#: .\front\models.py:600
 msgid "Step"
 msgstr "Etape"
 
-#: .\front\models.py:598 .\templates\flags.html:39
+#: .\front\models.py:608 .\templates\flags.html:39
 msgid "Reward"
 msgstr "Récompense"
 
-#: .\front\models.py:657
+#: .\front\models.py:667
 msgid "Vigor"
 msgstr "Vigor"
 
-#: .\front\models.py:728
+#: .\front\models.py:738
 msgid "Always"
 msgstr "Toujours"
 
@@ -149,7 +157,7 @@ msgstr "Géographie"
 
 #: .\templates\_base.html:258 .\templates\_base.html:771
 #: .\templates\land.html:35 .\templates\land.html:36
-#: .\templates\locations.html:39 .\templates\monsters.html:46
+#: .\templates\locations.html:39 .\templates\monsters.html:47
 #: .\templates\regions.html:5 .\templates\regions.html:24
 #: .\templates\regions.html:33
 msgid "Region"
@@ -309,7 +317,7 @@ msgid "Reputation"
 msgstr "Réputation"
 
 #: .\templates\adventure.html:50 .\templates\adventure.html:61
-#: .\templates\books.html:39 .\templates\boss.html:47
+#: .\templates\books.html:39 .\templates\boss.html:48
 #: .\templates\companion.html:39 .\templates\crafting.html:36
 #: .\templates\gathering.html:36 .\templates\guild.html:38
 #: .\templates\guild.html:49 .\templates\land.html:47
@@ -396,7 +404,11 @@ msgstr "Armure"
 msgid "Cooldown"
 msgstr "Recharge"
 
-#: .\templates\boss.html:63
+#: .\templates\boss.html:47 .\templates\monsters.html:46
+msgid "Weak/Resist"
+msgstr "Faible/Resiste"
+
+#: .\templates\boss.html:68
 msgid "Map"
 msgstr "Carte"
 

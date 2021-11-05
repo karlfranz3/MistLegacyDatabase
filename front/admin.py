@@ -58,12 +58,12 @@ class RegionAdmin(LeafletGeoAdmin):
 @admin.register(Location)
 class LocationAdmin(LeafletGeoAdmin):
     exclude = ('name',)
-    list_display = ('name_en', 'name_fr', 'region', 'exploration', 'geom')
+    list_display = ('name_en', 'name_fr', 'region', 'exploration', 'geom', 'icon')
 
 
 @admin.register(Recipe)
 class RecipeAdmin(TranslationAdmin):
-    list_display = ('name_en', 'name_fr', 'reputation', 'guild', 'reputation_guild_value', 'price', 'location')
+    list_display = ('name_en', 'name_fr', 'reputation', 'guild', 'reputation_guild_value', 'price', 'location', 'equipment_slot')
 
 
 @admin.register(Book)
@@ -103,7 +103,7 @@ class MaterialTypeAdmin(TranslationAdmin):
 
 @admin.register(Material)
 class MaterialAdmin(TranslationAdmin):
-    list_display = ('name_en', 'name_fr', 'material_type', 'level', 'craft_difficulty', 'harvest_difficulty', 'encumbrance')
+    list_display = ('name_en', 'name_fr', 'material_type', 'level', 'craft_difficulty', 'harvest_difficulty', 'cooldown', 'encumbrance')
 
 
 @admin.register(ComponentType)
@@ -118,7 +118,7 @@ class ComponentAdmin(TranslationAdmin):
 
 @admin.register(Plant)
 class PlantAdmin(TranslationAdmin):
-    list_display = ('name_en', 'name_fr', 'level', 'craft_difficulty', 'harvest_difficulty', 'encumbrance')
+    list_display = ('name_en', 'name_fr', 'level', 'craft_difficulty', 'harvest_difficulty', 'cooldown', 'encumbrance')
 
 
 @admin.register(BlueFlags)

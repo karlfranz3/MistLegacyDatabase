@@ -10,6 +10,11 @@ WEAKNESS_CHOICES = [
     ('-', '-')
 ]
 
+COOLDOWN_CHOICES = [
+    ('Daily', _('Daily')),
+    ('Weekly', _('Weekly'))
+]
+
 
 class Daytime(models.Model):
     name = models.CharField(max_length=64, blank=True, null=True)
@@ -783,7 +788,7 @@ class Boss(models.Model):
     armor = models.IntegerField(blank=True, null=True)
     substance = models.ForeignKey(Component, blank=True, null=True, on_delete=models.CASCADE)
     geom = PointField(blank=True, null=True)
-    cooldown = models.IntegerField(blank=True, null=True)
+    cooldown = models.CharField(max_length=16, blank=True, null=True, choices=COOLDOWN_CHOICES, default='Daily')
     image = FilerImageField(blank=True, null=True, related_name="boss_image", on_delete=models.CASCADE)
 
     class Meta:

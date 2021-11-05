@@ -38,19 +38,15 @@
                                         <th>{% translate "Name" %}</th>
                                         <th>{% translate "Region" %}</th>
                                         <th>{% translate "Exploration" %}</th>
-                                        <th></th>
-                                        <th></th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     {% for location in locations %}
                                         <tr>
                                             {% trans '-- no translation yet --' as transl %}
-                                            <th>{{ location.name|default_if_none:transl }}</th>
-                                            <th>{{ location.region.name|default_if_none:transl }}</th>
+                                            <th>{% if location.coordinates %}<a data-bs-toggle="modal" data-bs-target="#modal_map" href="" data-bs-position="{{ location.coordinates }}">{{ location|default_if_none:transl }}</a>{% else %}{{ location|default_if_none:transl }}{% endif %}</th>
+                                            <th>{% if location.region.coordinates %}<a data-bs-toggle="modal" data-bs-target="#modal_map" href="" data-bs-position="{{ location.region.coordinates }}">{{ location.region|default_if_none:transl }}</a>{% else %}{{ location.region|default_if_none:transl }}{% endif %}</th>
                                             <th>{{ location.exploration|default_if_none:"" }}</th>
-                                            <th>{{ location.coordinates|default_if_none:"" }}</th>
-                                            <th>{{ location.region.coordinates|default_if_none:"" }}</th>
                                         </tr>
                                     {% endfor %}
                                     </tbody>
@@ -81,28 +77,6 @@
                         searchable:true,
                         "targets":[0,1,2]
                     },
-                    {
-                        visible:false,
-                        "targets": [3,4]
-                    },
-                    {
-                        "render": function ( data, type, row ) {
-                            if (row[3] === '') {
-                                return data
-                            }
-                            return "<a data-bs-toggle='modal' data-bs-target='#modal_map' href='' data-bs-position='"+row[3]+"'>"+data+"</a>";
-                        },
-                        "targets": 0
-                    },
-                    {
-                        "render": function ( data, type, row ) {
-                            if (row[4] === '') {
-                                return data
-                            }
-                            return "<a data-bs-toggle='modal' data-bs-target='#modal_map' href='' data-bs-position='"+row[4]+"'>"+data+"</a>";
-                        },
-                        "targets": 1
-                    }
                 ],
                 "order": [[0, 'asc']],
                 dom:"<'row'<'col-sm-6 d-flex align-items-center justify-conten-start'l><'col-sm-6 d-flex align-items-center justify-content-end'f>><'table-responsive'tr><'row'<'col-sm-12 col-md-5 d-flex align-items-center justify-content-center justify-content-md-start'i><'col-sm-12 col-md-7 d-flex align-items-center justify-content-center justify-content-md-end'p>>"

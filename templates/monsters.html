@@ -26,7 +26,7 @@
             </div>
         </div>
         <div class="post d-flex flex-column-fluid" id="kt_post">
-            <div id="kt_content_container" class="container">
+
                 <div class="card">
                     <div class="card-body fs-6 p-10 p-lg-15">
                         <div class="pb-10">
@@ -43,9 +43,8 @@
                                         <th class="kt-font-light">{% translate "Attack" %}</th>
                                         <th class="kt-font-light">{% translate "Armor" %}</th>
                                         <th class="kt-font-light">{% translate "Substance" %}</th>
-                                        <th class="kt-font-light">{% translate "Weakness" %}</th>
+                                        <th class="kt-font-light">{% translate "Weak/Resist" %}</th>
                                         <th class="kt-font-light">{% translate "Region" %}</th>
-                                        <th></th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -64,8 +63,7 @@
                                                     {{ item.magic_school }} {{ item.bonus }}{{ item.percent }}%</br>
                                                 {% endfor %}
                                                 </th>
-                                                <th>{{ elem.region|default_if_none:"" }}</th>
-                                                <th>{{ elem.region.coordinates|default_if_none:"" }}</th>
+                                                <th>{% if elem.region.coordinates %}<a data-bs-toggle="modal" data-bs-target="#modal_map" href="" data-bs-position="{{ elem.region.coordinates }}">{{ elem.region }}</a>{% else %}{{ elem.region|default_if_none:"" }}{% endif %}</th>
                                             </tr>
                                         {% endfor %}
                                     </tbody>
@@ -74,7 +72,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+
         </div>
     </div>
 
@@ -95,19 +93,6 @@
                     {
                         searchable:true,
                         "targets":[1,2,3,4,5,6,7,8,9]
-                    },
-                    {
-                        visible:false,
-                        "targets": 10
-                    },
-                    {
-                        "render": function ( data, type, row ) {
-                            if (row[10] === '') {
-                                return data
-                            }
-                            return "<a data-bs-toggle='modal' data-bs-target='#modal_map' href='' data-bs-position='"+row[10]+"'>"+data+"</a>";
-                        },
-                        "targets": 9
                     },
                 ],
                 "order": [[1, 'asc']],

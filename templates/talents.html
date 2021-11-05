@@ -41,7 +41,6 @@
                                         <th class="kt-font-light">{% translate "NPC" %}</th>
                                         <th class="kt-font-light">{% translate "Reputation" %}</th>
                                         <th class="kt-font-light">{% translate "Price" %}</th>
-                                        <th></th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -50,11 +49,10 @@
                                             {% trans '-- no translation yet --' as transl %}
                                             <th>{{ talent }}</th>
                                             <th>{{ talent.level }}</th>
-                                            <th>{{ talent.location.name|default_if_none:transl }}</th>
+                                            <th>{% if talent.location.coordinates %}<a data-bs-toggle="modal" data-bs-target="#modal_map" href="" data-bs-position="{{ talent.location.coordinates }}">{{ talent.location|default_if_none:transl }}</a>{% else %}{{ talent.location|default_if_none:transl }}{% endif %}</th>
                                             <th>{{ talent.npc.name|default_if_none:transl }}</th>
                                             <th>{{ talent.get_reputation }}</th>
                                             <th>{{ talent.price }}</th>
-                                            <th>{{ talent.location.coordinates|default_if_none:"" }}</th>
                                         </tr>
                                     {% endfor %}
                                     </tbody>
@@ -85,19 +83,6 @@
                         searchable:true,
                         "targets":[0,1,2,3,4,5]
                     },
-                    {
-                        visible:false,
-                        "targets": 6
-                    },
-                    {
-                        "render": function ( data, type, row ) {
-                            if (row[6] === '') {
-                                return data
-                            }
-                            return "<a data-bs-toggle='modal' data-bs-target='#modal_map' href='' data-bs-position='"+row[6]+"'>"+data+"</a>";
-                        },
-                        "targets": 2
-                    }
                 ],
                 "order": [[0, 'asc']],
                 dom:"<'row'<'col-sm-6 d-flex align-items-center justify-conten-start'l><'col-sm-6 d-flex align-items-center justify-content-end'f>><'table-responsive'tr><'row'<'col-sm-12 col-md-5 d-flex align-items-center justify-content-center justify-content-md-start'i><'col-sm-12 col-md-7 d-flex align-items-center justify-content-center justify-content-md-end'p>>"
