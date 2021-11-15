@@ -167,3 +167,9 @@ def guides(request):
 
 def companions(request):
     return render(request, 'companion.html', context={'companions': Companion.objects.all()})
+
+
+def craft(request, craft=None):
+    if craft:
+        craft = cache.get('CRAFT_{}'.format(craft), None)
+    return render(request, 'craft_other.html', context={'CRAFT_INDEX': cache.get('CRAFT_INDEX'), 'CRAFT': craft})

@@ -52,7 +52,7 @@
                                         {% for elem in qs %}
                                             <tr>
                                                 <th>{% if elem.image %}<img src="{{ elem.image.url }}" alt="{{ elem }}" height="100">{% endif %}</th>
-                                                <th>{{ elem }}</th>
+                                                <th>{% if elem.elite %}<img src="{% static "leaflet/images/boss.png"%}">{% endif %} {{ elem }}</th>
                                                 <th>{{ elem.lvl|default_if_none:"" }}</th>
                                                 <th>{{ elem.life|default_if_none:"" }}</th>
                                                 <th>{{ elem.stamina|default_if_none:"" }}</th>

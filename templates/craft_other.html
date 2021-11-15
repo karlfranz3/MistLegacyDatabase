@@ -1,0 +1,90 @@
+{% extends "_base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block pagetitle %}{% if CRAFT %}{{ CRAFT.code }}-{{ CRAFT.nom }}{% else %}Crafting simulator{% endif %}{% endblock %}
+
+{% block pagelevelcss %}
+    <link href="{% static "assets/plugins/custom/datatables/datatables.bundle.css" %}" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block pagelevelplugins %}
+    <script src="{% static "assets/plugins/custom/datatables/datatables.bundle.js" %}" type="text/javascript"></script>
+{% endblock %}
+
+{% block menu_craft %}active{% endblock %}
+
+{% block corpsdepage %}
+
+    <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+        <div class="toolbar" id="kt_toolbar">
+            <div id="kt_toolbar_container" class="container-fluid d-flex flex-stack">
+                <div class="d-flex align-items-center me-3">
+                    <h1 class="d-flex align-items-center text-dark fw-bolder my-1 fs-3">{% translate "Crafting simulator" %}</h1>
+                    <span class="h-20px border-gray-200 border-start ms-3 mx-2"></span>
+                    {% if CRAFT %}
+                        <small class="text-muted fs-7 fw-bold my-1 ms-1">{{ CRAFT.nom }}</small>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <div class="post d-flex flex-column-fluid" id="kt_post">
+                <div class="card">
+                    <div class="card-body p-lg-15">
+                        <div class="d-flex flex-column flex-lg-row">
+                            <div class="flex-column flex-lg-row-auto w-100 w-lg-275px mb-10 me-lg-20">
+                                <div class="mb-15">
+                                    <h4 class="text-black mb-7">Choose a craft</h4>
+                                    <div class="menu menu-rounded menu-column menu-title-gray-700 menu-state-title-primary menu-active-bg-light-primary fw-bold">
+                                        {% for key, value in CRAFT_INDEX.items %}
+                                            <div class="menu-item mb-1">
+                                                <a href="{% url 'craft' key %}" class="menu-link py-3 {% if key == CRAFT.code %}active{% endif %}">{{ value.nom }}</a>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex-lg-row-fluid">
+                                <div class="mb-13">
+                                    {% if CRAFT %}
+                                        <table id="craft" class="table table-hover table-rounded table-striped table-sm border gy-7 gs-7">
+                                            <thead>
+                                            <tr class="fw-bold fs-6 text-gray-800 border-bottom-2 border-gray-200">
+                                                {% for th in CRAFT.th %}
+                                                    <th>{{ th }}</th>
+                                                {% endfor %}
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            {% for key, value in CRAFT.elems.items %}
+                                                <tr>
+                                                    {% for key2, value2 in value.items %}
+                                                        <td>{{ value2 }}</td>
+                                                    {% endfor %}
+                                                </tr>
+                                            {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block js %}
+    <script>
+        $('#craft').DataTable( {
+            "paging":   true,
+            "pageLength": 50,
+            "info": false,
+            "order": [[{{ CRAFT.order }}, 'desc']],
+            dom:"<'row'<'col-sm-6 d-flex align-items-center justify-conten-start'l><'col-sm-6 d-flex align-items-center justify-content-end'f>><'table-responsive'tr><'row'<'col-sm-12 col-md-5 d-flex align-items-center justify-content-center justify-content-md-start'i><'col-sm-12 col-md-7 d-flex align-items-center justify-content-center justify-content-md-end'p>>"
+        } );
+    </script>
+{% endblock %}

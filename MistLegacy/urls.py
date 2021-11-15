@@ -40,6 +40,9 @@ urlpatterns = i18n_patterns(
     path('components/<str:component_type>', components, name='components'),
     path('plants', plants, name='plants'),
 
+    path('craft', craft, name='craft'),
+    path('craft/<str:craft>', craft, name='craft'),
+
     #path('companion_card/<int:pk>', companion_card, name='companion_card'),
     #path('book_card/<int:pk>', book_card, name='book_card'),
     #path('talent_card/<int:pk>', talent_card, name='talent_card'),
