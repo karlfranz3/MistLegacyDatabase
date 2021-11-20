@@ -98,7 +98,7 @@ class SpellAdmin(TranslationAdmin):
 
 @admin.register(MaterialType)
 class MaterialTypeAdmin(TranslationAdmin):
-    list_display = ('name_en', 'name_fr')
+    list_display = ('name_en', 'name_fr', 'gathering')
 
 
 @admin.register(Material)

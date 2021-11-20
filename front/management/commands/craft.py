@@ -41,7 +41,7 @@ def ano_index():
     for ano_nom in ['V001', 'V002', 'V003']:
         ano = cache.get('CRAFT_{}'.format(ano_nom))
         index[ano_nom] = {'nom': ano['nom']}
-    cache.set('CRAFT_INDEX', index)
+    cache.set('CRAFT_INDEX', index, timeout=None)
 
 
 def v001():
@@ -65,7 +65,7 @@ def v001():
                      'Woodworking': wood.craft_difficulty+base, 'Forge': metal.craft_difficulty+base, 'Sewing': fiber.craft_difficulty+base,
                      'Forest': round(forest), 'Mountain': round(mountain), 'Swamp': round(swamp), 'Underground': round(underground)}
 
-    cache.set('CRAFT_{}'.format(code), ano)
+    cache.set('CRAFT_{}'.format(code), ano, timeout=None)
 
 
 def v002():
@@ -89,7 +89,7 @@ def v002():
                          'Stoneworking': max(stone.craft_difficulty,gem.craft_difficulty)+base, 'Herbalism': sap.craft_difficulty+base, 'Alchemy': powder.craft_difficulty+base,
                          'Fire': round(fire), 'Water': round(water), 'Wind': round(wind)}
 
-    cache.set('CRAFT_{}'.format(code), ano)
+    cache.set('CRAFT_{}'.format(code), ano, timeout=None)
 
 
 def v003():
@@ -111,7 +111,7 @@ def v003():
                          'Woodworking': wood.craft_difficulty+base, 'Stoneworking': gem.craft_difficulty+base, 'Alchemy': powder.craft_difficulty+base, 'Herbalism': pollen.craft_difficulty+base,
                          'Light': round(light)}
 
-    cache.set('CRAFT_{}'.format(code), ano)
+    cache.set('CRAFT_{}'.format(code), ano, timeout=None)
 
 
 def v004():
@@ -136,4 +136,4 @@ def v004():
                          'Tanning': leather.craft_difficulty+base, 'Herbalism': max(sap.craft_difficulty+base, pollen.craft_difficulty), 'Stoneworking': gem.craft_difficulty+base,
                          'Fire': round(fire), 'Light': round(light), 'Water': round(water), 'Wind': round(wind)}
 
-    cache.set('CRAFT_{}'.format(code), ano)
+    cache.set('CRAFT_{}'.format(code), ano, timeout=None)

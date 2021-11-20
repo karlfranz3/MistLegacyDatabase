@@ -144,8 +144,15 @@ class Region(models.Model):
 
     @property
     def map_poi(self):
-        tooltip = "<p>{}</br>{} {} {}".format(
-            self.name, self.land, _("Difficulty"), self.land_difficulty)
+        tooltip = "<p>{} ({} {})".format(self.name, self.land, self.land_difficulty)
+        if self.monster_set.all().exists():
+            tooltip = tooltip + '</br></br>{}(s):</br>'.format(_("Monster"))
+            for monster in self.monster_set.all():
+                if monster.name and monster.lvl:
+                    tooltip = tooltip + '{} lvl {}'.format(monster.name, monster.lvl)
+                    if monster.substance:
+                        tooltip = tooltip + ' ({})'.format(monster.substance.name)
+                    tooltip = tooltip + '</br>'
         tooltip = tooltip + '</p>'
         return tooltip
 
@@ -176,10 +183,15 @@ class Location(models.Model):
 
     @property
     def map_poi(self):
-        tooltip = "<p>{}</br>{}: {}</br>{}: {}".format(
-            self.name,
-            _("Exploration"), self.exploration,
-            _("Quest"), self.quest)
+        tooltip = "<p>{}".format(self.name)
+        if self.quest:
+            tooltip = tooltip + ' ({})'.format(_("Quest"))
+        if self.exploration:
+            tooltip = tooltip + '</br>{}({})'.format(_("Exploration"), self.exploration)
+        if self.companion_set.all().exists():
+            tooltip = tooltip + '</br>{}(s):</br>'.format(_("Companion"))
+            for companion in self.companion_set.all():
+                tooltip = tooltip + '{}</br>'.format(companion.name)
         if self.training_set.all().exists():
             tooltip = tooltip + '</br>{}(s):</br>'.format(_("Training"))
             for training in self.training_set.all():
@@ -193,7 +205,7 @@ class Location(models.Model):
             for recipe in self.recipe_set.all():
                 tooltip = tooltip + '{} ({}/{})</br>'.format(recipe.name, recipe.reputation, recipe.reputation_guild_value)
         if self.talent_set.all().exists():
-            tooltip = tooltip + '</br>{}(s):</br>'.format(_("Spell/Skill"))
+            tooltip = tooltip + '</br>{}(s):</br>'.format(_("Talent"))
             for spell in self.talent_set.all():
                 rep = spell.reputation or spell.guild
                 tooltip = tooltip + '{} ({}/{})</br>'.format(spell.name, rep, spell.reputation_guild_value)
@@ -415,6 +427,7 @@ class Talent(models.Model):
 
 class MaterialType(models.Model):
     name = models.CharField(max_length=64, blank=True, null=True)
+    gathering = models.ForeignKey(Gathering, on_delete=models.CASCADE, blank=True, null=True)
 
     def __str__(self):
         return self.name
@@ -695,9 +708,17 @@ class GatheringPoint(models.Model):
     @property
     def map_poi(self):
         if self.material:
-            return '{} x {}'.format(self.material.name, self.number)
+            tooltip = '{} x {}'.format(self.material.name, self.number)
+            if self.material.material_type.gathering:
+                tooltip = tooltip + ' ({} {})'.format(self.material.material_type.gathering.name, self.material.harvest_difficulty)
+            if self.material.cooldown:
+                tooltip = tooltip + '<br/>{} : {} {}'.format(_("Cooldown"), self.material.cooldown, _("hours"))
         if self.plant:
-            return '{} x {}'.format(self.plant.name, self.number)
+            tooltip = '{} x {}'.format(self.plant.name, self.number)
+            tooltip = tooltip + ' ({} {})'.format(_("Botany"), self.plant.harvest_difficulty)
+            if self.plant.cooldown:
+                tooltip = tooltip + '<br/>{} : {} {}'.format(_("Cooldown"), self.plant.cooldown, _("hours"))
+        return tooltip
 
     @property
     def icon_url(self):
@@ -804,7 +825,7 @@ class Boss(models.Model):
 
     @property
     def map_poi(self):
-        return self.name
+        return '{} lvl {} ({})'.format(self.name, self.lvl, self.cooldown)
 
     @property
     def coordinates(self):
