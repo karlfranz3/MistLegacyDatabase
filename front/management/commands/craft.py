@@ -38,7 +38,7 @@ class Command(BaseCommand):
 
 def ano_index():
     index = {}
-    for ano_nom in ['V001', 'V002', 'V003']:
+    for ano_nom in ['V001', 'V002', 'V003', 'V004']:
         ano = cache.get('CRAFT_{}'.format(ano_nom))
         index[ano_nom] = {'nom': ano['nom']}
     cache.set('CRAFT_INDEX', index, timeout=None)
@@ -50,7 +50,8 @@ def v001():
     nom = 'Trolley'
     ano = {'code': code, 'nom': nom, 'order': 6,
            'th': ['Wooden frame', 'Metal axle', 'Fixing cord', 'Woodworking', 'Forge', 'Sewing', 'Forest', 'Mountain', 'Swamp', 'Underground'],
-           'elems': {}
+           'color': ['', '', '', 'primary', 'primary', 'primary', 'success', 'success', 'success', 'success'],
+           'elems': []
            }
 
     for wood in woods:
@@ -60,10 +61,9 @@ def v001():
                 mountain = 15 + (0.2625 * metal.hardness) + (0.2625 * wood.hardness) + (0.225 * fiber.hardness) + (0.0875 * metal.rigidity) + (0.0875 * wood.rigidity) + (0.075 * fiber.rigidity)
                 swamp = 15 + (0.2625 * metal.purity) + (0.2625 * wood.purity) + (0.225 * fiber.purity) + (0.0875 * metal.hardness) + (0.0875 * wood.hardness) + (0.075 * fiber.hardness)
                 underground = 5 + (0.2625 * metal.absorbency) + (0.2625 * wood.absorbency) + (0.225 * fiber.absorbency) + (0.0875 * metal.flexibility) + (0.0875 * wood.flexibility) + (0.075 * fiber.flexibility)
-                ano['elems']['{}/{}/{}'.format(wood, metal, fiber)] = \
-                    {'Wooden frame': wood, 'Metal axle': metal, 'Fixing cord': fiber,
-                     'Woodworking': wood.craft_difficulty+base, 'Forge': metal.craft_difficulty+base, 'Sewing': fiber.craft_difficulty+base,
-                     'Forest': round(forest), 'Mountain': round(mountain), 'Swamp': round(swamp), 'Underground': round(underground)}
+                ano['elems'].append([wood.name, metal.name, fiber.name,
+                                     wood.craft_difficulty+base, metal.craft_difficulty+base, fiber.craft_difficulty+base,
+                                     round(forest), round(mountain), round(swamp), round(underground)])
 
     cache.set('CRAFT_{}'.format(code), ano, timeout=None)
 
@@ -74,7 +74,8 @@ def v002():
     nom = "Apprentice's tablet"
     ano = {'code': code, 'nom': nom, 'order': 7,
            'th': ['Polarizing stone', 'Elemental binder', 'Focusing Gem', 'Telluric essence', 'Stoneworking', 'Herbalism', 'Alchemy', 'Fire', 'Water', 'Wind'],
-           'elems': {}
+           'color': ['', '', '', '', 'primary', 'primary', 'primary', 'success', 'success', 'success'],
+           'elems': []
            }
 
     for stone in stones:
@@ -84,10 +85,9 @@ def v002():
                     fire = 10 + (0.2 * stone.radiance) + 0.2 * (sap.pyram + gem.pyram + powder.pyram)
                     water = 10 + (0.2 * stone.purity) + 0.2 * (sap.hydram + gem.hydram + powder.hydram)
                     wind = 10 + (0.2 * stone.lightness) + 0.2 * (sap.stratam + gem.stratam + powder.stratam)
-                    ano['elems']['{}/{}/{}'.format(stone, sap, gem, powder)] = \
-                        {'Polarizing stone': stone, 'Elemental binder': sap, 'Focusing Gem': gem, 'Telluric essence': powder,
-                         'Stoneworking': max(stone.craft_difficulty,gem.craft_difficulty)+base, 'Herbalism': sap.craft_difficulty+base, 'Alchemy': powder.craft_difficulty+base,
-                         'Fire': round(fire), 'Water': round(water), 'Wind': round(wind)}
+                    ano['elems'].append([stone.name, sap.name, gem.name, powder.name,
+                                         max(stone.craft_difficulty,gem.craft_difficulty)+base, sap.craft_difficulty+base, powder.craft_difficulty+base,
+                                         round(fire), round(water), round(wind)])
 
     cache.set('CRAFT_{}'.format(code), ano, timeout=None)
 
@@ -98,7 +98,8 @@ def v003():
     nom = "Apprentice's scepter"
     ano = {'code': code, 'nom': nom, 'order': 8,
            'th': ['Stick of life', 'Focusing Gem', 'Telluric essence', 'Evocation aroma', 'Woodworking', 'Stoneworking', 'Alchemy', "Herbalism", 'Light'],
-           'elems': {}
+           'color': ['', '', '', '', 'primary', 'primary', 'primary', 'primary', 'success'],
+           'elems': []
            }
 
     for wood in woods:
@@ -106,10 +107,9 @@ def v003():
             for powder in powders:
                 for pollen in pollens:
                     light = 10 + (0.2 * wood.rigidity) + 0.2 * (gem.elioam + powder.elioam + pollen.elioam)
-                    ano['elems']['{}/{}/{}'.format(wood, gem, powder, pollen)] = \
-                        {'Stick of life': wood, 'Focusing Gem': gem, 'Telluric essence': powder, 'Evocation aroma': pollen,
-                         'Woodworking': wood.craft_difficulty+base, 'Stoneworking': gem.craft_difficulty+base, 'Alchemy': powder.craft_difficulty+base, 'Herbalism': pollen.craft_difficulty+base,
-                         'Light': round(light)}
+                    ano['elems'].append([wood.name, gem.name, powder.name, pollen,
+                                         wood.craft_difficulty+base, gem.craft_difficulty+base, powder.craft_difficulty+base, pollen.craft_difficulty+base,
+                                         round(light)])
 
     cache.set('CRAFT_{}'.format(code), ano, timeout=None)
 
@@ -120,20 +120,20 @@ def v004():
     nom = "Apprentice's grimoire"
     ano = {'code': code, 'nom': nom, 'order': 7,
            'th': ['Reinforced Coverage', 'Elemental binder', 'Focusing Gem', 'Evocation aroma', 'Tanning', 'Herbalism', 'Stoneworking', 'Fire', 'Light', 'Water', 'Wind'],
-           'elems': {}
+           'color': ['', '', '', '', 'primary', 'primary', 'primary', 'success', 'success', 'success', 'success'],
+           'elems': []
            }
 
     for leather in leathers:
         for sap in saps:
             for gem in gems:
                 for pollen in pollens:
-                    fire = 10 + (0.15 * leather.radiance) + 0.15 * (sap.pyram + gem.pyram + pollen.pyram)
-                    water = 10 + (0.15 * leather.purity) + 0.15 * (sap.hydram + gem.hydram + pollen.hydram)
-                    wind = 10 + (0.15 * leather.lightness) + 0.15 * (sap.stratam + gem.stratam + pollen.stratam)
-                    light = 10 + (0.15 * leather.rigidity) + 0.15 * (sap.elioam + gem.elioam + pollen.elioam)
-                    ano['elems']['{}/{}/{}'.format(leather, sap, gem, pollen)] = \
-                        {'Reinforced Coverage': leather, 'Elemental binder': sap, 'Focusing Gem': gem, 'Evocation aroma': pollen,
-                         'Tanning': leather.craft_difficulty+base, 'Herbalism': max(sap.craft_difficulty+base, pollen.craft_difficulty), 'Stoneworking': gem.craft_difficulty+base,
-                         'Fire': round(fire), 'Light': round(light), 'Water': round(water), 'Wind': round(wind)}
+                    fire = 5 + (0.15 * leather.radiance) + 0.15 * (sap.pyram + gem.pyram + pollen.pyram)
+                    water = 5 + (0.15 * leather.purity) + 0.15 * (sap.hydram + gem.hydram + pollen.hydram)
+                    wind = 5 + (0.15 * leather.lightness) + 0.15 * (sap.stratam + gem.stratam + pollen.stratam)
+                    light = 5 + (0.15 * leather.rigidity) + 0.15 * (sap.elioam + gem.elioam + pollen.elioam)
+                    ano['elems'].append([leather.name, sap.name, gem.name, pollen.name,
+                                         leather.craft_difficulty+base, max(sap.craft_difficulty+base, pollen.craft_difficulty), gem.craft_difficulty+base,
+                                         round(fire), round(light), round(water), round(wind)])
 
     cache.set('CRAFT_{}'.format(code), ano, timeout=None)

@@ -48,19 +48,19 @@
                             <div class="flex-lg-row-fluid">
                                 <div class="mb-13">
                                     {% if CRAFT %}
-                                        <table id="craft" class="table table-hover table-rounded table-striped table-sm border gy-7 gs-7">
+                                        <table id="craft" class="table table-hover table-rounded table-sm border gy-7 gs-7">
                                             <thead>
                                             <tr class="fw-bold fs-6 text-gray-800 border-bottom-2 border-gray-200">
-                                                {% for th in CRAFT.th %}
-                                                    <th>{{ th }}</th>
+                                                {% for value in CRAFT.th %}
+                                                    <th>{{ value }}</th>
                                                 {% endfor %}
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            {% for key, value in CRAFT.elems.items %}
+                                            {% for list in CRAFT.elems %}
                                                 <tr>
-                                                    {% for key2, value2 in value.items %}
-                                                        <td>{{ value2 }}</td>
+                                                    {% for item in list %}
+                                                        <td>{{ item }}</td>
                                                     {% endfor %}
                                                 </tr>
                                             {% endfor %}
@@ -83,6 +83,11 @@
             "paging":   true,
             "pageLength": 50,
             "info": false,
+            "columnDefs": [
+                {% for value in CRAFT.color %}
+                    { className: "bg-light-{{ value }}", "targets": [ {{ forloop.counter0 }} ] },
+                {% endfor %}
+             ],
             "order": [[{{ CRAFT.order }}, 'desc']],
             dom:"<'row'<'col-sm-6 d-flex align-items-center justify-conten-start'l><'col-sm-6 d-flex align-items-center justify-content-end'f>><'table-responsive'tr><'row'<'col-sm-12 col-md-5 d-flex align-items-center justify-content-center justify-content-md-start'i><'col-sm-12 col-md-7 d-flex align-items-center justify-content-center justify-content-md-end'p>>"
         } );
