@@ -181,7 +181,7 @@ LEAFLET_CONFIG = {
     }
 }
 
-GDAL_LIBRARY_PATH = r'/app/.apt/usr/lib/ogdi/libgdal.so'
+GDAL_LIBRARY_PATH = r'/app/.apt/usr/lib/ogdi/libgdal.so.26'
 if os.path.exists(r"c:\python37"):
     os.environ['GDAL_DATA'] = r"C:\Python37\Lib\site-packages\osgeo\data\gdal"
     os.environ['PROJ_LIB'] = r"C:\Python37\Lib\site-packages\osgeo\data\proj"
