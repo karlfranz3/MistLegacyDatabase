@@ -142,8 +142,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = '/mldb/static'
-MEDIA_ROOT = '/mldb/media'
+STATIC_ROOT = '/app/static'
+MEDIA_ROOT = '/app/media'
 MEDIA_URL = '/media/'
 
 MODELTRANSLATION_ENABLE_FALLBACKS = False
