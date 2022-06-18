@@ -144,8 +144,8 @@ USE_TZ = True
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 STATIC_URL = '/static/'
 STATIC_ROOT = '/app/static'
-MEDIA_ROOT = '/app/media'
-MEDIA_URL = '/media/'
+MEDIA_ROOT = '/app/static/media'
+MEDIA_URL = '/static/media/'
 
 MODELTRANSLATION_ENABLE_FALLBACKS = False
 MODELTRANSLATION_PREPOPULATE_LANGUAGE = 'en'
