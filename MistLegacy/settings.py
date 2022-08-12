@@ -25,7 +25,7 @@ SECRET_KEY = 'y9xucupzvxm1jmi5g=88r45ifi7r6_3*qqttiq$42crwjr@t94'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'www.mistlegacydb.com', 'mistlegacydb.com', '.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'www.mistlegacydb.com', 'mistlegacydb.com', '.herokuapp.com', '*']
 
 
 # Application definition
@@ -142,10 +142,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-STATIC_URL = '/static/'
-STATIC_ROOT = '/app/static'
-MEDIA_ROOT = '/app/static/media'
-MEDIA_URL = '/static/media/'
+STATIC_URL = 'static/'
+STATIC_ROOT = 'static'
+MEDIA_ROOT = 'media'
+MEDIA_URL = 'media/'
 
 MODELTRANSLATION_ENABLE_FALLBACKS = False
 MODELTRANSLATION_PREPOPULATE_LANGUAGE = 'en'
