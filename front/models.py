@@ -618,10 +618,26 @@ class BlueFlags(models.Model):
                     tooltip = tooltip + '{}% {} ({})</br>'.format(step.percent, step.weapon, step.difficulty)
                 elif step.gathering:
                     tooltip = tooltip + '{}% {} ({})</br>'.format(step.percent, step.gathering, step.difficulty)
+                elif step.is_fight == True:
+                    tooltip = tooltip + '{}% Fight: </br>'.format(step.percent, step.monster1)
+                    if step.monster1: 
+                        tooltip = tooltip + '{} Level: {}</br>'.format(step.monster1, Monster.objects.get(id=step.monster1.id).lvl)
+                    if step.monster2:
+                        tooltip = tooltip + '{} Level: {}</br>'.format(step.monster2, Monster.objects.get(id=step.monster2.id).lvl)
+                    if step.monster3:
+                        tooltip = tooltip + '{} Level: {}</br>'.format(step.monster3, Monster.objects.get(id=step.monster3.id).lvl)
+                    if step.monster4:
+                        tooltip = tooltip + '{} Level: {}</br>'.format(step.monster4, Monster.objects.get(id=step.monster4.id).lvl)
+                    if step.monster5:
+                        tooltip = tooltip + '{} Level: {}</br>'.format(step.monster5, Monster.objects.get(id=step.monster5.id).lvl)
+
         tooltip = tooltip + '</br>{}(s):</br>'.format(_("Reward"))
         if self.blueflagsreward_set.all().exists():
             for reward in self.blueflagsreward_set.all():
-                tooltip = tooltip + '{} ({})</br>'.format(reward.__str__(), reward.number)
+                if reward.number is not None:
+                    tooltip = tooltip + '{} ({})</br>'.format(reward.__str__(), reward.number)
+                else:
+                    tooltip = tooltip + '{}</br>'.format(reward.__str__())
         if self.book_set.all().exists():
             for book in self.book_set.all():
                 tooltip = tooltip + '{} {}</br>'.format(_("Book"), book.__str__())
@@ -646,13 +662,6 @@ class BlueFlags(models.Model):
             return None
 
 
-class BlueFlagsStep(models.Model):
-    flag = models.ForeignKey(BlueFlags, null=False, blank=False, on_delete=models.CASCADE)
-    adventure = models.ForeignKey(Adventure, null=True, blank=True, on_delete=models.CASCADE)
-    weapon = models.ForeignKey(Weapon, null=True, blank=True, on_delete=models.CASCADE, default=None)
-    gathering = models.ForeignKey(Gathering, null=True, blank=True, on_delete=models.CASCADE, default=None)
-    difficulty = models.IntegerField(null=False, blank=False)
-    percent = models.IntegerField(default=0, null=False, blank=False)
 
 
 class BlueFlagsReward(models.Model):
@@ -660,7 +669,9 @@ class BlueFlagsReward(models.Model):
     material = models.ForeignKey(Material, null=True, blank=True, on_delete=models.CASCADE)
     component = models.ForeignKey(Component, null=True, blank=True, on_delete=models.CASCADE)
     plant = models.ForeignKey(Plant, null=True, blank=True, on_delete=models.CASCADE)
-    number = models.IntegerField(blank=False, null=False)
+    number = models.IntegerField(blank=True, null=True)
+    notes = models.CharField(max_length=1024, blank=True)
+
 
     def __str__(self):
         if self.material and self.material.name:
@@ -669,6 +680,8 @@ class BlueFlagsReward(models.Model):
             return self.component.name
         elif self.plant and self.plant.name:
             return self.plant.name
+        elif self.notes:
+            return self.notes
         else:
             return _('-- no translation yet --')
 
@@ -768,7 +781,6 @@ class MagicSchool(models.Model):
     def __str__(self):
         return self.name
 
-
 class Monster(models.Model):
     name = models.CharField(max_length=64, blank=True, null=True)
     lvl = models.IntegerField(blank=True, null=True)
@@ -843,3 +855,17 @@ class BossWeakness(models.Model):
 
     def __str__(self):
         return self.magic_school.name
+
+class BlueFlagsStep(models.Model):
+    flag = models.ForeignKey(BlueFlags, null=False, blank=False, on_delete=models.CASCADE)
+    adventure = models.ForeignKey(Adventure, null=True, blank=True, on_delete=models.CASCADE)
+    weapon = models.ForeignKey(Weapon, null=True, blank=True, on_delete=models.CASCADE, default=None)
+    gathering = models.ForeignKey(Gathering, null=True, blank=True, on_delete=models.CASCADE, default=None)
+    is_fight = models.BooleanField(blank=True, null=True, default=False)
+    monster1 = models.ForeignKey(Monster, blank=True, null=True, on_delete=models.CASCADE, default=None, related_name="monster1")
+    monster2 = models.ForeignKey(Monster, blank=True, null=True, on_delete=models.CASCADE, default=None, related_name="monster2")
+    monster3 = models.ForeignKey(Monster, blank=True, null=True, on_delete=models.CASCADE, default=None, related_name="monster3")
+    monster4 = models.ForeignKey(Monster, blank=True, null=True, on_delete=models.CASCADE, default=None, related_name="monster4")
+    monster5 = models.ForeignKey(Monster, blank=True, null=True, on_delete=models.CASCADE, default=None, related_name="monster5")
+    difficulty = models.IntegerField(null=True, blank=True)
+    percent = models.IntegerField(default=0, null=False, blank=False)

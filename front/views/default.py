@@ -150,7 +150,7 @@ def plants(request):
 
 
 def flags(request):
-    return render(request, 'flags.html', context={'qs': BlueFlags.objects.all()})
+    return render(request, 'flags.html', context={'qs': BlueFlags.objects.all(), 'monster': Monster.objects.all()})
 
 
 def monsters(request):

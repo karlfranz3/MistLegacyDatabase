@@ -1,6 +1,7 @@
 {% extends "_base.html" %}
 {% load static %}
 {% load i18n %}
+{% load  %}
 
 {% block pagetitle %}{% translate "Flags" %}{% endblock %}
 
@@ -52,12 +53,23 @@
                                                     {{ item.percent }}% {{ item.weapon.name }} ({{ item.difficulty }})</br>
                                                     {% elif item.gathering %}
                                                     {{ item.percent }}% {{ item.gathering.name }} ({{ item.difficulty }})</br>
+                                                    {% elif item.is_fight == True %}
+                                                    {{ item.percent }}% Fight:</br>
+                                                       {% if item.monster1 != None %}&emsp;{{item.monster1}}({% for elem in monster %}{% if item.monster1 == elem %}{{ elem.lvl|default_if_none:"" }}{% endif %}{% endfor %})</br>{% endif %}
+                                                       {% if item.monster2 != None %}&emsp;{{item.monster2}}({% for elem in monster %}{% if item.monster2 == elem %}{{ elem.lvl|default_if_none:"" }}{% endif %}{% endfor %})</br>{% endif %}
+                                                       {% if item.monster3 != None %}&emsp;{{item.monster3}}({% for elem in monster %}{% if item.monster3 == elem %}{{ elem.lvl|default_if_none:"" }}{% endif %}{% endfor %})</br>{% endif %}
+                                                       {% if item.monster4 != None %}&emsp;{{item.monster4}}({% for elem in monster %}{% if item.monster4 == elem %}{{ elem.lvl|default_if_none:"" }}{% endif %}{% endfor %})</br>{% endif %}
+                                                       {% if item.monster5 != None %}&emsp;{{item.monster5}}({% for elem in monster %}{% if item.monster5 == elem %}{{ elem.lvl|default_if_none:"" }}{% endif %}{% endfor %})</br>{% endif %}
                                                     {% endif %}
                                                 {% endfor %}
                                             </th>
                                             <th>
                                                 {% for reward in elem.blueflagsreward_set.all %}
-                                                    {{ reward.number }} x {{ reward }}</br>
+                                                    {% if reward.number == None %}                                                    
+                                                        {{ reward |safe}}</br>
+                                                    {% else %}
+                                                        {{ reward.number }} x {{ reward }}</br>
+                                                    {% endif %}
                                                 {% endfor %}
                                                 {% for book in elem.book_set.all %}
                                                     {% translate "Book" %} {{ book }}</br>
